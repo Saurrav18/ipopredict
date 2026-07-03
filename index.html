@@ -181,19 +181,16 @@ td.mono{font-size:13px}
 #askOut .tag{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-faint); display:block; margin-bottom:8px; text-transform:uppercase; letter-spacing:.06em}
 
 footer{
-  border-top:1px solid var(--hairline); padding:20px;
-  display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap;
+  border-top:1px solid var(--hairline); padding:22px 20px;
+  display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;
   font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-soft);
 }
-footer .links{display:flex; gap:22px; align-items:center; flex-wrap:wrap}
-/* all footer links/buttons look identical: plain uppercase text, no button box */
-footer .links a, footer .links button, footer a{
+footer .links{display:flex; gap:24px; align-items:center; flex-wrap:wrap}
+footer .foot-link{
   text-decoration:none; color:var(--ink-faint); text-transform:uppercase;
-  background:none; border:none; padding:0; margin:0; cursor:pointer;
-  font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.04em; line-height:1;
+  letter-spacing:.06em; font-size:11.5px; transition:color .15s ease;
 }
-footer .links a:hover, footer .links button:hover, footer a:hover{color:var(--ink)}
-footer .links a:focus, footer .links button:focus{outline:none}
+footer .foot-link:hover{color:var(--ink)}
 
 /* archive */
 .controls{display:flex; gap:12px; flex-wrap:wrap; padding:18px 0}
@@ -927,12 +924,9 @@ table.ledger td:nth-child(2){white-space:normal; min-width:120px; line-height:1.
     <div id="footStamp" style="color:var(--ink-faint)"></div>
   </div>
   <div class="links">
-    <button class="navbtn" data-nav="alerts" style="font-size:12px">Alerts</button>
-    <button class="navbtn" data-nav="method" style="font-size:12px">How it works</button>
-    <button class="navbtn" data-nav="archive" style="font-size:12px">Past IPOs</button>
-    <a class="navbtn" href="/disclaimer" target="_blank" style="font-size:12px">Disclaimer</a>
-    <a class="navbtn" href="/terms" target="_blank" style="font-size:12px">Terms</a>
-    <a class="navbtn" href="/privacy" target="_blank" style="font-size:12px">Privacy</a>
+    <a class="foot-link" href="/disclaimer" target="_blank">Disclaimer</a>
+    <a class="foot-link" href="/terms" target="_blank">Terms</a>
+    <a class="foot-link" href="/privacy" target="_blank">Privacy</a>
   </div>
   <div style="flex-basis:100%;margin-top:14px;font-size:11.5px;line-height:1.6;color:var(--ink-faint)">
     Educational information, not investment advice. IPOPredict is not a SEBI-registered Research Analyst or
