@@ -92,10 +92,16 @@ def send_email(to, subject, body):
         return False
     msg = MIMEText(body)
     msg["Subject"], msg["From"], msg["To"] = subject, GMAIL_USER, to
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ssl.create_default_context()) as s:
-        s.login(GMAIL_USER, GMAIL_PASS)
-        s.sendmail(GMAIL_USER, [to], msg.as_string())
-    return True
+    try:
+        # timeout so a slow/blocked SMTP from a cloud host can never hang the request
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465,
+                              context=ssl.create_default_context(), timeout=15) as s:
+            s.login(GMAIL_USER, GMAIL_PASS)
+            s.sendmail(GMAIL_USER, [to], msg.as_string())
+        return True
+    except Exception as e:
+        print(f"  email send failed: {type(e).__name__}: {e}")
+        return False
 
 def send_whatsapp(phone, text):
     keys = json.loads(WA_KEYS.read_text()) if WA_KEYS.exists() else {}

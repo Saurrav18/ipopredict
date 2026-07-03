@@ -312,10 +312,13 @@ def auth_signup(body: SignupRequest, request: Request):
     if not auth.otp_send_allowed(email):
         raise HTTPException(429, "A code was just sent. Please wait a minute before asking for another.")
     code = auth.set_otp(email)
-    sent = _email_code(email, code)
-    resp = {"ok": True, "needs_verification": True, "emailed": sent}
-    if not sent and DEV_MODE:
-        resp["dev_otp"] = code   # local dev only: show the code when email is not configured
+    # send the email in the background so a slow SMTP never makes the user wait
+    # (and never leaves them stuck on "Creating your account...").
+    import threading
+    threading.Thread(target=_email_code, args=(email, code), daemon=True).start()
+    resp = {"ok": True, "needs_verification": True, "emailed": True}
+    if DEV_MODE:
+        resp["dev_otp"] = code   # local dev only: show the code when testing
     return resp
 
 @app.post("/auth/verify-otp")
