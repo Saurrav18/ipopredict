@@ -182,13 +182,46 @@ def run_stage_alerts(stage):
     _run(ALERTS_CMD + f" --{stage}", retries=1)
 
 
+def push_to_live():
+    """Commit the refreshed IPO data and push to GitHub so the live site
+    (Render auto-deploy) picks it up. Only pushes if something actually changed.
+    Controlled by AUTO_PUSH=1 in .env so it never surprises you."""
+    if os.environ.get("AUTO_PUSH", "") != "1":
+        _log("  (AUTO_PUSH off; not pushing to the live site)")
+        return
+    import subprocess
+    files = ["qualified_ipos.json", "page_ledger.html", "page_archive.html",
+             "page_method.html", "page_patterns.html", "index.html"]
+    have = [f for f in files if (DIR / f).exists()]
+    try:
+        subprocess.run(["git", "add"] + have, cwd=str(DIR), check=False,
+                       capture_output=True, timeout=30)
+        # nothing staged -> nothing to push
+        diff = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=str(DIR))
+        if diff.returncode == 0:
+            _log("  (no data changes to push)")
+            return
+        stamp = datetime.now().strftime("%Y-%m-%d %H:%M")
+        subprocess.run(["git", "commit", "-m", f"data: refresh IPO predictions {stamp}"],
+                       cwd=str(DIR), check=False, capture_output=True, timeout=30)
+        r = subprocess.run(["git", "push"], cwd=str(DIR), capture_output=True,
+                           text=True, timeout=90)
+        if r.returncode == 0:
+            _log("  pushed fresh data to the live site (Render will redeploy)")
+        else:
+            _log(f"  git push failed: {r.stderr.strip()[:200]}")
+    except Exception as e:
+        _log(f"  auto-push error: {type(e).__name__}: {e}")
+
+
 def run_daily():
     _log("DAILY UPDATE starting (scrape -> publish -> learn -> alerts)")
     _run(SCRAPER_CMD)      # scrape latest IPOs -> active_ipos_v13.xlsx
     _run(PUBLISH_CMD)      # score + mainboard filter -> qualified_ipos.json
     _run(UPDATE_CMD)       # append listings, retrain after 7, rebuild archive
     run_alerts()
-    _log("DAILY UPDATE done. git push the refreshed files to update the live site.")
+    push_to_live()
+    _log("DAILY UPDATE done.")
 
 
 def run_bidding_fetch(names, closing_today):
@@ -197,7 +230,8 @@ def run_bidding_fetch(names, closing_today):
     _run(SCRAPER_CMD)      # pull the latest subscription numbers
     _run(PUBLISH_CMD)      # re-score with the fresh numbers
     run_alerts()
-    _log("BIDDING REFRESH done. git push to update the live site.")
+    push_to_live()
+    _log("BIDDING REFRESH done.")
 
 
 def run_hourly_listing(names):
