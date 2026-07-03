@@ -86,14 +86,61 @@ def _sync_subscribers_legacy():
             print(f"sync failed ({e}); using local copy of {len(local)}")
     return local
 
+BREVO_API_KEY = os.environ.get("BREVO_API_KEY", "")
+BREVO_SENDER  = os.environ.get("BREVO_SENDER", GMAIL_USER or "no-reply@ipopredict.app")
+RESEND_API_KEY = os.environ.get("RESEND_API_KEY", "")
+RESEND_SENDER  = os.environ.get("RESEND_SENDER", BREVO_SENDER)
+
+def _send_via_resend(to, subject, body):
+    """Send over Resend's HTTPS API (port 443). Works on cloud hosts that block
+    SMTP ports. Free tier, no card needed."""
+    payload = json.dumps({
+        "from": RESEND_SENDER, "to": [to], "subject": subject, "text": body,
+    }).encode()
+    req = urllib.request.Request(
+        "https://api.resend.com/emails", data=payload, method="POST",
+        headers={"Authorization": f"Bearer {RESEND_API_KEY}",
+                 "Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=15) as r:
+        return r.status in (200, 201)
+
+def _send_via_brevo(to, subject, body):
+    """Send over Brevo's HTTPS API (port 443). Cloud hosts like Render block the
+    SMTP ports Gmail uses, but allow HTTPS, so this is what works in production."""
+    payload = json.dumps({
+        "sender": {"email": BREVO_SENDER, "name": "IPOPredict"},
+        "to": [{"email": to}],
+        "subject": subject,
+        "textContent": body,
+    }).encode()
+    req = urllib.request.Request(
+        "https://api.brevo.com/v3/smtp/email", data=payload, method="POST",
+        headers={"api-key": BREVO_API_KEY, "content-type": "application/json",
+                 "accept": "application/json"})
+    with urllib.request.urlopen(req, timeout=15) as r:
+        return r.status in (200, 201)
+
 def send_email(to, subject, body):
+    # Preferred: an HTTPS email API (works on Render, which blocks SMTP ports).
+    if RESEND_API_KEY:
+        try:
+            if _send_via_resend(to, subject, body):
+                return True
+        except Exception as e:
+            print(f"  resend send failed: {type(e).__name__}: {e}")
+    if BREVO_API_KEY:
+        try:
+            if _send_via_brevo(to, subject, body):
+                return True
+        except Exception as e:
+            print(f"  brevo send failed: {type(e).__name__}: {e}")
+    # Fallback: Gmail SMTP (works locally; blocked on some cloud hosts).
     if not (GMAIL_USER and GMAIL_PASS):
-        print("  email skipped (GMAIL_USER/GMAIL_APP_PASS not set)")
+        print("  email skipped (no email API key and no GMAIL creds)")
         return False
     msg = MIMEText(body)
-    msg["Subject"], msg["From"], msg["To"] = subject, GMAIL_USER, to
+    msg["Subject"], msg["From"], msg["To"] = subject, BREVO_SENDER, to
     try:
-        # timeout so a slow/blocked SMTP from a cloud host can never hang the request
         with smtplib.SMTP_SSL("smtp.gmail.com", 465,
                               context=ssl.create_default_context(), timeout=15) as s:
             s.login(GMAIL_USER, GMAIL_PASS)

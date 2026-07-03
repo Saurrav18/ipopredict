@@ -242,8 +242,8 @@ def check_unsub_token(email: str, token: str) -> bool:
     return hmac.compare_digest(unsub_token(email), (token or "").strip())
 
 # brute-force lockout (per account)
-LOGIN_MAX_FAILS = 8          # wrong passwords before a temporary lock
-LOGIN_LOCK_SECS = 15 * 60    # how long the account stays locked
+LOGIN_MAX_FAILS = 10         # wrong passwords before a temporary lock
+LOGIN_LOCK_SECS = 5 * 60     # how long the account stays locked
 
 def login_locked(email: str) -> int:
     """Return seconds remaining if the account is locked, else 0."""
