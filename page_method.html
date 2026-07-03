@@ -1,0 +1,2528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IPOPredict - data-backed calls on Indian mainboard IPOs</title>
+<meta name="description" content="Apply or skip calls on Indian IPOs with a confidence score and the reasons behind each call. Pick your accuracy tier, see the evidence, get alerted before closing day."/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Crect x='6' y='18' width='4' height='8' fill='%23fff'/%3E%3Crect x='14' y='12' width='4' height='14' fill='%230F6E56'/%3E%3Crect x='22' y='6' width='4' height='20' fill='%23fff'/%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+/* Swiss IPOPredict - design tokens from the Stitch system, light + dark */
+:root{
+  --bg:#ffffff; --ink:#1a1a1a; --ink-soft:#444748; --ink-faint:#747878;
+  --hairline:#e5e5e5; --rule:#1a1a1a;
+  --green:#0F6E56; --red:#ba1a1a;
+  --caution-bg:#F5F1E9; --caution-ink:#6E4B00; --caution:#a8690f;
+  --row-hover:#f4f3f3;
+}
+html.dark{
+  --bg:#000000; --ink:#e2e2e2; --ink-soft:#c4c7c8; --ink-faint:#8a8d8e;
+  --hairline:#333333; --rule:#ffffff;
+  --green:#1a9b78; --red:#ff6b66;
+  --caution-bg:#7A5200; --caution-ink:#f5f5f5; --caution:#d6a052;
+  --row-hover:#111111;
+}
+*{box-sizing:border-box; border-radius:0;}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'Inter',sans-serif; font-size:16px; line-height:1.6;
+  -webkit-font-smoothing:antialiased; min-height:100dvh;
+  display:flex; flex-direction:column;
+}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--rule)}
+.mono{font-family:'JetBrains Mono',monospace}
+.caps{font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase}
+a{color:inherit}
+button{font:inherit; color:inherit; background:none; border:none; cursor:pointer; padding:0}
+:focus-visible{outline:2px solid var(--green); outline-offset:2px}
+@media (prefers-reduced-motion: reduce){ *{transition:none !important; animation:none !important} }
+
+/* header */
+header{
+  border-bottom:2px solid var(--rule);
+  display:flex; justify-content:space-between; align-items:center;
+  padding:14px 20px; gap:16px; flex-wrap:wrap;
+}
+header .brand{display:flex; align-items:baseline; gap:14px}
+header nav{display:flex; gap:18px}
+header nav .navbtn{color:var(--ink-faint); padding:2px 0; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase}
+header nav .navbtn.active{color:var(--ink); text-decoration:underline; text-underline-offset:5px; text-decoration-thickness:2px}
+header nav .navbtn:hover{color:var(--ink)}
+#clock{color:var(--ink-soft)}
+#themeBtn{border:1px solid var(--hairline); padding:3px 10px}
+#themeBtn:hover{border-color:var(--ink)}
+
+main{flex:1; width:100%; max-width:880px; margin:0 auto; padding:36px 20px 64px}
+.hairline{height:1px; background:var(--hairline); border:none; margin:0}
+.heavy{height:2px; background:var(--rule); border:none; margin:0}
+.hidden{display:none !important}
+
+/* ledger view - stacked, left-aligned: readout on top, slider below */
+.slider-row{display:flex; flex-direction:column; align-items:flex-start; gap:14px; padding:18px 0 22px}
+.slider-row > .slider-readout{order:1}
+.slider-row > div:not(.slider-readout){order:2}
+.slider-row label{display:block; color:var(--ink-soft); margin-bottom:10px}
+input[type=range]{
+  -webkit-appearance:none; appearance:none; width:min(380px,100%); height:2px;
+  background:var(--ink); outline-offset:6px;
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none; width:16px; height:16px; background:var(--green); cursor:ew-resize;
+}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;background:var(--green);border:none;cursor:ew-resize}
+.slider-readout{font-family:'JetBrains Mono',monospace; font-size:64px; font-weight:700; line-height:1}
+.slider-readout small{font-size:13px; font-weight:400; display:block; color:var(--ink-soft); text-align:left; max-width:380px; line-height:1.5}
+.slider-readout small#tierCount{margin-top:14px}
+#tierExplain{text-align:left; margin-top:2px}
+/* factual detail page for already-listed IPOs (and compliance mode) */
+.facts-box{border:1px solid var(--line,#e6e6e6); border-radius:12px; overflow:hidden; margin:10px 0 6px}
+.fact-row{display:flex; justify-content:space-between; align-items:baseline; gap:24px; padding:13px 16px; border-top:1px solid var(--line,#eee)}
+.fact-row:first-child{border-top:none}
+.fact-lab{color:var(--ink-soft,#666); font-size:13.5px; flex:none}
+.fact-val{font-size:13.5px; text-align:right; font-weight:500}
+.facts-title{font-size:12px; letter-spacing:.08em; color:var(--ink-soft); margin:26px 0 8px}
+@media(max-width:560px){
+  .slider-row{flex-direction:column; align-items:stretch; gap:4px}
+  .slider-row > div{min-width:0}
+  .slider-readout{font-size:40px; margin-top:8px}
+  .slider-readout small{max-width:none}
+  #tierExplain{text-align:left; max-width:none}
+}
+
+.section-head{display:flex; justify-content:space-between; align-items:baseline; padding:26px 0 14px}
+.section-head .count{color:var(--ink-faint)}
+.empty{padding:22px 0 28px; color:var(--ink-soft)}
+.empty .mono{color:var(--ink-faint); font-size:13px}
+
+.row{
+  display:grid; grid-template-columns:1fr auto auto; gap:8px 20px; align-items:center;
+  padding:16px 6px; border-top:1px solid var(--hairline);
+  text-decoration:none; cursor:pointer;
+}
+.row:last-of-type{border-bottom:1px solid var(--hairline)}
+.row:hover{background:var(--row-hover)}
+.row .name{font-weight:600; font-size:18px; letter-spacing:-0.01em}
+.row .meta{grid-column:1; color:var(--ink-soft); font-size:13px}
+.row .pa{text-align:right; font-size:14px; line-height:1.45}
+.row .pa .lab{color:var(--ink-faint); font-size:11px}
+.stamp{
+  font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700;
+  letter-spacing:.08em; padding:5px 10px; border:2px solid var(--green); color:var(--green);
+  justify-self:end; display:inline-block; min-width:74px; text-align:center;
+}
+.stamp.miss{border-color:var(--red); color:var(--red)}
+
+/* detail view */
+.back{display:inline-block; margin-bottom:26px; color:var(--ink-faint); text-decoration:none}
+.back:hover{color:var(--ink)}
+h1.ipo{font-size:26px; font-weight:600; letter-spacing:-0.01em; margin:0 0 6px}
+.metaline{font-family:'JetBrains Mono',monospace; font-size:14px; color:var(--ink-soft); margin-bottom:22px}
+.verdict-row{display:flex; justify-content:space-between; align-items:flex-end; padding:22px 0}
+.verdict{
+  font-size:30px; font-weight:700; letter-spacing:.06em;
+  border-bottom:4px solid var(--green); padding-bottom:4px;
+}
+.verdict.skip{border-color:var(--red); color:var(--red)}
+.verdict-row .lab{display:block; color:var(--ink-soft); margin-bottom:6px}
+.score{font-family:'JetBrains Mono',monospace; font-size:44px; font-weight:700; line-height:1}
+
+.tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline)}
+.tile{padding:20px 16px}
+.tile + .tile{border-left:1px solid var(--hairline)}
+.tile .lab{display:block; font-size:11px; color:var(--ink-soft); margin-bottom:8px}
+.tile .val{font-family:'JetBrains Mono',monospace; font-size:17px; font-weight:700}
+@media(max-width:560px){ .tiles{grid-template-columns:1fr 1fr} .tile:nth-child(3){border-left:none; border-top:1px solid var(--hairline)} .tile:nth-child(4){border-top:1px solid var(--hairline)} }
+
+.note-strip{background:var(--caution-bg); color:var(--caution-ink); padding:14px 16px; margin:20px 0 0; font-family:'JetBrains Mono',monospace; font-size:14px}
+
+.verified-strip{border:2px solid var(--green); margin:26px 0 0; padding:18px 16px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:center}
+.verified-strip .big{font-family:'JetBrains Mono',monospace; font-size:24px; font-weight:700; color:var(--green)}
+.verified-strip .sub{font-size:13px; color:var(--ink-soft)}
+
+.case{margin-top:38px}
+.case h2{font-size:14px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; margin:0 0 4px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; padding:10px 0; border-bottom:1px solid var(--hairline)}
+.case h2 .toggle{font-family:'JetBrains Mono',monospace; font-size:18px}
+.bullets{margin:0; padding:0; list-style:none}
+.bullets li{padding:14px 4px 14px 2px; border-bottom:1px solid var(--hairline); cursor:pointer}
+.bullets li:hover{background:var(--row-hover)}
+.b-head{display:flex; align-items:flex-start; gap:14px}
+.sq{width:8px; height:8px; flex:none; margin-top:8px}
+.sq.pos{background:var(--green)} .sq.neu{background:var(--ink-faint)} .sq.neg{background:var(--red)}
+.b-head p{margin:0}
+.b-head sup{font-family:'JetBrains Mono',monospace; font-size:10px; margin-left:4px; color:var(--ink-faint)}
+.b-more{display:none; margin:10px 0 2px 22px; color:var(--ink-soft); font-size:15px; line-height:1.65}
+li.open .b-more{display:block}
+.b-hint{margin-left:22px; font-size:11px; color:var(--ink-faint); font-family:'JetBrains Mono',monospace}
+
+.footnotes{margin-top:48px}
+.footnotes p{font-family:'JetBrains Mono',monospace; font-size:10.5px; text-transform:uppercase; color:var(--ink-faint); letter-spacing:.02em; margin:6px 0}
+
+/* method + ask */
+.method h2{font-size:14px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; margin:36px 0 12px}
+table{width:100%; border-collapse:collapse; font-size:14px}
+th,td{text-align:left; padding:9px 8px; border-bottom:1px solid var(--hairline)}
+th{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); font-weight:700}
+td.mono{font-size:13px}
+.method p{color:var(--ink-soft); font-size:15px}
+
+.ask-box{display:flex; gap:0; margin:18px 0 14px; border:2px solid var(--rule)}
+.ask-box input{flex:1; border:none; background:var(--bg); color:var(--ink); padding:13px 14px; font:inherit}
+.ask-box input:focus{outline:none}
+.ask-box button{border-left:2px solid var(--rule); padding:0 22px; font-weight:700; letter-spacing:.06em}
+.ask-box button:hover{background:var(--row-hover)}
+.chips{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:24px}
+.chips button{border:1px solid var(--hairline); padding:6px 12px; font-size:13px; color:var(--ink-soft)}
+.chips button:hover{border-color:var(--ink); color:var(--ink)}
+#askOut{border-top:1px solid var(--hairline); padding-top:18px; white-space:pre-wrap; font-size:15px}
+#askOut .tag{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-faint); display:block; margin-bottom:8px; text-transform:uppercase; letter-spacing:.06em}
+
+footer{
+  border-top:1px solid var(--hairline); padding:20px;
+  display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
+  font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-soft);
+}
+footer .links{display:flex; gap:22px}
+footer a{text-decoration:none; color:var(--ink-faint); text-transform:uppercase}
+footer a:hover{color:var(--ink)}
+
+/* archive */
+.controls{display:flex; gap:12px; flex-wrap:wrap; padding:18px 0}
+.controls input,.controls select{
+  border:1px solid var(--hairline); background:var(--bg); color:var(--ink);
+  padding:9px 12px; font:inherit; font-size:14px;
+}
+.controls input:focus,.controls select:focus{outline:none; border-color:var(--ink)}
+.controls input{flex:1; min-width:180px}
+.arch-meta{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-faint); margin-bottom:6px}
+.tbl-wrap{overflow-x:auto}
+table.ledger{width:100%; border-collapse:collapse; font-size:13.5px}
+table.ledger th{
+  font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--ink-soft); font-weight:700;
+  text-align:left; padding:10px 8px; border-bottom:2px solid var(--rule);
+  position:sticky; top:0; background:var(--bg); white-space:nowrap;
+}
+table.ledger td{padding:9px 8px; border-bottom:1px solid var(--hairline); white-space:nowrap}
+table.ledger tr:hover td{background:var(--row-hover)}
+td.num{font-family:'JetBrains Mono',monospace; text-align:right}
+th.num{text-align:right}
+table.ledger th.num{text-align:right}
+table.ledger td:nth-child(2){white-space:normal; min-width:120px; line-height:1.35}
+@media(max-width:640px){ table.ledger .col-opt{display:none} }
+.gain-pos{color:var(--green); font-weight:700}
+.gain-neg{color:var(--red); font-weight:700}
+.wr-hi{color:var(--green); font-weight:700}
+.wr-lo{color:var(--red); font-weight:700}
+.pat-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:40px 48px; margin-top:8px}
+.pat h2{font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; margin:0 0 2px; padding-bottom:8px; border-bottom:2px solid var(--rule)}
+.pat .sub{font-size:12px; color:var(--ink-faint); font-family:'JetBrains Mono',monospace; margin:6px 0 10px}
+
+/* alerts */
+.alert-form{max-width:520px}
+.alert-form .field{margin:22px 0}
+.alert-form label{display:block; margin-bottom:8px; color:var(--ink-soft)}
+.alert-form input[type=email],.alert-form input[type=tel]{
+  width:100%; border:1px solid var(--hairline); background:var(--bg); color:var(--ink);
+  padding:12px 13px; font:inherit;
+}
+.alert-form input:focus{outline:none; border-color:var(--ink)}
+.tier-pick{display:flex; align-items:center; gap:18px}
+.tier-pick input[type=range]{flex:1}
+.tier-pick .val{font-family:'JetBrains Mono',monospace; font-size:26px; font-weight:700; min-width:74px; text-align:right}
+.tier-hint{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-faint); margin-top:8px}
+.submit-bar{border:2px solid var(--rule); display:flex; margin-top:28px}
+.submit-bar button{flex:1; padding:14px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-family:'JetBrains Mono',monospace; font-size:13px}
+.submit-bar button:hover{background:var(--ink); color:var(--bg)}
+#alertMsg{margin-top:18px; font-size:14.5px}
+#alertMsg.ok{color:var(--green)} #alertMsg.err{color:var(--red)}
+.cta-strip{border:2px solid var(--rule); margin-top:34px; padding:18px; display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap}
+.cta-strip button{border:2px solid var(--ink); padding:10px 18px; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase}
+.cta-strip button:hover{background:var(--ink); color:var(--bg)}
+.wa-note{border-left:2px solid var(--hairline); padding:10px 14px; margin-top:20px; font-size:13.5px; color:var(--ink-soft)}
+
+/* account + auth */
+.auth-card{max-width:460px}
+.auth-card .field{margin:20px 0}
+.auth-card input{width:100%; border:1px solid var(--hairline); background:var(--bg); color:var(--ink); padding:12px 13px; font:inherit}
+.auth-card input:focus{outline:none; border-color:var(--ink)}
+.acct-row{display:flex; justify-content:space-between; align-items:center; padding:16px 4px; border-bottom:1px solid var(--hairline)}
+.acct-row .k{color:var(--ink-soft); font-size:13px}
+.acct-row .v{font-family:'JetBrains Mono',monospace; font-weight:700}
+.signed-as{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-faint); margin-bottom:20px}
+.linkbtn{color:var(--green); text-decoration:underline; cursor:pointer; font-size:13px}
+
+/* intro / context card on ledger */
+.intro-card{border:2px solid var(--rule); padding:22px 20px; margin:22px 0 8px}
+.intro-lead{margin:0 0 16px; font-size:17px; line-height:1.5}
+.intro-how{display:flex; flex-direction:column; gap:10px; margin-bottom:14px}
+.intro-how .ih{display:flex; gap:12px; align-items:flex-start; font-size:14.5px; color:var(--ink-soft)}
+.intro-how .ihn{flex:none; width:20px; height:20px; background:var(--ink); color:var(--bg); font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center}
+.intro-foot{margin:0; font-size:13.5px; color:var(--ink-faint)}
+.hit-ex{font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; color:var(--green); border:1px solid var(--green); padding:1px 5px}
+.miss-ex{font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; color:var(--red); border:1px solid var(--red); padding:1px 5px}
+.linklike{color:var(--green); text-decoration:underline; cursor:pointer; font:inherit; font-size:13.5px}
+.table-cap{font-size:13px; color:var(--ink-soft); margin:0 0 12px; max-width:640px; line-height:1.5}
+
+.verdict-sub{display:block; font-size:12px; color:var(--ink-soft); margin-top:6px; font-family:'Inter',sans-serif; letter-spacing:0; text-transform:none; font-weight:400}
+.conf-explain{font-size:13.5px; color:var(--ink-soft); line-height:1.55; margin:4px 0 0; padding:12px 0 0; border-top:1px solid var(--hairline)}
+.tier-explain{font-size:13.5px; color:var(--ink-soft); line-height:1.6; margin:14px 0 0; padding:14px 16px; border:1px solid var(--hairline); border-radius:2px}
+.tier-explain .caps{display:block; color:var(--ink-faint); font-size:11px; letter-spacing:.08em; margin-bottom:6px}
+.skip-warn{margin-top:12px; padding:12px 14px; background:var(--caution-bg); color:var(--caution-ink); border-radius:2px; line-height:1.55}
+.skip-stamp{border-color:var(--red) !important; color:var(--red) !important}
+.modal-overlay{position:fixed; inset:0; background:rgba(0,0,0,.55); display:flex; align-items:center; justify-content:center; z-index:1000; padding:20px}
+.modal-overlay.hidden{display:none}
+.modal-box{background:var(--bg); color:var(--ink); max-width:460px; width:100%; padding:26px 24px; border:1px solid var(--hairline); border-radius:4px; box-shadow:0 20px 60px rgba(0,0,0,.35); max-height:85vh; overflow:auto}
+.modal-box h3{margin:0 0 12px; font-size:19px; color:var(--ink)}
+.modal-box #modalBody{font-size:14px; color:var(--ink-soft); line-height:1.6}
+.modal-box #modalBody strong{color:var(--ink)}
+.intro-box{background:var(--bg); border:1px solid var(--ink-faint); border-radius:16px; max-width:460px; width:92%; padding:30px; box-shadow:0 20px 60px rgba(0,0,0,.28)}
+.intro-kicker{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--green); margin-bottom:12px}
+.intro-slide{min-height:240px}
+.intro-slide h3{margin:0 0 16px; font-size:23px; line-height:1.25; color:var(--ink)}
+.intro-slide p{color:var(--ink-soft); line-height:1.65; margin:0 0 14px; font-size:15px}
+.intro-slide p strong{color:var(--ink)}
+.intro-slide .intro-eg{background:rgba(127,127,127,.10); border-left:3px solid var(--green); padding:13px 15px; border-radius:7px; font-size:14px; color:var(--ink-soft)}
+.intro-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:24px}
+.intro-dots{display:flex; gap:7px}
+.intro-dots span{width:7px; height:7px; border-radius:50%; background:var(--ink-faint); opacity:.35; transition:opacity .2s}
+.intro-dots span.on{opacity:1; background:var(--green)}
+.bot-note{display:flex; gap:10px; align-items:flex-start; background:rgba(127,127,127,.08); border:1px solid var(--ink-faint); border-radius:10px; padding:13px 15px; margin:0 0 22px; font-size:13px; line-height:1.55; color:var(--ink-soft)}
+.bot-note strong{color:var(--ink)}
+.bot-note::before{content:"!"; flex:0 0 auto; width:20px; height:20px; border-radius:50%; background:var(--green); color:#fff; font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center; margin-top:1px}
+.xp-overlay{backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px); background:rgba(35,35,35,.5)}
+.xp-box{background:var(--bg); border:1px solid var(--ink-faint); border-radius:16px; max-width:520px; width:94%; max-height:88vh; overflow:auto; padding:28px; box-shadow:0 24px 70px rgba(0,0,0,.4)}
+.xp-kicker{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--green); margin-bottom:10px}
+.xp-box h3{margin:0 0 16px; font-size:22px; line-height:1.25; color:var(--ink)}
+.xp-shot{background:rgba(127,127,127,.07); border:1px solid var(--ink-faint); border-radius:11px; padding:20px; margin:0 0 18px}
+.xp-shotrow{display:flex; align-items:center; gap:12px; flex-wrap:wrap; font-size:16px; color:var(--ink)}
+.xp-hl{outline:2px dashed var(--red); outline-offset:4px; border-radius:6px}
+.xp-tag{display:inline-block; background:var(--red); color:#fff; font:700 10px/1 'JetBrains Mono',monospace; letter-spacing:.06em; padding:5px 8px; border-radius:5px; margin-top:16px}
+.xp-badge{display:inline-block; padding:4px 12px; border-radius:6px; font:700 13px/1.4 'JetBrains Mono',monospace; background:var(--green); color:#fff}
+.xp-badge.skip{background:var(--red)}
+.xp-stat{display:flex; gap:10px; margin:9px 0; font-size:13.5px; color:var(--ink-soft); line-height:1.5}
+.xp-stat b{color:var(--ink); flex:0 0 86px; font:700 10px/1.5 'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:.06em; padding-top:2px}
+.xp-box p{color:var(--ink-soft); line-height:1.62; font-size:14.5px; margin:0 0 12px}
+.xp-track{height:5px; background:var(--ink-faint); border-radius:3px; position:relative; margin:8px 0}
+.xp-track i{position:absolute; left:78%; top:50%; width:15px; height:15px; background:var(--green); border-radius:50%; transform:translate(-50%,-50%)}
+.xp-cta{display:flex; align-items:center; gap:13px; width:100%; max-width:480px; text-align:left; background:var(--bg); border:1px solid var(--ink-faint); border-radius:12px; padding:14px 16px; margin:0 0 22px; cursor:pointer; font-family:inherit; transition:border-color .15s ease, transform .1s ease, box-shadow .15s ease}
+.xp-cta:hover{border-color:var(--green); transform:translateY(-1px); box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.xp-cta-ic{flex:0 0 auto; width:36px; height:36px; border-radius:50%; background:var(--green); color:#fff; font:700 19px/1 system-ui,sans-serif; display:flex; align-items:center; justify-content:center}
+.xp-cta-tx{flex:1; display:flex; flex-direction:column; gap:2px; min-width:0}
+.xp-cta-tx strong{color:var(--ink); font-size:15px; line-height:1.3}
+.xp-cta-tx small{color:var(--ink-soft); font-size:12.5px; line-height:1.35}
+.xp-cta-arrow{flex:0 0 auto; color:var(--ink-faint); font-size:20px; transition:transform .15s ease}
+.xp-cta:hover .xp-cta-arrow{transform:translateX(3px); color:var(--green)}
+.strat-tbl{font-family:'JetBrains Mono',monospace; font-size:12px; margin-bottom:4px}
+.strat-row{display:grid; grid-template-columns:1.25fr 1fr 1fr 1fr; gap:6px; padding:8px 8px; border-bottom:1px solid var(--ink-faint); color:var(--ink-soft); align-items:center}
+.strat-row span:first-child{color:var(--ink); font-weight:700}
+.strat-head{color:var(--ink-faint); font-size:9.5px; text-transform:uppercase; letter-spacing:.05em}
+.strat-head span:first-child{color:var(--ink-faint)}
+.strat-row.hi{background:rgba(127,127,127,.09); border-radius:6px}
+.strat-row:last-child{border-bottom:none}
+.modal-actions{display:flex; gap:12px; justify-content:flex-end; margin-top:22px}
+.btn-ghost{background:none; border:1px solid var(--hairline); color:var(--ink-soft); padding:10px 18px; cursor:pointer; font-family:inherit; font-size:14px; border-radius:2px}
+.btn-solid{background:var(--ink); color:var(--bg); border:1px solid var(--ink); padding:10px 18px; cursor:pointer; font-family:inherit; font-size:14px; border-radius:2px}
+.btn-ghost:hover{border-color:var(--ink); color:var(--ink)}
+.btn-solid:hover{opacity:.88}
+.confirm-row{display:flex; align-items:center; gap:14px; margin:-6px 0 24px; flex-wrap:wrap}
+.pending-hint{font-size:12px; color:var(--ink-faint); font-family:'JetBrains Mono',monospace}
+.tier-confirm-btn{background:var(--ink); color:var(--bg); border:1px solid var(--ink); padding:10px 22px; cursor:pointer; font-family:inherit; font-size:13px; border-radius:2px; letter-spacing:.03em; white-space:nowrap}
+.tier-confirm-btn:hover{opacity:.88}
+.tile-help{display:block; font-size:11.5px; color:var(--ink-faint); line-height:1.4; margin-top:8px; font-family:'Inter',sans-serif; letter-spacing:0; text-transform:none}
+#tierExplain{display:block; font-size:11px; color:var(--ink-faint); font-weight:400; max-width:360px; text-align:left; line-height:1.4; margin-top:2px}
+
+.row.upcoming{opacity:0.95}
+.upcoming-stamp{background:var(--caution-bg,#fff7e6); color:var(--caution,#9a6700); border:1px solid var(--caution,#9a6700)}
+.data-warn{margin-top:8px; font-size:12px; color:var(--caution,#9a6700); line-height:1.45; max-width:560px}
+
+.apply-by{display:block; margin-top:4px; color:var(--ink-faint); font-size:11px}
+.apply-deadline{border:1px solid var(--hairline); padding:12px 14px; margin:0 0 20px; font-size:13px; color:var(--ink-soft); line-height:1.5}
+
+.upcoming-banner{border:1px solid var(--caution,#9a6700); padding:16px 18px; margin-bottom:24px}
+.upcoming-banner .caps{color:var(--caution,#9a6700); font-weight:700}
+.upcoming-banner p{margin:10px 0 0; font-size:14px; line-height:1.55; color:var(--ink-soft)}
+.apply-by-strong{font-size:13px !important; color:var(--ink) !important}
+.data-cols{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:28px}
+@media(max-width:600px){.data-cols{grid-template-columns:1fr}}
+.data-col h2{font-size:12px; color:var(--ink-faint); margin:0 0 12px; padding-bottom:8px; border-bottom:1px solid var(--rule)}
+.dl-row{display:flex; justify-content:space-between; gap:12px; padding:9px 0; border-bottom:1px solid var(--hairline); font-size:13.5px}
+.dl-group{color:var(--green); font-size:11px; margin:18px 0 4px; padding-bottom:2px; opacity:.85}
+.dl-group:first-of-type{margin-top:2px}
+.dl-k{color:var(--ink-soft); display:flex; flex-direction:column}
+.dl-help{font-size:10.5px; color:var(--ink-faint); margin-top:3px; font-style:normal}
+.dl-v{font-family:'JetBrains Mono',monospace; text-align:right}
+.dl-row.missing .dl-v{color:var(--ink-faint); font-family:'Inter',sans-serif; font-style:italic; font-size:12px}
+.dl-row.missing .dl-k{color:var(--ink-faint)}
+.section-title{font-size:12px; color:var(--ink-faint); margin:8px 0 4px}
+.ex-note{font-size:13px; color:var(--ink-soft); margin:0 0 14px}
+.ex-table{width:100%; table-layout:auto}
+.ex-table th:first-child, .ex-table td:first-child{width:100%}
+.ex-table th.num, .ex-table td.num{padding-left:22px}
+.ex-year{color:var(--ink-faint); font-size:11px; font-family:'JetBrains Mono',monospace; margin-left:6px}
+
+.dl-row.clickable{cursor:pointer; transition:background 0.1s}
+.dl-row.clickable:hover, .dl-row.active-metric{background:var(--hover,rgba(15,110,86,0.06))}
+.dl-row.clickable .dl-v{color:var(--green)}
+.tap-hint{font-size:9.5px; color:var(--ink-faint); margin-left:6px; text-transform:uppercase; letter-spacing:0.04em; font-family:'JetBrains Mono',monospace}
+.cmp-head{font-size:13px; color:var(--ink-soft); margin:0 0 12px}
+.cmp-foot{font-size:11.5px; color:var(--ink-faint); margin-top:10px; line-height:1.45}
+
+.cmp-stats{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:14px 0 6px}
+.cstat{border:1px solid var(--hairline); padding:12px 8px; text-align:center}
+.cstat-v{display:block; font-family:'JetBrains Mono',monospace; font-size:20px; font-weight:700}
+.cstat-v.good{color:var(--green)} .cstat-v.bad{color:var(--red)} .cstat-v.mid{color:var(--caution,#9a6700)}
+.cstat-l{display:block; font-size:10px; color:var(--ink-faint); margin-top:4px; text-transform:uppercase; letter-spacing:0.03em}
+.cmp-basis{font-size:11.5px; color:var(--ink-faint); margin:8px 0 0; line-height:1.45}
+.cmp-examples-label{font-size:10.5px; color:var(--ink-faint); margin:20px 0 8px}
+.tbl-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch}
+@media(max-width:520px){.cmp-stats{grid-template-columns:repeat(2,1fr)}}
+
+.fund-block{margin-top:0}
+.fund-block h2{font-size:12px; color:var(--ink-faint); margin:0 0 12px; padding-bottom:8px; border-bottom:1px solid var(--rule)}
+.small-sample{color:var(--caution,#9a6700)}
+.plain-gloss{font-size:14px; color:var(--ink-soft); font-style:italic; margin-bottom:14px; line-height:1.55}
+.how-apply{border:1px solid var(--hairline); padding:12px 14px; margin:0 0 20px; font-size:13px; color:var(--ink-soft); line-height:1.55}
+
+/* hamburger hidden on desktop; the whole mobile UI lives in the media query below */
+.nav-toggle{display:none}
+
+/* first-visit welcome card */
+.welcome-overlay{backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px); background:rgba(35,35,35,.5)}
+.welcome-box{background:var(--bg); border:1px solid var(--ink-faint); border-radius:16px; max-width:480px; width:94%; max-height:90vh; overflow:auto; padding:28px; box-shadow:0 24px 70px rgba(0,0,0,.4)}
+.welcome-kicker{font:700 11px/1 'JetBrains Mono',monospace; letter-spacing:.12em; color:var(--green); margin-bottom:10px}
+.welcome-box h3{margin:0 0 12px; font-size:23px; line-height:1.25; color:var(--ink)}
+.welcome-lead{color:var(--ink-soft); line-height:1.6; font-size:15px; margin:0 0 18px}
+.welcome-lead strong{color:var(--ink)}
+.welcome-feats{display:flex; flex-direction:column; gap:14px; margin:0 0 18px}
+.wf{display:flex; gap:12px; align-items:flex-start}
+.wf-i{flex:0 0 auto; width:24px; height:24px; border-radius:50%; background:var(--green); color:#fff; font:700 12px/24px 'JetBrains Mono',monospace; text-align:center}
+.wf strong{display:block; color:var(--ink); font-size:14.5px; margin-bottom:2px}
+.wf small{display:block; color:var(--ink-soft); font-size:13px; line-height:1.5}
+.welcome-note{font-size:12px; color:var(--ink-faint); line-height:1.5; margin:0 0 20px; padding-top:14px; border-top:1px solid var(--hairline)}
+.welcome-actions{display:flex; gap:12px}
+.welcome-actions .btn-solid{flex:1}
+
+/* ============================================================
+   PHONE UI  (<=768px)  - desktop/laptop above this is untouched
+   ============================================================ */
+/* laptop default: understated inline consent line, blends with the auth card */
+.auth-card .consent-label{display:flex !important; flex-direction:row !important; gap:10px; align-items:flex-start;
+  margin-top:16px; width:100%; font-size:12.5px; color:var(--ink-soft,#555); cursor:pointer; text-align:left}
+.auth-card .consent-label input[type=checkbox]{margin:2px 0 0 0; flex:0 0 auto; width:16px; height:16px}
+.auth-card .consent-label span{flex:1 1 auto; line-height:1.5}
+
+@media(max-width:768px){
+  /* --- header becomes brand + hamburger, links drop down --- */
+  header{padding:12px 16px; gap:10px; row-gap:0; position:relative}
+  header .brand{order:1}
+  .nav-toggle{display:flex; order:2; margin-left:auto; flex-direction:column;
+    justify-content:center; gap:5px; width:34px; height:34px; padding:5px;
+    background:none; border:none; cursor:pointer}
+  .nav-toggle span{display:block; height:2px; width:22px; background:var(--ink); transition:.2s ease}
+  header.nav-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  header.nav-open .nav-toggle span:nth-child(2){opacity:0}
+  header.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  #themeBtn{order:3; margin-left:10px; border:1px solid var(--hairline); padding:5px 10px}
+
+  header nav{order:4; flex-basis:100%; display:none; flex-direction:column;
+    align-items:stretch; gap:0; margin-top:12px; border-top:1px solid var(--hairline)}
+  header.nav-open nav{display:flex}
+  header nav .navbtn{width:100%; text-align:left; padding:15px 4px; font-size:14px;
+    border-bottom:1px solid var(--hairline)}
+  header nav .navbtn.active{text-decoration:none; color:var(--green)}
+  #authBtn{order:5; flex-basis:100%; display:none; width:100%; text-align:center;
+    margin:14px 0 2px!important; padding:13px 0!important}
+  header.nav-open #authBtn{display:block}
+
+  /* --- breathing room --- */
+  main{padding:22px 16px 56px}
+  h1.ipo{font-size:23px}
+  .bot-note{font-size:13px; padding:12px 13px}
+
+  /* --- slider readout: stack + read left-to-right --- */
+  .slider-row{flex-direction:column; align-items:stretch; gap:6px}
+  .slider-row > div{min-width:0}
+  .slider-readout{font-size:42px; margin-top:10px}
+  .slider-readout small{max-width:none; text-align:left}
+  #tierExplain{text-align:left; max-width:none}
+  input[type=range]{width:100%}
+
+  /* --- modals (walkthrough, welcome, sign-in, confirm): content-sized,
+         full-width, centred, scroll if long - like a normal site.
+         (no stretch, so short modals do NOT leave empty white space) --- */
+  .modal-overlay{padding:14px}
+  .modal-box,.xp-box,.welcome-box{width:100%; max-width:none; max-height:88vh;
+    min-height:0; border-radius:14px; overflow:auto}
+  .xp-box{padding:24px 18px}
+  .welcome-box{padding:24px 18px}
+  .xp-box h3{font-size:21px}
+  .xp-shot{padding:16px}
+  .xp-box .intro-nav{position:static; margin-top:20px; padding-top:14px;
+    border-top:1px solid var(--hairline)}
+  .btn-ghost,.btn-solid{padding:12px 16px}
+  .welcome-box h3{font-size:22px}
+  .welcome-actions{flex-direction:column-reverse; gap:10px}
+  .welcome-actions button{width:100%}
+
+  /* --- tiles + comparison stack for thumbs --- */
+  .tiles{grid-template-columns:1fr 1fr}
+  .confirm-row{flex-wrap:wrap; gap:10px}
+  .tier-confirm-btn{width:100%}
+
+  /* --- IPO rows: name + badge on top, numbers full-width below (no cramming) --- */
+  .row{grid-template-columns:1fr auto; gap:6px 12px; padding:15px 4px}
+  .row > div:first-child{grid-column:1; grid-row:1; min-width:0}
+  .row .name{font-size:17px}
+  .row .stamp,.row .upcoming-stamp{grid-column:2; grid-row:1; align-self:start; white-space:nowrap}
+  .row .pa{grid-column:1 / -1; grid-row:2; text-align:left; display:flex;
+    flex-wrap:wrap; gap:2px 18px; margin-top:4px}
+
+  /* --- footer: stack cleanly --- */
+  footer{flex-direction:column; align-items:flex-start; gap:14px; padding:20px 16px}
+  footer .links{gap:20px; flex-wrap:wrap}
+
+  /* --- IPO detail header: cleaner spacing + rhythm on phones --- */
+  .back{display:inline-block; margin-bottom:14px}
+  .metaline{font-size:12.5px; line-height:1.7; margin-bottom:18px}
+  .apply-deadline{padding:12px 13px; line-height:1.55; margin-bottom:24px}
+  .verdict-row{padding:14px 0 18px; gap:18px}
+  .verdict-row .lab{font-size:10.5px; margin-bottom:8px}
+  .verdict{font-size:26px}
+  .score{font-size:38px}
+  .verdict-sub{font-size:11.5px}
+  .conf-explain{line-height:1.6; font-size:13px}
+  .tier-explain{padding:14px 13px; font-size:13px}
+  /* consent row wraps to top-aligned, roomier on mobile */
+  .consent-label{align-items:flex-start; gap:9px; margin-top:14px; line-height:1.5}
+  .consent-label input{margin-top:2px}
+  /* subtle visual cue that tapping outside dismisses the auth card on mobile */
+  #acctLoggedOut{transition:opacity .15s ease}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span class="caps">IPOPredict</span>
+    <span id="clock" class="mono" style="font-size:14px">--:--:--.IST</span>
+  </div>
+  <nav class="caps">
+    <button class="navbtn" data-nav="ledger">Live IPOs</button>
+    <button class="navbtn" data-nav="archive">Past IPOs</button>
+    <button class="navbtn" data-nav="patterns">Insights</button>
+    <button class="navbtn" data-nav="alerts">Alerts</button>
+    <button class="navbtn" data-nav="ask">Ask</button>
+    <button class="navbtn" data-nav="method">How it works</button>
+  </nav>
+  <button id="authBtn" class="caps" data-nav="account" style="border:1px solid var(--hairline); padding:3px 10px; margin-right:8px">Sign in</button>
+  <button id="themeBtn" class="caps" aria-label="Switch theme">Dark</button>
+  <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+
+<main>
+
+  <!-- LEDGER VIEW -->
+  <section id="view-ledger">
+    <div class="bot-note"><span>A <strong>prediction bot</strong>, not a financial advisor. We predict <strong>listing-day gains</strong> (how an IPO opens versus its offer price), not long-term returns. Every call is an estimate and can be wrong. Not investment advice.</span></div>
+    <button class="xp-cta" type="button">
+      <span class="xp-cta-ic">?</span>
+      <span class="xp-cta-tx"><strong>New here? See how it all works</strong><small>A quick guided tour of every number on the site</small></span>
+      <span class="xp-cta-arrow">&rarr;</span>
+    </button>
+    <div class="slider-row">
+      <div style="flex:1; min-width:260px">
+        <label class="caps" for="tierSlider">How strict should we be?</label>
+        <input type="range" id="tierSlider" min="65" max="98" value="90" step="1"
+               aria-label="Minimum historical accuracy tier"/>
+      </div>
+      <div class="slider-readout" id="tierReadout">90%<small id="tierCount"></small><small id="tierExplain"></small></div>
+    </div>
+    <div class="confirm-row">
+      <button id="tierConfirm" class="tier-confirm-btn">Confirm this tier</button>
+      <span id="tierPending" class="pending-hint"></span>
+    </div>
+    <hr class="heavy"/>
+
+    <div class="intro-card">
+      <p class="intro-lead">This site gives a clear <strong>apply or skip</strong> call on Indian IPOs, with a confidence score and the reasons behind it.</p>
+      <div class="intro-how">
+        <div class="ih"><span class="ihn">1</span> Pick how strict you want to be with the accuracy slider above.</div>
+        <div class="ih"><span class="ihn">2</span> See which open IPOs clear that bar, with the predicted listing range.</div>
+        <div class="ih"><span class="ihn">3</span> Open any IPO for the full reasoning. Every past call is stamped <span class="hit-ex">HIT</span> or <span class="miss-ex">MISS</span> below, locked in before listing.</div>
+      </div>
+      <p class="intro-foot">New here? See <button class="linklike" data-nav="method">How it works</button>, or ask <button class="linklike" data-nav="ask">what is an IPO</button> in plain English.</p>
+    </div>
+
+    <div class="section-head">
+      <span class="caps">Open now</span>
+      <span class="caps count" id="openCount"></span>
+    </div>
+    <div id="openList"></div>
+
+    <div class="section-head" id="closedHead" style="display:none">
+      <span class="caps">Closed, awaiting listing</span>
+      <span class="caps count" id="closedCount"></span>
+    </div>
+    <div id="closedList"></div>
+
+    <div class="section-head">
+      <span class="caps">Past calls, graded</span>
+      <span class="caps count" id="settledCount"></span>
+    </div>
+    <div id="settledList"></div>
+
+    <div class="cta-strip">
+      <div>
+        <span class="caps">Get the call before listing</span>
+        <div style="font-size:13.5px; color:var(--ink-soft); margin-top:4px">One alert on closing day when an IPO clears your accuracy bar. Email and Telegram.</div>
+      </div>
+      <button data-nav="alerts">Set up alerts</button>
+    </div>
+    <div class="footnotes">
+      <p>Every call was tested on data from <em>before</em> it was made &mdash; never the answer. Full method on the How it works page.</p>
+      <p id="lastUpdated"></p>
+    </div>
+  </section>
+
+  <!-- DETAIL VIEW -->
+  <section id="view-detail" class="hidden"></section>
+
+  <!-- ARCHIVE VIEW -->
+  <section id="view-archive" class="hidden">
+    <h1 class="ipo">Past IPOs</h1>
+    <p class="metaline" id="archMeta"></p>
+    <hr class="heavy"/>
+    <div class="controls">
+      <input id="archSearch" type="text" placeholder="search by name" aria-label="Search IPOs by name"/>
+      <select id="archSector" aria-label="Filter by sector"><option value="">All sectors</option></select>
+      <select id="archYear" aria-label="Filter by year"><option value="">All years</option></select>
+      <select id="archOutcome" aria-label="Filter by outcome">
+        <option value="">All outcomes</option>
+        <option value="win">Listed above offer</option>
+        <option value="loss">Listed at or below</option>
+      </select>
+    </div>
+    <div class="arch-meta" id="archCount"></div>
+    <div class="tbl-wrap">
+      <table class="ledger">
+        <thead><tr>
+          <th>Month</th><th>IPO</th><th class="col-opt">Sector</th>
+          <th class="num col-opt">Offer</th><th class="num">GMP %</th>
+          <th class="num">Demand</th><th class="num">Day 1</th>
+        </tr></thead>
+        <tbody id="archBody"></tbody>
+      </table>
+    </div>
+    <div class="footnotes">
+      <p><strong>GMP %</strong>: the unofficial grey-market premium traders paid before listing. <strong>Demand</strong>: how many times oversubscribed (10 means ten times more demand than shares). <strong>Day 1</strong>: how the stock did on its first day versus the offer price.</p>
+    </div>
+  </section>
+
+  <!-- PATTERNS VIEW -->
+  <section id="view-patterns" class="hidden">
+    <h1 class="ipo">Insights</h1>
+    <p class="metaline" id="patMeta"></p>
+    <hr class="heavy"/>
+    <div class="pat-grid" id="patGrid"></div>
+    <div class="footnotes" style="margin-top:42px">
+      <p>These tables are the evidence behind every case-for and case-against line on an IPO page. Win rate is the share of IPOs in that band that listed above offer price.</p>
+      <p>Bands with fewer than 3 IPOs are hidden. History is not a guarantee of future listings.</p>
+    </div>
+  </section>
+
+  <!-- ALERTS VIEW -->
+  <section id="view-alerts" class="hidden">
+    <h1 class="ipo">Alerts</h1>
+    <p class="metaline">one message on closing day, only when an IPO clears your bar</p>
+    <hr class="heavy"/>
+    <div class="bot-note"><span>IPOPredict is a <strong>prediction bot, not a financial advisor</strong>. It predicts <strong>listing-day gains</strong>, not long-term returns, and can be wrong. Information only, not investment advice.</span></div>
+    <!-- logged out: must sign in first -->
+    <div id="alLoggedOut" class="auth-card">
+      <p style="margin:0 0 18px; color:var(--ink-soft); line-height:1.6">Sign in to set up alerts. Your tier and channels save to your account, so you set them once and never type them again.</p>
+      <div class="submit-bar"><button id="alGoSignIn">Sign in to set up alerts</button></div>
+    </div>
+
+    <!-- logged in: alert form, pre-filled from your account -->
+    <div id="alLoggedIn" class="hidden">
+      <div class="signed-as" id="alSignedAs"></div>
+      <div class="alert-form">
+        <div class="field">
+          <label class="caps" for="alTier">Your accuracy tier</label>
+          <div class="tier-pick">
+            <input type="range" id="alTier" min="65" max="98" value="90" step="1" aria-label="Alert accuracy tier"/>
+            <span class="val" id="alTierVal">90%</span>
+          </div>
+          <div class="tier-hint" id="alTierHint"></div>
+        </div>
+        <div class="field">
+          <label class="caps" for="alTelegram">Telegram (optional)</label>
+          <input type="text" id="alTelegram" placeholder="your Telegram chat ID" autocomplete="off"/>
+          <div class="tier-hint">Message our bot once to get your chat ID. Leave blank for email only.</div>
+        </div>
+        <div class="submit-bar"><button id="alSubmit">Turn on alerts</button></div>
+        <div id="alertMsg" role="status"></div>
+        <div class="wa-note">
+          No spam and no daily digests. You are contacted only when an IPO clears
+          your bar, on its closing day, before it lists. Saved to your account.
+        </div>
+        <div class="wa-note" style="margin-top:14px; padding-top:14px; border-top:1px solid var(--hairline)">
+          Getting alerts and want them to stop? <a class="linkbtn" id="alUnsub">Turn off email alerts</a>
+        </div>
+      </div>
+    </div>
+    <div class="footnotes">
+      <p>Alerts state the qualifying tier and model scores. They are information, not investment advice.</p>
+    </div>
+  </section>
+
+  <!-- ACCOUNT VIEW -->
+  <section id="view-account" class="hidden">
+    <h1 class="ipo">Account</h1>
+    <p class="metaline">sign in to save your tier and alert channels</p>
+    <hr class="heavy"/>
+
+    <!-- logged-out: sign in or create an account -->
+    <div id="acctLoggedOut" class="auth-card">
+      <div id="credPane">
+        <div class="field">
+          <label class="caps" for="authEmail">Email</label>
+          <input type="email" id="authEmail" placeholder="you@example.com" autocomplete="email"/>
+        </div>
+        <div class="field">
+          <label class="caps" for="authPass">Password</label>
+          <input type="password" id="authPass" placeholder="at least 8 characters" autocomplete="current-password"/>
+        </div>
+        <label id="consentLabel" class="consent-label">
+          <input type="checkbox" id="authConsent"/>
+          <span>I agree to the <a href="/terms" target="_blank">Terms</a> and <a href="/privacy" target="_blank">Privacy Policy</a>, and I understand IPOPredict is educational information, <b>not investment advice</b>, and is not SEBI-registered. (Only needed to create an account.)</span>
+        </label>
+        <div class="submit-bar" style="display:flex; gap:10px; margin-top:12px">
+          <button id="btnSignin" style="flex:1">Sign in</button>
+          <button id="btnSignup" style="flex:1">Create account</button>
+        </div>
+        <div class="wa-note" style="margin-top:12px"><a class="linkbtn" id="forgotLink">Forgot password?</a></div>
+      </div>
+
+      <!-- verification step (shown after sign up, or sign in on an unverified account) -->
+      <div id="otpPane" class="hidden">
+        <p id="otpInfo" style="margin:0 0 14px; color:var(--ink-soft); line-height:1.6"></p>
+        <div class="field">
+          <label class="caps" for="otpCode">6-digit code</label>
+          <input type="text" id="otpCode" inputmode="numeric" maxlength="6" placeholder="123456" autocomplete="one-time-code"/>
+        </div>
+        <div class="submit-bar"><button id="otpVerify">Verify and sign in</button></div>
+        <div class="wa-note">Code expires in 10 minutes. <a class="linkbtn" id="otpResend">Resend code</a> &middot; <a class="linkbtn" id="otpBack">Use a different email</a></div>
+      </div>
+
+      <!-- forgot password: enter the code + a new password -->
+      <div id="resetPane" class="hidden">
+        <p id="resetInfo" style="margin:0 0 14px; color:var(--ink-soft); line-height:1.6"></p>
+        <div class="field">
+          <label class="caps" for="resetCode">6-digit code</label>
+          <input type="text" id="resetCode" inputmode="numeric" maxlength="6" placeholder="123456" autocomplete="one-time-code"/>
+        </div>
+        <div class="field">
+          <label class="caps" for="resetPass">New password</label>
+          <input type="password" id="resetPass" placeholder="at least 8 characters" autocomplete="new-password"/>
+        </div>
+        <div class="submit-bar"><button id="resetSubmit">Reset password and sign in</button></div>
+        <div class="wa-note"><a class="linkbtn" id="resetResend">Resend code</a> &middot; <a class="linkbtn" id="resetBack">Back</a></div>
+      </div>
+
+      <div id="authMsg" role="status" style="margin-top:16px; font-size:14px"></div>
+      <div class="wa-note">We email a 6-digit code to confirm your address. Your tier and channels save to your account, so you set them once.</div>
+    </div>
+
+    <!-- logged-in: manage account -->
+    <div id="acctLoggedIn" class="hidden auth-card">
+      <div class="signed-as" id="signedAs"></div>
+      <div class="field">
+        <label class="caps" for="acctTier">Your accuracy tier</label>
+        <div class="tier-pick">
+          <input type="range" id="acctTier" min="65" max="98" value="90" step="1"/>
+          <span class="val" id="acctTierVal">90%</span>
+        </div>
+      </div>
+      <div class="field">
+        <label class="caps" for="acctTelegram">Telegram chat ID (optional)</label>
+        <input type="text" id="acctTelegram" placeholder="message our bot once to get this"/>
+      </div>
+      <div class="submit-bar"><button id="acctSave">Save</button></div>
+      <div id="acctMsg" role="status" style="margin-top:16px; font-size:14px"></div>
+      <div style="margin-top:24px"><span class="linkbtn" id="logoutLink">Sign out</span></div>
+    </div>
+  </section>
+
+  <!-- ASK VIEW -->
+  <section id="view-ask" class="hidden">
+    <h1 class="ipo">Ask the dataset</h1>
+    <p class="metaline">answers cite historical win rates from our dataset, not opinions</p>
+    <hr class="heavy"/>
+    <div class="ask-box">
+      <input id="askInput" type="text" placeholder="do high PE companies crash on listing?"
+             aria-label="Ask a question about the IPO dataset"/>
+      <button id="askBtn" class="caps">Ask</button>
+    </div>
+    <div class="chips" id="askChips"></div>
+    <div id="askOut"></div>
+  </section>
+
+  <!-- METHOD VIEW -->
+  <section id="view-method" class="hidden method">
+    <h1 class="ipo">How it works</h1>
+    <p class="metaline">what this system is, validated numbers, and what it cannot do</p>
+    <hr class="heavy"/>
+
+    <div id="methodRecord">
+    <h2>What it does</h2>
+    <p class="plain-gloss">In plain terms: several different prediction models vote on each IPO, and we only trust the call when they agree. We re-check our accuracy every week. The technical details:</p>
+    <p>An ensemble of four models (RandomForest, XGBoost, LightGBM, ExtraTrees) scores every
+    closing mainboard IPO from live grey-market and subscription data. A calibration agent
+    re-tunes the accuracy tiers weekly. Every claim below was measured walk-forward:
+    models only ever see IPOs that came before the ones they predict.</p>
+
+    <h2>Validated numbers</h2>
+    <table>
+      <tr><th>Split</th><th>Picks</th><th>Win rate</th><th>Avg listing gain</th></tr>
+      <tr><td class="mono">50/50</td><td class="mono">81</td><td class="mono">93.8%</td><td class="mono">+30.6%</td></tr>
+      <tr><td class="mono">60/40</td><td class="mono">59</td><td class="mono">96.6%</td><td class="mono">+26.0%</td></tr>
+      <tr><td class="mono">70/30</td><td class="mono">41</td><td class="mono">92.7%</td><td class="mono">+19.3%</td></tr>
+      <tr><td class="mono">80/20</td><td class="mono">22</td><td class="mono">95.5%</td><td class="mono">+19.7%</td></tr>
+    </table>
+
+    <h2>Choosing your tier: volume vs accuracy</h2>
+    <p class="table-cap">Where you set the slider is the win rate you get. It is a strategy choice, not just a safety dial. Measured on 165 IPOs the model never trained on:</p>
+    <table>
+      <tr><th>Slider</th><th>You hear about</th><th>Win rate</th><th>Avg gain / pick</th></tr>
+      <tr><td class="mono">70%</td><td class="mono">161 of 165 (98%)</td><td class="mono">70%</td><td class="mono">+15.2%</td></tr>
+      <tr><td class="mono">80%</td><td class="mono">117 of 165 (71%)</td><td class="mono">80%</td><td class="mono">+21.0%</td></tr>
+      <tr><td class="mono">90%</td><td class="mono">82 of 165 (50%)</td><td class="mono">90%</td><td class="mono">+29.3%</td></tr>
+      <tr><td class="mono">95%</td><td class="mono">73 of 165 (44%)</td><td class="mono">96%</td><td class="mono">+32.6%</td></tr>
+    </table>
+    <p class="table-cap">The trade-off in real money, putting about Rs 15,000 into each pick across these 165 IPOs: at <strong>70%</strong> you take 161 picks, deploy roughly Rs 24 lakh, and profit about Rs 3.7 lakh - a 15% return on the money you put in. At <strong>90%</strong> you take just 82 picks, deploy about Rs 12 lakh, and profit about Rs 3.6 lakh - nearly the same profit from half the capital, a 29% return. So a low bar reaches more winners and a little more total profit; a high bar is far more efficient per rupee with fewer misses. Note that heavily oversubscribed IPOs allot by lottery, so you may not get every pick. All figures are <strong>listing-day</strong> gains, not long-term returns.</p>
+
+    <h2>Live record</h2>
+    <p class="table-cap">Real calls made before each listing. "Confidence" is how sure the system was the call would be right, on a 0 to 100 scale: 90+ has historically been correct 95 to 100% of the time, 60 to 70 is a moderate lean.</p>
+    <div class="tbl-wrap">
+    <table id="liveTable">
+      <tr><th>IPO</th><th>Call &amp; confidence</th><th>Predicted listing range</th><th>Actual</th><th>Result</th></tr>
+    </table>
+    </div>
+    </div><!-- /methodRecord -->
+
+    <h2>Honest limitations</h2>
+    <p>Prediction ranges hold about 88% of the time on recommended IPOs and 75% across all IPOs,
+    not 100%. Listing gains in this market span -25% to +140%; tighter intervals would be dishonest.
+    High accuracy tiers (95-98%) rest on roughly 40-50 historical picks each, so every new listing
+    is an out-of-sample test and is recorded above, hit or miss. Confidence is the model's own
+    calibrated probability that its call is right: at 90+ it has been correct 95-100% of the time,
+    below 60 it is close to a coin flip and says so.</p>
+  </section>
+
+</main>
+
+<!-- confirmation modal -->
+<div id="modalOverlay" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <h3 id="modalTitle"></h3>
+    <div id="modalBody"></div>
+    <div class="modal-actions">
+      <button id="modalCancel" class="btn-ghost">Cancel</button>
+      <button id="modalConfirm" class="btn-solid">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<!-- onboarding "story" shown when turning on alerts -->
+<div id="introOverlay" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="introHd">
+  <div class="intro-box">
+    <div class="intro-slide" data-s="0">
+      <div class="intro-kicker">Before you turn on alerts</div>
+      <h3 id="introHd">First, the honest part</h3>
+      <p>IPOPredict is a <strong>prediction bot, not a financial advisor</strong>. It studies how hundreds of past IPOs behaved and estimates whether a new one is likely to list above its offer price.</p>
+      <p>It can be wrong. Nothing here is investment advice - the decision, and the money, are always yours.</p>
+    </div>
+    <div class="intro-slide hidden" data-s="1">
+      <div class="intro-kicker">How it works &middot; 1 of 3</div>
+      <h3>Your accuracy tier</h3>
+      <p>The slider sets how strict your alerts are. It is a <strong>historical hit rate</strong>: at the 65% tier, about 65 of every 100 IPOs that cleared it went on to list above their offer price.</p>
+      <p class="intro-eg"><strong>Example:</strong> set it to 90 and you only hear about the strongest IPOs (about 9 in 10 listed up historically). Set it to 65 and you hear about many more - but with more misses.</p>
+    </div>
+    <div class="intro-slide hidden" data-s="2">
+      <div class="intro-kicker">How it works &middot; 2 of 3</div>
+      <h3>When we message you</h3>
+      <p>Only on an IPO's <strong>closing day</strong>, and only if it clears your tier. You get up to three short updates:</p>
+      <p class="intro-eg">Morning read (~9:30 AM) &middot; Midday update (~1:30 PM) &middot; Final read (~3 PM), in time to approve your UPI mandate before the 5 PM cutoff.<br><br>No daily digests. No spam.</p>
+    </div>
+    <div class="intro-slide hidden" data-s="3">
+      <div class="intro-kicker">How it works &middot; 3 of 3</div>
+      <h3>What it is built on</h3>
+      <p>The model learns from <strong id="introData">hundreds of</strong> past mainboard IPOs, and it grows every time a new one lists. More history makes it sharper.</p>
+      <p>But <strong>past results never guarantee the future</strong>. Grey market and subscription numbers can swing right up to closing, so treat every call as an estimate.</p>
+    </div>
+    <div class="intro-slide hidden" data-s="4">
+      <div class="intro-kicker">Last step</div>
+      <h3>You are all set</h3>
+      <p>We will email alerts to <strong id="introEmail"></strong> at the <strong id="introTier"></strong> tier. You can change your tier or stop alerts anytime from your account.</p>
+      <p class="intro-eg">Information only, not investment advice.</p>
+    </div>
+    <div class="intro-nav">
+      <button id="introPrev" class="btn-ghost">Back</button>
+      <div class="intro-dots" id="introDots"></div>
+      <button id="introNext" class="btn-solid">Next</button>
+    </div>
+  </div>
+</div>
+
+<!-- First-visit welcome: plain-language intro to what you can do -->
+<div id="welcomeOverlay" class="modal-overlay welcome-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+  <div class="welcome-box">
+    <div class="welcome-kicker">WELCOME</div>
+    <h3 id="welcomeTitle">What IPOPredict does</h3>
+    <p class="welcome-lead">For every upcoming Indian IPO, we give a clear <strong>APPLY</strong> or <strong>SKIP</strong> call &mdash; whether it is likely to gain on its first day of trading.</p>
+    <div class="welcome-feats">
+      <div class="wf"><span class="wf-i">1</span><div><strong>See the calls</strong><small>APPLY or SKIP for each IPO, with a confidence score and the reasons behind it.</small></div></div>
+      <div class="wf"><span class="wf-i">2</span><div><strong>Turn on alerts</strong><small>We email you before an IPO closes &mdash; only the ones worth your attention.</small></div></div>
+      <div class="wf"><span class="wf-i">3</span><div><strong>Ask anything</strong><small>Type a plain question about any IPO and get a straight answer.</small></div></div>
+      <div class="wf"><span class="wf-i">4</span><div><strong>Check the record</strong><small>See how our past calls actually turned out.</small></div></div>
+    </div>
+    <p class="welcome-note">We predict listing-day gains only, not long-term returns. This is information, not investment advice.</p>
+    <div class="welcome-actions">
+      <button id="welcomeTour" class="btn-solid">Take the 1-minute tour</button>
+      <button id="welcomeSkip" class="btn-ghost">Let me explore</button>
+    </div>
+  </div>
+</div>
+
+<!-- Method page: "Explain everything" full walkthrough -->
+<div id="xpOverlay" class="modal-overlay xp-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="xpTitle">
+  <div class="xp-box">
+    <div class="xp-kicker" id="xpKicker"></div>
+    <h3 id="xpTitle"></h3>
+    <div class="xp-shot" id="xpShot"></div>
+    <div id="xpStats"></div>
+    <div id="xpText"></div>
+    <div class="intro-nav">
+      <button id="xpPrev" class="btn-ghost">Back</button>
+      <div class="intro-dots" id="xpDots"></div>
+      <button id="xpNext" class="btn-solid">Next</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div>IPOPredict</div>
+    <div id="footStamp" style="color:var(--ink-faint)"></div>
+  </div>
+  <div class="links">
+    <button class="navbtn" data-nav="alerts" style="font-size:12px">Alerts</button>
+    <button class="navbtn" data-nav="method" style="font-size:12px">How it works</button>
+    <button class="navbtn" data-nav="archive" style="font-size:12px">Past IPOs</button>
+    <a class="navbtn" href="/disclaimer" target="_blank" style="font-size:12px">Disclaimer</a>
+    <a class="navbtn" href="/terms" target="_blank" style="font-size:12px">Terms</a>
+    <a class="navbtn" href="/privacy" target="_blank" style="font-size:12px">Privacy</a>
+  </div>
+  <div style="flex-basis:100%;margin-top:14px;font-size:11.5px;line-height:1.6;color:var(--ink-faint)">
+    Educational information, not investment advice. IPOPredict is not a SEBI-registered Research Analyst or
+    Investment Adviser. Predictions cover listing-day movement only and use machine-learning / AI models whose
+    outputs can be wrong. Past accuracy does not guarantee future results. Investing carries risk; decisions are your own.
+  </div>
+</footer>
+
+<script>
+const START_VIEW="method";
+</script>
+<script>
+/* ---------------------------------------------------------------
+   Data. Numbers below are the system's actual outputs and the
+   verified listing results. A fetch to the live API replaces the
+   open-positions list when the backend is reachable.
+---------------------------------------------------------------- */
+const DATA = {
+  updated: "2026-06-12 18:30 IST",
+  ipos: [
+    {
+      id: "hexagon-nutrition",
+      name: "Hexagon Nutrition",
+      sector: "FMCG/Consumer",
+      offer: 45,
+      sizeCr: 139,
+      status: "settled",
+      listedOn: "12 Jun 2026",
+      verdict: "APPLY",
+      confidence: 66,
+      maxTier: 97,
+      range: { lo: 0.9, hi: 25.8 },
+      bigWin: 16,
+      allotment: 3.7,
+      actual: { pct: 7.22, price: 48.25, hit: true },
+      note: null,
+      fundamentals: { offer_price: 45, size_cr: 139, pe: 22.69, roe: 13.02, promoter_holding: 45.74, ofs_pct: 100, fresh_pct: 0, sector: "FMCG/Consumer", gmp: 8.89, qib: 19.77, hni: 161.49, rii: 26.85, sub: 53.68, list_price: 48.25, market_sentiment: 1.0, volatility: 13.0, trend: 0 },
+      cases: {
+        pos: [
+          { head: "HNI demand 161x", fn: 1,
+            more: "High net-worth individuals bid 161 times their quota. They typically apply with borrowed money, so they avoid IPOs they do not expect to pop. Historically, when HNI subscription sat in the 50-200x band, 91% of 76 IPOs listed above offer, averaging +36.3%." },
+          { head: "Total subscription 53.7x", fn: 1,
+            more: "Combined demand across retail, HNI and institutions was 53.7 times the shares on offer. The 30-100x band has a 92% historical win rate. Heavy oversubscription creates listing-day scarcity." },
+          { head: "Retail demand 26.9x", fn: 1,
+            more: "Retail investors bid 26.9 times their quota, an 85% win-rate band historically. The flip side is allotment: at this demand, one application has roughly a 3.7% chance of getting shares." }
+        ],
+        neu: [
+          { head: "Grey market premium +8.9%", fn: 1,
+            more: "Traders paid an 8.9% premium for unlisted shares at close. The 5-15% GMP band wins 64% of the time with a +5.8% average listing. Modest expectations, not a moonshot. The actual listing came at +7.2%, almost exactly this band's average." },
+          { head: "Priced at 22.7x earnings",
+            more: "A PE of 22.7 sits in the reasonable middle of the historical distribution for mainboard issues: not a bargain, not stretched." },
+          { head: "Issue size Rs 139 crore", fn: 1,
+            more: "Issues in the 100-500 crore band won 72% of the time historically, averaging +23.1%. Small enough to oversubscribe heavily." }
+        ],
+        neg: [
+          { head: "Institutions lukewarm: QIB 19.8x", fn: 1,
+            more: "Qualified Institutional Buyers (mutual funds, banks, insurers) bid 19.8x. That sounds large, but the 10-30x QIB band wins only 55% of the time with a +3.3% average, barely better than a coin flip. The top band, 100x and above, wins 99%. Professional conviction here was moderate at best." },
+          { head: "Entire issue is promoters selling",
+            more: "This was a 100% offer-for-sale: every rupee raised went to selling shareholders, none to the company. The business received no growth capital from the listing." }
+        ]
+      },
+      footnotes: [
+        "1. Win rates from 331 mainboard IPOs, Sept 2020 - May 2026, bucketed by the metric shown."
+      ]
+    },
+    {
+      id: "cmr-green",
+      name: "CMR Green Technologies",
+      sector: "Manufacturing",
+      offer: 192,
+      sizeCr: 631,
+      status: "settled",
+      listedOn: "10 Jun 2026",
+      verdict: "APPLY",
+      confidence: 98,
+      maxTier: 98,
+      range: { lo: 3.7, hi: 46.9 },
+      bigWin: null,
+      allotment: 3.7,
+      actual: { pct: 31.77, price: 253, hit: true },
+      note: null,
+      fundamentals: { offer_price: 192, size_cr: 631, roe: 0.1, promoter_holding: 84, ofs_pct: 100, fresh_pct: 0, sector: "Manufacturing", gmp: 34.6, qib: 270.46, hni: 172.35, rii: 27.03, sub: 127.04, list_price: 253, market_sentiment: 1.05, volatility: 13.0, trend: 1 },
+      cases: {
+        pos: [
+          { head: "Institutions went all-in: QIB 270x", fn: 1,
+            more: "Qualified Institutional Buyers bid 270 times their quota. In the 100x-and-above band, 99% of 101 historical IPOs listed above offer, averaging +47.2%. Institutions commit at this scale only with high conviction." },
+          { head: "Grey market premium +34.6%", fn: 1,
+            more: "Traders paid a 34.6% premium with real money before listing. Every one of the 92 historical IPOs with GMP above 30% listed positive, averaging +58.9%." },
+          { head: "Total subscription 127x", fn: 1,
+            more: "Demand exceeded supply 127 times over. The 100x+ total-subscription band is a 100% historical win-rate bucket averaging +61.8%." },
+          { head: "HNI demand 172x", fn: 1,
+            more: "Wealthy individual investors, who typically use leverage, bid 172 times their quota. The 50-200x HNI band wins 91% of the time, averaging +36.3%." },
+          { head: "Founders kept 84%",
+            more: "Promoters retained 84% of the company after listing. High post-issue holding keeps their incentives aligned with new shareholders." }
+        ],
+        neu: [
+          { head: "Issue size Rs 631 crore",
+            more: "Mid-to-large issue. Big enough to absorb institutional money, small enough that extreme demand still created scarcity." }
+        ],
+        neg: [
+          { head: "Barely profitable: ROE 0.1%", fn: 1,
+            more: "Return on equity of 0.1% means the company generated almost no profit per rupee of shareholder capital. Historically, the below-5% ROE band won only 55% of the time, averaging +9.4%. Demand carried this listing, not fundamentals." },
+          { head: "Entire issue is promoters selling",
+            more: "100% offer-for-sale. The company itself received no capital from the IPO." }
+        ]
+      },
+      footnotes: [
+        "1. Win rates from 331 mainboard IPOs, Sept 2020 - May 2026, bucketed by the metric shown."
+      ]
+    }
+  ]
+};
+
+/* --------------------------------------------------------------- */
+function esc(s){
+  if (s == null) return "";
+  return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+const $ = (s, el=document) => el.querySelector(s);
+
+/* reusable confirmation modal */
+function openModal({ title, body, confirmLabel, cancelLabel, onConfirm }){
+  const ov = $("#modalOverlay");
+  if (!ov) { if (onConfirm) onConfirm(); return; }   // fail-open if markup missing
+  $("#modalTitle").textContent = title || "Please confirm";
+  $("#modalBody").innerHTML = body || "";
+  const cBtn = $("#modalConfirm"), xBtn = $("#modalCancel");
+  cBtn.textContent = confirmLabel || "Confirm";
+  xBtn.textContent = cancelLabel || "Cancel";
+  ov.classList.remove("hidden");
+  function close(){ ov.classList.add("hidden"); cBtn.onclick = null; xBtn.onclick = null; ov.onclick = null; document.onkeydown = null; }
+  cBtn.onclick = () => { close(); if (onConfirm) onConfirm(); };
+  xBtn.onclick = close;
+  ov.onclick = (e) => { if (e.target === ov) close(); };
+  document.onkeydown = (e) => { if (e.key === "Escape") close(); };
+  cBtn.focus();
+}
+
+/* onboarding "story" carousel shown when turning on alerts */
+(function(){
+  const ov = document.getElementById("introOverlay");
+  if (!ov) return;
+  const TOTAL = 5;
+  let cur = 0, onDone = null;
+  const slides = Array.from(ov.querySelectorAll(".intro-slide"));
+  const dots = document.getElementById("introDots");
+  if (dots && !dots.children.length){
+    for (let i = 0; i < TOTAL; i++) dots.appendChild(document.createElement("span"));
+  }
+  const prevB = document.getElementById("introPrev");
+  const nextB = document.getElementById("introNext");
+  function render(){
+    slides.forEach((s, i) => s.classList.toggle("hidden", i !== cur));
+    Array.from(dots.children).forEach((d, i) => d.classList.toggle("on", i === cur));
+    prevB.style.visibility = cur === 0 ? "hidden" : "visible";
+    nextB.textContent = cur === TOTAL - 1 ? "Turn on alerts" : "Next";
+  }
+  function close(){ ov.classList.add("hidden"); document.onkeydown = null; }
+  window.openIntro = function(opts){
+    opts = opts || {};
+    onDone = opts.onConfirm || null;
+    document.getElementById("introEmail").textContent = opts.email || "your email";
+    document.getElementById("introTier").textContent = (opts.tier || 65) + "%";
+    if (opts.dataCount) document.getElementById("introData").textContent = opts.dataCount + " ";
+    cur = 0; render(); ov.classList.remove("hidden");
+    document.onkeydown = (e) => {
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowRight") nextB.click();
+      else if (e.key === "ArrowLeft") prevB.click();
+    };
+  };
+  nextB.onclick = () => { if (cur < TOTAL - 1){ cur++; render(); } else { close(); if (onDone) onDone(); } };
+  prevB.onclick = () => { if (cur > 0){ cur--; render(); } };
+  ov.onclick = (e) => { if (e.target === ov) close(); };
+})();
+
+/* Method page: "Explain everything" full walkthrough */
+const XP_SLIDES = [
+  { kicker:"The walkthrough", title:"What this predicts",
+    shot:`<div style="font-size:15px;color:var(--ink);line-height:1.6;font-weight:600">We predict one thing: whether an IPO will <span style="color:var(--green)">list above its offer price</span> on day one, and roughly by how much.</div>`,
+    stats:[["We predict","Listing-day gain: how it opens versus the offer price"],["We do NOT","Predict long-term returns, or whether to hold after listing"]],
+    text:["A quick tour of every number on the site, one at a time. Nothing here is investment advice."] },
+  { kicker:"Feature 1 of 7", title:"The verdict: APPLY or SKIP",
+    shot:`<div class="xp-shotrow"><span style="font-weight:700">Advit Jewels</span><span class="xp-hl"><span class="xp-badge">APPLY</span></span></div><span class="xp-tag">the call</span>`,
+    stats:[["Model","Four prediction models vote together (named in full on this page)"],["Track record","In testing, APPLY calls listed above offer about 93 to 97% of the time"]],
+    text:["Several models vote. <strong>APPLY</strong> when they agree and it clears your bar, otherwise <strong>SKIP</strong>. A SKIP just means the pattern was not strong enough."] },
+  { kicker:"Feature 2 of 7", title:"Confidence",
+    shot:`<div class="xp-shotrow">our call: APPLY &middot; <span class="xp-hl">confidence <strong>98</strong></span></div><span class="xp-tag">how sure the model is</span>`,
+    stats:[["Scale","0 to 100 - how likely the model thinks its own call is right"],["Track record","90 and above has been correct 95 to 100% of the time"]],
+    text:["How sure the model is about <em>this one call</em>. 90+ is a strong lean; below 60 is close to a coin flip."] },
+  { kicker:"Feature 3 of 7", title:"The predicted listing range",
+    shot:`<div class="xp-shotrow">listing range <span class="xp-hl"><strong>-4% to +68%</strong></span></div><span class="xp-tag">where it is likely to open</span>`,
+    stats:[["What","The band the listing-day gain is most likely to fall in"],["Hit rate","About 88% on recommended IPOs, 75% across all IPOs"]],
+    text:["A likely range, not a promise. Wider means less sure, narrow means the pattern was clean."] },
+  { kicker:"Feature 4 of 7", title:"The slider is your strategy",
+    shot:`<div class="strat-tbl">
+      <div class="strat-row strat-head"><span>Slider</span><span>You hear about</span><span>Win rate</span><span>Avg gain</span></div>
+      <div class="strat-row"><span>70%</span><span>~all of them</span><span>70%</span><span>+15%</span></div>
+      <div class="strat-row"><span>80%</span><span>~7 in 10</span><span>80%</span><span>+21%</span></div>
+      <div class="strat-row hi"><span>90%</span><span>~5 in 10</span><span>90%</span><span>+29%</span></div>
+    </div><span class="xp-tag">measured on 165 IPOs the model never saw</span>`,
+    stats:[["Reads as","Where you set it IS the win rate. 90 means about 9 of 10 picks list up"],["The trade","Higher = fewer, surer picks. Lower = many more, riskier picks"]],
+    text:["Where you set it is the win rate you can expect. High = a few near-certain calls, low = almost everything."] },
+  { kicker:"Volume vs accuracy", title:"Two strategies, in real money",
+    shot:`<div class="strat-tbl">
+      <div class="strat-row strat-head"><span>Strategy</span><span>Picks</span><span>Money in</span><span>Profit</span></div>
+      <div class="strat-row"><span>Low bar 70%</span><span>161</span><span>~24 lakh</span><span>~3.7 lakh</span></div>
+      <div class="strat-row hi"><span>High bar 90%</span><span>82</span><span>~12 lakh</span><span>~3.6 lakh</span></div>
+    </div><span class="xp-tag">Rs 15,000 into each pick, same 165 IPOs</span>`,
+    stats:[["Low bar","More winners, slightly more total profit, but ties up twice the cash (15% return)"],["High bar","Nearly the same profit from half the money, fewer misses (29% return)"]],
+    text:["Low bar: more winners, twice the cash. High bar: nearly the same profit from half the money. Pick what suits you."] },
+  { kicker:"Feature 5 of 7", title:"GMP (grey market premium)",
+    shot:`<div class="xp-shotrow">GMP <span class="xp-hl"><strong>+36%</strong></span></div><span class="xp-tag">unofficial demand signal</span>`,
+    stats:[["What","What buyers unofficially pay over the offer price before listing"],["Caution","Unofficial and can vanish by listing day - an input, not a promise"]],
+    text:["Unofficial demand before listing. The models use it as one signal among many, never blindly."] },
+  { kicker:"Feature 6 of 7", title:"Allotment odds",
+    shot:`<div class="xp-shotrow">allotment odds <span class="xp-hl"><strong>~8%</strong></span></div><span class="xp-tag">chance you get shares</span>`,
+    stats:[["What","Rough chance you actually get shares if you apply"],["Based on","How oversubscribed the retail portion is"]],
+    text:["Heavily oversubscribed IPOs allot by lottery, so even a great IPO may not get you shares."] },
+  { kicker:"Feature 7 of 7", title:"Ask anything",
+    shot:`<span class="xp-hl" style="display:block;padding:11px 13px;background:rgba(127,127,127,.12);border-radius:6px;color:var(--ink-soft)">ask anything about an IPO...</span><span class="xp-tag">answers from real data</span>`,
+    stats:[["What","Type a question in plain English, get a straight answer"],["From","The same real numbers you see across the site"]],
+    text:["Ask things like 'should I apply to Advit'. It answers from real data, and says so when it is not sure."] },
+  { kicker:"Email alerts", title:"How we tell you",
+    shot:`<span class="xp-hl" style="display:block;padding:11px 13px;background:rgba(127,127,127,.12);border-radius:6px;color:var(--ink);font-weight:600">Subject: Advit Jewels closes today - APPLY</span><span class="xp-tag">a plain-language email</span>`,
+    stats:[["When","Only on an IPO's closing day - up to 3 short emails, never daily spam"],["What","The call, the likely range, and the 5 PM UPI deadline, in plain words"]],
+    text:["Pick your tier and we email you on closing day if an IPO clears it. Change or stop anytime."] },
+  { kicker:"Last thing", title:"What it cannot do",
+    shot:`<div style="font-size:14.5px;color:var(--ink-soft);line-height:1.62">No model can promise an IPO will list up. Markets surprise everyone.</div>`,
+    stats:[],
+    text:["<strong>Information, not investment advice.</strong> Every call is logged here, hit or miss, so you can judge the record."] }
+];
+(function(){
+  const ov = document.getElementById("xpOverlay");
+  if (!ov) return;
+  const TOTAL = XP_SLIDES.length;
+  let cur = 0;
+  const dots = document.getElementById("xpDots");
+  if (dots && !dots.children.length){ for (let i = 0; i < TOTAL; i++) dots.appendChild(document.createElement("span")); }
+  const prevB = document.getElementById("xpPrev"), nextB = document.getElementById("xpNext");
+  function render(){
+    const s = XP_SLIDES[cur];
+    document.getElementById("xpKicker").textContent = s.kicker;
+    document.getElementById("xpTitle").textContent = s.title;
+    document.getElementById("xpShot").innerHTML = s.shot;
+    document.getElementById("xpStats").innerHTML = (s.stats || []).map(p => `<div class="xp-stat"><b>${p[0]}</b><span>${p[1]}</span></div>`).join("");
+    document.getElementById("xpText").innerHTML = (s.text || []).map(t => `<p>${t}</p>`).join("");
+    Array.from(dots.children).forEach((d, i) => d.classList.toggle("on", i === cur));
+    prevB.style.visibility = cur === 0 ? "hidden" : "visible";
+    nextB.textContent = cur === TOTAL - 1 ? "Done" : "Next";
+  }
+  function openXp(){ cur = 0; render(); ov.classList.remove("hidden");
+    document.onkeydown = (e) => { if (e.key === "Escape") close(); else if (e.key === "ArrowRight") nextB.click(); else if (e.key === "ArrowLeft") prevB.click(); }; }
+  function close(){ ov.classList.add("hidden"); document.onkeydown = null; }
+  function finishXp(){ close(); if (typeof showView === "function") showView("ledger"); window.scrollTo(0,0); }
+  document.querySelectorAll(".xp-cta").forEach(b => { b.onclick = openXp; });
+  nextB.onclick = () => { if (cur < TOTAL - 1){ cur++; render(); ov.querySelector(".xp-box").scrollTop = 0; } else finishXp(); };
+  prevB.onclick = () => { if (cur > 0){ cur--; render(); ov.querySelector(".xp-box").scrollTop = 0; } };
+  ov.onclick = (e) => { if (e.target === ov) close(); };
+})();
+const views = ["ledger","detail","archive","patterns","alerts","ask","method","account"];
+
+function fmtPct(x, signed=true){
+  const s = (signed && x > 0 ? "+" : "") + x.toFixed(x % 1 ? 1 : 0) + "%";
+  return s;
+}
+
+/* clock: IST */
+function tick(){
+  const now = new Date(Date.now() + (330 + new Date().getTimezoneOffset()) * 60000);
+  const p = n => String(n).padStart(2,"0");
+  $("#clock").textContent = `${p(now.getHours())}:${p(now.getMinutes())}:${p(now.getSeconds())}.IST`;
+}
+setInterval(tick, 1000); tick();
+
+/* theme */
+$("#themeBtn").addEventListener("click", () => {
+  const dark = document.documentElement.classList.toggle("dark");
+  $("#themeBtn").textContent = dark ? "Light" : "Dark";
+});
+
+/* navigation: pure JS view switching, no links (works inside sandboxed previews) */
+function showView(view, arg, push){
+  views.forEach(v => $("#view-"+v).classList.toggle("hidden", v !== view));
+  document.querySelectorAll("[data-nav]").forEach(b =>
+    b.classList.toggle("active", b.dataset.nav === (view === "detail" ? "ledger" : view)));
+  if (view === "detail") renderDetail(arg);
+  if (view === "account" || view === "alerts") refreshAuth();
+  window.scrollTo(0,0);
+  // Keep the browser Back button INSIDE the app: each view becomes a history
+  // entry, so Back returns to the previous view instead of leaving the site.
+  if (push !== false){
+    try { history.pushState({view: view, arg: arg || null}, "",
+            "#" + view + (arg ? "/" + encodeURIComponent(arg) : "")); } catch(e){}
+  }
+}
+window.addEventListener("popstate", function(e){
+  var s = e.state;
+  if (s && s.view){ showView(s.view, s.arg, false); }
+  else { showView("ledger", null, false); }
+});
+document.addEventListener("click", e => {
+  const nav = e.target.closest("[data-nav]");
+  if (nav){ document.querySelector("header").classList.remove("nav-open"); showView(nav.dataset.nav); return; }
+  const arch = e.target.closest("[data-arch]");
+  if (arch){ showArchiveDetail(+arch.dataset.arch); return; }
+  const row = e.target.closest("[data-ipo]");
+  if (row){ showView("detail", row.dataset.ipo); }
+});
+// mobile hamburger: open/close the dropdown menu
+(function(){
+  var t = document.getElementById("navToggle");
+  if (!t) return;
+  t.addEventListener("click", function(){
+    var h = document.querySelector("header");
+    var open = h.classList.toggle("nav-open");
+    t.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+})();
+// first-visit welcome: show the plain-language intro once, then remember
+(function(){
+  var ov = document.getElementById("welcomeOverlay");
+  if (!ov) return;
+  var seen = false;
+  try { seen = localStorage.getItem("ipopredict_welcomed") === "1"; } catch(e){}
+  if (typeof PREVIEW_LIVE !== "undefined") seen = false;   // demo always shows it for testing
+  function dismiss(){
+    ov.classList.add("hidden");
+    try { localStorage.setItem("ipopredict_welcomed", "1"); } catch(e){}
+  }
+  if (!seen) ov.classList.remove("hidden");
+  var sk = document.getElementById("welcomeSkip");
+  var tr = document.getElementById("welcomeTour");
+  if (sk) sk.addEventListener("click", dismiss);
+  if (tr) tr.addEventListener("click", function(){
+    dismiss();
+    var cta = document.querySelector(".xp-cta");   // reuse the existing tour launcher
+    if (cta) cta.click();
+  });
+})();
+document.addEventListener("keydown", e => {
+  if ((e.key === "Enter" || e.key === " ") && e.target.dataset && e.target.dataset.arch){
+    e.preventDefault(); showArchiveDetail(+e.target.dataset.arch);
+  }
+});
+document.addEventListener("keydown", e => {
+  if ((e.key === "Enter" || e.key === " ") && e.target.dataset && e.target.dataset.ipo){
+    e.preventDefault(); showView("detail", e.target.dataset.ipo);
+  }
+});
+
+/* ledger */
+const MON3 = {jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
+function parseCloseDate(s){
+  if (!s) return 8640000000000000;  // no date -> sort last
+  const m = String(s).replace(/(Mon|Tue|Wed|Thu|Fri|Sat|Sun),?\s*/,"").match(/(\d+)\s+([A-Za-z]+),?\s*(\d{4})/);
+  if (!m) return 8640000000000000;
+  return new Date(+m[3], MON3[m[2].slice(0,3).toLowerCase()] ?? 0, +m[1]).getTime();
+}
+function closeLine(ipo){
+  if (!ipo.closeDate) return "subscription open";
+  const d = parseCloseDate(ipo.closeDate);
+  const t = new Date(); t.setHours(0,0,0,0);
+  return (d && d < t ? "closed " : "closes ") + ipo.closeDate;
+}
+function rowHTML(ipo){
+  const a = ipo.actual;
+  // ---- SEBI-safe build: factual card, no call / score / range / tier ----
+  if (window.COMPLIANT){
+    const f = ipo.fundamentals || {};
+    const gmp = (f.gmp != null) ? " &middot; GMP " + fmtPct(f.gmp) : "";
+    const sub = (f.sub != null) ? " &middot; sub " + (+f.sub).toFixed(2) + "x" : "";
+    const stamp = ipo.status === "settled"
+        ? `<span class="stamp">LISTED${a ? " " + fmtPct(a.pct) : ""}</span>`
+        : (ipo.status === "upcoming"
+            ? `<span class="stamp upcoming-stamp">UPCOMING</span>`
+            : `<span class="stamp">OPEN</span>`);
+    return `
+    <div class="row" data-ipo="${ipo.id}" tabindex="0" role="button">
+      <div>
+        <div class="name">${esc(ipo.name)}</div>
+        <div class="meta mono">${esc(ipo.sector)}${ipo.offer ? " &middot; Rs " + ipo.offer : ""} &middot; ${ipo.status === "settled" ? "listed " + (ipo.listedOn||"") : closeLine(ipo)}${gmp}${sub}</div>
+      </div>
+      ${stamp}
+    </div>`;
+  }
+  // upcoming IPO: no call yet, show closing date + a clear data warning
+  if (ipo.status === "upcoming"){
+    return `
+    <div class="row upcoming" data-ipo="${ipo.id}" tabindex="0" role="button">
+      <div>
+        <div class="name">${esc(ipo.name)}</div>
+        <div class="meta mono">${esc(ipo.sector)}${ipo.offer ? " &middot; Rs " + ipo.offer : ""} &middot; ${closeLine(ipo)}</div>
+        <div class="data-warn">Not enough data yet to make a call. We need grey-market and subscription numbers, which arrive once bidding opens.<br><span class="apply-by">Apply by 5:00 PM on the closing day. Many brokers cut off earlier (often 2-4 PM), so do not wait for the last hour.</span></div>
+      </div>
+      <span class="stamp upcoming-stamp">UPCOMING</span>
+    </div>`;
+  }
+  // rare: a listed IPO with NO prediction at all (couldn't be scored) -> plain result
+  if (ipo.status === "settled" && a && !ipo.range && !ipo.verdict){
+    return `
+    <div class="row" data-ipo="${ipo.id}" tabindex="0" role="button">
+      <div>
+        <div class="name">${esc(ipo.name)}</div>
+        <div class="meta mono">${esc(ipo.sector)} &middot; Rs ${ipo.offer} &middot; listed ${ipo.listedOn || ""}</div>
+      </div>
+      <div class="pa mono">
+        <div><span class="lab">OFFER </span>Rs ${ipo.offer}</div>
+        <div><span class="lab">LISTED </span><strong>${fmtPct(a.pct)}</strong></div>
+      </div>
+      <span class="stamp ${a.pct >= 0 ? "" : "miss"}">${a.pct >= 0 ? "GAIN" : "LOSS"}</span>
+    </div>`;
+  }
+  const graded = a && ipo.range;   // a true historical graded call has BOTH pred + actual
+  return `
+  <div class="row" data-ipo="${ipo.id}" tabindex="0" role="button">
+    <div>
+      <div class="name">${esc(ipo.name)}</div>
+      <div class="meta mono">${esc(ipo.sector)} &middot; Rs ${ipo.offer} &middot; ${ipo.status === "settled" ? "listed " + ipo.listedOn : closeLine(ipo)}${ipo.tierPreliminary ? " &middot; tier preliminary" : ""}</div>
+    </div>
+    <div class="pa mono">
+      <div><span class="lab">PRED </span>${ipo.range ? fmtPct(ipo.range.lo) + " to " + fmtPct(ipo.range.hi) : "-"}</div>
+      ${a ? `<div><span class="lab">ACTUAL </span><strong>${fmtPct(a.pct)}</strong></div>` : `<div><span class="lab">CONFIDENCE </span>${ipo.confidence}/100</div>`}
+    </div>
+    ${graded ? `<span class="stamp ${a.hit ? "" : "miss"}">${a.hit ? "HIT" : "MISS"}</span>`
+        : `<span class="stamp ${ipo.verdict === "SKIP" ? "skip-stamp" : ""}">${ipo.verdict}</span>`}
+  </div>`;
+}
+
+let renderedTier = 90;
+function updateTierReadout(){
+  const tier = +$("#tierSlider").value;
+  $("#tierReadout").firstChild.textContent = tier + "%";
+  const exp = $("#tierExplain");
+  if (exp) exp.textContent = "\u2248 " + (tier/10).toFixed(1) + " in 10 IPOs at this bar have listed positive";
+  const ph = $("#tierPending");
+  if (ph) ph.textContent = (tier !== renderedTier) ? "press Confirm to show IPOs at " + tier + "%" : "";
+}
+function renderLedger(){
+  const COMP = !!window.COMPLIANT;
+  let qualifying, tier = 65;
+  if (COMP){
+    qualifying = DATA.ipos.slice();   // no forward tier filter in the SEBI-safe build
+    const tc = $("#tierCount"); if (tc) tc.textContent = DATA.ipos.length + " IPOs tracked";
+  } else {
+    tier = +$("#tierSlider").value;
+    renderedTier = tier;
+    updateTierReadout();
+    qualifying = DATA.ipos.filter(i => i.maxTier >= tier);
+    $("#tierCount").textContent = qualifying.length + " of " + DATA.ipos.length + " entries qualify";
+  }
+
+  const today = new Date(); today.setHours(0,0,0,0);
+  const isClosed = (i) => { const d = parseCloseDate(i.closeDate); return d && d < today; };
+  const openLive = qualifying.filter(i => i.status === "open" && !isClosed(i));
+  const closedAwaiting = qualifying.filter(i => i.status === "open" && isClosed(i));
+  const upcoming = DATA.ipos.filter(i => i.status === "upcoming");   // upcoming ignore tier filter
+  // Settled = all past IPOs with a real result. A graded historical call is
+  // filtered by the tier slider; a freshly-listed IPO (real listing gain, no
+  // forward tier) is ALWAYS shown - the "how strict" filter must never hide a
+  // real outcome.
+  const settled = DATA.ipos.filter(i => i.status === "settled" &&
+    (COMP || i.maxTier == null || i.maxTier >= tier));
+
+  const openSection = [...openLive, ...upcoming].sort((x,y) => parseCloseDate(x.closeDate) - parseCloseDate(y.closeDate));
+  $("#openCount").textContent = openSection.length ? openSection.length : "none";
+  $("#openList").innerHTML = openSection.length ? openSection.map(rowHTML).join("") :
+    `<div class="empty">No IPO is currently open or upcoming.
+     <div class="mono">New entries appear here on closing day.</div></div>`;
+
+  const closedSorted = closedAwaiting.sort((x,y) => parseCloseDate(y.closeDate) - parseCloseDate(x.closeDate));
+  const closedHead = $("#closedHead");
+  if (closedSorted.length){
+    if (closedHead) closedHead.style.display = "";
+    $("#closedCount").textContent = closedSorted.length + " awaiting listing";
+    $("#closedList").innerHTML = closedSorted.map(rowHTML).join("");
+  } else {
+    if (closedHead) closedHead.style.display = "none";
+    $("#closedList").innerHTML = "";
+  }
+
+  $("#settledCount").textContent = settled.length + (COMP ? " listed" : " verified");
+  $("#settledList").innerHTML = settled.length ? settled.map(rowHTML).join("") :
+    `<div class="empty">${COMP ? "No past IPOs to show yet." : "Nothing settled at this filter. Lower the accuracy bar to see more history."}</div>`;
+
+  $("#lastUpdated").textContent = window.liveUpdatedText || ("Data updated: " + DATA.updated + (COMP ? "." : ". Predictions are locked before listing; outcomes are stamped after."));
+}
+$("#tierSlider").addEventListener("input", updateTierReadout);
+$("#tierConfirm").addEventListener("click", () => {
+  const tier = +$("#tierSlider").value;
+  const qual = DATA.ipos.filter(i => i.maxTier >= tier);
+  const open = qual.filter(i => i.status === "open");
+  const skips = open.filter(i => i.verdict === "SKIP").length;
+  openModal({
+    title: "Set the " + tier + "% bar?",
+    body: "About <strong>" + (tier/10).toFixed(1) + " in 10</strong> IPOs at this bar have historically listed above their offer price. "
+      + "<strong>" + open.length + "</strong> open IPO" + (open.length===1?"":"s") + " clear it right now."
+      + (skips ? "<div class=\"skip-warn\" style=\"margin-top:10px\">" + skips + " of them are SKIP &mdash; they clear the bar, but our call is don't-apply.</div>" : ""),
+    confirmLabel: "Show these IPOs",
+    onConfirm: () => { renderLedger(); const el = $("#openList"); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }
+  });
+});
+
+/* detail */
+function bulletHTML(b, cls){
+  return `<li tabindex="0">
+    <div class="b-head">
+      <span class="sq ${cls}"></span>
+      <p>${b.head}${b.fn ? `<sup>${b.fn}</sup>` : ""}</p>
+    </div>
+    <div class="b-more">${b.more}</div>
+    <div class="b-hint">tap to expand</div>
+  </li>`;
+}
+
+function caseHTML(title, list, cls, openByDefault){
+  if (!list || !list.length) return "";
+  return `
+  <div class="case" data-open="${openByDefault ? "1" : "0"}">
+    <h2>${title} (${list.length}) <span class="toggle">${openByDefault ? "\u2212" : "+"}</span></h2>
+    <ul class="bullets" style="${openByDefault ? "" : "display:none"}">
+      ${list.map(b => bulletHTML(b, cls)).join("")}
+    </ul>
+  </div>`;
+}
+
+function confidenceWord(c){
+  if (c >= 90) return "very high";
+  if (c >= 75) return "high";
+  if (c >= 60) return "moderate";
+  if (c >= 45) return "low";
+  return "very low";
+}
+function confidenceLine(c){
+  const band = c >= 90 ? "Historically, calls this confident have been right 95 to 100% of the time."
+    : c >= 75 ? "Historically, calls in this range have been right around 85 to 95% of the time."
+    : c >= 60 ? "A moderate lean. Historically right around 70 to 85% of the time, so treat it as a tilt, not a sure thing."
+    : "A weak signal, close to a coin flip. Worth caution.";
+  return "How sure the system is that the suggestion above is correct, on a 0 to 100 scale. " + band;
+}
+
+function nearestByPE(pe, limit){
+  // archive rows: [name,date,sector,offerRs,gmp%,demandx,day1%,pe]
+  const withPE = ARCHIVE.filter(r => r[7] != null);
+  withPE.sort((a,b) => Math.abs(a[7]-pe) - Math.abs(b[7]-pe));
+  return withPE.slice(0, limit || 5);
+}
+function pastExamplesBySector(sector, limit){
+  const rows = ARCHIVE.filter(r => r[2] === sector).slice(0, limit || 5);
+  return rows.length ? rows : ARCHIVE.slice(0, limit || 5);
+}
+
+function buildFundamentals(ipo){
+  const f = ipo.fundamentals || {};
+  const have = [];
+  // [k, v, help, metricKey, archiveIdx, metricVal, type, group]
+  const pushM = (group, k, v, help, mk, idx, mv, type) => have.push([k, v, help || "", mk, idx, mv, type || "num", group]);
+
+  // The offer
+  if (ipo.closeDate && ipo.status !== "settled") pushM("offer", "Closing date", ipo.closeDate, "last day to apply");
+  if (f.offer_price)  pushM("offer", "Offer price", "Rs " + f.offer_price, "price per share");
+  if (f.size_cr)      pushM("offer", "Issue size", "Rs " + f.size_cr + " crore", "total money being raised", "issue size", 12, f.size_cr, "num");
+
+  // Grey market & demand
+  if (f.gmp != null)  pushM("demand", "Grey market premium", (f.gmp > 0 ? "+" : "") + f.gmp + "%" + (f.gmp_price ? " (implies ~Rs " + f.gmp_price + ")" : ""), "unofficial premium being paid before listing (higher means more demand)", "grey market", 4, f.gmp, "num");
+  if (f.sub != null)  pushM("demand", "Overall subscription", f.sub + "x", "total demand versus shares on offer (higher is stronger)", "subscription", 5, f.sub, "num");
+  if (f.qib != null)  pushM("demand", "Institutions (QIB)", f.qib + "x", "how many times big funds bid their quota (smart money)", "QIB", 14, f.qib, "num");
+  if (f.hni != null)  pushM("demand", "Wealthy investors (HNI)", f.hni + "x", "how many times high-net-worth investors bid", "HNI", 15, f.hni, "num");
+  if (f.rii != null)  pushM("demand", "Retail (RII)", f.rii + "x", "how many times small individual investors bid", "RII", 16, f.rii, "num");
+
+  // Company fundamentals
+  if (f.pe != null && f.pe !== 0) pushM("fundamentals", "P/E ratio", f.pe < 0 ? f.pe + " (loss-making)" : f.pe,
+      f.pe < 0 ? "company is not yet profitable" : "how pricey the shares are versus profits (lower is cheaper)", "P/E", 7, f.pe, "num");
+  if (f.roe != null && f.roe !== 0) pushM("fundamentals", "Return on equity", f.roe + "%", "how well it turns investor money into profit (higher is better)", "ROE", 8, f.roe, "num");
+  if (f.promoter_holding != null && f.promoter_holding !== 0) pushM("fundamentals", "Promoter holding after IPO", f.promoter_holding + "%", "how much the founders keep (more usually means more skin in the game)", "promoter holding", 9, f.promoter_holding, "num");
+  if (f.ofs_pct != null) pushM("fundamentals", "Offer-for-sale (OFS)", (f.ofs_pct||0) + "% (founders selling)", "share of the IPO that is founders cashing out vs new money", "OFS", 10, f.ofs_pct, "num");
+  if (f.fresh_pct != null) pushM("fundamentals", "Fresh issue", (f.fresh_pct||0) + "% (new money)", "share of the IPO that is fresh capital for the company", "fresh issue", 11, f.fresh_pct, "num");
+
+  // After listing (settled / past IPOs)
+  if (f.list_price) pushM("after", "Listed at", "Rs " + f.list_price, "the price it actually opened at on listing day");
+
+  // Market backdrop
+  if (f.sector) pushM("context", "Sector", esc(f.sector), "compare IPOs in the same sector", "sector", 2, f.sector, "cat");
+  if (f.market_sentiment != null) pushM("context", "Market mood", trendWord(f.trend) + (f.volatility ? " \u00b7 " + f.volatility + "% volatility" : ""), "how IPOs did when the market was in a similar mood", "market mood", 13, f.market_sentiment, "mood");
+
+  return have;
+}
+function fundamentalsHTML(have){
+  if (!have.length) return "";
+  const GROUP_LABEL = {
+    offer: "The offer",
+    demand: "Grey market & demand",
+    fundamentals: "Company fundamentals",
+    after: "After listing",
+    context: "Market backdrop"
+  };
+  let rows = "";
+  let lastGroup = null;
+  for (const [k,v,h,mk,idx,mv,type,group] of have){
+    if (group !== lastGroup){
+      rows += `<div class="dl-group caps">${GROUP_LABEL[group] || ""}</div>`;
+      lastGroup = group;
+    }
+    rows += mk
+      ? `<div class="dl-row clickable" data-metric="${esc(mk)}" data-idx="${idx}" data-val="${esc(mv)}" data-type="${esc(type)}" tabindex="0" role="button"><span class="dl-k">${k}${h ? `<span class="dl-help">${h}</span>` : ""}</span><span class="dl-v">${v} <span class="tap-hint">tap to compare</span></span></div>`
+      : `<div class="dl-row"><span class="dl-k">${k}${h ? `<span class="dl-help">${h}</span>` : ""}</span><span class="dl-v">${v}</span></div>`;
+  }
+  return `<div class="data-col fund-block">
+    <h2 class="caps">The numbers (tap any to compare)</h2>
+    ${rows}
+  </div>`;
+}
+
+function trendWord(t){
+  if (t >= 2) return "rising";
+  if (t === 1) return "mildly up";
+  if (t === 0) return "flat";
+  if (t === -1) return "mildly down";
+  return "falling";
+}
+function nearestByCol(idx, val, limit){
+  const rows = ARCHIVE.filter(r => r[idx] != null);
+  rows.sort((a,b) => Math.abs(a[idx]-val) - Math.abs(b[idx]-val));
+  return rows.slice(0, limit || 5);
+}
+function sentimentBand(ratio){
+  if (ratio == null) return "unknown";
+  if (ratio < 1.00) return "a falling market";
+  if (ratio < 1.05) return "a flat to mildly-up market";
+  if (ratio < 1.15) return "a rising market";
+  return "a strongly rising market";
+}
+function statsFor(rows){
+  // rows: archive rows; day-1 listing gain at index 6
+  const g = rows.filter(r => r[6] != null).map(r => r[6]);
+  if (!g.length) return null;
+  const wins = g.filter(x => x > 0).length;
+  const avg = g.reduce((a,b)=>a+b,0)/g.length;
+  const best = Math.max(...g), worst = Math.min(...g);
+  return { n: g.length, winRate: Math.round(wins/g.length*100), avg: avg, best, worst };
+}
+function bandRows(idx, val){
+  // a sensible peer GROUP for win-rate stats (wider than the 5 closest)
+  // take IPOs within a window so the percentage is meaningful (min 15, scaled)
+  const withCol = ARCHIVE.filter(r => r[idx] != null);
+  withCol.sort((a,b) => Math.abs(a[idx]-val) - Math.abs(b[idx]-val));
+  const n = Math.min(Math.max(20, Math.round(withCol.length*0.12)), withCol.length);
+  return withCol.slice(0, n);
+}
+const SECTOR_CODE = {
+  "manufacturing":"MFG", "pharma/healthcare":"PHARMA", "pharma":"PHARMA",
+  "fmcg/consumer":"FMCG", "fmcg":"FMCG", "technology":"TECH", "bfsi":"BFSI",
+  "real estate/infra":"REALTY", "realty":"REALTY", "energy":"ENERGY",
+  "hospitality":"HOSP", "logistics":"LOGI", "agriculture":"AGRI", "agri":"AGRI",
+  "education":"EDU", "telecom":"TELECOM", "reit/invit":"REIT", "reit":"REIT"
+};
+function sectorCode(s){
+  if (!s) return s;
+  const k = String(s).toLowerCase().trim();
+  return SECTOR_CODE[k] || s.toUpperCase();
+}
+function sameCategory(idx, val, limit){
+  // sector lives at idx 2 as a short code; normalize the incoming full name
+  const target = (idx === 2) ? sectorCode(val) : val;
+  return ARCHIVE.filter(r => r[idx] === target).slice(0, limit || 5);
+}
+const SECTOR_NAME = {MFG:"Manufacturing", PHARMA:"Pharma", FMCG:"FMCG", TECH:"Technology", BFSI:"BFSI", REALTY:"Real Estate", ENERGY:"Energy", HOSP:"Hospitality", LOGI:"Logistics", AGRI:"Agriculture", EDU:"Education", REIT:"REIT", TELECOM:"Telecom"};
+function metricPhrase(metricName){
+  const m = {"grey market":"grey market premium","subscription":"overall subscription",
+    "QIB":"institutional (QIB) demand","HNI":"wealthy (HNI) demand","RII":"retail demand",
+    "P/E":"P/E ratio","ROE":"return on equity","promoter holding":"promoter holding",
+    "OFS":"OFS share","fresh issue":"fresh-issue share","issue size":"issue size",
+    "sector":"sector","market mood":"market mood"};
+  return m[metricName] || metricName;
+}
+function fmtMetric(metricName, v){
+  if (v == null) return "-";
+  if (metricName === "P/E") return v;
+  if (metricName === "issue size") return "Rs " + v + " cr";
+  if (metricName === "sector") return SECTOR_NAME[v] || esc(v);
+  if (metricName === "market mood") return v;            // ratio
+  if (metricName === "grey market") return (v > 0 ? "+" : "") + v + "%";
+  if (metricName === "subscription" || metricName === "QIB" || metricName === "HNI" || metricName === "RII") return v + "x";
+  return v + "%";                                          // roe, promoter, ofs, fresh
+}
+function moodMatch(val){
+  const b = sentimentBand(val);
+  return ARCHIVE.filter(r => r[13] != null && sentimentBand(r[13]) === b);
+}
+function firstMetric(ipo){
+  const f = ipo.fundamentals || {};
+  if (f.gmp != null && f.gmp !== 0) return ["grey market", 4, f.gmp, "num"];
+  if (f.sub != null) return ["subscription", 5, f.sub, "num"];
+  if (f.pe != null && f.pe !== 0) return ["P/E", 7, f.pe, "num"];
+  if (f.roe != null && f.roe !== 0) return ["ROE", 8, f.roe, "num"];
+  if (f.promoter_holding != null && f.promoter_holding !== 0) return ["promoter holding", 9, f.promoter_holding, "num"];
+  if (f.sector) return ["sector", 2, f.sector, "cat"];
+  if (f.size_cr) return ["issue size", 12, f.size_cr, "num"];
+  return ["grey market", 4, f.gmp != null ? f.gmp : 0, "num"];
+}
+function comparePanel(ipo, metricName, idx, val, type){
+  if (val == null || val === "" || (type !== "cat" && type !== "mood" && val === 0 && metricName !== "OFS" && metricName !== "Fresh issue")){
+    return `<p class="ex-note">No ${metricName} value for this IPO yet, so we can't compare on it.</p>`;
+  }
+  let group, ex;
+  if (type === "cat"){ group = sameCategory(idx, val, 999); ex = group.slice(0,5); }
+  else if (type === "mood"){ group = moodMatch(val); ex = group.slice(0,5); }
+  else if (metricName === "P/E" && val < 0){ group = ARCHIVE.filter(r => r[7] != null && r[7] < 0); ex = group.slice(0,5); }
+  else { group = bandRows(idx, val); ex = nearestByCol(idx, val, 5); }
+  if (!ex.length) return `<p class="ex-note">No past ${metricName} matches in our records.</p>`;
+
+  const st = statsFor(group);
+  const smallSample = st && st.n < 10;
+  const headValue = fmtMetric(metricName, val);
+  const phrase = metricPhrase(metricName);
+  const colLabel = (metricName === "sector") ? "Sector"
+                 : (metricName === "issue size") ? "Issue size"
+                 : (metricName === "market mood") ? "Market mood"
+                 : (metricName === "grey market") ? "Grey mkt"
+                 : (metricName === "subscription") ? "Subscribed"
+                 : (metricName === "promoter holding") ? "Promoter"
+                 : metricName;
+  let groupLabel;
+  if (type === "cat") groupLabel = (st?st.n:0) + " past IPOs in this " + metricName;
+  else if (type === "mood") groupLabel = (st?st.n:0) + " past IPOs that listed in " + sentimentBand(val);
+  else if (metricName === "P/E" && val < 0) groupLabel = (st?st.n:0) + " past loss-making IPOs";
+  else groupLabel = "the " + (st?st.n:0) + " past IPOs with the closest " + phrase;
+
+  const summary = st ? `
+    <div class="cmp-stats">
+      <div class="cstat"><span class="cstat-v ${st.winRate>=65?'good':st.winRate>=50?'mid':'bad'}">${st.winRate}%</span><span class="cstat-l">listed positive</span></div>
+      <div class="cstat"><span class="cstat-v ${st.avg>0?'good':'bad'}">${st.avg>0?'+':''}${st.avg.toFixed(1)}%</span><span class="cstat-l">average day-1</span></div>
+      <div class="cstat"><span class="cstat-v">${st.best>0?'+':''}${st.best.toFixed(0)}%</span><span class="cstat-l">best</span></div>
+      <div class="cstat"><span class="cstat-v">${st.worst.toFixed(0)}%</span><span class="cstat-l">worst</span></div>
+    </div>
+    <p class="cmp-basis">Based on ${groupLabel}.${smallSample ? ' <span class="small-sample">Small sample (' + st.n + '), read with caution.</span>' : ((type==='mood'||type==='cat')?'':' A wider peer group than the 5 below, so the percentage is meaningful.')}</p>` : "";
+
+  const showMetricCol = (type !== "cat" && type !== "mood");
+  return `
+    <div class="cmp-head">How past IPOs with a similar <strong>${phrase}</strong> listed${(type==='cat'||type==='mood')?'':' &middot; this one: '+headValue}${type==='mood'?' in '+sentimentBand(val):''}</div>
+    ${summary}
+    <div class="cmp-examples-label caps">The 5 closest matches</div>
+    <div class="tbl-scroll"><table class="ledger ex-table">
+      <thead><tr>
+        <th>Past IPO</th>${showMetricCol ? `<th class="num">${colLabel}</th>` : ``}<th class="num">How it listed</th>
+      </tr></thead>
+      <tbody>${ex.map(r => `
+        <tr>
+          <td>${esc(r[0])} <span class="ex-year">${esc(r[1])} &middot; ${esc(r[2])}</span></td>
+          ${showMetricCol ? `<td class="num">${fmtMetric(metricName, r[idx])}</td>` : ``}
+          <td class="num ${r[6] > 0 ? "gain-pos" : "gain-neg"}">${r[6] != null ? (r[6]>0?"+":"")+r[6]+"%" : "-"}</td>
+        </tr>`).join("")}
+      </tbody>
+    </table></div>
+    <p class="cmp-foot">"How it listed" is the real day-one result for each past IPO. Past performance is context, not a prediction.</p>`;
+}
+
+function renderUpcomingDetail(ipo, el){
+  const f = ipo.fundamentals || {};
+  const have = [];
+  const push = (k, v, help) => have.push([k, v, help || ""]);
+
+  // each row: [label, value, help, metricKey, metricColIndex, metricValue]
+  const pushM = (k, v, help, mk, idx, mv, type) => have.push([k, v, help || "", mk, idx, mv, type || "num"]);
+  // pushM(label, value, help, metricKey, archiveColIndex, value, type)
+  // type: "num" = nearest by number, "cat" = same category. omit metricKey to make non-clickable.
+  if (ipo.closeDate) pushM("Closing date", ipo.closeDate, "last day to apply");
+  if (f.offer_price)  pushM("Offer price", "Rs " + f.offer_price, "price per share");
+  if (f.size_cr)      pushM("Issue size", "Rs " + f.size_cr + " crore", "total money being raised", "issue size", 12, f.size_cr, "num");
+  if (f.pe != null && f.pe !== 0) pushM("P/E ratio", f.pe < 0 ? f.pe + " (loss-making)" : f.pe,
+      f.pe < 0 ? "company is not yet profitable" : "how pricey the shares are versus profits (lower is cheaper)", "P/E", 7, f.pe, "num");
+  if (f.roe != null && f.roe !== 0) pushM("Return on equity", f.roe + "%", "how well it turns investor money into profit (higher is better)", "ROE", 8, f.roe, "num");
+  if (f.promoter_holding != null && f.promoter_holding !== 0) pushM("Promoter holding after IPO", f.promoter_holding + "%", "how much the founders keep (more usually means more skin in the game)", "promoter holding", 9, f.promoter_holding, "num");
+  if (f.ofs_pct != null) pushM("Offer-for-sale (OFS)", (f.ofs_pct||0) + "% (founders selling)", "share of the IPO that is founders cashing out vs new money", "OFS", 10, f.ofs_pct, "num");
+  if (f.fresh_pct != null) pushM("Fresh issue", (f.fresh_pct||0) + "% (new money)", "share of the IPO that is fresh capital for the company", "fresh issue", 11, f.fresh_pct, "num");
+  if (f.sector) pushM("Sector", esc(f.sector), "compare IPOs in the same sector", "sector", 2, f.sector, "cat");
+  if (f.market_sentiment != null) pushM("Market mood now", trendWord(f.trend) + (f.volatility ? " \u00b7 " + f.volatility + "% volatility" : ""), "how IPOs did when the market was in a similar mood", "market mood", 13, f.market_sentiment, "mood");
+
+  const missing = [
+    ["Grey-market premium", "the unofficial pre-listing price; starts nearer the open date"],
+    ["Subscription (big investors, wealthy, retail)", "how many times oversubscribed; fills in during bidding"],
+    ["Apply or skip call", "we publish it once the two items above are in"],
+  ];
+  const pe = (ipo.fundamentals || {}).pe;
+
+  el.innerHTML = `
+    <button class="back mono" data-nav="ledger">&larr; back to all IPOs</button>
+    <h1 class="ipo">${esc(ipo.name)}</h1>
+    <div class="metaline">${esc(ipo.sector) || "sector TBD"}${ipo.offer ? " &middot; Rs " + ipo.offer : ""}${ipo.sizeCr ? " &middot; Rs " + ipo.sizeCr + " crore issue" : ""} &middot; ${ipo.closeDate ? "closes " + ipo.closeDate : "dates TBD"}</div>
+    <hr class="heavy"/>
+
+    <div class="upcoming-banner">
+      <span class="caps">Upcoming &middot; no call yet</span>
+      <p>This IPO has not opened for bidding yet, so the numbers our model needs are not available. We do not guess. A full apply or skip call appears here once grey-market and subscription data come in.</p>
+      <p class="apply-by-strong">Apply before <strong>5:00 PM on the closing day</strong>. Many brokers cut off earlier (often 2-4 PM, e.g. SBI ~2 PM).</p>
+    </div>
+
+    <div class="data-cols">
+      <div class="data-col">
+        <h2 class="caps">What we know</h2>
+        ${have.map(([k,v,h,mk,idx,mv,type]) => mk
+        ? `<div class="dl-row clickable" data-metric="${esc(mk)}" data-idx="${idx}" data-val="${esc(mv)}" data-type="${esc(type)}" tabindex="0" role="button"><span class="dl-k">${k}${h ? `<span class="dl-help">${h}</span>` : ""}</span><span class="dl-v">${v} <span class="tap-hint">tap to compare</span></span></div>`
+        : `<div class="dl-row"><span class="dl-k">${k}${h ? `<span class="dl-help">${h}</span>` : ""}</span><span class="dl-v">${v}</span></div>`).join("")}
+      </div>
+      <div class="data-col">
+        <h2 class="caps">Still waiting on</h2>
+        ${missing.map(([k,v]) => `<div class="dl-row missing"><span class="dl-k">${k}</span><span class="dl-v">${v}</span></div>`).join("")}
+      </div>
+    </div>
+
+    <h2 class="caps section-title">Compare with past IPOs</h2>
+    <p class="ex-note">Tap any underlined number above (P/E, OFS, ROE...) to see the 5 past IPOs closest to it, with what their grey market hinted and how they actually listed.</p>
+    <div id="compareBox">${(() => { const [mn,mi,mv,mt] = firstMetric(ipo); return comparePanel(ipo, mn, mi, mv, mt); })()}</div>
+    <div class="footnotes"><p>Past sector performance is context, not a prediction for this IPO. Nothing here is investment advice.</p></div>
+  `;
+}
+
+function applyComplianceUI(){
+  if (document.body.classList.contains("compliant")) return;
+  document.body.classList.add("compliant");
+  // one-time CSS: hide forward-tier alerts + performance-claim blocks, style facts
+  const st = document.createElement("style");
+  st.textContent = `
+    body.compliant [data-nav="alerts"], body.compliant [data-nav="archive"],
+    body.compliant .cta-strip, body.compliant .slider-row,
+    body.compliant .confirm-row, body.compliant .compliance-hide { display:none !important; }`;
+  document.head.appendChild(st);
+  // swap the top notice for the SEBI-safe disclaimer
+  const bn = document.querySelector("#view-ledger .bot-note span");
+  if (bn) bn.innerHTML = "<strong>IPO data and education, not investment advice.</strong> IPOPredict is not a SEBI-registered Research Analyst or Investment Adviser. We show public facts about Indian mainboard IPOs and how to read them; we do not tell you whether to apply. Do your own research, decisions are your own.";
+  // reframe the intro card away from apply/skip + accuracy language
+  const ic = document.querySelector("#view-ledger .intro-card");
+  if (ic) ic.innerHTML =
+      '<p class="intro-lead">A place to <strong>track and understand</strong> Indian mainboard IPOs: price, dates, subscription, grey-market data and fundamentals, with plain-English education on what they mean.</p>'
+    + '<div class="intro-how">'
+    + '<div class="ih"><span class="ihn">1</span> Browse open and upcoming IPOs with their public data.</div>'
+    + '<div class="ih"><span class="ihn">2</span> Open any IPO to see the facts laid out clearly.</div>'
+    + '<div class="ih"><span class="ihn">3</span> Learn how listing gains, GMP and subscription work in <button class="linklike" data-nav="method">How it works</button>.</div>'
+    + '</div>'
+    + '<p class="intro-foot">Information and education only, not a recommendation to buy, sell, or apply to any security.</p>';
+  // the "every call was tested" footnote references calls -> reframe
+  const fn = document.querySelector("#view-ledger .footnotes p:first-child");
+  if (fn) fn.innerHTML = "Figures shown are public data as reported. This is educational information, not a recommendation.";
+  // hide the model track-record table on the method page (performance claim)
+  const rec = document.getElementById("methodRecord");
+  if (rec) rec.classList.add("compliance-hide");
+  // banner on the method page
+  const mv = document.getElementById("view-method");
+  if (mv && !mv.querySelector(".comp-banner")){
+    const b = document.createElement("div");
+    b.className = "bot-note comp-banner"; b.style.margin = "0 0 16px";
+    b.innerHTML = "<span><strong>Education, not advice.</strong> The pages here explain how IPO metrics and past patterns work, so you can research on your own. IPOPredict is not SEBI-registered and does not recommend specific IPOs.</span>";
+    mv.insertBefore(b, mv.firstChild);
+  }
+}
+
+function renderFactualDetail(ipo, el){
+  const f = ipo.fundamentals || {};
+  const a = ipo.actual;
+  const row = (lab, val) => (val === null || val === undefined || val === "" ) ? "" :
+      `<div class="fact-row"><span class="fact-lab">${lab}</span><span class="fact-val mono">${val}</span></div>`;
+  const pct = v => (v==null? null : fmtPct(v));
+  const num = v => (v==null? null : v);
+  const facts = [
+    row("Sector", esc(ipo.sector||"")),
+    row("Offer price", ipo.offer ? "Rs " + ipo.offer : null),
+    row("Issue size", ipo.sizeCr ? "Rs " + ipo.sizeCr + " crore" : null),
+    row(ipo.status==="settled" ? "Listed on" : "Closes", ipo.status==="settled" ? (ipo.listedOn||"") : (ipo.closeDate||"")),
+    row("Grey market premium (reported)", pct(f.gmp)),
+    row("Total subscription", f.sub!=null ? (+f.sub).toFixed(2)+"x" : null),
+    row("QIB subscription", f.qib!=null ? (+f.qib).toFixed(2)+"x" : null),
+    row("Retail subscription", f.rii!=null ? (+f.rii).toFixed(2)+"x" : null),
+    row("Pre-issue P/E", num(f.pe!=null?f.pe:f.pre_issue_pe)),
+    row("ROE", f.roe!=null ? f.roe+"%" : null),
+    row("Promoter holding (post-issue)", f.promoter!=null ? f.promoter+"%" : (f.promoter_holding_post_ipo!=null? f.promoter_holding_post_ipo+"%":null)),
+  ].join("");
+  const outcome = (ipo.status==="settled" && a) ?
+    `<div class="verdict-row"><div><div class="caps">Actual listing-day move</div><div class="score">${fmtPct(a.pct)}</div></div></div>
+     <p class="ex-note">This is what actually happened on listing day (public fact).</p>` : "";
+  el.innerHTML = `
+    <button class="back mono" data-nav="ledger">&larr; back to all IPOs</button>
+    <h1 class="ipo">${esc(ipo.name)}</h1>
+    <div class="metaline">${esc(ipo.sector)}${ipo.offer?" &middot; Rs "+ipo.offer:""}${ipo.sizeCr?" &middot; Rs "+ipo.sizeCr+" crore issue":""}</div>
+    ${window.COMPLIANT ? `<div class="bot-note" style="margin:14px 0"><span>Public data for your own research. <strong>Not investment advice</strong>, and not a recommendation to apply. IPOPredict is not SEBI-registered.</span></div>` : ""}
+    ${outcome}
+    <div class="facts-title mono">THE FACTS</div>
+    <div class="facts-box">${facts}</div>
+    <p class="ex-note">Want to know what these mean? See <button class="linklike" data-nav="method">How it works</button> for plain-English explanations of GMP, subscription, P/E and more.</p>
+    <div class="footnotes"><p>Figures are public data as reported. Investing carries risk; decisions are your own.</p></div>
+  `;
+}
+
+function renderDetail(id){
+  const ipo = DATA.ipos.find(i => i.id === id);
+  const el = $("#view-detail");
+  if (!ipo){ el.innerHTML = `<button class="back mono" data-nav="ledger">&larr; back to all IPOs</button><p>Entry not found.</p>`; return; }
+
+  // SEBI-safe build: everyone gets the factual page, no call / range / tier
+  if (window.COMPLIANT){ renderFactualDetail(ipo, el); window.scrollTo(0,0); return; }
+
+  // upcoming IPOs have no scored range/confidence -> dedicated page (prevents null crash)
+  if (ipo.status === "upcoming"){
+    renderUpcomingDetail(ipo, el);
+    window.scrollTo(0,0);
+    return;
+  }
+
+  const a = ipo.actual;
+
+  const tiles = [
+    { lab: "Likely listing range", val: `${fmtPct(ipo.range.lo)} to ${fmtPct(ipo.range.hi)}`,
+      help: "Where the share could trade on its first day, versus the offer price." },
+    ipo.bigWin != null ? { lab: "Chance of a big pop", val: ipo.bigWin + "%",
+      help: "Estimated odds the stock jumps 20% or more on listing day." } : null,
+    { lab: "Allotment odds", val: "~" + ipo.allotment + "%",
+      help: "Roughly the chance one application actually gets shares, given the demand." },
+  ].filter(Boolean);
+
+  el.innerHTML = `
+    <button class="back mono" data-nav="ledger">&larr; back to all IPOs</button>
+    <h1 class="ipo">${esc(ipo.name)}</h1>
+    <div class="metaline">${esc(ipo.sector)} &middot; Rs ${ipo.offer} &middot; Rs ${ipo.sizeCr} crore issue &middot; ${ipo.status === "settled" ? "listed " + ipo.listedOn : (ipo.closeDate ? "closes " + ipo.closeDate : "subscription open")}</div>
+    <hr class="heavy"/>
+    ${ipo.status !== "settled" ? `<div class="apply-deadline">Apply before <strong>5:00 PM on the closing day</strong>. Many brokers and banks cut off earlier (often 2-4 PM, e.g. SBI ~2 PM), so apply well before the last hour to be safe.</div>` : ""}
+    <div class="verdict-row">
+      <div>
+        <span class="lab caps">What we suggest</span>
+        <span class="verdict ${ipo.verdict === "SKIP" ? "skip" : ""}">${ipo.verdict}</span>
+        <span class="verdict-sub">${ipo.verdict === "APPLY" ? "worth applying for" : "better to sit this one out"}${ipo.preliminary ? " &middot; preliminary" : ""}</span>
+      </div>
+      <div style="text-align:right">
+        <span class="lab caps">How sure we are</span>
+        <span class="score">${ipo.confidence}<span style="font-size:18px">/100</span></span>
+        <span class="verdict-sub">${confidenceWord(ipo.confidence)}</span>
+      </div>
+    </div>
+    <div class="conf-explain">${confidenceLine(ipo.confidence)}${ipo.preliminary ? " This is a preliminary read: subscription data is not out yet, so treat the confidence as provisional - it will firm up as bidding data arrives." : ""}</div>
+    <div class="tier-explain">
+      <span class="caps">Why this shows at your filter</span>
+      ${ipo.maxTier ? `Clears the <strong>${ipo.maxTier}% accuracy tier</strong>${ipo.tierPreliminary ? " <em>(preliminary)</em>" : ""} &middot; historically about ${(ipo.maxTier/10).toFixed(1)} in 10 IPOs reaching this bar listed above their offer price. That is the listing-positivity odds, which is separate from the apply call.${ipo.tierPreliminary ? ` <div class="skip-warn" style="margin-top:10px">This tier is <strong>preliminary</strong> &mdash; subscription is still building. It will firm up and can rise as bidding fills in, refreshed every 30 minutes.</div>` : ""}` : `Not clearing our 65% bar yet. As subscription and grey-market data come in over the bidding window (refreshed every 30 minutes), a tier will appear here.`}
+      ${ipo.maxTier && ipo.verdict === "SKIP" ? `<div class="skip-warn"><strong>But our overall call is SKIP.</strong> The apply signal is stricter than the tier: it wants a grey-market premium of at least +7% and a strong listing-up probability${(ipo.fundamentals && ipo.fundamentals.gmp != null) ? `, and this one is at ${fmtPct(ipo.fundamentals.gmp)}` : ""}. It misses that bar, so we would sit this out. If you apply anyway, you are taking the tier odds, not our recommendation.</div>` : ""}
+    </div>
+    <div class="tiles">
+      ${tiles.map(t => `<div class="tile"><span class="lab caps">${t.lab}</span><span class="val">${t.val}</span><span class="tile-help">${t.help}</span></div>`).join("")}
+    </div>
+    ${ipo.note ? `<div class="note-strip">${ipo.note}</div>` : ""}
+    ${a ? `
+    <div class="verified-strip">
+      <div>
+        <span class="caps" style="color:var(--green)">Verified outcome</span>
+        <div class="sub">listed at Rs ${a.price} on ${ipo.listedOn} &middot; prediction was locked before listing</div>
+      </div>
+      <div class="big">${fmtPct(a.pct)} ${a.hit ? "&middot; inside range" : "&middot; outside range"}</div>
+    </div>` : ""}
+    ${ipo.verdict === "APPLY" ? `<div class="how-apply"><strong>How to apply:</strong> through any broker app or your bank's net-banking IPO/ASBA section, using UPI. Apply before 5:00 PM on the closing day (many brokers cut off earlier). We do not handle applications or take any commission.</div>` : ""}
+    ${caseHTML("The case for", ipo.cases.pos, "pos", true)}
+    ${caseHTML("Neutral", ipo.cases.neu, "neu", false)}
+    ${caseHTML("The case against", ipo.cases.neg, "neg", true)}
+    ${(() => { const have = buildFundamentals(ipo); const pe = (ipo.fundamentals||{}).pe;
+      return have.length ? `<hr class="heavy" style="margin:28px 0 20px"/>
+      ${fundamentalsHTML(have)}
+      <h2 class="caps section-title" style="margin-top:24px">Compare with past IPOs</h2>
+      <p class="ex-note">Tap any underlined number above to see how similar past IPOs did.</p>
+      <div id="compareBox">${(() => { const [mn,mi,mv,mt] = firstMetric(ipo); return comparePanel(ipo, mn, mi, mv, mt); })()}</div>` : ""; })()}
+    <div class="footnotes">
+      ${ipo.footnotes.map(f => `<p>${f}</p>`).join("")}
+      <p>The listing range has historically contained the real first-day price about 88% of the time for IPOs we suggest applying to. Nothing here is a guarantee or investment advice.</p>
+    </div>
+  `;
+
+  el.querySelectorAll(".case h2").forEach(h => h.addEventListener("click", () => {
+    const wrap = h.parentElement, ul = wrap.querySelector(".bullets");
+    const open = ul.style.display !== "none";
+    ul.style.display = open ? "none" : "";
+    h.querySelector(".toggle").textContent = open ? "+" : "\u2212";
+  }));
+  el.querySelectorAll(".bullets li").forEach(li => {
+    const flip = () => li.classList.toggle("open");
+    li.addEventListener("click", flip);
+    li.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); flip(); } });
+  });
+}
+
+/* live record table on method page */
+(function(){
+  const rows = DATA.ipos.filter(i => i.actual).map(i => `
+    <tr>
+      <td>${i.name}</td>
+      <td class="mono">${i.verdict} &middot; ${i.confidence}/100</td>
+      <td class="mono">${fmtPct(i.range.lo)} to ${fmtPct(i.range.hi)}</td>
+      <td class="mono">${fmtPct(i.actual.pct)}</td>
+      <td class="mono" style="color:${i.actual.hit ? "var(--green)" : "var(--red)"}">${i.actual.hit ? "HIT" : "MISS"}</td>
+    </tr>`).join("");
+  $("#liveTable").insertAdjacentHTML("beforeend", rows);
+})();
+
+/* archive + patterns data, computed from the training dataset */
+const ARCHIVE = [["OnEMI Technology","2026-05","REALTY",171.0,10.5,10.0,11.1,null,32.8,64.1,50.0,50.0,60.0,1.1,26.0,6.9,2.1,190.0],["Powerica","2026-04","ENERGY",395.0,1.8,1.5,-7.3,null,20.7,70.0,0.0,100.0,1100.0,1.0,4.5,0.4,0.2,366.0],["Amir Chand Jagdish","2026-04","MFG",212.0,1.7,3.0,-5.7,28.9,11.9,78.8,50.0,50.0,440.0,1.0,0.9,8.2,0.9,200.0],["Sai Parenteral's","2026-04","PHARMA",65.0,0.0,1.8,2.0,12.2,57.3,70.9,49.5,50.5,21.4,1.0,1.7,2.5,2.0,66.3],["Om Power Transmission","2026-04","ENERGY",175.0,1.1,0.8,1.7,null,22.2,73.6,0.0,100.0,150.1,1.1,1.2,0.4,0.6,178.0],["Clean Max Enviro","2026-03","ENERGY",1053.0,-3.3,null,-8.8,null,20.5,66.2,0.0,100.0,3079.9,1.0,3.0,0.6,0.1,960.0],["PNGS Reva Diamond","2026-03","MFG",386.0,-5.2,1.3,-2.9,null,29.6,68.0,0.0,100.0,379.5,1.0,1.1,1.6,1.4,375.0],["Omnitech Engineering","2026-03","MFG",227.0,0.0,null,-11.0,null,30.2,67.0,0.0,100.0,583.0,1.0,3.0,0.8,0.3,202.0],["SEDEMAC Mechatronics","2026-03","MFG",1352.0,0.0,2.5,13.5,127.0,29.6,74.0,0.0,100.0,1087.3,1.0,8.5,0.8,0.2,1535.1],["Rajputana Stainless","2026-03","MFG",59.0,5.1,1.1,0.0,12.4,22.8,73.6,53.4,46.6,35.2,1.0,2.5,3.7,0.3,59.0],["Innovision","2026-03","TECH",519.0,-17.7,3.5,-9.9,null,24.1,68.0,50.0,50.0,250.0,1.0,14.3,8.6,0.6,467.7],["GSP Crop Science","2026-03","MFG",320.0,0.6,1.4,2.5,15.3,15.6,71.7,62.5,37.5,400.0,1.0,2.7,3.0,0.4,328.0],["Central Mine Planning","2026-03","MFG",172.0,2.9,1.1,-7.0,null,18.6,64.9,50.0,50.0,160.0,1.0,3.5,0.3,0.3,160.0],["Fractal Analytics","2026-02","TECH",900.0,-3.1,2.0,-2.7,65.5,3.6,17.0,0.0,100.0,2833.9,1.0,4.2,1.0,0.9,876.0],["Aye Finance","2026-02","BFSI",129.0,-1.6,1.0,0.0,null,34.4,68.0,0.0,100.0,1010.0,1.0,1.6,0.1,0.8,129.0],["Gaudium IVF","2026-02","PHARMA",79.0,0.0,5.6,5.1,null,null,57.3,50.0,50.0,660.0,1.0,1.6,14.1,7.6,83.0],["Amagi Media Labs","2026-01","TECH",361.0,-0.3,18.3,-11.9,null,56.3,null,0.0,100.0,1788.6,1.0,null,null,169.7,318.0],["Shadowfax Technologies","2026-01","LOGI",124.0,-2.8,2.9,-9.2,null,16.7,67.0,0.0,100.0,1907.3,1.0,4.0,0.9,2.4,112.6],["Meesho","2025-12","TECH",111.0,37.8,81.8,46.4,11.6,null,14.6,0.0,100.0,5421.2,1.1,123.3,39.9,19.9,162.5],["Vidya Wires","2025-12","MFG",52.0,6.7,22.4,0.0,null,23.7,65.0,0.0,100.0,300.0,1.1,1.6,45.0,24.3,52.0],["Aequs","2025-12","MFG",124.0,19.4,102.0,12.9,null,33.0,74.5,0.0,100.0,921.8,1.1,121.0,81.0,78.0,140.0],["Corona Remedies","2025-12","PHARMA",52.0,658.7,1.7,38.4,18.1,16.5,73.0,50.0,50.0,27.0,1.1,1.0,1.5,2.1,72.0],["Wakefit Innovations","2025-12","FMCG",195.0,2.1,1.8,0.0,null,null,36.8,0.0,100.0,1288.9,1.1,3.0,0.3,1.9,195.0],["Nephrocare Health","2025-12","PHARMA",460.0,8.7,17.9,6.5,null,48.4,68.0,0.0,100.0,871.0,1.1,26.8,24.8,2.4,490.0],["Park Medi World","2025-12","PHARMA",220.0,0.0,8.5,-2.0,17.0,47.1,66.6,50.1,49.9,31.8,1.1,11.5,15.2,3.2,215.6],["ICICI Prudential AMC","2025-12","BFSI",2165.0,21.2,39.2,20.1,40.4,82.8,74.0,0.0,100.0,10602.6,1.1,123.9,22.0,2.5,2599.9],["KSH International","2025-12","REALTY",384.0,-0.5,0.8,-3.6,null,28.9,68.0,0.0,100.0,626.4,1.1,1.1,0.4,0.8,370.0],["Gujarat Kidney","2025-12","PHARMA",114.0,1.3,5.2,5.3,null,30.9,68.0,0.0,100.0,250.8,1.1,1.1,5.7,19.0,120.0],["Orkla India","2025-11","FMCG",730.0,9.0,69.5,2.8,39.1,13.8,83.5,0.0,100.0,1667.5,1.0,117.6,54.4,7.1,750.1],["Studds Accessories","2025-11","MFG",585.0,6.0,73.2,-3.4,32.1,51.4,61.8,0.0,100.0,455.5,1.0,160.0,77.0,22.1,565.0],["Lenskart Solutions","2025-11","FMCG",402.0,2.5,15.6,-1.7,null,1.0,28.0,0.0,100.0,7278.0,1.0,40.4,18.2,7.6,395.0],["Groww","2025-11","TECH",100.0,5.0,17.6,12.0,33.3,37.6,27.5,0.0,100.0,6632.3,1.1,22.0,14.2,9.4,112.0],["Pine Labs","2025-11","MFG",221.0,2.5,1.4,9.5,null,null,null,0.0,100.0,3900.2,1.1,4.0,0.3,1.3,242.0],["PhysicsWallah","2025-11","EDU",109.0,12.8,1.9,33.0,116.9,null,71.5,0.0,100.0,3480.0,1.1,2.9,0.5,1.1,145.0],["Emmvee Photovoltaic","2025-11","ENERGY",194.0,0.0,1.0,0.0,24.2,42.6,26.8,53.8,46.2,102.5,1.1,1.3,0.3,1.2,194.0],["Tenneco Clean Air","2025-11","MFG",108.0,96.3,58.8,27.2,16.1,17.9,65.6,56.7,43.3,69.8,1.1,166.4,40.7,5.1,137.4],["Fujiyama Power Systems","2025-11","ENERGY",104.0,0.5,2.2,-3.5,28.5,4.7,64.2,53.8,46.2,81.0,1.1,5.2,0.9,1.1,100.3],["Capillary Technologies","2025-11","TECH",577.0,9.5,53.0,-0.9,null,27.3,52.3,50.0,50.0,240.0,1.1,57.3,69.8,15.8,571.9],["Excelsoft Technologies","2025-11","TECH",120.0,3.3,45.5,12.5,34.6,10.4,59.1,73.5,26.5,500.0,1.1,50.1,107.0,16.4,135.0],["Sudeep Pharma","2025-11","PHARMA",593.0,20.4,129.5,23.1,47.6,27.9,76.2,90.4,9.6,895.0,1.1,213.1,116.7,15.7,730.0],["Jain Resource Recycling","2025-10","MFG",232.0,5.6,15.5,14.2,33.6,40.8,75.0,0.0,100.0,1250.0,1.0,26.7,5.6,3.8,265.1],["Epack Prefab Technologies","2025-10","MFG",204.0,0.0,4.2,-9.9,29.5,22.7,64.5,62.7,37.3,504.0,1.0,5.1,3.7,1.7,183.8],["BMW Ventures","2025-10","MFG",99.0,0.0,1.5,-21.2,null,4.6,65.0,0.0,100.0,231.7,1.0,3.1,3.0,1.0,78.0],["TruAlt Bioenergy","2025-10","ENERGY",496.0,17.1,102.6,10.3,23.9,28.3,70.5,52.8,47.2,839.3,1.0,165.2,103.0,11.5,547.1],["Pace Digitek","2025-10","TECH",219.0,5.5,1.7,2.7,null,22.5,58.0,66.7,33.3,800.0,1.0,1.6,2.9,1.1,225.0],["Fabtech Technologies","2025-10","PHARMA",191.0,0.0,2.0,0.5,13.3,30.5,68.9,50.0,50.0,230.3,1.0,2.0,2.0,2.1,192.0],["Glottis","2025-10","MFG",129.0,0.0,2.1,-34.9,null,34.6,62.5,0.0,100.0,307.0,1.0,1.8,3.1,1.5,84.0],["Advance Agrolife","2025-10","FMCG",100.0,13.0,48.0,14.0,null,17.0,68.0,0.0,100.0,192.9,1.0,27.3,175.3,23.1,114.0],["WeWork India","2025-10","REALTY",648.0,0.0,1.1,0.3,null,41.7,73.0,50.0,50.0,475.0,1.0,1.8,0.2,0.6,650.0],["Tata Capital","2025-10","BFSI",326.0,0.0,1.9,1.2,36.0,12.6,85.5,0.0,100.0,15511.9,1.0,3.4,2.0,1.1,330.0],["LG Electronics","2025-10","MFG",1140.0,40.4,54.0,50.0,35.1,37.1,85.0,0.0,100.0,11607.0,1.0,166.5,22.4,3.5,1710.1],["Rubicon Research","2025-10","TECH",485.0,24.7,109.3,27.8,55.8,29.0,59.8,0.0,100.0,1377.7,1.1,137.1,102.7,37.1,620.0],["Canara Robeco","2025-10","BFSI",128.0,15.6,9.7,5.4,18.0,55.5,65.7,55.6,44.4,63.7,1.1,25.9,6.5,1.9,134.9],["Canara HSBC Life","2025-10","BFSI",106.0,2.8,2.3,0.0,86.1,7.7,62.0,0.0,100.0,2517.5,1.1,7.0,0.3,0.4,106.0],["Midwest","2025-10","MFG",1065.0,9.4,92.4,9.4,null,null,17.1,0.0,100.0,451.1,1.1,147.0,176.6,25.5,1165.0],["Vikran Engineering","2025-09","MFG",97.0,7.2,23.6,2.1,null,null,68.5,0.0,100.0,772.0,1.0,19.4,58.6,11.0,99.0],["Shringar House of","2025-09","MFG",66.0,31.8,60.3,14.2,13.1,35.6,70.0,51.0,49.0,10.6,1.0,101.4,82.6,27.3,75.4],["Urban Co.","2025-09","REALTY",103.0,52.4,103.6,57.5,null,23.5,68.0,0.0,100.0,1900.2,1.0,140.2,74.0,39.2,162.2],["Euro Pratik Sales","2025-09","FMCG",247.0,4.0,1.3,10.2,null,25.8,68.0,50.0,50.0,500.0,1.0,1.1,1.9,1.2,272.1],["Ivalue Infosolutions","2025-09","TECH",1053.0,0.0,1.8,-4.7,18.7,0.4,49.1,0.0,100.0,560.3,1.0,3.2,1.2,1.2,1003.5],["GK Energy","2025-09","ENERGY",153.0,11.8,93.6,11.8,null,31.7,68.0,0.0,100.0,464.3,1.0,193.0,128.6,21.8,171.0],["Saatvik Green Energy","2025-09","ENERGY",465.0,2.2,6.6,0.0,null,36.9,70.8,0.0,100.0,900.2,1.0,10.8,10.0,2.7,465.0],["Atlanta Electricals","2025-09","MFG",171.0,66.7,70.6,13.7,12.7,23.5,23.3,52.1,47.9,925.9,1.0,194.9,54.2,10.4,194.4],["Ganesh Consumer Products","2025-09","FMCG",322.0,-2.8,2.7,-8.1,null,30.0,63.0,0.0,100.0,408.8,1.0,4.0,4.4,1.2,296.1],["Jaro Institute","2025-09","EDU",890.0,4.8,22.1,0.0,null,27.0,68.0,0.0,100.0,450.0,1.0,35.4,35.5,8.7,890.0],["Seshaasai Technologies","2025-09","MFG",239.0,16.7,105.8,2.1,19.6,43.9,53.0,50.2,49.8,42.6,1.0,189.5,51.4,9.5,244.1],["Solarworld Energy Solutions","2025-09","ENERGY",351.0,11.4,65.4,10.7,null,16.2,46.6,50.0,50.0,200.0,1.0,74.2,68.2,51.7,388.5],["Anand Rathi Share","2025-09","BFSI",515.0,5.6,28.2,4.3,19.6,17.9,71.8,0.0,100.0,745.6,1.0,43.8,28.6,4.8,537.4],["Shanti Gold International Ltd","2025-08","FMCG",199.0,19.1,81.2,15.1,28.4,24.3,71.8,0.0,100.0,360.1,1.0,117.3,151.5,30.4,229.1],["Aditya Infotech Ltd","2025-08","TECH",675.0,44.4,100.7,50.8,31.2,22.1,65.0,0.0,100.0,1300.0,1.0,133.2,72.0,50.9,1018.0],["Laxmi India Finance Ltd","2025-08","BFSI",158.0,0.9,1.9,-13.9,22.3,16.4,74.2,0.0,100.0,254.3,1.0,1.3,1.8,2.2,136.0],["Sri Lotus Developers & Realty Ltd","2025-08","REALTY",150.0,24.7,69.1,19.4,18.5,18.2,72.5,0.0,100.0,792.0,1.0,163.9,57.7,20.3,179.1],["All Time Plastics","2025-08","MFG",88.0,22.7,10.8,13.2,16.0,53.1,52.4,50.1,49.9,43.7,1.1,10.3,14.0,5.4,99.6],["JSW Cement","2025-08","FMCG",147.0,3.3,6.2,4.4,null,null,72.3,0.0,100.0,3600.0,1.1,15.8,11.6,1.9,153.5],["Knowledge Realty Trust","2025-08","REIT",100.0,2.0,5.4,3.0,null,null,null,0.0,100.0,4800.0,1.0,6.8,15.5,0.0,103.0],["BlueStone Jewellery","2025-08","FMCG",517.0,0.4,2.8,-1.4,null,null,65.3,50.0,50.0,300.0,1.0,4.2,0.6,1.4,510.0],["Regaal Resources","2025-08","MFG",102.0,30.4,159.9,38.2,null,44.3,67.0,0.0,100.0,306.0,1.0,191.0,356.7,57.8,141.0],["Vikram Solar","2025-08","ENERGY",460.0,7.6,54.6,1.8,63.5,13.4,71.5,71.1,28.9,871.0,1.0,142.8,50.9,7.7,468.3],["Gem Aromatics","2025-08","TECH",361.0,9.1,30.3,2.5,101.8,0.8,14.1,0.0,100.0,451.2,1.0,55.3,45.1,13.0,370.0],["Patel Retail","2025-08","FMCG",255.0,20.4,95.6,17.6,null,3.7,40.9,0.0,100.0,242.7,1.0,272.4,108.0,30.7,300.0],["Shreeji Shipping Global","2025-08","LOGI",98.0,34.7,58.1,7.1,20.7,21.2,59.5,52.8,47.2,41.7,1.0,110.4,73.0,22.0,105.0],["Mangal Electrical","2025-08","MFG",561.0,-0.5,9.5,-0.9,null,15.2,61.8,50.0,50.0,96.0,1.0,10.5,18.8,4.8,556.0],["Ellenbarrie Industrial Gases Limited","2025-07","MFG",400.0,10.2,22.2,23.0,31.5,18.9,55.3,0.0,100.0,852.5,1.0,64.2,15.2,2.1,492.0],["Globe Civil Projects Limited","2025-07","REALTY",71.0,26.8,86.0,28.3,18.9,21.3,66.7,0.0,100.0,119.0,1.0,99.8,143.2,53.7,91.1],["Kalpataru Limited","2025-07","REALTY",414.0,0.7,2.3,0.0,null,0.0,0.0,0.0,100.0,1590.0,1.0,3.1,1.3,1.3,414.1],["Sambhv Steel Tubes Limited","2025-07","MFG",82.0,17.1,28.5,34.3,22.4,25.4,68.4,0.0,100.0,540.0,1.0,62.3,31.8,8.0,110.1],["HDB Financial Services Limited","2025-07","BFSI",740.0,7.7,16.7,12.8,31.2,12.8,0.0,100.0,0.0,12500.0,1.0,55.5,10.0,1.4,835.0],["Indogulf Cropsciences Limited","2025-07","AGRI",111.0,10.8,26.0,0.0,19.8,22.5,71.2,0.0,100.0,200.0,1.0,33.3,48.4,14.8,111.0],["Crizac Limited","2025-07","EDU",245.0,16.3,59.8,14.3,35.7,31.2,73.5,100.0,0.0,860.0,1.0,134.3,76.2,10.2,280.0],["Travel Food Services Limited","2025-07","HOSP",1100.0,0.0,2.9,2.4,28.3,32.6,0.0,100.0,0.0,2000.0,1.0,7.7,1.6,0.7,1126.2],["Smartworks Coworking Limited","2025-07","REALTY",407.0,3.9,13.4,7.2,null,-58.8,58.2,23.5,76.5,582.6,1.0,24.4,22.8,3.5,436.1],["Anthem Biosciences Limited","2025-07","PHARMA",570.0,25.3,63.9,26.9,42.1,28.4,58.2,0.0,100.0,3395.0,1.0,182.7,42.4,5.6,723.1],["Indiqube Spaces Limited","2025-07","REALTY",237.0,2.1,12.4,-7.7,null,0.0,66.5,37.1,62.9,700.0,1.0,14.3,8.3,12.9,218.7],["GNG Electronics Limited","2025-07","MFG",237.0,42.2,147.9,47.7,24.6,19.8,63.4,0.0,100.0,460.4,1.0,266.2,227.7,46.8,350.0],["Brigade Hotel Ventures Limited","2025-07","HOSP",90.0,0.0,4.5,-8.9,null,0.0,0.0,0.0,100.0,759.6,1.0,5.4,1.9,6.4,82.0],["Aegis Vopak Terminals Limited","2025-06","ENERGY",235.0,0.4,2.1,-6.4,null,0.0,0.0,0.0,100.0,2800.0,1.0,3.3,0.6,0.8,220.0],["Prostarm Info Systems Limited","2025-06","TECH",105.0,19.0,97.2,19.1,28.1,22.8,71.5,0.0,100.0,168.0,1.0,104.5,222.1,39.5,125.0],["Scoda Tubes Limited","2025-06","MFG",140.0,14.6,53.8,0.0,21.7,19.6,63.8,0.0,100.0,220.0,1.0,69.5,113.0,19.4,140.0],["Oswal Pumps Limited","2025-06","MFG",614.0,9.8,34.4,2.9,25.3,28.7,72.9,0.0,100.0,1387.3,1.0,88.1,36.7,3.6,632.0],["Arisinfra Solutions Limited","2025-06","REALTY",222.0,0.0,2.6,-5.8,-41.9,-13.1,37.5,0.0,100.0,499.6,1.0,1.4,3.1,5.6,209.1],["Ather Energy Limited","2025-05","MFG",321.0,0.0,1.4,1.6,null,0.0,0.0,0.0,100.0,2980.8,1.0,1.7,0.7,1.8,326.1],["Borana Weaves Limited","2025-05","MFG",216.0,18.5,148.8,12.5,23.6,21.7,67.2,0.0,100.0,144.9,1.0,87.2,237.4,200.5,243.0],["Belrise Industries Limited","2025-05","MFG",90.0,25.6,41.3,9.4,19.4,18.4,69.3,0.0,100.0,2150.0,1.0,108.3,38.3,4.3,98.5],["Dr Agarwal's Healthcare Limited","2025-02","PHARMA",402.0,0.0,1.6,-1.3,130.4,6.2,32.5,90.1,9.9,3027.3,1.0,4.6,0.4,0.4,396.9],["Ajax Engineering Limited","2025-02","MFG",629.0,1.6,6.4,-5.7,32.0,19.4,80.0,0.0,100.0,1268.9,1.0,14.4,6.5,1.9,593.0],["Hexaware Technologies Limited","2025-02","TECH",708.0,0.4,2.7,3.2,47.2,23.6,74.7,0.0,100.0,8750.0,1.0,9.1,0.2,0.1,731.0],["Quality Power Electronics Limited","2025-02","MFG",425.0,0.0,1.3,1.7,55.3,29.1,73.9,73.8,26.2,858.7,1.0,1.0,1.4,1.8,432.1],["Indo Farm Equipment Limited","2025-01","MFG",215.0,44.7,229.7,20.2,54.4,4.9,69.4,28.9,71.2,260.1,1.0,242.4,503.8,104.9,258.4],["Standard Glass Lining Technology Limited","2025-01","MFG",140.0,65.0,183.2,25.7,43.0,20.7,67.0,48.8,51.2,410.1,1.0,331.6,268.5,65.0,176.0],["Quadrant Future Tek Limited","2025-01","MFG",290.0,65.5,186.7,29.0,59.1,33.4,70.0,0.0,100.0,290.0,1.0,132.5,254.7,246.9,374.0],["Capital Infra Trust","2025-01","REIT",99.0,0.0,2.2,0.0,null,0.0,0.0,31.8,68.2,1578.0,1.0,0.6,4.2,0.0,99.0],["Laxmi Dental Limited","2025-01","PHARMA",428.0,29.4,114.4,23.4,87.8,78.8,41.7,80.2,19.8,698.1,1.0,110.4,147.9,76.2,528.0],["Stallion India Fluorochem Limited","2025-01","MFG",90.0,46.7,188.4,33.3,37.4,12.5,67.9,19.6,80.4,199.4,1.0,172.9,422.4,96.9,120.0],["Denta Water & Infrastructure Limited","2025-01","REALTY",294.0,40.8,221.7,12.2,9.4,36.4,71.9,0.0,100.0,220.5,1.0,236.9,507.3,90.6,330.0],["Suraksha Diagnostic Limited","2024-12","PHARMA",441.0,0.5,1.3,-0.9,99.3,14.1,48.8,0.0,100.0,846.2,1.0,1.7,1.4,0.9,437.0],["Sai Life Sciences Limited","2024-12","PHARMA",549.0,7.7,10.3,20.2,126.4,8.1,35.2,68.8,31.2,3042.6,1.0,30.9,4.9,1.4,660.0],["Vishal Mega Mart Limited","2024-12","FMCG",78.0,24.4,27.3,41.0,76.1,8.2,76.0,0.0,100.0,8000.0,1.0,80.8,14.2,2.3,110.0],["Inventurus Knowledge Solutions Limited","2024-12","TECH",1329.0,31.7,52.7,39.6,61.5,32.0,63.7,0.0,100.0,2497.9,1.0,80.6,23.2,14.6,1856.0],["International Gemmological Institute (India) Limited","2024-12","FMCG",417.0,21.6,33.8,21.1,31.2,76.6,76.6,62.5,37.5,4225.0,1.0,45.8,24.8,11.2,504.9],["Transrail Lighting Limited","2024-12","MFG",432.0,44.4,80.8,35.5,23.1,21.7,71.1,52.3,47.7,838.9,1.0,201.1,76.4,22.1,585.1],["Dam Capital Advisors Limited","2024-12","BFSI",283.0,60.1,82.1,38.8,28.4,45.0,40.0,0.0,100.0,840.2,1.0,166.3,98.6,27.1,392.9],["Mamata Machinery Limited","2024-12","MFG",243.0,107.0,194.9,146.9,15.3,27.4,62.5,0.0,100.0,179.3,1.0,235.9,274.4,138.1,600.0],["Sanathan Textiles Limited","2024-12","MFG",321.0,28.0,35.1,30.6,17.2,10.4,78.5,27.3,72.7,550.0,1.0,75.6,42.2,8.9,419.1],["Concord Enviro Systems Limited","2024-12","MFG",701.0,7.8,10.7,18.7,30.8,12.9,51.4,65.0,35.0,500.3,1.0,17.3,14.2,5.6,832.0],["Senores Pharmaceuticals Limited","2024-12","PHARMA",391.0,61.4,93.4,51.8,39.8,23.6,45.8,14.1,85.9,582.1,1.0,94.7,96.1,89.2,593.7],["Ventive Hospitality Limited","2024-12","HOSP",643.0,11.2,9.8,11.7,-201.0,-1.8,89.0,0.0,100.0,1600.0,1.0,9.1,13.8,5.9,718.1],["Carraro India Limited","2024-12","MFG",704.0,0.0,1.1,-6.2,64.0,16.9,68.8,0.0,100.0,1250.0,1.0,2.2,0.6,0.7,660.0],["Unimech Aerospace and Manufacturing Limited","2024-12","MFG",785.0,80.3,175.3,89.9,64.4,53.5,79.8,50.0,50.0,500.0,1.0,317.6,263.8,56.7,1491.0],["Afcons Infrastructure Limited","2024-11","REALTY",463.0,0.0,2.6,-7.1,35.1,2.5,50.2,76.9,23.1,5430.0,1.1,3.8,5.0,0.9,430.1],["Sagility India Limited","2024-11","TECH",30.0,1.0,3.2,3.5,61.5,0.3,82.4,0.0,100.0,2106.4,1.1,3.5,1.9,4.2,31.1],["ACME Solar Holdings Limited","2024-11","ENERGY",289.0,-0.3,2.8,-10.4,21.6,0.1,83.4,17.4,82.6,2900.0,1.1,3.5,1.0,3.1,259.0],["Swiggy Limited","2024-11","FMCG",390.0,0.3,3.6,5.6,-35.2,-8.2,53.0,60.3,39.7,11327.4,1.1,6.0,0.4,1.1,412.0],["Niva Bupa Health Insurance Company Limited","2024-11","BFSI",74.0,0.0,1.8,6.1,153.7,-0.9,73.4,63.6,36.4,2200.0,1.1,2.1,0.7,2.7,78.5],["NTPC Green Energy Limited","2024-11","ENERGY",108.0,2.3,2.4,3.3,235.0,2.1,89.0,0.0,100.0,10000.0,1.0,3.3,0.8,3.4,111.6],["Enviro Infra Engineers Limited","2024-11","REALTY",148.0,31.8,89.9,47.3,18.3,37.8,70.0,12.0,88.0,650.3,1.0,157.1,153.8,24.5,218.0],["KRN Heat Exchanger and Refrigeration Limited","2024-10","MFG",220.0,125.5,214.4,113.6,24.8,29.7,70.8,0.0,100.0,341.9,1.1,253.0,431.6,98.3,470.0],["Diffusion Engineers Limited","2024-10","MFG",168.0,35.7,114.5,11.9,15.3,18.5,69.7,0.0,100.0,158.0,1.1,95.7,207.6,85.6,188.0],["Garuda Construction and Engineering Limited","2024-10","REALTY",95.0,0.0,7.5,8.6,19.5,30.6,67.6,34.1,65.9,264.1,1.1,1.2,9.0,10.8,103.2],["Hyundai Motor India Limited","2024-10","MFG",1960.0,-1.6,2.4,-1.5,26.3,12.3,82.5,0.0,100.0,27858.8,1.1,7.0,0.6,0.5,1931.0],["Waaree Energies Limited","2024-10","ENERGY",1503.0,103.8,76.3,69.7,30.9,8.8,64.3,16.7,83.3,4321.4,1.1,208.6,62.5,10.8,2550.0],["Deepak Builders & Engineers India Limited","2024-10","REALTY",203.0,24.6,41.5,-2.2,12.1,9.6,72.5,16.5,83.5,260.0,1.1,13.9,82.5,39.8,198.5],["Godavari Biorefineries Limited","2024-10","ENERGY",352.0,1.4,1.8,-11.8,120.0,-11.2,63.3,41.4,58.6,554.8,1.1,2.8,0.9,1.7,310.6],["Premier Energies Limited","2024-09","ENERGY",450.0,93.6,74.4,120.2,82.1,37.5,64.2,54.4,45.6,2830.4,1.1,216.7,50.0,7.7,991.0],["Ecos (India) Mobility & Hospitality Limited","2024-09","HOSP",334.0,45.5,64.3,17.2,32.0,42.8,67.8,0.0,100.0,601.2,1.1,136.8,71.2,19.8,391.3],["Baazar Style Retail Limited","2024-09","FMCG",389.0,16.7,40.7,0.0,125.5,10.3,45.6,82.3,17.7,834.7,1.1,81.8,59.4,9.1,389.0],["Gala Precision Engineering Limited","2024-09","MFG",529.0,49.1,201.4,41.8,23.9,21.4,55.4,19.6,80.4,167.9,1.1,232.5,414.6,92.0,750.0],["Shree Tirupati Balajee Agro Trading Company Limited","2024-09","AGRI",83.0,47.0,124.8,11.9,28.7,20.8,65.4,34.3,65.7,169.7,1.1,150.9,210.1,73.2,92.9],["Kross Limited","2024-09","MFG",240.0,20.8,16.8,0.0,28.9,30.6,67.7,50.0,50.0,500.0,1.1,23.3,22.2,10.8,240.0],["Bajaj Housing Finance Limited","2024-09","BFSI",70.0,105.7,63.6,114.3,31.6,3.6,88.8,45.7,54.3,6560.0,1.1,209.4,41.5,7.0,150.0],["Tolins Tyres Limited","2024-09","MFG",226.0,13.3,23.9,0.4,26.6,25.9,68.5,13.0,87.0,230.0,1.1,25.4,27.4,21.5,227.0],["P N Gadgil Jewellers Limited","2024-09","FMCG",480.0,69.4,59.4,73.8,36.7,28.9,83.1,22.7,77.3,1100.0,1.1,136.8,56.1,16.6,834.0],["Northern ARC Capital Limited","2024-09","BFSI",263.0,48.7,110.9,33.5,11.8,13.3,27.3,35.5,64.5,777.0,1.1,240.8,142.4,31.1,351.0],["Arkade Developers Limited","2024-09","REALTY",128.0,46.9,106.8,37.4,16.0,46.9,70.8,0.0,100.0,410.0,1.1,163.2,163.0,51.4,175.9],["Western Carriers Limited","2024-09","LOGI",172.0,11.6,30.6,-1.2,16.9,20.2,71.9,18.9,81.1,492.9,1.1,28.0,44.7,25.9,170.0],["Manba Finance Limited","2024-09","BFSI",120.0,48.3,224.1,25.0,14.4,15.7,75.0,0.0,100.0,150.8,1.1,148.6,511.6,143.9,150.0],["Akums Drugs and Pharmaceuticals Limited","2024-08","PHARMA",679.0,20.8,63.6,6.8,28.5,-0.6,75.3,63.3,36.7,1856.7,1.1,90.1,42.2,21.3,725.0],["Ceigall India Limited","2024-08","REALTY",401.0,4.7,13.8,3.0,20.7,33.6,82.1,45.3,54.7,1252.7,1.1,31.5,14.4,3.8,413.0],["Ola Electric Mobility Limited","2024-08","MFG",76.0,-3.9,4.3,-0.0,-17.7,-78.5,36.8,10.5,89.5,6145.6,1.1,5.3,2.4,3.9,76.0],["Unicommerce eSolutions Limited","2024-08","TECH",108.0,50.9,168.4,113.0,84.6,19.0,39.4,0.0,100.0,276.6,1.1,138.8,252.5,131.2,230.0],["Saraswati Saree Depot Limited","2024-08","FMCG",160.0,34.4,107.5,25.0,17.9,45.5,74.8,35.0,65.0,160.0,1.1,64.1,358.6,61.9,200.0],["Interarch Building Products Limited","2024-08","MFG",900.0,40.6,93.5,43.5,15.0,22.3,59.9,66.7,33.3,600.3,1.1,205.4,128.4,19.1,1291.2],["Orient Technologies Limited","2024-08","TECH",206.0,39.8,151.7,40.8,17.8,23.6,73.2,44.2,55.8,214.8,1.1,189.9,300.6,66.9,290.0],["Allied Blenders and Distillers Limited","2024-07","FMCG",281.0,20.3,23.6,13.2,null,1.0,80.9,33.3,66.7,1500.0,1.1,50.4,32.4,4.5,318.1],["Vraj Iron & Steel Limited","2024-07","MFG",207.0,36.2,119.0,15.9,9.5,23.8,72.5,0.0,100.0,171.0,1.1,163.9,208.8,54.9,240.0],["Bansal Wire Industries Limited","2024-07","MFG",256.0,29.7,59.6,37.5,41.4,18.3,78.0,0.0,100.0,745.0,1.1,146.1,51.5,13.6,352.1],["Sanstar Limited","2024-07","MFG",95.0,37.9,83.0,12.0,20.0,30.9,70.4,22.2,77.8,510.6,1.1,145.7,136.5,24.2,106.4],["Stanley Lifestyles Limited","2024-06","FMCG",369.0,44.2,5.2,35.2,54.4,8.3,56.8,62.8,37.2,537.0,1.1,0.7,8.9,6.1,499.0],["SRM Contractors Ltd","2024-04","REALTY",210.0,59.5,86.6,7.1,18.8,25.0,72.9,0.0,100.0,130.2,1.1,59.6,214.9,47.0,225.0],["Bharti Hexacom Ltd","2024-04","TELECOM",570.0,14.6,29.9,32.5,51.9,7.1,70.0,0.0,100.0,4275.0,1.1,48.6,10.5,2.8,755.2],["Platinum Industries Ltd","2024-03","PHARMA",171.0,51.5,99.0,33.3,18.7,61.3,68.9,0.0,100.0,235.3,1.1,151.0,141.8,51.0,228.0],["Exicom Tele-Systems Ltd","2024-03","TECH",142.0,106.3,129.5,85.9,217.6,2.8,58.3,23.3,76.7,429.0,1.1,121.8,153.2,119.6,264.0],["Mukka Proteins Ltd","2024-03","FMCG",28.0,125.0,137.0,57.1,13.0,34.2,71.4,0.0,100.0,224.0,1.1,189.3,250.4,58.5,44.0],["Indus Infra Trust","2024-03","REIT",100.0,0.0,8.0,1.0,null,0.0,0.0,0.0,100.0,2500.0,1.0,8.9,6.9,0.0,101.0],["R K Swamy Ltd","2024-03","BFSI",288.0,5.9,25.9,-12.5,41.0,5.4,59.2,59.0,41.0,423.6,1.1,20.6,34.4,34.0,252.0],["Gopal Snacks Ltd","2024-03","FMCG",401.0,2.0,9.0,-12.7,44.5,16.1,81.5,0.0,100.0,650.0,1.1,17.5,9.5,4.0,350.0],["Popular Vehicles & Services Ltd","2024-03","LOGI",295.0,0.0,1.2,-1.0,28.9,10.4,61.2,58.5,41.5,601.5,1.1,2.0,0.7,1.1,292.0],["Krystal Integrated Services Ltd","2024-03","LOGI",715.0,9.2,13.2,11.2,21.4,11.2,62.8,41.7,58.3,300.1,1.1,7.3,43.9,3.3,795.0],["BLS E-Services Limited","2024-02","TECH",135.0,129.6,162.5,128.9,44.3,16.5,68.9,0.0,100.0,309.3,1.1,123.3,300.1,237.0,309.0],["Apeejay Surrendra Group (conglomerate)","2024-02","HOSP",155.0,26.5,59.7,20.6,56.3,9.0,68.1,34.8,65.2,920.0,1.1,75.1,52.4,30.4,187.0],["Capital Small Finance Bank Limited","2024-02","BFSI",468.0,0.0,4.0,-7.0,17.7,15.3,34.2,14.0,86.0,523.1,1.1,6.6,4.0,2.5,435.0],["Rashi Peripherals Limited","2024-02","TECH",311.0,26.7,59.7,7.7,11.8,17.6,63.4,0.0,100.0,600.0,1.1,143.7,62.8,10.4,335.0],["Jana Small Finance Bank Limited","2024-02","BFSI",414.0,10.1,18.5,-4.3,15.1,14.4,0.0,18.9,81.0,570.0,1.1,38.8,25.1,5.5,396.0],["Entero Healthcare Solutions Limited","2024-02","PHARMA",1258.0,0.2,1.5,-1.0,0.0,-1.9,52.4,37.5,62.5,1600.0,1.1,2.3,0.2,1.3,1245.0],["Vibhor Steel Tubes Limited","2024-02","MFG",151.0,86.1,298.9,178.8,10.2,22.6,72.3,0.0,100.0,72.2,1.1,178.7,721.3,188.2,421.0],["Juniper Hotels Ltd","2024-02","HOSP",360.0,0.6,0.1,0.3,null,-0.4,77.5,0.0,100.0,1800.0,1.1,0.0,0.1,0.5,361.2],["GPT Healthcare Ltd","2024-02","PHARMA",186.0,7.5,8.5,16.2,38.1,23.8,44.1,92.4,7.6,525.1,1.1,17.3,11.0,2.4,216.2],["Jyoti CNC Automation Limited","2024-01","MFG",331.0,14.5,38.5,12.4,433.4,18.4,62.6,0.0,100.0,1000.0,1.1,44.1,36.5,26.2,372.0],["Medi Assist Healthcare Services Limited","2024-01","PHARMA",418.0,6.5,16.2,11.2,38.2,19.6,45.8,0.0,100.0,1171.6,1.1,40.1,14.8,3.2,465.0],["Epack Durable Limited","2024-01","MFG",230.0,9.1,16.4,-2.2,56.4,14.7,65.4,37.5,62.5,640.0,1.1,25.5,28.1,6.3,225.0],["Flair Writing Instruments Limited","2023-12","FMCG",304.0,26.3,46.7,65.5,23.4,31.2,79.2,50.8,49.2,593.0,1.0,115.6,33.4,13.0,503.0],["India Shelter Finance Limited","2023-12","BFSI",493.0,29.0,36.7,24.3,28.2,13.4,48.2,33.3,66.7,1200.0,1.1,89.7,28.5,9.9,612.7],["Inox India Limited","2023-12","MFG",660.0,82.6,61.3,41.4,39.2,27.8,75.5,0.0,100.0,1459.3,1.1,147.8,53.2,15.3,933.1],["Suraj Estate Developers Limited","2023-12","REALTY",360.0,6.9,15.7,-4.5,35.6,58.2,75.0,0.0,100.0,400.0,1.1,24.3,18.9,9.3,343.8],["Motisons Jewellers Limited","2023-12","FMCG",55.0,141.8,159.6,88.9,17.6,16.1,66.0,0.0,100.0,151.1,1.1,157.4,233.9,122.3,103.9],["Muthoot Microfin Limited","2023-12","BFSI",291.0,7.6,11.5,-4.5,25.0,10.1,55.5,20.8,79.2,960.0,1.1,17.5,13.2,7.6,278.0],["Happy Forgings Limited","2023-12","MFG",850.0,47.8,82.0,17.8,36.5,21.1,78.6,60.4,39.6,1008.6,1.1,220.5,62.2,15.1,1001.2],["RBZ Jewellers Limited","2023-12","FMCG",100.0,0.0,16.9,0.0,13.8,20.1,75.0,0.0,100.0,100.0,1.1,13.4,9.3,24.7,100.0],["Azad Engineering Limited","2023-12","MFG",524.0,68.7,80.7,35.5,292.7,4.2,65.9,67.6,32.4,740.0,1.1,179.7,87.6,23.8,710.0],["Innova Captab Limited","2023-12","PHARMA",448.0,27.0,55.3,1.8,31.6,24.6,69.5,43.9,56.1,570.0,1.1,116.7,65.0,17.1,456.1],["Blue Jet Healthcare Limited","2023-11","PHARMA",346.0,4.3,8.0,4.0,37.5,26.5,86.0,100.0,0.0,840.3,1.1,13.7,13.6,2.2,359.9],["Cello World Limited","2023-11","FMCG",648.0,24.7,38.9,28.2,47.5,30.2,78.1,100.0,0.0,1900.0,1.0,108.6,24.4,3.1,831.0],["Honasa Consumer Limited (Mamaearth)","2023-11","FMCG",324.0,5.6,7.6,0.0,null,-23.6,35.3,78.5,21.5,1701.4,1.0,11.5,4.0,1.4,324.0],["ESAF Small Finance Bank Limited","2023-11","BFSI",60.0,35.0,73.2,19.8,8.9,19.4,59.7,15.6,84.4,463.0,1.0,173.5,84.4,17.0,71.9],["Protean eGov Technologies Limited","2023-11","TECH",792.0,10.2,23.9,0.0,29.9,12.5,0.0,100.0,0.0,489.9,1.0,46.9,31.6,8.9,792.0],["ASK Automotive Limited","2023-11","MFG",282.0,17.7,51.1,8.1,45.6,20.8,74.6,100.0,0.0,833.9,1.0,142.4,35.5,5.7,304.9],["Gandhar Oil Refineries Limited","2023-11","ENERGY",169.0,44.4,64.1,74.8,17.6,32.3,64.6,39.7,60.3,500.7,1.0,129.0,62.2,28.9,295.4],["Fedbank Financial Services Limited","2023-11","BFSI",140.0,1.4,2.2,-1.6,25.0,13.3,62.4,45.0,55.0,1092.3,1.0,3.5,1.4,1.8,137.8],["Tata Technologies Limited","2023-11","TECH",500.0,82.8,69.4,140.0,32.5,20.9,55.4,0.0,100.0,3042.5,1.0,203.4,62.1,16.5,1200.0],["Manoj Vaibhav Gems","2023-10","FMCG",215.0,3.3,2.2,0.0,14.2,18.5,74.3,0.0,100.0,270.2,1.1,1.1,5.2,1.7,215.0],["JSW Infrastructure Limited","2023-10","REALTY",119.0,21.0,37.4,20.2,28.5,18.5,85.6,0.0,100.0,2800.0,1.1,57.1,16.0,10.3,143.0],["Updater Services Limited","2023-10","LOGI",300.0,0.0,2.9,-0.0,56.4,6.5,58.5,37.5,62.5,640.0,1.1,4.5,0.8,1.4,299.9],["Valiant Laboratories Limited","2023-10","PHARMA",140.0,17.9,29.8,15.0,15.7,28.9,74.9,0.0,100.0,152.5,1.1,20.8,73.6,16.1,161.0],["Plaza Wires Limited","2023-10","MFG",54.0,42.6,161.0,55.6,21.9,14.1,69.8,0.0,100.0,71.3,1.1,42.8,388.1,374.8,84.0],["IRM Energy Limited","2023-10","ENERGY",505.0,9.9,27.1,-5.2,24.1,18.2,62.4,0.0,100.0,544.4,1.1,44.7,48.3,9.3,479.0],["Vishnu Prakash R P Limited","2023-09","REALTY",99.0,54.5,87.8,65.0,13.6,38.3,67.8,0.0,100.0,308.6,1.1,171.7,111.0,32.0,163.3],["Ratnaveer Precision Limited","2023-09","MFG",98.0,61.2,94.0,30.6,22.8,29.1,55.5,18.2,81.8,165.0,1.1,133.1,135.2,54.0,128.0],["Rishabh Instruments Limited","2023-09","MFG",441.0,13.6,31.6,4.3,31.3,12.5,70.7,75.4,24.6,490.8,1.1,72.5,31.3,8.4,460.0],["Jupiter Life Line Limited","2023-09","PHARMA",735.0,30.6,63.7,30.6,51.5,20.1,40.9,35.2,64.8,869.1,1.1,187.3,34.8,7.7,960.0],["R R Kabel Limited","2023-09","MFG",1035.0,10.4,18.7,13.9,39.5,13.9,62.8,90.5,9.5,1964.0,1.1,52.3,13.2,2.1,1179.0],["EMS Limited","2023-09","REALTY",211.0,47.4,15.1,33.4,10.8,22.5,74.1,24.1,75.9,321.2,1.1,0.7,29.7,16.6,281.6],["Zaggle Prepaid Ocean Limited","2023-09","TECH",164.0,7.3,12.6,-1.2,68.3,45.2,0.0,27.5,72.5,563.4,1.1,16.7,8.8,5.9,162.0],["Samhi Hotels Limited","2023-09","HOSP",126.0,3.2,5.3,3.6,null,-42.0,0.0,40.2,59.8,1370.1,1.1,8.8,1.2,1.1,130.6],["Sai Silks (Kalamandir) Limited","2023-09","FMCG",222.0,3.2,4.4,3.6,27.4,24.6,60.8,50.0,50.0,1201.0,1.1,12.3,2.5,0.9,230.1],["Signature Global India","2023-09","REALTY",385.0,13.0,11.9,15.6,null,-35.2,69.6,18.5,81.5,730.0,1.1,12.7,13.5,6.8,445.0],["Yatra Online Limited","2023-09","TECH",142.0,0.0,1.6,-8.4,185.0,1.8,64.5,22.4,77.6,775.0,1.1,2.0,0.4,2.1,130.0],["Yatharth Hospital & Trauma Care Services Limited","2023-08","PHARMA",300.0,24.0,36.2,1.3,39.2,36.0,66.3,28.7,71.3,686.5,1.1,85.1,37.2,8.3,304.0],["SBFC Finance Limited","2023-08","BFSI",57.0,68.4,70.2,43.8,35.4,10.4,64.0,41.5,58.5,1025.0,1.1,192.9,49.1,11.0,82.0],["Concord Biotech Limited","2023-08","PHARMA",741.0,20.6,24.9,21.5,32.2,20.1,44.1,100.0,0.0,1550.5,1.1,67.7,17.0,3.8,900.0],["TVS Supply Chain Solutions Limited","2023-08","LOGI",197.0,1.5,2.8,4.7,189.4,5.5,41.6,31.8,68.2,880.0,1.1,1.4,2.4,7.6,206.3],["Pyramid Technoplast Limited","2023-08","MFG",166.0,12.7,18.3,11.4,16.2,24.5,74.9,35.0,65.0,153.1,1.1,9.9,32.2,14.7,185.0],["Aeroflex Industries Limited","2023-08","MFG",108.0,64.8,97.1,82.8,46.3,26.4,67.0,40.5,59.5,351.0,1.1,194.7,126.1,34.4,197.4],["HMA Agro Industries Limited","2023-07","AGRI",585.0,2.1,1.6,5.1,22.4,30.5,73.8,20.0,80.0,480.0,1.1,1.7,3.0,1.0,615.0],["Ideaforge Technologies Limited","2023-07","TECH",672.0,77.4,106.1,94.2,87.5,13.1,30.2,55.0,45.0,567.2,1.1,125.8,80.6,85.2,1305.1],["Cyient DLM Limited","2023-07","TECH",265.0,42.3,67.3,51.3,66.2,4.5,66.7,0.0,100.0,592.0,1.1,90.4,45.0,49.2,401.0],["Senco Gold Limited","2023-07","FMCG",317.0,28.4,73.3,36.0,15.5,18.9,68.5,33.5,66.5,405.0,1.1,180.9,65.0,15.5,431.0],["Utkarsh Small Finance Bank Limited","2023-07","BFSI",25.0,64.0,101.9,59.8,6.8,20.2,69.3,0.0,100.0,500.0,1.1,124.8,81.6,72.1,40.0],["Netweb Technologies India Limited","2023-07","TECH",500.0,76.2,90.4,88.5,59.7,64.1,75.5,22.4,77.6,631.0,1.1,228.9,81.8,19.1,942.5],["IKIO Technologies Limited (formerly IKIO Lighting Limited)","2023-06","TECH",285.0,42.8,66.3,37.2,29.4,36.0,72.5,62.7,37.3,606.5,1.0,163.6,63.4,13.9,391.0],["Mankind Pharma Limited","2023-05","PHARMA",1080.0,5.6,15.3,20.4,45.2,22.1,76.5,100.0,0.0,4326.4,1.0,49.2,3.8,0.9,1300.0],["Nexus Select Trust","2023-05","REIT",100.0,2.0,3.6,2.3,null,0.0,0.0,56.2,43.8,3200.0,1.0,0.0,0.0,0.0,102.3],["Avalon Technologies Limited","2023-04","MFG",436.0,2.3,2.2,-1.1,58.4,15.2,51.2,25.0,75.0,865.0,1.0,3.6,0.4,0.8,431.0],["Divgi Torqtransfer Systems Limited","2023-03","MFG",590.0,12.2,5.4,1.7,35.2,12.5,74.2,75.0,25.0,412.1,1.0,7.8,1.4,4.3,600.0],["Global Surfaces Limited","2023-03","MFG",140.0,12.9,12.2,16.4,18.5,16.4,67.3,0.0,100.0,155.0,1.0,8.9,33.1,5.1,163.0],["Radiant Cash Management Services Limited","2023-01","LOGI",94.0,3.2,0.5,5.6,15.2,26.4,53.2,85.0,15.0,256.6,1.1,1.0,0.7,0.2,99.3],["Sah Polymers Limited","2023-01","MFG",65.0,9.2,17.5,30.8,25.1,14.8,60.5,0.0,100.0,66.3,1.1,2.4,32.7,39.8,85.0],["Dharmaj Crop Guard Limited","2022-12","AGRI",237.0,26.2,35.5,12.2,20.1,23.4,68.6,15.2,84.8,251.1,1.1,48.2,52.3,21.5,266.0],["Uniparts India Limited","2022-12","MFG",577.0,12.5,25.3,-0.3,15.2,28.5,65.8,100.0,0.0,835.6,1.1,67.1,17.9,4.6,575.0],["Sula Vineyards Limited","2022-12","FMCG",357.0,-0.3,2.3,0.3,48.5,11.2,27.3,100.0,0.0,960.4,1.1,4.1,1.5,1.6,358.0],["Landmark Cars Limited","2022-12","HOSP",506.0,-1.2,3.1,-6.9,32.1,22.4,44.6,75.0,25.0,552.0,1.1,8.7,1.3,0.6,471.3],["KFin Technologies Limited","2022-12","BFSI",366.0,0.5,2.6,0.8,40.2,18.5,49.9,100.0,0.0,1500.0,1.1,4.2,0.2,1.4,369.0],["Elin Electronics Limited","2022-12","MFG",247.0,0.8,3.1,-1.6,28.5,14.2,32.9,60.0,40.0,475.0,1.1,4.5,3.3,2.2,243.0],["DCX Systems Ltd","2022-11","MFG",207.0,41.5,69.8,38.3,30.2,56.4,73.6,20.1,79.9,500.0,1.0,84.3,44.0,61.8,286.2],["Fusion Finance Ltd","2022-11","BFSI",368.0,-0.8,3.0,-2.0,12.3,1.6,58.1,45.6,54.4,1104.0,1.0,8.6,1.4,0.5,360.5],["Global Health Limited","2022-11","PHARMA",336.0,4.2,9.6,18.5,45.8,13.9,33.0,100.0,0.0,2205.6,1.0,28.6,4.0,0.9,398.1],["Bikaji Foods International Limited","2022-11","FMCG",300.0,12.7,26.7,7.0,95.2,9.5,76.0,100.0,0.0,880.9,1.0,80.6,7.1,4.8,321.1],["Archean Chemical Industries Limited","2022-11","MFG",407.0,17.2,32.2,10.3,16.8,72.2,53.4,44.9,55.1,1462.3,1.0,48.9,14.9,10.0,449.0],["Five Star Business Finance Limited","2022-11","BFSI",474.0,-1.1,0.7,-5.1,28.5,14.8,33.6,100.0,0.0,1588.5,1.0,1.8,0.6,0.1,449.9],["Kaynes Technology India Limited","2022-11","MFG",587.0,23.5,34.2,32.0,81.2,15.2,67.4,21.4,78.6,857.8,1.0,98.5,21.2,4.1,775.0],["Inox Green Energy Limited","2022-11","ENERGY",65.0,6.2,1.6,-6.9,null,-4.5,56.0,50.0,50.0,740.0,1.0,1.1,0.5,4.7,60.5],["Keystone Realtors Limited","2022-11","REALTY",541.0,0.0,2.0,2.6,45.3,15.1,87.9,12.5,87.5,635.0,1.0,3.8,3.0,0.5,555.0],["Electronics Mart India","2022-10","FMCG",59.0,47.5,71.9,51.5,21.8,17.5,78.0,0.0,100.0,500.0,1.0,169.5,63.6,19.7,89.4],["Tracxn Technologies","2022-10","TECH",80.0,-1.2,0.7,3.8,null,-12.1,35.6,100.0,0.0,309.4,1.0,1.7,0.2,2.4,83.0],["Dreamfolks Services","2022-09","TECH",326.0,24.5,56.7,54.9,104.8,44.1,67.0,100.0,0.0,562.1,1.0,70.5,37.7,43.7,505.0],["Tamilnad Mercantile","2022-09","BFSI",510.0,1.6,2.9,0.0,9.5,16.6,0.0,100.0,0.0,807.8,1.0,1.6,2.9,6.5,510.0],["Harsha Engineers","2022-09","MFG",330.0,71.2,47.2,34.5,32.7,17.4,74.6,39.7,60.3,755.0,1.0,178.3,40.4,12.4,444.0],["Syrma SGS Technologies","2022-08","MFG",220.0,20.0,15.6,19.1,50.7,13.1,52.6,15.4,84.6,840.1,1.0,87.6,7.1,2.8,262.0],["eMudhra Ltd","2022-06","TECH",256.0,0.0,2.7,5.9,49.0,18.4,61.0,35.1,64.9,412.8,1.0,4.0,1.3,2.6,271.0],["Aether Industries","2022-06","MFG",642.0,1.6,6.3,10.0,72.3,27.8,87.1,25.2,74.8,808.0,1.0,17.6,2.5,1.1,706.1],["Campus Activewear (India) Limited","2022-05","FMCG",292.0,31.5,28.6,21.6,78.2,28.1,74.1,100.0,0.0,1399.6,1.0,152.0,10.7,4.7,355.0],["Rainbow Children\u2019s Medicare","2022-05","PHARMA",542.0,-1.8,12.4,-6.6,43.5,14.5,0.0,82.4,17.6,1580.8,1.0,38.9,1.4,1.4,506.0],["Prudent Corporate Advisory Services Limited","2022-05","BFSI",630.0,4.0,0.8,4.8,33.9,29.1,56.8,100.0,0.0,537.9,1.0,1.3,0.7,0.6,660.0],["Venus Pipes & Tubes Limited","2022-05","MFG",326.0,8.6,8.7,2.8,21.0,59.2,48.2,0.0,100.0,165.4,1.0,12.0,6.6,11.1,335.0],["Delhivery Limited","2022-05","LOGI",487.0,0.0,1.6,1.2,null,-14.2,0.0,45.0,55.0,5235.0,1.0,2.7,0.3,0.6,493.0],["Paradeep Phosphates Limited","2022-05","AGRI",42.0,7.1,0.8,3.7,12.5,12.2,0.0,80.5,19.5,1501.7,1.0,3.0,0.3,0.8,43.5],["Ethos Limited","2022-05","FMCG",878.0,-1.1,0.6,-5.5,95.4,4.8,61.6,45.6,54.4,402.3,1.0,1.1,0.8,0.3,830.0],["Uma Exports Limited","2022-04","AGRI",68.0,0.0,4.6,17.6,12.2,18.2,74.5,0.0,100.0,60.0,1.0,2.8,0.9,6.3,80.0],["Patanjali Foods Limited (formerly Ruchi Soya Industries Limited)","2022-04","FMCG",650.0,1.7,3.6,30.8,31.8,18.3,80.8,0.0,100.0,4300.0,1.0,2.2,11.8,0.9,850.0],["Veranda Learning Solutions Limited","2022-04","EDU",137.0,8.8,2.2,14.6,null,0.0,65.9,0.0,100.0,200.0,1.0,2.0,2.1,5.7,157.0],["Hariom Pipe Industries Limited","2022-04","MFG",153.0,0.0,3.6,39.9,15.2,21.4,66.0,0.0,100.0,130.1,1.0,1.9,2.7,6.9,214.0],["AWL Agri Business Limited (formerly Adani Wilmar Limited)","2022-02","FMCG",230.0,10.9,17.4,-3.9,48.2,22.1,87.9,0.0,100.0,3600.0,1.1,5.7,56.3,3.9,221.0],["Vedant Fashions Limited","2022-02","FMCG",866.0,0.6,2.6,8.1,84.1,25.2,84.9,100.0,0.0,3149.2,1.1,7.5,1.1,0.4,936.0],["AGS Transact Technologies Limited","2022-01","TECH",175.0,5.7,7.8,0.6,38.2,11.5,66.1,100.0,0.0,680.0,1.1,2.7,25.6,3.1,176.0],["Tega Industries Limited","2021-12","MFG",453.0,93.8,219.0,66.2,20.1,18.5,79.2,100.0,0.0,619.2,1.1,215.4,666.2,29.4,753.0],["Anand Rathi Wealth Limited","2021-12","BFSI",550.0,10.0,9.8,9.5,35.6,46.2,48.8,0.0,100.0,659.4,1.1,2.5,25.4,7.8,602.0],["Shriram Properties Limited","2021-12","REALTY",118.0,5.9,4.6,-20.3,null,-14.2,28.0,50.0,50.0,600.0,1.1,1.9,4.8,12.7,94.0],["MedPlus Health Services Limited","2021-12","PHARMA",796.0,27.6,52.6,27.5,98.4,12.8,40.4,56.5,43.5,1398.3,1.1,111.9,85.3,5.2,1015.0],["Data Patterns (India) Limited","2021-12","TECH",585.0,79.5,119.6,47.7,42.5,27.5,45.6,45.0,55.0,588.2,1.1,190.9,254.2,23.1,864.0],["HP Adhesives Limited","2021-12","MFG",274.0,0.0,21.0,16.4,45.1,28.5,71.0,10.0,90.0,126.0,1.1,1.8,19.0,81.2,319.0],["Supriya Lifescience Limited","2021-12","PHARMA",274.0,32.8,71.5,55.1,16.2,46.1,68.2,75.0,25.0,700.0,1.1,31.8,161.2,56.0,425.0],["CMS Info Systems Limited","2021-12","LOGI",216.0,2.8,1.9,1.2,19.4,24.2,65.6,100.0,0.0,1100.0,1.1,2.0,1.4,2.1,218.5],["S.J.S Enterprises Limited","2021-11","MFG",542.0,3.3,1.6,-0.4,14.5,14.7,50.4,100.0,0.0,800.0,1.2,1.4,2.3,1.4,540.0],["Sigachi Industries Limited","2021-11","PHARMA",163.0,110.4,101.9,252.8,13.1,32.1,48.0,0.0,100.0,125.4,1.2,86.5,172.4,80.5,575.0],["Sapphire Foods India","2021-11","HOSP",1180.0,6.8,6.6,11.1,1.8,1.6,0.0,100.0,0.0,2073.2,1.2,7.5,3.5,8.7,1311.0],["Latent View Analytics","2021-11","TECH",197.0,144.7,326.5,169.0,37.8,20.8,0.0,22.5,77.5,600.0,1.2,145.5,850.7,119.4,530.0],["Tarsons Products","2021-11","MFG",662.0,27.9,77.5,5.7,35.2,28.1,0.0,85.0,15.0,1023.5,1.2,115.8,184.6,10.6,700.0],["Go Fashion (India) Limited","2021-11","FMCG",690.0,44.9,135.5,90.7,null,-1.5,52.8,100.0,0.0,1013.6,1.2,100.7,262.1,49.7,1316.0],["Paras Defence and Space Technologies Limited","2021-10","MFG",175.0,120.0,304.3,171.4,95.6,15.8,59.7,17.5,82.5,170.8,1.2,169.7,927.7,112.8,475.0],["Aditya Birla Sun Life AMC Limited","2021-10","BFSI",712.0,3.1,5.2,0.0,42.8,38.4,86.5,0.0,100.0,2768.3,1.2,10.4,4.4,3.2,712.0],["Vijaya Diagnostic Centre Limited","2021-09","PHARMA",531.0,0.9,4.5,2.1,47.3,31.2,54.8,0.0,100.0,1894.3,1.2,13.1,1.3,1.1,542.3],["Sansera Engineering Limited","2021-09","MFG",744.0,8.7,0.5,9.1,21.4,6.2,36.6,100.0,0.0,1282.5,1.2,0.3,0.1,0.9,811.4],["Rolex Rings Limited","2021-08","MFG",900.0,60.0,130.4,38.8,28.2,22.5,57.6,92.5,7.5,731.1,1.1,143.6,360.1,24.5,1249.0],["Windlas Biotech Limited","2021-08","PHARMA",460.0,23.9,22.5,-4.6,63.8,12.4,65.2,25.0,75.0,401.5,1.1,24.4,15.7,24.3,439.0],["Exxaro Tiles Limited","2021-08","MFG",120.0,14.2,22.7,5.0,30.5,12.1,42.5,15.0,85.0,160.8,1.1,17.7,5.4,40.1,126.0],["Krsnaa Diagnostics Limited","2021-08","PHARMA",954.0,34.6,64.4,7.4,65.5,14.8,27.4,68.4,31.6,1213.3,1.1,49.8,116.3,42.0,1025.0],["Devyani International Limited","2021-08","HOSP",90.0,70.0,116.7,56.7,null,-8.5,68.0,75.0,25.0,1838.0,1.1,95.3,213.1,39.5,141.0],["CarTrade Tech Limited","2021-08","TECH",1618.0,6.8,20.3,-1.1,null,-4.5,0.0,100.0,0.0,2998.5,1.1,35.5,41.0,2.8,1600.0],["Nuvoco Vistas Corporation Limited","2021-08","MFG",570.0,1.4,1.7,-17.4,38.5,2.5,71.0,70.0,30.0,5000.0,1.1,4.2,0.7,0.7,471.0],["Chemplast Sanmar Limited","2021-08","MFG",541.0,2.8,2.2,-3.0,18.2,35.4,55.0,100.0,0.0,3850.0,1.1,2.7,1.0,2.3,525.0],["Aptus Value Housing Finance India Limited","2021-08","BFSI",353.0,6.2,17.2,-6.5,55.4,14.5,72.2,85.0,15.0,2780.1,1.1,32.4,33.9,1.4,329.9],["India Pesticides Limited","2021-07","AGRI",296.0,13.5,29.0,21.6,24.5,32.5,72.0,75.0,25.0,800.0,1.2,43.0,51.9,11.3,360.0],["Clean Science and Technology Limited","2021-07","MFG",900.0,56.7,46.6,98.3,48.2,36.8,78.5,100.0,0.0,1546.6,1.2,70.3,110.3,5.7,1784.4],["G R Infraprojects Limited","2021-07","REALTY",837.0,46.6,59.1,103.1,8.5,24.0,86.5,100.0,0.0,962.3,1.2,75.4,165.0,7.7,1700.0],["Tatva Chintan Pharma Chem Limited","2021-07","PHARMA",1083.0,70.2,180.4,95.0,115.2,36.7,79.2,55.0,45.0,500.0,1.2,185.2,512.2,35.4,2111.8],["Shyam Metalics and Energy Limited","2021-06","MFG",306.0,45.8,121.4,19.9,18.9,22.1,88.4,27.7,72.3,908.5,1.2,155.7,340.0,11.6,367.0],["Dodla Dairy Limited","2021-06","FMCG",428.0,19.9,45.6,23.4,16.4,18.5,64.2,90.0,10.0,520.2,1.2,84.9,73.3,11.3,528.0],["Heranba Industries Limited","2021-03","AGRI",627.0,20.7,83.3,43.5,12.5,30.5,74.1,90.0,10.0,625.2,1.3,67.5,271.1,11.8,900.0],["MTAR Technologies Limited","2021-03","MFG",575.0,84.3,200.8,85.0,45.5,18.5,50.3,25.0,75.0,596.4,1.3,165.0,650.8,28.4,1063.9],["Anupam Rasayan India Limited","2021-03","MFG",555.0,27.0,44.1,-3.7,85.4,8.2,65.4,0.0,100.0,760.0,1.3,65.7,97.4,10.8,534.7],["Craftsman Automation Limited","2021-03","MFG",1490.0,5.4,3.8,-9.4,75.2,10.5,59.8,70.0,30.0,823.7,1.3,5.2,2.8,3.4,1350.0],["Laxmi Organic Industries Limited","2021-03","MFG",130.0,64.6,106.8,20.1,41.3,38.4,72.9,50.0,50.0,600.0,1.3,175.4,217.6,20.1,156.2],["Kalyan Jewellers India Limited","2021-03","FMCG",87.0,10.3,2.6,-15.1,55.2,3.5,60.5,32.5,67.5,1174.8,1.3,2.8,1.9,2.8,73.9],["Suryoday Small Finance Bank Limited","2021-03","BFSI",305.0,8.9,2.4,-3.9,28.5,11.2,28.0,45.0,55.0,580.8,1.3,2.2,1.3,3.1,293.0],["Nazara Technologies Limited","2021-03","TECH",1101.0,83.6,175.5,79.0,115.0,1.5,20.7,100.0,0.0,582.7,1.3,103.8,389.9,75.3,1971.0],["Indigo Paints Limited","2021-02","MFG",1490.0,60.4,117.0,75.0,115.0,22.4,54.0,80.0,20.0,1169.1,1.3,189.6,263.1,15.9,2607.5],["Stove Kraft Limited","2021-02","FMCG",385.0,26.0,18.0,21.3,35.2,18.5,54.4,85.0,15.0,412.6,1.3,8.0,32.7,26.0,467.0],["Nureca Limited","2021-02","PHARMA",400.0,32.5,39.9,58.7,55.0,45.2,70.0,0.0,100.0,100.0,1.3,3.1,31.6,166.7,635.0],["Mrs Bectors Food Specialities Ltd","2020-12","FMCG",288.0,76.4,198.0,74.0,96.4,8.9,51.0,92.4,7.6,540.5,1.2,176.8,620.9,29.3,501.0],["Gland Pharma Ltd","2020-11","PHARMA",1500.0,1.3,2.1,13.4,22.5,18.2,58.0,100.0,0.0,6479.6,1.1,6.4,0.5,0.2,1701.0],["Mazagon Dock Shipbuilders Ltd","2020-10","MFG",145.0,103.4,157.4,49.1,11.2,29.3,85.0,0.0,100.0,443.7,1.0,89.7,678.9,35.6,216.2],["Likhitha Infrastructure Ltd","2020-10","REALTY",120.0,4.2,9.5,8.4,12.5,22.5,74.1,0.0,100.0,61.2,1.0,22.0,1.5,23.7,130.1],["Route Mobile Ltd","2020-09","TECH",350.0,42.0,73.3,102.3,25.4,28.5,66.3,100.0,0.0,600.0,1.0,89.8,192.8,12.7,708.0]];
+const PATTERNS = {"gmp":[{"band":"below 0%","n":20,"wr":10,"avg":-4.6},{"band":"0 to 5%","n":96,"wr":53,"avg":0.9},{"band":"5 to 15%","n":70,"wr":64,"avg":5.8},{"band":"15 to 30%","n":52,"wr":90,"avg":18.8},{"band":"30%+","n":92,"wr":100,"avg":58.9}],"qib":[{"band":"under 1x","n":7,"wr":71,"avg":10.7},{"band":"1 to 5x","n":86,"wr":48,"avg":1.4},{"band":"5 to 10x","n":27,"wr":59,"avg":3.2},{"band":"10 to 30x","n":42,"wr":55,"avg":3.3},{"band":"30 to 100x","n":67,"wr":79,"avg":24.8},{"band":"100x+","n":101,"wr":99,"avg":47.2}],"total":[{"band":"under 2x","n":45,"wr":49,"avg":0.4},{"band":"2 to 10x","n":82,"wr":52,"avg":1.7},{"band":"10 to 30x","n":57,"wr":61,"avg":8.6},{"band":"30 to 100x","n":92,"wr":92,"avg":31.9},{"band":"100x+","n":53,"wr":100,"avg":61.8}],"hni":[{"band":"under 2x","n":77,"wr":48,"avg":0.3},{"band":"2 to 10x","n":51,"wr":51,"avg":2.3},{"band":"10 to 50x","n":84,"wr":76,"avg":16.5},{"band":"50 to 200x","n":76,"wr":91,"avg":36.3},{"band":"200x+","n":42,"wr":100,"avg":61.2}],"sector":[{"band":"Agriculture","n":8,"wr":88,"avg":14.5},{"band":"Pharma/Healthcare","n":37,"wr":84,"avg":23.8},{"band":"Hospitality","n":10,"wr":80,"avg":10.8},{"band":"Technology","n":38,"wr":76,"avg":37.6},{"band":"Education","n":4,"wr":75,"avg":15.5},{"band":"REIT/InvIT","n":4,"wr":75,"avg":1.6},{"band":"Manufacturing","n":101,"wr":74,"avg":22.8},{"band":"Real Estate/Infra","n":27,"wr":74,"avg":16.2},{"band":"FMCG/Consumer","n":41,"wr":71,"avg":20.5},{"band":"Logistics","n":10,"wr":60,"avg":2.0},{"band":"BFSI","n":31,"wr":55,"avg":11.7},{"band":"Energy","n":19,"wr":47,"avg":12.8}],"month":[{"band":"Jan","n":15,"wr":73,"avg":12.1},{"band":"Feb","n":21,"wr":62,"avg":23.8},{"band":"Mar","n":26,"wr":50,"avg":13.6},{"band":"Apr","n":11,"wr":73,"avg":12.0},{"band":"May","n":13,"wr":85,"avg":6.1},{"band":"Jun","n":11,"wr":73,"avg":12.8},{"band":"Jul","n":27,"wr":89,"avg":33.8},{"band":"Aug","n":37,"wr":76,"avg":17.5},{"band":"Sep","n":43,"wr":77,"avg":22.8},{"band":"Oct","n":34,"wr":68,"avg":18.5},{"band":"Nov","n":44,"wr":68,"avg":24.3},{"band":"Dec","n":49,"wr":73,"avg":24.7}]};
+const OVERALL = {"n": 331, "wr": 71.9, "avg": 20.7};
+
+/* archive detail: click any past IPO to see all its info + comparisons */
+const SECTOR_FULL = { MFG:"Manufacturing", FMCG:"FMCG/Consumer", TECH:"Technology",
+  PHARMA:"Pharma/Healthcare", BFSI:"BFSI", REALTY:"Real Estate/Infra", ENERGY:"Energy",
+  HOSP:"Hospitality", LOGI:"Logistics", AGRI:"Agriculture", EDU:"Education",
+  REIT:"REIT/InvIT", TELECOM:"Telecom" };
+
+function renderArchiveDetail(idx){
+  const r = ARCHIVE[idx];
+  const el = $("#view-detail");
+  if (!r){ el.innerHTML = `<button class="back mono" data-nav="archive">&larr; back to past IPOs</button><p>Entry not found.</p>`; return; }
+  const sectorFull = SECTOR_FULL[r[2]] || r[2];
+  const sent = r[13];
+  const trend = sent == null ? 0 : (sent >= 1.15 ? 2 : sent >= 1.05 ? 1 : sent >= 1.0 ? 0 : -1);
+  const fundamentals = {
+    offer_price: r[3], size_cr: r[12], pe: r[7], roe: r[8],
+    promoter_holding: r[9], ofs_pct: r[10], fresh_pct: r[11],
+    sector: sectorFull, market_sentiment: sent, trend: trend, volatility: null,
+    gmp: r[4], sub: r[5], qib: r[14], hni: r[15], rii: r[16],
+    list_price: r[17]
+  };
+  const ipoObj = { name: r[0], sector: sectorFull, status: "settled", fundamentals };
+  window.__archDetail = ipoObj;                 // so the compare handler can find it
+  const day1 = r[6], gmp = r[4], demand = r[5];
+  const have = buildFundamentals(ipoObj);
+  const [mn,mi,mv,mt] = firstMetric(ipoObj);
+
+  el.innerHTML = `
+    <button class="back mono" data-nav="archive">&larr; back to past IPOs</button>
+    <h1 class="ipo">${esc(r[0])}</h1>
+    <div class="metaline">${esc(sectorFull)} &middot; Rs ${r[3]} &middot; Rs ${r[12]} crore issue &middot; listed ${r[1]}</div>
+    <hr class="heavy"/>
+    <div class="verified-strip">
+      <div>
+        <span class="caps" style="color:var(--green)">How it actually listed</span>
+        <div class="sub">grey market was ${gmp>0?"+":""}${gmp}% before listing${demand!=null?" &middot; subscribed "+demand+"x overall":""}</div>
+      </div>
+      <div class="big" style="color:${day1>0?"var(--green)":"var(--red)"}">${day1>0?"+":""}${day1}%<div class="sub" style="text-align:right">day-one gain</div></div>
+    </div>
+    ${fundamentalsHTML(have)}
+    <div id="compareBox">${comparePanel(ipoObj, mn, mi, mv, mt)}</div>
+    <p class="mono" style="color:var(--ink-faint); margin-top:18px">A settled IPO from the dataset. Tap any number above to see how the closest past IPOs listed.</p>`;
+  window.scrollTo(0,0);
+}
+function showArchiveDetail(idx){
+  views.forEach(v => $("#view-"+v).classList.toggle("hidden", v !== "detail"));
+  renderArchiveDetail(idx);
+}
+
+/* archive page */
+(function(){
+  const sectors = [...new Set(ARCHIVE.map(r => r[2]))].sort();
+  const years = [...new Set(ARCHIVE.map(r => r[1].slice(0,4)))].sort().reverse();
+  $("#archSector").insertAdjacentHTML("beforeend", sectors.map(s => `<option>${s}</option>`).join(""));
+  $("#archYear").insertAdjacentHTML("beforeend", years.map(y => `<option>${y}</option>`).join(""));
+  $("#archMeta").textContent = OVERALL.n + " IPOs \u00b7 " + OVERALL.wr + "% listed above offer \u00b7 average day-one gain +" + OVERALL.avg + "%";
+
+  function render(){
+    const q = $("#archSearch").value.toLowerCase();
+    const sec = $("#archSector").value, yr = $("#archYear").value, out = $("#archOutcome").value;
+    const rows = ARCHIVE.filter(r =>
+      (!q || r[0].toLowerCase().includes(q)) &&
+      (!sec || r[2] === sec) &&
+      (!yr || r[1].startsWith(yr)) &&
+      (!out || (out === "win" ? r[6] > 0 : r[6] <= 0))
+    );
+    $("#archCount").textContent = rows.length + " of " + ARCHIVE.length + " entries";
+    $("#archBody").innerHTML = rows.map(r => `
+      <tr class="arch-row" data-arch="${ARCHIVE.indexOf(r)}" tabindex="0" role="button" style="cursor:pointer">
+        <td class="mono" style="color:var(--ink-faint)">${r[1]}</td>
+        <td>${esc(r[0])}</td>
+        <td class="mono col-opt" style="font-size:11px">${r[2]}</td>
+        <td class="num col-opt">${r[3]}</td>
+        <td class="num">${r[4] > 0 ? "+" : ""}${r[4]}</td>
+        <td class="num">${r[5]}</td>
+        <td class="num ${r[6] > 0 ? "gain-pos" : "gain-neg"}">${r[6] > 0 ? "+" : ""}${r[6]}%</td>
+      </tr>`).join("");
+  }
+  ["archSearch","archSector","archYear","archOutcome"].forEach(id =>
+    $("#"+id).addEventListener("input", render));
+  render();
+})();
+
+/* patterns page */
+(function(){
+  $("#patMeta").textContent = "what actually predicts listing day, measured on " + OVERALL.n + " IPOs";
+  const blocks = [
+    ["Grey market premium at close", "what traders pay before listing", PATTERNS.gmp],
+    ["Institutional demand (QIB)", "mutual funds, banks, insurers", PATTERNS.qib],
+    ["Total subscription", "all categories combined", PATTERNS.total],
+    ["HNI demand", "wealthy investors, usually leveraged", PATTERNS.hni],
+    ["By sector", "minimum 4 IPOs per sector", PATTERNS.sector],
+    ["By listing month", "seasonality across the dataset", PATTERNS.month],
+  ];
+  $("#patGrid").innerHTML = blocks.map(([title, sub, rows]) => `
+    <div class="pat">
+      <h2>${title}</h2>
+      <div class="sub">${sub}</div>
+      <table class="ledger">
+        <thead><tr><th>Band</th><th class="num">IPOs</th><th class="num">Win rate</th><th class="num">Avg listing</th></tr></thead>
+        <tbody>${rows.map(r => `
+          <tr>
+            <td>${r.band}</td>
+            <td class="num">${r.n}</td>
+            <td class="num ${r.wr >= 80 ? "wr-hi" : r.wr < 60 ? "wr-lo" : ""}">${r.wr}%</td>
+            <td class="num">${r.avg > 0 ? "+" : ""}${r.avg}%</td>
+          </tr>`).join("")}
+        </tbody>
+      </table>
+    </div>`).join("");
+})();
+
+/* alerts page (sign-in gated; prefilled from the account) */
+(function(){
+  const tierEl = $("#alTier"), valEl = $("#alTierVal"), hint = $("#alTierHint");
+  function hintFor(t){
+    if (t >= 95) return "strictest filter: roughly 95%+ historical win rate, fewest alerts";
+    if (t >= 85) return "high bar: about " + t + "% historical win rate on qualifying IPOs";
+    if (t >= 75) return "balanced: more alerts, about " + t + "% historical win rate";
+    return "broad: most closing IPOs will qualify at this tier";
+  }
+  function upd(){ valEl.textContent = tierEl.value + "%"; hint.textContent = hintFor(+tierEl.value); }
+  if (tierEl){ tierEl.addEventListener("input", upd); upd(); }
+
+  // called by refreshAuth() once we know who is signed in
+  window.alertsPrefill = function(user){
+    if (!tierEl) return;
+    if (user && user.tier){ tierEl.value = user.tier; }
+    upd();
+    const tg = $("#alTelegram");
+    if (tg && user && user.telegram) tg.value = user.telegram;
+  };
+
+  // gate: "Sign in to set up alerts" sends them to the account view
+  const goSignIn = $("#alGoSignIn");
+  if (goSignIn) goSignIn.addEventListener("click", () => showView("account"));
+
+  // Mobile only: tap outside the sign-in box dismisses it. Stays on the account
+  // page, just hides the form so the person is not trapped by it. Tapping the
+  // form itself does nothing (stopPropagation); desktop is unaffected.
+  const acctBox = $("#acctLoggedOut");
+  if (acctBox){
+    acctBox.addEventListener("click", (e) => e.stopPropagation());
+    document.addEventListener("click", () => {
+      if (window.innerWidth > 768) return;                          // laptop: unchanged
+      if (acctBox.classList.contains("hidden")) return;             // already hidden or signed in
+      const acctView = document.getElementById("view-account");
+      if (!acctView || acctView.classList.contains("hidden")) return; // not on account page
+      // reaches here only for taps that were NOT inside the auth card
+      acctBox.classList.add("hidden");
+    });
+    // when they return to the account page, show the form again
+    document.querySelectorAll('[data-nav="account"]').forEach(b =>
+      b.addEventListener("click", () => acctBox.classList.remove("hidden")));
+  }
+
+  async function doSubscribe(tier, tg){
+    const msg = $("#alertMsg");
+    msg.textContent = "Saving..."; msg.className = "";
+    try {
+      // save to the account; the server mirrors it into the alert list so alerts fire
+      const r = await fetch("/account", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tier, telegram: tg || null })
+      });
+      const d = await r.json();
+      if (!r.ok) throw new Error(d.detail || "failed");
+      msg.textContent = "Done. Alerts on at the " + tier + "% tier, saved to your account. We email you (and Telegram, if set) on an IPO's closing day when it clears your bar.";
+      msg.className = "ok";
+    } catch (err) {
+      msg.textContent = "Could not save: " + err.message;
+      msg.className = "err";
+    }
+  }
+
+  const submit = $("#alSubmit");
+  if (submit) submit.addEventListener("click", () => {
+    const tg = $("#alTelegram").value.trim();
+    const tier = +tierEl.value;
+    const count = (typeof ARCHIVE !== "undefined" && ARCHIVE.length) ? ARCHIVE.length : null;
+    if (window.openIntro){
+      window.openIntro({ email: window.currentUserEmail, tier: tier, dataCount: count,
+                         onConfirm: () => doSubscribe(tier, tg) });
+    } else {
+      doSubscribe(tier, tg);
+    }
+  });
+
+  const unsub = $("#alUnsub");
+  if (unsub) unsub.addEventListener("click", (e) => {
+    e.preventDefault();
+    const go = async () => {
+      const msg = $("#alertMsg");
+      if (msg){ msg.textContent = "Turning off..."; msg.style.color = ""; }
+      try {
+        const r = await fetch("/account/unsubscribe", { method: "POST" });
+        if (r.ok){
+          if (msg){ msg.textContent = "Done. You will not get any more alert emails."; msg.style.color = "var(--green)"; }
+          if (typeof refreshAuth === "function") refreshAuth();
+        } else if (msg){ msg.textContent = "Could not turn off alerts. Please try again."; msg.style.color = "var(--red)"; }
+      } catch (err){ if (msg){ msg.textContent = "Network error. Please try again."; msg.style.color = "var(--red)"; } }
+    };
+    if (window.openModal){
+      openModal({ title:"Turn off email alerts?",
+                  body:"You will stop getting IPO alert emails. You can turn them back on anytime by setting your tier again.",
+                  confirmLabel:"Turn off alerts", cancelLabel:"Keep alerts", onConfirm: go });
+    } else { go(); }
+  });
+})();
+
+/* account + auth */
+async function refreshAuth(){
+  try {
+    const r = await fetch("/auth/me");
+    const d = await r.json();
+    const btn = $("#authBtn");
+    const alOut = $("#alLoggedOut"), alIn = $("#alLoggedIn");
+    if (d.authenticated){
+      btn.textContent = "Account";
+      $("#acctLoggedOut").classList.add("hidden");
+      $("#acctLoggedIn").classList.remove("hidden");
+      $("#signedAs").textContent = "Signed in as " + d.user.email;
+      if (d.user.tier){ $("#acctTier").value = d.user.tier; $("#acctTierVal").textContent = d.user.tier + "%"; }
+      if (d.user.telegram) $("#acctTelegram").value = d.user.telegram;
+      // alerts page: reveal the form, pre-fill from the account
+      if (alOut && alIn){
+        alOut.classList.add("hidden");
+        alIn.classList.remove("hidden");
+        $("#alSignedAs").textContent = "Signed in as " + d.user.email;
+        window.currentUserEmail = d.user.email;
+        if (window.alertsPrefill) window.alertsPrefill(d.user);
+      }
+    } else {
+      btn.textContent = "Sign in";
+      $("#acctLoggedOut").classList.remove("hidden");
+      $("#acctLoggedIn").classList.add("hidden");
+      // alerts page: hide the form, show the sign-in gate
+      if (alOut && alIn){
+        alOut.classList.remove("hidden");
+        alIn.classList.add("hidden");
+      }
+    }
+  } catch(_){ /* offline: leave as Sign in */ }
+}
+
+(function(){
+  const tierEl = $("#acctTier"), valEl = $("#acctTierVal");
+  if (tierEl) tierEl.addEventListener("input", () => valEl.textContent = tierEl.value + "%");
+
+  // ---- sign up / sign in / verify (password + 6-digit code) ----
+  let pendingEmail = "";
+  const authMsgEl = () => $("#authMsg");
+  function showMsg(html, color){ const m = authMsgEl(); if (m){ m.innerHTML = html; m.style.color = color || "var(--ink-soft)"; } }
+  function showOtp(email, info){
+    $("#credPane").classList.add("hidden");
+    $("#otpPane").classList.remove("hidden");
+    $("#otpInfo").textContent = info;
+    pendingEmail = email;
+    const c = $("#otpCode"); if (c){ c.value = ""; c.focus(); }
+  }
+  function showCred(){
+    $("#otpPane").classList.add("hidden");
+    $("#resetPane").classList.add("hidden");
+    $("#credPane").classList.remove("hidden");
+    showMsg("");
+  }
+  function showReset(email, info){
+    $("#credPane").classList.add("hidden");
+    $("#otpPane").classList.add("hidden");
+    $("#resetPane").classList.remove("hidden");
+    $("#resetInfo").textContent = info;
+    pendingEmail = email;
+    $("#resetPass").value = "";
+    const c = $("#resetCode"); if (c){ c.value = ""; c.focus(); }
+  }
+  async function postJSON(url, body){
+    const r = await fetch(url, { method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify(body) });
+    let d = {}; try { d = await r.json(); } catch(_){}
+    return { r, d };
+  }
+  function afterAuth(d, email){
+    if (d.authenticated){ showMsg(""); refreshAuth(); return; }
+    if (d.needs_verification){
+      showOtp(email, "We emailed a 6-digit code to " + email + ". Enter it to finish.");
+      if (d.dev_otp) showMsg("Email not configured on this server. Your code: <strong>" + d.dev_otp + "</strong>", "var(--ink)");
+    }
+  }
+
+  const bSignin = $("#btnSignin");
+  if (bSignin) bSignin.addEventListener("click", async () => {
+    const email = $("#authEmail").value.trim(), pass = $("#authPass").value;
+    if (!email.includes("@")){ showMsg("Enter a valid email.", "var(--red)"); return; }
+    if (!pass){ showMsg("Enter your password.", "var(--red)"); return; }
+    showMsg("Signing in...");
+    const { r, d } = await postJSON("/auth/login", { email, password: pass });
+    if (!r.ok){ showMsg(d.detail || "Sign in failed.", "var(--red)"); return; }
+    afterAuth(d, email);
+  });
+
+  const bSignup = $("#btnSignup");
+  if (bSignup) bSignup.addEventListener("click", async () => {
+    const email = $("#authEmail").value.trim(), pass = $("#authPass").value;
+    const consent = $("#authConsent") && $("#authConsent").checked;
+    if (!email.includes("@")){ showMsg("Enter a valid email.", "var(--red)"); return; }
+    if ((pass || "").length < 8){ showMsg("Password must be at least 8 characters.", "var(--red)"); return; }
+    if (!consent){ showMsg("Please tick the box to accept the Terms and not-advice notice.", "var(--red)"); return; }
+    showMsg("Creating your account...");
+    const { r, d } = await postJSON("/auth/signup", { email, password: pass, consent: true });
+    if (!r.ok){ showMsg(d.detail || "Sign up failed.", "var(--red)"); return; }
+    afterAuth(d, email);
+  });
+
+  const oVerify = $("#otpVerify");
+  if (oVerify) oVerify.addEventListener("click", async () => {
+    const code = $("#otpCode").value.trim();
+    if (!/^\d{6}$/.test(code)){ showMsg("Enter the 6-digit code.", "var(--red)"); return; }
+    showMsg("Verifying...");
+    const { r, d } = await postJSON("/auth/verify-otp", { email: pendingEmail, code });
+    if (!r.ok){ showMsg(d.detail || "Verification failed.", "var(--red)"); return; }
+    if (d.authenticated){ showMsg(""); refreshAuth(); }
+  });
+
+  const oResend = $("#otpResend");
+  if (oResend) oResend.addEventListener("click", async (e) => {
+    e.preventDefault();
+    if (!pendingEmail) return;
+    showMsg("Sending a new code...");
+    const { d } = await postJSON("/auth/resend-otp", { email: pendingEmail });
+    if (d.dev_otp) showMsg("Email not configured on this server. Your code: <strong>" + d.dev_otp + "</strong>", "var(--ink)");
+    else showMsg("New code sent. Check your inbox.", "var(--green)");
+  });
+
+  const oBack = $("#otpBack");
+  if (oBack) oBack.addEventListener("click", (e) => { e.preventDefault(); showCred(); });
+
+  const fLink = $("#forgotLink");
+  if (fLink) fLink.addEventListener("click", async (e) => {
+    e.preventDefault();
+    const email = $("#authEmail").value.trim();
+    if (!email.includes("@")){ showMsg("Type your email above first, then tap Forgot password.", "var(--red)"); return; }
+    showMsg("Sending a reset code...");
+    const { d } = await postJSON("/auth/forgot", { email });
+    showReset(email, "If that email has an account, we sent it a 6-digit code. Enter it and choose a new password.");
+    if (d.dev_otp) showMsg("Email not configured on this server. Your code: <strong>" + d.dev_otp + "</strong>", "var(--ink)");
+    else showMsg("");
+  });
+
+  const rSubmit = $("#resetSubmit");
+  if (rSubmit) rSubmit.addEventListener("click", async () => {
+    const code = $("#resetCode").value.trim(), pass = $("#resetPass").value;
+    if (!/^\d{6}$/.test(code)){ showMsg("Enter the 6-digit code.", "var(--red)"); return; }
+    if ((pass || "").length < 8){ showMsg("New password must be at least 8 characters.", "var(--red)"); return; }
+    showMsg("Resetting...");
+    const { r, d } = await postJSON("/auth/reset", { email: pendingEmail, code, password: pass });
+    if (!r.ok){ showMsg(d.detail || "Reset failed.", "var(--red)"); return; }
+    if (d.authenticated){ showMsg(""); refreshAuth(); }
+  });
+
+  const rResend = $("#resetResend");
+  if (rResend) rResend.addEventListener("click", async (e) => {
+    e.preventDefault();
+    if (!pendingEmail) return;
+    showMsg("Sending a new code...");
+    const { d } = await postJSON("/auth/forgot", { email: pendingEmail });
+    if (d.dev_otp) showMsg("Email not configured. Your code: <strong>" + d.dev_otp + "</strong>", "var(--ink)");
+    else showMsg("New code sent.", "var(--green)");
+  });
+
+  const rBack = $("#resetBack");
+  if (rBack) rBack.addEventListener("click", (e) => { e.preventDefault(); showCred(); });
+
+  const save = $("#acctSave");
+  if (save) save.addEventListener("click", async () => {
+    const msg = $("#acctMsg");
+    msg.textContent = "Saving..."; msg.style.color = "var(--ink-soft)";
+    try {
+      const r = await fetch("/account", {
+        method:"POST", headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({ tier:+$("#acctTier").value,
+                               telegram:$("#acctTelegram").value.trim() })
+      });
+      const d = await r.json();
+      if (!r.ok) throw new Error(d.detail || "failed");
+      msg.textContent = "Saved. You will be alerted when an IPO clears your " + $("#acctTier").value + "% tier.";
+      msg.style.color = "var(--green)";
+    } catch(err){ msg.textContent = "Could not save: " + err.message; msg.style.color = "var(--red)"; }
+  });
+
+  const logout = $("#logoutLink");
+  if (logout) logout.addEventListener("click", async () => {
+    await fetch("/auth/logout", {method:"POST"});
+    refreshAuth();
+  });
+})();
+
+/* ask */
+const CHIPS = [
+  "what is confidence",
+  "what is GMP",
+  "what is P/E",
+  "will I get allotment",
+  "do high PE companies crash on listing",
+  "is high HNI subscription a good sign",
+];
+$("#askChips").innerHTML = CHIPS.map(c => `<button>${c}</button>`).join("");
+$("#askChips").addEventListener("click", e => {
+  if (e.target.tagName === "BUTTON"){ $("#askInput").value = e.target.textContent; ask(); }
+});
+$("#askBtn").addEventListener("click", ask);
+$("#askInput").addEventListener("keydown", e => { if (e.key === "Enter") ask(); });
+
+async function ask(){
+  const q = $("#askInput").value.trim();
+  if (!q) return;
+  const out = $("#askOut");
+  out.innerHTML = `<span class="tag">searching the historical dataset...</span>`;
+  try {
+    const r = await fetch("/ask", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question: q })
+    });
+    if (!r.ok) throw new Error("api " + r.status);
+    const d = await r.json();
+    const label = d.parser === "concept" ? "explanation"
+                : d.parser === "rules" ? "from the dataset"
+                : (d.parser && d.parser.includes("gemini")) ? "researched"
+                : (d.parser || "answer");
+    const body = d.answer
+      || (d.insights && d.insights.length ? d.insights.join("\n") : "")
+      || "I do not have a confident answer for that one. Try asking about a metric (\"what is confidence\", \"what is GMP\"), a sector, or a comparison like \"do high P/E IPOs do worse\".";
+    out.innerHTML = `<span class="tag">${label}</span>` + body;
+  } catch (err) {
+    out.innerHTML = `<span class="tag">backend offline</span>` +
+      "The question engine runs on the API server. This page is being viewed without it, " +
+      "so live answers are unavailable here. Everything else on the page is static and current.";
+  }
+}
+
+/* pull live IPOs from qualified_ipos.json and add them to the ledger.
+   embedded settled entries stay as the verified history; live file adds
+   whatever is open or upcoming right now. */
+async function loadLiveIPOs(){
+  try {
+    let live;
+    if (typeof PREVIEW_LIVE !== "undefined"){ live = PREVIEW_LIVE; }
+    else {
+      // learn which build we're talking to (full vs SEBI-safe compliance)
+      try { const cr = await fetch("/config",{cache:"no-store"}); if (cr.ok){ const c = await cr.json(); window.COMPLIANT = !!c.compliance_mode; } } catch(_){}
+      const r = await fetch("./qualified_ipos.json", { cache: "no-store" });
+      if (!r.ok) return;
+      live = await r.json();
+    }
+    if (!Array.isArray(live)) return;
+    // per-data flag also flips compliance (covers the offline/preview case)
+    if (live.some(x => x && x.compliance_mode)) window.COMPLIANT = true;
+    if (window.COMPLIANT) applyComplianceUI();
+
+    const norm = s => (s||"").toLowerCase()
+      .replace(/\s+(ltd\.?|limited|inc\.?|corp\.?|pvt\.?|private)\b/g,"")
+      .replace(/[^a-z0-9]+/g," ").trim();
+    const embeddedNames = new Set(DATA.ipos.map(i => norm(i.name)));
+    for (const it of live){
+      const name = (it.ipo_name || "").trim();
+      if (!name || embeddedNames.has(norm(name))) continue;   // skip dupes of settled
+      const inp = it.inputs || {};
+      // ---- SEBI-safe build: facts only, no verdict / score / range / tier ----
+      if (window.COMPLIANT){
+        DATA.ipos.unshift({
+          id: name.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""),
+          name, sector: inp.sector || "", offer: inp.offer_price || it.offer_price || 0,
+          sizeCr: it.size_cr || 0, status: it.state === "open" ? "open" : "upcoming",
+          closeDate: it.close_date || null,
+          verdict: null, confidence: null, maxTier: null, range: null,
+          bigWin: null, allotment: null, actual: null, factual: true,
+          note: it.public_note || null, fundamentals: inp,
+          cases: { pos: [], neu: [], neg: [] }, footnotes: []
+        });
+        continue;
+      }
+      if (it.state === "open" && it.prediction){
+        const p = it.prediction;
+        DATA.ipos.unshift({
+          id: name.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""),
+          name, sector: inp.sector || "", offer: inp.offer_price || it.offer_price || 0,
+          sizeCr: it.size_cr || 0, status: "open",
+          closeDate: it.close_date || null,
+          verdict: p.verdict, confidence: p.confidence,
+          preliminary: !!it.preliminary,
+          tierPreliminary: !!it.tier_preliminary,
+          maxTier: (it.qualifying_tiers && it.qualifying_tiers.length)
+                     ? Math.max(...it.qualifying_tiers.map(t=>t.tier)) : null,
+          range: { lo: p.range_low, hi: p.range_high },
+          bigWin: p.big_win_prob, allotment: p.allotment_pct,
+          actual: null,
+          note: ([(it._closing_today
+                    ? "Closes today. If you're applying, approve your UPI mandate before 5 PM - many banks and brokers stop accepting applications earlier (often 3:30-4 PM), so don't leave it to the last minute."
+                    : null), it.note].filter(Boolean).join(" ")) || null,
+          fundamentals: inp,
+          cases: it.cases || { pos: [], neu: [], neg: [] }, footnotes: []
+        });
+      } else if (it.state === "upcoming"){
+        DATA.ipos.unshift({
+          id: name.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""),
+          name, sector: inp.sector || "", offer: it.offer_price || 0,
+          sizeCr: it.size_cr || 0, status: "upcoming",
+          closeDate: it.close_date || null,
+          verdict: null, confidence: null, maxTier: null,
+          range: null, bigWin: null, allotment: null, actual: null,
+          note: null, fundamentals: inp,
+          cases: { pos: [], neu: [], neg: [] }, footnotes: []
+        });
+      } else if (it.state === "settled"){
+        // already listed: real result. If it carries a prediction (retro-scored
+        // or a locked frozen call), it renders EXACTLY like any graded call.
+        const pct = (it.actual && it.actual.pct != null) ? it.actual.pct
+                  : (it.listing_gain != null ? it.listing_gain : null);
+        const p = it.prediction || (it.frozen ? {verdict: it.frozen.verdict, confidence: it.frozen.confidence, range_low: it.frozen.range_low, range_high: it.frozen.range_high} : null);
+        const g = it.graded;
+        const hit = g ? g.hit : (it.actual ? it.actual.hit : null);
+        DATA.ipos.unshift({
+          id: name.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""),
+          name, sector: inp.sector || it.sector || "", offer: it.offer_price || 0,
+          sizeCr: it.size_cr || 0, status: "settled",
+          closeDate: it.close_date || null,
+          listedOn: it.listed_on || it.listing_date || "",
+          verdict: p ? (p.verdict || null) : null,
+          confidence: p ? (p.confidence != null ? p.confidence : null) : null,
+          maxTier: (it.qualifying_tiers && it.qualifying_tiers.length) ? Math.max(...it.qualifying_tiers.map(t=>t.tier)) : null,
+          range: (p && p.range_low != null) ? { lo: p.range_low, hi: p.range_high } : null,
+          bigWin: null, allotment: it.allotment_pct || null,
+          actual: (pct != null ? { pct, price: (it.actual&&it.actual.price)||it.list_price||null, hit } : null),
+          graded: g || null,
+          note: null, fundamentals: inp,
+          cases: it.cases || { pos: [], neu: [], neg: [] }, footnotes: []
+        });
+      }
+    }
+    renderLedger();
+    // show when the live data was last refreshed (so you can confirm the scheduler is working)
+    try {
+      if (typeof PREVIEW_LIVE !== "undefined"){
+        window.liveUpdatedText = "Preview snapshot \u00b7 on the live site this shows the last refresh time and updates automatically.";
+      } else {
+        const ru = await fetch("/last_updated", { cache: "no-store" });
+        if (ru.ok){
+          const d = await ru.json();
+          if (d && d.generated_at){
+            window.liveUpdatedText = "Data updated: " + d.generated_at + " (" + d.ago + ") \u00b7 "
+              + d.open + " open \u00b7 auto-refreshes every 30 min";
+            window.liveStampShort = "updated " + d.generated_at + " (" + d.ago + ")";
+          }
+        }
+      }
+      const el = document.getElementById("lastUpdated");
+      if (el && window.liveUpdatedText) el.textContent = window.liveUpdatedText;
+      const fs = document.getElementById("footStamp");
+      if (fs && window.liveStampShort) fs.textContent = window.liveStampShort;
+    } catch (_) { /* keep the embedded fallback text */ }
+  } catch (_) { /* offline: embedded data only */ }
+}
+loadLiveIPOs();
+
+$("#footStamp").textContent = window.liveStampShort || ("updated " + DATA.updated);
+
+/* clickable fundamentals -> update the compare panel */
+document.addEventListener("click", (e) => {
+  const row = e.target.closest(".dl-row.clickable");
+  if (!row) return;
+  const box = document.getElementById("compareBox");
+  if (!box) return;
+  const id = (document.querySelector("#view-detail .ipo") || {}).textContent;
+  const ipo = DATA.ipos.find(i => i.name === id) || window.__archDetail || {fundamentals:{}};
+  const metric = row.getAttribute("data-metric");
+  const idx = +row.getAttribute("data-idx");
+  const type = row.getAttribute("data-type") || "num";
+  const rawVal = row.getAttribute("data-val");
+  const val = (type === "cat") ? rawVal : parseFloat(rawVal);
+  box.innerHTML = comparePanel(ipo || {fundamentals:{}}, metric, idx, val, type);
+  document.querySelectorAll(".dl-row.clickable").forEach(r => r.classList.remove("active-metric"));
+  row.classList.add("active-metric");
+  box.scrollIntoView({behavior:"smooth", block:"nearest"});
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && e.target.classList && e.target.classList.contains("clickable")) e.target.click();
+});
+
+renderLedger();
+refreshAuth();
+(function(){
+  var sv = typeof START_VIEW !== "undefined" ? START_VIEW : "ledger";
+  var sa = typeof START_ARG !== "undefined" ? START_ARG : null;
+  try { history.replaceState({view: sv, arg: sa}, "",
+          "#" + sv + (sa ? "/" + encodeURIComponent(sa) : "")); } catch(e){}
+  showView(sv, sa, false);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+{
+  "n_ipos": 331,
+  "calibrated_at": "2026-06-11T06:04:34.761475",
+  "calibration_method": "agentic-exhaustive",
+  "slider_levels": {
+    "65": {
+      "model": "LightGBM",
+      "threshold": 17,
+      "gmp_min": 0.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 65.8,
+      "min_wr": 60.7,
+      "avg_picks": 111.8
+    },
+    "66": {
+      "model": "LightGBM",
+      "threshold": 18,
+      "gmp_min": 0.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 66.2,
+      "min_wr": 61.7,
+      "avg_picks": 111.2
+    },
+    "67": {
+      "model": "LightGBM",
+      "threshold": 22,
+      "gmp_min": 0.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 67.0,
+      "min_wr": 62.7,
+      "avg_picks": 109.2
+    },
+    "68": {
+      "model": "LightGBM",
+      "threshold": 24,
+      "gmp_min": 0.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 67.3,
+      "min_wr": 63.8,
+      "avg_picks": 108.5
+    },
+    "69": {
+      "model": "LightGBM",
+      "threshold": 34,
+      "gmp_min": 0.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 69.0,
+      "min_wr": 64.3,
+      "avg_picks": 104.0
+    },
+    "70": {
+      "model": "ExtraTrees",
+      "threshold": 53,
+      "gmp_min": 0.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 71.5,
+      "min_wr": 66.1,
+      "avg_picks": 96.8
+    },
+    "71": {
+      "model": "ExtraTrees",
+      "threshold": 53,
+      "gmp_min": 0.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 71.5,
+      "min_wr": 66.1,
+      "avg_picks": 96.8
+    },
+    "72": {
+      "model": "ExtraTrees",
+      "threshold": 54,
+      "gmp_min": 0.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 72.0,
+      "min_wr": 68.5,
+      "avg_picks": 93.8
+    },
+    "73": {
+      "model": "ExtraTrees",
+      "threshold": 54,
+      "gmp_min": 0.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 72.0,
+      "min_wr": 68.5,
+      "avg_picks": 93.8
+    },
+    "74": {
+      "model": "ExtraTrees",
+      "threshold": 56,
+      "gmp_min": 0.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 73.6,
+      "min_wr": 71.0,
+      "avg_picks": 90.0
+    },
+    "75": {
+      "model": "ExtraTrees",
+      "threshold": 56,
+      "gmp_min": 0.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 73.6,
+      "min_wr": 71.0,
+      "avg_picks": 90.0
+    },
+    "76": {
+      "model": "ExtraTrees",
+      "threshold": 56,
+      "gmp_min": 0.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 73.6,
+      "min_wr": 71.0,
+      "avg_picks": 90.0
+    },
+    "77": {
+      "model": "ExtraTrees",
+      "threshold": 58,
+      "gmp_min": 0.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 75.8,
+      "min_wr": 73.8,
+      "avg_picks": 85.5
+    },
+    "78": {
+      "model": "ExtraTrees",
+      "threshold": 58,
+      "gmp_min": 0.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 75.8,
+      "min_wr": 73.8,
+      "avg_picks": 85.5
+    },
+    "79": {
+      "model": "RandomForest",
+      "threshold": 61,
+      "gmp_min": 0.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 79.1,
+      "min_wr": 74.3,
+      "avg_picks": 78.0
+    },
+    "80": {
+      "model": "RandomForest",
+      "threshold": 63,
+      "gmp_min": 0.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 80.5,
+      "min_wr": 75.9,
+      "avg_picks": 74.5
+    },
+    "81": {
+      "model": "XGBoost",
+      "threshold": 84,
+      "gmp_min": 0.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 81.9,
+      "min_wr": 77.8,
+      "avg_picks": 71.2
+    },
+    "82": {
+      "model": "XGBoost",
+      "threshold": 84,
+      "gmp_min": 0.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 81.9,
+      "min_wr": 77.8,
+      "avg_picks": 71.2
+    },
+    "83": {
+      "model": "XGBoost",
+      "threshold": 86,
+      "gmp_min": 0.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 83.2,
+      "min_wr": 79.7,
+      "avg_picks": 68.2
+    },
+    "84": {
+      "model": "XGBoost",
+      "threshold": 86,
+      "gmp_min": 0.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 83.2,
+      "min_wr": 79.7,
+      "avg_picks": 68.2
+    },
+    "85": {
+      "model": "RandomForest",
+      "threshold": 10,
+      "gmp_min": 3.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 88.0,
+      "min_wr": 84.4,
+      "avg_picks": 67.0
+    },
+    "86": {
+      "model": "RandomForest",
+      "threshold": 10,
+      "gmp_min": 3.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 88.0,
+      "min_wr": 84.4,
+      "avg_picks": 67.0
+    },
+    "87": {
+      "model": "RandomForest",
+      "threshold": 10,
+      "gmp_min": 3.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 88.0,
+      "min_wr": 84.4,
+      "avg_picks": 67.0
+    },
+    "88": {
+      "model": "RandomForest",
+      "threshold": 10,
+      "gmp_min": 3.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 88.0,
+      "min_wr": 84.4,
+      "avg_picks": 67.0
+    },
+    "89": {
+      "model": "RandomForest",
+      "threshold": 10,
+      "gmp_min": 3.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 88.0,
+      "min_wr": 84.4,
+      "avg_picks": 67.0
+    },
+    "90": {
+      "model": "RandomForest",
+      "threshold": 10,
+      "gmp_min": 5.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 88.9,
+      "min_wr": 86.2,
+      "avg_picks": 62.2
+    },
+    "91": {
+      "model": "RandomForest",
+      "threshold": 10,
+      "gmp_min": 5.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 88.9,
+      "min_wr": 86.2,
+      "avg_picks": 62.2
+    },
+    "92": {
+      "model": "RandomForest",
+      "threshold": 63,
+      "gmp_min": 3.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 90.2,
+      "min_wr": 87.8,
+      "avg_picks": 56.8
+    },
+    "93": {
+      "model": "RandomForest",
+      "threshold": 10,
+      "gmp_min": 7.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 94.1,
+      "min_wr": 92.2,
+      "avg_picks": 55.2
+    },
+    "94": {
+      "model": "RandomForest",
+      "threshold": 10,
+      "gmp_min": 7.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 94.1,
+      "min_wr": 92.2,
+      "avg_picks": 55.2
+    },
+    "95": {
+      "model": "RandomForest",
+      "threshold": 10,
+      "gmp_min": 7.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 94.1,
+      "min_wr": 92.2,
+      "avg_picks": 55.2
+    },
+    "96": {
+      "model": "RandomForest",
+      "threshold": 10,
+      "gmp_min": 7.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 94.1,
+      "min_wr": 92.2,
+      "avg_picks": 55.2
+    },
+    "97": {
+      "model": "LightGBM",
+      "threshold": 58,
+      "gmp_min": 7.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 94.8,
+      "min_wr": 92.3,
+      "avg_picks": 51.5
+    },
+    "98": {
+      "model": "XGBoost",
+      "threshold": 81,
+      "gmp_min": 7.0,
+      "qib_min": 0.0,
+      "sub_min": 0.0,
+      "avg_wr": 96.7,
+      "min_wr": 94.2,
+      "avg_picks": 49.2
+    }
+  },
+  "calibration_note": "Agentic ladder: for each tier 65-98 it tries ALL four models (RandomForest/ExtraTrees/LightGBM/XGBoost) x all thresholds x GMP floors, EXHAUSTIVELY, and keeps the combo with the most picks that still holds the target win rate (subscription-free, walk-forward 4 splits, 2.5%% breathe). Exhaustive guarantees max picks - binary search missed 1 tier. Deterministic (seed 42): the same accuracy always reproduces the same picks."
+}

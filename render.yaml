@@ -1,0 +1,28 @@
+# Render free-tier blueprint. Connect the repo and Render reads this.
+services:
+  - type: web
+    name: ipo-ledger
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements-server.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: ADMIN_TOKEN
+        sync: false          # set a long random string in the Render dashboard
+      - key: APP_URL
+        sync: false          # your Render URL, e.g. https://ipo-ledger.onrender.com (locks CORS + magic-link links)
+      - key: SECURE_COOKIES
+        value: "1"           # serve auth cookies only over HTTPS in prod
+      - key: DATABASE_URL
+        sync: false          # Postgres connection string (Supabase/Neon free tier)
+      - key: GMAIL_USER
+        sync: false          # gmail address for sending magic links + alerts
+      - key: GMAIL_APP_PASS
+        sync: false          # gmail app password (not your login password)
+      - key: GEMINI_API_KEY
+        sync: false          # optional; rules answer most questions without it
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false          # optional; only if you enable Telegram alerts
+      - key: IPO_DATASET
+        value: ""            # server runs without the dataset; only /ask data-stats need it

@@ -1,0 +1,31 @@
+# secrets and local state — never commit these
+.env
+wa_keys.json
+subscribers_local.json
+alerts_sent.json
+users.json
+*.pyc
+__pycache__/
+.DS_Store
+.venv/
+venv/
+# large local data; document how to obtain it instead
+*.xlsx
+
+# auth database (local dev)
+ipo_ledger.db
+*.db
+predictions_frozen.json
+scheduler_state.json
+update_state.json
+scheduler.log
+simdir/
+active_ipos_v13.xlsx
+
+# NOTE: qualified_ipos.json IS committed on purpose - it's the public IPO data
+# the live site reads. The laptop scraper regenerates and pushes it.
+ipo-ledger.zip
+*.zip
+*.tar.gz
+experiments/
+snapshots/

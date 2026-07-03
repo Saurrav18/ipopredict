@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pydantic
+pandas
+numpy
+psycopg2-binary
+openpyxl
+scikit-learn
+xgboost
+lightgbm

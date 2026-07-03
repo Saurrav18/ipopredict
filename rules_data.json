@@ -1,0 +1,103 @@
+{
+  "correlation": [
+    "correlation",
+    "correlated",
+    "related to",
+    "affect",
+    "impact of",
+    "effect of",
+    "reliable",
+    "accurate",
+    "trust",
+    "fake or real"
+  ],
+  "timeline": [
+    "this year",
+    "last year",
+    "bull run",
+    "bear market",
+    "season",
+    "time of year",
+    "currently",
+    "right now",
+    "these days",
+    "market hot",
+    "market cold",
+    "still rising",
+    "drying up"
+  ],
+  "causal": [
+    "why ",
+    "underperform",
+    "fail",
+    "flop",
+    "crash",
+    "lose",
+    "avoid",
+    "worry",
+    "crash on listing",
+    "disasters",
+    "loss-making",
+    "bubble"
+  ],
+  "comparison": [
+    "compare",
+    " vs ",
+    "versus",
+    "better than",
+    "safer than",
+    "do better",
+    "rather than",
+    "or hold",
+    "or retail",
+    "or hni"
+  ],
+  "similarity": [
+    "like ",
+    "similar to",
+    "similar ipos",
+    "comparable to"
+  ],
+  "ranking": [
+    "best ",
+    "top ",
+    "highest",
+    "which sector",
+    "best performing",
+    "most return",
+    "biggest",
+    "any good",
+    "renewable",
+    "energy",
+    "renewable energy",
+    "ipos"
+  ],
+  "prediction": [
+    "predict",
+    " will ",
+    "should i",
+    "recommend",
+    "next ipo",
+    "good buy",
+    "good investment",
+    "safe",
+    "make money",
+    "how do i",
+    "kya",
+    "hai",
+    "listing",
+    "day",
+    "on listing",
+    "listing day",
+    "on listing day"
+  ],
+  "retrieval": [
+    "find",
+    "show",
+    "list",
+    "which ",
+    "give me",
+    "what kind"
+  ],
+  "lookup": []
+}

@@ -1,0 +1,130 @@
+{
+  "qib_buckets": [
+    {
+      "bucket": "Below 1x",
+      "count": 7,
+      "win_rate": 71.0,
+      "avg_listing": 10.7
+    },
+    {
+      "bucket": "1x to 5x",
+      "count": 86,
+      "win_rate": 48.0,
+      "avg_listing": 1.4
+    },
+    {
+      "bucket": "5x to 10x",
+      "count": 27,
+      "win_rate": 59.0,
+      "avg_listing": 3.2
+    },
+    {
+      "bucket": "10x to 30x",
+      "count": 42,
+      "win_rate": 55.0,
+      "avg_listing": 3.3
+    },
+    {
+      "bucket": "30x to 100x",
+      "count": 67,
+      "win_rate": 79.0,
+      "avg_listing": 24.8
+    },
+    {
+      "bucket": "Above 100x",
+      "count": 101,
+      "win_rate": 99.0,
+      "avg_listing": 47.2
+    }
+  ],
+  "sub_buckets": [
+    {
+      "bucket": "Below 2x",
+      "count": 45,
+      "win_rate": 49.0,
+      "avg_listing": 0.4
+    },
+    {
+      "bucket": "2x to 10x",
+      "count": 82,
+      "win_rate": 52.0,
+      "avg_listing": 1.7
+    },
+    {
+      "bucket": "10x to 30x",
+      "count": 57,
+      "win_rate": 61.0,
+      "avg_listing": 8.6
+    },
+    {
+      "bucket": "30x to 100x",
+      "count": 92,
+      "win_rate": 92.0,
+      "avg_listing": 31.9
+    },
+    {
+      "bucket": "Above 100x",
+      "count": 53,
+      "win_rate": 100.0,
+      "avg_listing": 61.8
+    }
+  ],
+  "gmp_buckets": [
+    {
+      "bucket": "Below 0%",
+      "count": 20,
+      "win_rate": 10.0,
+      "avg_listing": -4.6
+    },
+    {
+      "bucket": "0% to 5%",
+      "count": 96,
+      "win_rate": 53.0,
+      "avg_listing": 0.9
+    },
+    {
+      "bucket": "5% to 15%",
+      "count": 70,
+      "win_rate": 64.0,
+      "avg_listing": 5.8
+    },
+    {
+      "bucket": "15% to 30%",
+      "count": 52,
+      "win_rate": 90.0,
+      "avg_listing": 18.8
+    },
+    {
+      "bucket": "Above 30%",
+      "count": 92,
+      "win_rate": 100.0,
+      "avg_listing": 58.9
+    }
+  ],
+  "rii_buckets": [
+    {
+      "bucket": "Below 2x",
+      "count": 86,
+      "win_rate": 48.0,
+      "avg_listing": 0.5
+    },
+    {
+      "bucket": "2x to 10x",
+      "count": 101,
+      "win_rate": 67.0,
+      "avg_listing": 12.2
+    },
+    {
+      "bucket": "10x to 30x",
+      "count": 78,
+      "win_rate": 85.0,
+      "avg_listing": 26.6
+    },
+    {
+      "bucket": "Above 30x",
+      "count": 66,
+      "win_rate": 95.0,
+      "avg_listing": 52.8
+    }
+  ]
+}
