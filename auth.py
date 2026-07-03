@@ -30,7 +30,7 @@ def _conn():
             c.close()
 
 def init_db():
-    """Create tables if absent, and add the password/verified columns to older DBs."""
+    """Create tables if absent, and add newer columns to older DBs."""
     with _conn() as (c, _):
         cur = c.cursor()
         cur.execute("""
@@ -71,14 +71,23 @@ def init_db():
                 day_count INTEGER DEFAULT 0,
                 day_start INTEGER DEFAULT 0
             )""")
-        # migrate DBs created before passwords existed
-        for ddl in ("ALTER TABLE users ADD COLUMN password_hash TEXT",
-                    "ALTER TABLE users ADD COLUMN verified INTEGER DEFAULT 0",
-                    "ALTER TABLE users ADD COLUMN consent_at INTEGER"):
-            try:
-                cur.execute(ddl)
-            except Exception:
-                pass
+        # commit the tables NOW, before any risky migration below. On Postgres a
+        # failed statement aborts the whole transaction, so the ALTERs must not
+        # share a transaction with the CREATE TABLEs above.
+        c.commit()
+
+    # migrate older DBs: add columns that may not exist yet. Each ALTER runs in
+    # its OWN connection/transaction so a failure (column already exists) can't
+    # poison the others - critical on Postgres.
+    for ddl in ("ALTER TABLE users ADD COLUMN password_hash TEXT",
+                "ALTER TABLE users ADD COLUMN verified INTEGER DEFAULT 0",
+                "ALTER TABLE users ADD COLUMN consent_at INTEGER"):
+        try:
+            with _conn() as (c2, _):
+                c2.cursor().execute(ddl); c2.commit()
+        except Exception:
+            pass   # column already exists - fine
+
 
 def _now() -> int:
     return int(time.time())
