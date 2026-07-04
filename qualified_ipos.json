@@ -17,7 +17,7 @@
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 36.52,
+      "gmp": 39.86,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -31,15 +31,15 @@
       "verdict": "APPLY",
       "confidence": 99,
       "range_low": -3.4,
-      "range_high": 53.2,
-      "median": 28.3,
+      "range_high": 53.1,
+      "median": 32.2,
       "big_win_prob": 98,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +36.5%",
+          "head": "Grey market premium +39.9%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -54,10 +54,6 @@
           "more": ""
         },
         {
-          "head": "ML bullish (99%) but similar past IPOs only 40% WR",
-          "more": ""
-        },
-        {
           "head": "BFSI sector is cold, COLD (recent 40% vs 53% historical)",
           "more": ""
         },
@@ -68,10 +64,6 @@
         {
           "head": "Mostly promoters cashing out (100% OFS)",
           "more": "Most of the issue is an offer-for-sale, so the money goes to selling shareholders, not into the business."
-        },
-        {
-          "head": "Similar past IPOs: 2 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 2 of 5 listed above the offer price. They averaged -2.2% on day one."
         }
       ]
     },
