@@ -17,7 +17,7 @@
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 34.61,
+      "gmp": 35.8,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -31,7 +31,7 @@
       "verdict": "APPLY",
       "confidence": 99,
       "range_low": -3.4,
-      "range_high": 50.6,
+      "range_high": 53.2,
       "median": 24.1,
       "big_win_prob": 98,
       "allotment_pct": 100.0
@@ -39,7 +39,7 @@
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +34.6%",
+          "head": "Grey market premium +35.8%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -54,7 +54,7 @@
           "more": ""
         },
         {
-          "head": "ML bullish (99%) but similar past IPOs only 20% WR",
+          "head": "ML bullish (99%) but similar past IPOs only 40% WR",
           "more": ""
         },
         {
@@ -70,8 +70,8 @@
           "more": "Most of the issue is an offer-for-sale, so the money goes to selling shareholders, not into the business."
         },
         {
-          "head": "Similar past IPOs: 1 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 1 of 5 listed above the offer price. They averaged -2.3% on day one."
+          "head": "Similar past IPOs: 2 of 5 listed positive",
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 2 of 5 listed above the offer price. They averaged -2.2% on day one."
         }
       ]
     },
@@ -113,55 +113,55 @@
         "tier": 70,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 97.0
+        "score": 98.0
       },
       {
         "tier": 71,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 97.0
+        "score": 98.0
       },
       {
         "tier": 72,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 97.0
+        "score": 98.0
       },
       {
         "tier": 73,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 97.0
+        "score": 98.0
       },
       {
         "tier": 74,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 97.0
+        "score": 98.0
       },
       {
         "tier": 75,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 97.0
+        "score": 98.0
       },
       {
         "tier": 76,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 97.0
+        "score": 98.0
       },
       {
         "tier": 77,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 97.0
+        "score": 98.0
       },
       {
         "tier": 78,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 97.0
+        "score": 98.0
       },
       {
         "tier": 79,
@@ -285,6 +285,37 @@
       }
     ],
     "state": "open"
+  },
+  {
+    "ipo_name": "Laser Power & Infra Ltd.",
+    "close_date": "13 Jul, 2026",
+    "_closing_today": false,
+    "_closing_tomorrow": false,
+    "listing_date": "Thu, Jul 16, 2026T",
+    "listed_on": null,
+    "offer_price": null,
+    "size_cr": 742.0,
+    "inputs": {
+      "offer_price": null,
+      "size_cr": 742.0,
+      "pe": null,
+      "roe": 23.32,
+      "promoter_holding": null,
+      "ofs_pct": 27.0,
+      "fresh_pct": 73.0,
+      "sector": "Manufacturing",
+      "gmp": 0.0,
+      "qib": null,
+      "hni": null,
+      "rii": null,
+      "sub": null,
+      "market_sentiment": 1.037,
+      "volatility": 11.512,
+      "trend": 2.0
+    },
+    "state": "upcoming",
+    "qualifying_tiers": [],
+    "opens_note": "Opening soon. A call appears once grey-market and subscription data is available."
   },
   {
     "ipo_name": "Knack Packaging Ltd.",
