@@ -17,7 +17,7 @@
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 41.77,
+      "gmp": 40.1,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -31,15 +31,15 @@
       "verdict": "APPLY",
       "confidence": 99,
       "range_low": -3.4,
-      "range_high": 56.6,
-      "median": 35.3,
+      "range_high": 53.1,
+      "median": 32.2,
       "big_win_prob": 98,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +41.8%",
+          "head": "Grey market premium +40.1%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -327,7 +327,7 @@
       "ofs_pct": 13.7,
       "fresh_pct": 86.6,
       "sector": "BFSI",
-      "gmp": 11.76,
+      "gmp": 11.18,
       "qib": 160.22,
       "hni": 146.64,
       "rii": 21.09,
@@ -340,16 +340,16 @@
     "prediction": {
       "verdict": "APPLY",
       "confidence": 83,
-      "range_low": -5.7,
-      "range_high": 43.1,
-      "median": 10.2,
+      "range_low": -5.1,
+      "range_high": 41.8,
+      "median": 10.8,
       "big_win_prob": 2,
       "allotment_pct": 4.7
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +11.8%",
+          "head": "Grey market premium +11.2%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -401,85 +401,85 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 85.0
+        "score": 87.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 85.0
+        "score": 87.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 85.0
+        "score": 87.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 85.0
+        "score": 87.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 85.0
+        "score": 87.0
       },
       {
         "tier": 70,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 85.0
+        "score": 83.0
       },
       {
         "tier": 71,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 85.0
+        "score": 83.0
       },
       {
         "tier": 72,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 85.0
+        "score": 83.0
       },
       {
         "tier": 73,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 85.0
+        "score": 83.0
       },
       {
         "tier": 74,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 85.0
+        "score": 83.0
       },
       {
         "tier": 75,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 85.0
+        "score": 83.0
       },
       {
         "tier": 76,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 85.0
+        "score": 83.0
       },
       {
         "tier": 77,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 85.0
+        "score": 83.0
       },
       {
         "tier": 78,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 85.0
+        "score": 83.0
       },
       {
         "tier": 79,
@@ -593,7 +593,7 @@
         "tier": 97,
         "expected_wr": 94.8,
         "model": "LightGBM",
-        "score": 85.0
+        "score": 87.0
       },
       {
         "tier": 98,
