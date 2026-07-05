@@ -17,7 +17,7 @@
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 39.38,
+      "gmp": 40.33,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -31,15 +31,15 @@
       "verdict": "APPLY",
       "confidence": 99,
       "range_low": -3.4,
-      "range_high": 53.2,
-      "median": 28.3,
+      "range_high": 56.1,
+      "median": 35.1,
       "big_win_prob": 98,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +39.4%",
+          "head": "Grey market premium +40.3%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -622,7 +622,7 @@
       "ofs_pct": 0.0,
       "fresh_pct": 100.0,
       "sector": "BFSI",
-      "gmp": 2.21,
+      "gmp": 2.94,
       "qib": 3.59,
       "hni": 8.29,
       "rii": 2.54,
@@ -631,13 +631,13 @@
       "volatility": 11.512,
       "trend": 2.0
     },
-    "win_score": 35,
+    "win_score": 38,
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 65,
-      "range_low": -8.2,
-      "range_high": 14.2,
-      "median": 2.2,
+      "confidence": 62,
+      "range_low": -7.8,
+      "range_high": 14.5,
+      "median": 2.0,
       "big_win_prob": 1,
       "allotment_pct": 39.4
     },
@@ -680,25 +680,25 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 29.0
+        "score": 31.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 29.0
+        "score": 31.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 29.0
+        "score": 31.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 29.0
+        "score": 31.0
       }
     ],
     "state": "open"
