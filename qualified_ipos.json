@@ -22,8 +22,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0426,
-      "volatility": 11.5967,
+      "market_sentiment": 1.0424,
+      "volatility": 11.5901,
       "trend": 2.0
     },
     "win_score": 97,
@@ -309,8 +309,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0426,
-      "volatility": 11.5967,
+      "market_sentiment": 1.0424,
+      "volatility": 11.5901,
       "trend": 2.0
     },
     "win_score": 95,
@@ -592,8 +592,8 @@
       "hni": 8.29,
       "rii": 2.54,
       "sub": 5.05,
-      "market_sentiment": 1.0426,
-      "volatility": 11.5967,
+      "market_sentiment": 1.0424,
+      "volatility": 11.5901,
       "trend": 2.0
     },
     "win_score": 16,
@@ -670,8 +670,8 @@
       "hni": 146.64,
       "rii": 21.09,
       "sub": 87.17,
-      "market_sentiment": 1.0426,
-      "volatility": 11.5967,
+      "market_sentiment": 1.0424,
+      "volatility": 11.5901,
       "trend": 2.0
     },
     "win_score": 66,
@@ -680,7 +680,7 @@
       "confidence": 66,
       "range_low": -3.4,
       "range_high": 44.5,
-      "median": 7.3,
+      "median": 7.4,
       "big_win_prob": 3,
       "allotment_pct": 4.7
     },
