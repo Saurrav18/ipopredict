@@ -22,8 +22,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0438,
-      "volatility": 11.6384,
+      "market_sentiment": 1.0426,
+      "volatility": 11.5967,
       "trend": 2.0
     },
     "win_score": 97,
@@ -83,31 +83,31 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 70,
@@ -275,7 +275,7 @@
         "tier": 97,
         "expected_wr": 94.8,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 98,
@@ -304,13 +304,13 @@
       "ofs_pct": 27.0,
       "fresh_pct": 73.0,
       "sector": "Manufacturing",
-      "gmp": 21.5,
+      "gmp": 21.03,
       "qib": null,
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0438,
-      "volatility": 11.6384,
+      "market_sentiment": 1.0426,
+      "volatility": 11.5967,
       "trend": 2.0
     },
     "win_score": 95,
@@ -320,13 +320,13 @@
       "range_low": -2.7,
       "range_high": 38.3,
       "median": 19.0,
-      "big_win_prob": 52,
+      "big_win_prob": 29,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +21.5%",
+          "head": "Grey market premium +21.0%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -592,8 +592,8 @@
       "hni": 8.29,
       "rii": 2.54,
       "sub": 5.05,
-      "market_sentiment": 1.0438,
-      "volatility": 11.6384,
+      "market_sentiment": 1.0426,
+      "volatility": 11.5967,
       "trend": 2.0
     },
     "win_score": 16,
@@ -670,14 +670,14 @@
       "hni": 146.64,
       "rii": 21.09,
       "sub": 87.17,
-      "market_sentiment": 1.0438,
-      "volatility": 11.6384,
+      "market_sentiment": 1.0426,
+      "volatility": 11.5967,
       "trend": 2.0
     },
-    "win_score": 64,
+    "win_score": 66,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 64,
+      "confidence": 66,
       "range_low": -3.4,
       "range_high": 44.5,
       "median": 7.3,
@@ -739,31 +739,31 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 69.0
+        "score": 75.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 69.0
+        "score": 75.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 69.0
+        "score": 75.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 69.0
+        "score": 75.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 69.0
+        "score": 75.0
       },
       {
         "tier": 70,
