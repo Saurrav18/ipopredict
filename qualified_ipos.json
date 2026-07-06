@@ -22,8 +22,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0427,
-      "volatility": 11.5972,
+      "market_sentiment": 1.0432,
+      "volatility": 11.6156,
       "trend": 2.0
     },
     "win_score": 97,
@@ -83,31 +83,31 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 100.0
+        "score": 99.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 100.0
+        "score": 99.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 100.0
+        "score": 99.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 100.0
+        "score": 99.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 100.0
+        "score": 99.0
       },
       {
         "tier": 70,
@@ -275,7 +275,7 @@
         "tier": 97,
         "expected_wr": 94.8,
         "model": "LightGBM",
-        "score": 100.0
+        "score": 99.0
       },
       {
         "tier": 98,
@@ -304,13 +304,13 @@
       "ofs_pct": 27.0,
       "fresh_pct": 73.0,
       "sector": "Manufacturing",
-      "gmp": 21.03,
+      "gmp": 20.09,
       "qib": null,
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0427,
-      "volatility": 11.5972,
+      "market_sentiment": 1.0432,
+      "volatility": 11.6156,
       "trend": 2.0
     },
     "win_score": 95,
@@ -319,14 +319,14 @@
       "confidence": 95,
       "range_low": -2.7,
       "range_high": 38.3,
-      "median": 19.0,
-      "big_win_prob": 29,
+      "median": 17.7,
+      "big_win_prob": 24,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +21.0%",
+          "head": "Grey market premium +20.1%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -396,55 +396,55 @@
         "tier": 70,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 87.0
+        "score": 86.0
       },
       {
         "tier": 71,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 87.0
+        "score": 86.0
       },
       {
         "tier": 72,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 87.0
+        "score": 86.0
       },
       {
         "tier": 73,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 87.0
+        "score": 86.0
       },
       {
         "tier": 74,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 87.0
+        "score": 86.0
       },
       {
         "tier": 75,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 87.0
+        "score": 86.0
       },
       {
         "tier": 76,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 87.0
+        "score": 86.0
       },
       {
         "tier": 77,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 87.0
+        "score": 86.0
       },
       {
         "tier": 78,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 87.0
+        "score": 86.0
       },
       {
         "tier": 79,
@@ -592,8 +592,8 @@
       "hni": 8.29,
       "rii": 2.54,
       "sub": 5.05,
-      "market_sentiment": 1.0427,
-      "volatility": 11.5972,
+      "market_sentiment": 1.0432,
+      "volatility": 11.6156,
       "trend": 2.0
     },
     "win_score": 16,
@@ -670,14 +670,14 @@
       "hni": 146.64,
       "rii": 21.09,
       "sub": 87.17,
-      "market_sentiment": 1.0427,
-      "volatility": 11.5972,
+      "market_sentiment": 1.0432,
+      "volatility": 11.6156,
       "trend": 2.0
     },
-    "win_score": 64,
+    "win_score": 63,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 65,
+      "confidence": 63,
       "range_low": -3.4,
       "range_high": 43.1,
       "median": 5.6,
@@ -739,31 +739,31 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 75.0
+        "score": 69.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 75.0
+        "score": 69.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 75.0
+        "score": 69.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 75.0
+        "score": 69.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 75.0
+        "score": 69.0
       },
       {
         "tier": 70,
