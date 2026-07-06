@@ -22,8 +22,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.037,
-      "volatility": 11.512,
+      "market_sentiment": 1.0423,
+      "volatility": 11.5856,
       "trend": 2.0
     },
     "win_score": 99,
@@ -279,20 +279,20 @@
     "state": "open"
   },
   {
-    "ipo_name": "Laser Power & Infra Ltd.",
+    "ipo_name": "Laser Power & Infra",
     "close_date": "13 Jul, 2026",
     "_closing_today": false,
     "_closing_tomorrow": false,
     "listing_date": "Thu, Jul 16, 2026T",
     "listed_on": null,
-    "offer_price": null,
+    "offer_price": 214.0,
     "size_cr": 742.0,
     "inputs": {
-      "offer_price": null,
+      "offer_price": 214.0,
       "size_cr": 742.0,
-      "pe": null,
+      "pe": 16.24,
       "roe": 23.32,
-      "promoter_holding": null,
+      "promoter_holding": 75.29,
       "ofs_pct": 27.0,
       "fresh_pct": 73.0,
       "sector": "Manufacturing",
@@ -301,13 +301,116 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.037,
-      "volatility": 11.512,
+      "market_sentiment": 1.0423,
+      "volatility": 11.5856,
       "trend": 2.0
     },
     "state": "upcoming",
     "qualifying_tiers": [],
     "opens_note": "Opening soon. A call appears once grey-market and subscription data is available."
+  },
+  {
+    "ipo_name": "Aastha Spintex",
+    "close_date": "1 Jul, 2026",
+    "_closing_today": false,
+    "_closing_tomorrow": false,
+    "listing_date": "Mon, Jul 6, 2026",
+    "listed_on": null,
+    "offer_price": 136.0,
+    "size_cr": 170.0,
+    "inputs": {
+      "offer_price": 136.0,
+      "size_cr": 170.0,
+      "pe": 18.78,
+      "roe": 12.8,
+      "promoter_holding": 53.21,
+      "ofs_pct": 0.0,
+      "fresh_pct": 100.0,
+      "sector": "BFSI",
+      "gmp": 3.68,
+      "qib": 3.59,
+      "hni": 8.29,
+      "rii": 2.54,
+      "sub": 5.05,
+      "market_sentiment": 1.0423,
+      "volatility": 11.5856,
+      "trend": 2.0
+    },
+    "win_score": 41,
+    "prediction": {
+      "verdict": "SKIP",
+      "confidence": 58,
+      "range_low": -6.7,
+      "range_high": 14.5,
+      "median": 2.1,
+      "big_win_prob": 1,
+      "allotment_pct": 39.4
+    },
+    "cases": {
+      "pos": [
+        {
+          "head": "Grey market premium +3.7%",
+          "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
+        },
+        {
+          "head": "Oversubscribed 5x overall",
+          "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
+        },
+        {
+          "head": "Reasonable price: P/E 18.8",
+          "more": "A lower price-to-earnings ratio means you pay less per rupee of profit, leaving more room to rise."
+        },
+        {
+          "head": "Founders keep 53%",
+          "more": "A high promoter holding after the IPO means founders keep significant skin in the game, aligning them with shareholders."
+        },
+        {
+          "head": "Mostly fresh capital (100% new money)",
+          "more": "Most of the money raised goes into the company (growth, repaying debt) rather than founders cashing out."
+        }
+      ],
+      "neu": [],
+      "neg": [
+        {
+          "head": "BFSI sector is cold, COLD (recent 40% vs 53% historical)",
+          "more": ""
+        },
+        {
+          "head": "Similar past IPOs: 1 of 5 listed positive",
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 1 of 5 listed above the offer price. They averaged -2.2% on day one."
+        }
+      ]
+    },
+    "note": null,
+    "preliminary": false,
+    "tier_preliminary": false,
+    "qualifying_tiers": [
+      {
+        "tier": 65,
+        "expected_wr": 65.8,
+        "model": "LightGBM",
+        "score": 32.0
+      },
+      {
+        "tier": 66,
+        "expected_wr": 66.2,
+        "model": "LightGBM",
+        "score": 32.0
+      },
+      {
+        "tier": 67,
+        "expected_wr": 67.0,
+        "model": "LightGBM",
+        "score": 32.0
+      },
+      {
+        "tier": 68,
+        "expected_wr": 67.3,
+        "model": "LightGBM",
+        "score": 32.0
+      }
+    ],
+    "state": "open"
   },
   {
     "ipo_name": "Knack Packaging Ltd.",
@@ -327,29 +430,29 @@
       "ofs_pct": 13.7,
       "fresh_pct": 86.6,
       "sector": "BFSI",
-      "gmp": 10.59,
+      "gmp": 8.82,
       "qib": 160.22,
       "hni": 146.64,
       "rii": 21.09,
       "sub": 87.17,
-      "market_sentiment": 1.037,
-      "volatility": 11.512,
+      "market_sentiment": 1.0423,
+      "volatility": 11.5856,
       "trend": 2.0
     },
-    "win_score": 79,
+    "win_score": 78,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 80,
-      "range_low": -5.1,
-      "range_high": 41.8,
-      "median": 11.0,
-      "big_win_prob": 2,
+      "confidence": 78,
+      "range_low": -6.0,
+      "range_high": 41.4,
+      "median": 9.9,
+      "big_win_prob": 1,
       "allotment_pct": 4.7
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +10.6%",
+          "head": "Grey market premium +8.8%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -401,97 +504,97 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 70,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 81.0
+        "score": 75.0
       },
       {
         "tier": 71,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 81.0
+        "score": 75.0
       },
       {
         "tier": 72,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 81.0
+        "score": 75.0
       },
       {
         "tier": 73,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 81.0
+        "score": 75.0
       },
       {
         "tier": 74,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 81.0
+        "score": 75.0
       },
       {
         "tier": 75,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 81.0
+        "score": 75.0
       },
       {
         "tier": 76,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 81.0
+        "score": 75.0
       },
       {
         "tier": 77,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 81.0
+        "score": 75.0
       },
       {
         "tier": 78,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 81.0
+        "score": 75.0
       },
       {
         "tier": 79,
         "expected_wr": 79.1,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 70.0
       },
       {
         "tier": 80,
         "expected_wr": 80.5,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 70.0
       },
       {
         "tier": 81,
@@ -504,169 +607,6 @@
         "expected_wr": 81.9,
         "model": "XGBoost",
         "score": 84.0
-      }
-    ],
-    "state": "open"
-  },
-  {
-    "ipo_name": "Aastha Spintex Ltd.",
-    "close_date": "1 Jul, 2026",
-    "_closing_today": false,
-    "_closing_tomorrow": false,
-    "listing_date": "Mon, Jul 6, 2026",
-    "listed_on": null,
-    "offer_price": 136.0,
-    "size_cr": 170.0,
-    "inputs": {
-      "offer_price": 136.0,
-      "size_cr": 170.0,
-      "pe": 18.78,
-      "roe": 12.8,
-      "promoter_holding": 53.21,
-      "ofs_pct": 0.0,
-      "fresh_pct": 100.0,
-      "sector": "BFSI",
-      "gmp": 3.68,
-      "qib": 3.59,
-      "hni": 8.29,
-      "rii": 2.54,
-      "sub": 5.05,
-      "market_sentiment": 1.037,
-      "volatility": 11.512,
-      "trend": 2.0
-    },
-    "win_score": 42,
-    "prediction": {
-      "verdict": "SKIP",
-      "confidence": 57,
-      "range_low": -6.7,
-      "range_high": 14.5,
-      "median": 2.1,
-      "big_win_prob": 1,
-      "allotment_pct": 39.4
-    },
-    "cases": {
-      "pos": [
-        {
-          "head": "Grey market premium +3.7%",
-          "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
-        },
-        {
-          "head": "Oversubscribed 5x overall",
-          "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
-        },
-        {
-          "head": "Reasonable price: P/E 18.8",
-          "more": "A lower price-to-earnings ratio means you pay less per rupee of profit, leaving more room to rise."
-        },
-        {
-          "head": "Founders keep 53%",
-          "more": "A high promoter holding after the IPO means founders keep significant skin in the game, aligning them with shareholders."
-        },
-        {
-          "head": "Mostly fresh capital (100% new money)",
-          "more": "Most of the money raised goes into the company (growth, repaying debt) rather than founders cashing out."
-        }
-      ],
-      "neu": [],
-      "neg": [
-        {
-          "head": "BFSI sector is cold, COLD (recent 40% vs 53% historical)",
-          "more": ""
-        },
-        {
-          "head": "Similar past IPOs: 1 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 1 of 5 listed above the offer price. They averaged -2.2% on day one."
-        }
-      ]
-    },
-    "note": null,
-    "preliminary": false,
-    "tier_preliminary": false,
-    "qualifying_tiers": [
-      {
-        "tier": 65,
-        "expected_wr": 65.8,
-        "model": "LightGBM",
-        "score": 36.0
-      },
-      {
-        "tier": 66,
-        "expected_wr": 66.2,
-        "model": "LightGBM",
-        "score": 36.0
-      },
-      {
-        "tier": 67,
-        "expected_wr": 67.0,
-        "model": "LightGBM",
-        "score": 36.0
-      },
-      {
-        "tier": 68,
-        "expected_wr": 67.3,
-        "model": "LightGBM",
-        "score": 36.0
-      },
-      {
-        "tier": 69,
-        "expected_wr": 69.0,
-        "model": "LightGBM",
-        "score": 36.0
-      },
-      {
-        "tier": 70,
-        "expected_wr": 71.5,
-        "model": "ExtraTrees",
-        "score": 61.0
-      },
-      {
-        "tier": 71,
-        "expected_wr": 71.5,
-        "model": "ExtraTrees",
-        "score": 61.0
-      },
-      {
-        "tier": 72,
-        "expected_wr": 72.0,
-        "model": "ExtraTrees",
-        "score": 61.0
-      },
-      {
-        "tier": 73,
-        "expected_wr": 72.0,
-        "model": "ExtraTrees",
-        "score": 61.0
-      },
-      {
-        "tier": 74,
-        "expected_wr": 73.6,
-        "model": "ExtraTrees",
-        "score": 61.0
-      },
-      {
-        "tier": 75,
-        "expected_wr": 73.6,
-        "model": "ExtraTrees",
-        "score": 61.0
-      },
-      {
-        "tier": 76,
-        "expected_wr": 73.6,
-        "model": "ExtraTrees",
-        "score": 61.0
-      },
-      {
-        "tier": 77,
-        "expected_wr": 75.8,
-        "model": "ExtraTrees",
-        "score": 61.0
-      },
-      {
-        "tier": 78,
-        "expected_wr": 75.8,
-        "model": "ExtraTrees",
-        "score": 61.0
       }
     ],
     "state": "open"
@@ -691,7 +631,7 @@
     "qualifying_tiers": [],
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 79,
+      "confidence": 80,
       "range_low": -20.3,
       "range_high": 10.6,
       "median": -0.4
@@ -952,18 +892,12 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 19.0
-      },
-      {
-        "tier": 66,
-        "expected_wr": 66.2,
-        "model": "LightGBM",
-        "score": 19.0
+        "score": 17.0
       }
     ],
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 73,
+      "confidence": 74,
       "range_low": -13.0,
       "range_high": 13.7,
       "median": -5.3
@@ -990,7 +924,7 @@
     "qualifying_tiers": [],
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 82,
+      "confidence": 83,
       "range_low": -11.4,
       "range_high": 8.3,
       "median": -5.5
