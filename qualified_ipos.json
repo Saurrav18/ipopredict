@@ -22,8 +22,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0433,
-      "volatility": 11.6201,
+      "market_sentiment": 1.0475,
+      "volatility": 11.6129,
       "trend": 2.0
     },
     "win_score": 97,
@@ -31,8 +31,8 @@
       "verdict": "APPLY",
       "confidence": 98,
       "range_low": -4.0,
-      "range_high": 71.1,
-      "median": 43.1,
+      "range_high": 72.7,
+      "median": 42.3,
       "big_win_prob": 94,
       "allotment_pct": 100.0
     },
@@ -83,31 +83,31 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 70,
@@ -275,7 +275,7 @@
         "tier": 97,
         "expected_wr": 94.8,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 98,
@@ -309,17 +309,17 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0433,
-      "volatility": 11.6201,
+      "market_sentiment": 1.0475,
+      "volatility": 11.6129,
       "trend": 2.0
     },
-    "win_score": 80,
+    "win_score": 82,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 80,
+      "confidence": 82,
       "range_low": -2.7,
-      "range_high": 37.1,
-      "median": 10.9,
+      "range_high": 37.5,
+      "median": 9.3,
       "big_win_prob": 3,
       "allotment_pct": 100.0
     },
@@ -366,177 +366,111 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 83.0
+        "score": 86.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 83.0
+        "score": 86.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 83.0
+        "score": 86.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 83.0
+        "score": 86.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 83.0
+        "score": 86.0
       },
       {
         "tier": 70,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 73.0
+        "score": 75.0
       },
       {
         "tier": 71,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 73.0
+        "score": 75.0
       },
       {
         "tier": 72,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 73.0
+        "score": 75.0
       },
       {
         "tier": 73,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 73.0
+        "score": 75.0
       },
       {
         "tier": 74,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 73.0
+        "score": 75.0
       },
       {
         "tier": 75,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 73.0
+        "score": 75.0
       },
       {
         "tier": 76,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 73.0
+        "score": 75.0
       },
       {
         "tier": 77,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 73.0
+        "score": 75.0
       },
       {
         "tier": 78,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 73.0
+        "score": 75.0
       },
       {
         "tier": 79,
         "expected_wr": 79.1,
         "model": "RandomForest",
-        "score": 82.0
+        "score": 83.0
       },
       {
         "tier": 80,
         "expected_wr": 80.5,
         "model": "RandomForest",
-        "score": 82.0
+        "score": 83.0
+      },
+      {
+        "tier": 81,
+        "expected_wr": 81.9,
+        "model": "XGBoost",
+        "score": 85.0
+      },
+      {
+        "tier": 82,
+        "expected_wr": 81.9,
+        "model": "XGBoost",
+        "score": 85.0
       }
     ],
-    "state": "open"
-  },
-  {
-    "ipo_name": "Aastha Spintex",
-    "close_date": "1 Jul, 2026",
-    "_closing_today": false,
-    "_closing_tomorrow": false,
-    "listing_date": "Mon, Jul 6, 2026",
-    "listed_on": null,
-    "offer_price": 136.0,
-    "size_cr": 170.0,
-    "inputs": {
-      "offer_price": 136.0,
-      "size_cr": 170.0,
-      "pe": 18.78,
-      "roe": 12.8,
-      "promoter_holding": 53.21,
-      "ofs_pct": 0.0,
-      "fresh_pct": 100.0,
-      "sector": "BFSI",
-      "gmp": 3.68,
-      "qib": 3.59,
-      "hni": 8.29,
-      "rii": 2.54,
-      "sub": 5.05,
-      "market_sentiment": 1.0433,
-      "volatility": 11.6201,
-      "trend": 2.0
-    },
-    "win_score": 16,
-    "prediction": {
-      "verdict": "SKIP",
-      "confidence": 84,
-      "range_low": -9.4,
-      "range_high": 25.7,
-      "median": 3.0,
-      "big_win_prob": 0,
-      "allotment_pct": 39.4
-    },
-    "cases": {
-      "pos": [
-        {
-          "head": "Grey market premium +3.7%",
-          "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
-        },
-        {
-          "head": "Oversubscribed 5x overall",
-          "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
-        },
-        {
-          "head": "Reasonable price: P/E 18.8",
-          "more": "A lower price-to-earnings ratio means you pay less per rupee of profit, leaving more room to rise."
-        },
-        {
-          "head": "Founders keep 53%",
-          "more": "A high promoter holding after the IPO means founders keep significant skin in the game, aligning them with shareholders."
-        },
-        {
-          "head": "Mostly fresh capital (100% new money)",
-          "more": "Most of the money raised goes into the company (growth, repaying debt) rather than founders cashing out."
-        }
-      ],
-      "neu": [],
-      "neg": [
-        {
-          "head": "BFSI sector is cold, COLD (recent 20% vs 51% historical)",
-          "more": ""
-        },
-        {
-          "head": "Similar past IPOs: 2 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 2 of 5 listed above the offer price. They averaged +1.4% on day one."
-        }
-      ]
-    },
-    "note": null,
-    "preliminary": false,
-    "tier_preliminary": false,
-    "qualifying_tiers": [],
     "state": "open"
   },
   {
@@ -562,17 +496,17 @@
       "hni": 146.64,
       "rii": 21.09,
       "sub": 87.17,
-      "market_sentiment": 1.0433,
-      "volatility": 11.6201,
+      "market_sentiment": 1.0475,
+      "volatility": 11.6129,
       "trend": 2.0
     },
-    "win_score": 62,
+    "win_score": 65,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 63,
+      "confidence": 66,
       "range_low": -3.4,
-      "range_high": 42.7,
-      "median": 4.8,
+      "range_high": 43.1,
+      "median": 3.6,
       "big_win_prob": 2,
       "allotment_pct": 4.7
     },
@@ -631,31 +565,31 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 74.0
+        "score": 79.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 74.0
+        "score": 79.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 74.0
+        "score": 79.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 74.0
+        "score": 79.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 74.0
+        "score": 79.0
       },
       {
         "tier": 70,
@@ -715,9 +649,93 @@
         "tier": 79,
         "expected_wr": 79.1,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 63.0
+      },
+      {
+        "tier": 80,
+        "expected_wr": 80.5,
+        "model": "RandomForest",
+        "score": 63.0
       }
     ],
+    "state": "open"
+  },
+  {
+    "ipo_name": "Aastha Spintex Ltd.",
+    "close_date": "1 Jul, 2026",
+    "_closing_today": false,
+    "_closing_tomorrow": false,
+    "listing_date": "Mon, Jul 6, 2026",
+    "listed_on": null,
+    "offer_price": 136.0,
+    "size_cr": 170.0,
+    "inputs": {
+      "offer_price": 136.0,
+      "size_cr": 170.0,
+      "pe": 18.78,
+      "roe": 12.8,
+      "promoter_holding": 53.21,
+      "ofs_pct": 0.0,
+      "fresh_pct": 100.0,
+      "sector": "BFSI",
+      "gmp": 3.68,
+      "qib": 3.59,
+      "hni": 8.29,
+      "rii": 2.54,
+      "sub": 5.05,
+      "market_sentiment": 1.0475,
+      "volatility": 11.6129,
+      "trend": 2.0
+    },
+    "win_score": 18,
+    "prediction": {
+      "verdict": "SKIP",
+      "confidence": 82,
+      "range_low": -9.4,
+      "range_high": 23.8,
+      "median": 0.6,
+      "big_win_prob": 0,
+      "allotment_pct": 39.4
+    },
+    "cases": {
+      "pos": [
+        {
+          "head": "Grey market premium +3.7%",
+          "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
+        },
+        {
+          "head": "Oversubscribed 5x overall",
+          "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
+        },
+        {
+          "head": "Reasonable price: P/E 18.8",
+          "more": "A lower price-to-earnings ratio means you pay less per rupee of profit, leaving more room to rise."
+        },
+        {
+          "head": "Founders keep 53%",
+          "more": "A high promoter holding after the IPO means founders keep significant skin in the game, aligning them with shareholders."
+        },
+        {
+          "head": "Mostly fresh capital (100% new money)",
+          "more": "Most of the money raised goes into the company (growth, repaying debt) rather than founders cashing out."
+        }
+      ],
+      "neu": [],
+      "neg": [
+        {
+          "head": "BFSI sector is cold, COLD (recent 20% vs 51% historical)",
+          "more": ""
+        },
+        {
+          "head": "Similar past IPOs: 2 of 5 listed positive",
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 2 of 5 listed above the offer price. They averaged +1.4% on day one."
+        }
+      ]
+    },
+    "note": null,
+    "preliminary": false,
+    "tier_preliminary": false,
+    "qualifying_tiers": [],
     "state": "open"
   },
   {
@@ -740,10 +758,10 @@
     "qualifying_tiers": [],
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 83,
+      "confidence": 81,
       "range_low": -14.1,
-      "range_high": 17.9,
-      "median": 1.0
+      "range_high": 16.3,
+      "median": -2.0
     },
     "retro": true
   },
@@ -769,31 +787,31 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 70,
@@ -865,25 +883,25 @@
         "tier": 81,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 82,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 83,
         "expected_wr": 83.2,
         "model": "XGBoost",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 84,
         "expected_wr": 83.2,
         "model": "XGBoost",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 85,
@@ -961,21 +979,21 @@
         "tier": 97,
         "expected_wr": 94.8,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 98,
         "expected_wr": 96.7,
         "model": "XGBoost",
-        "score": 98.0
+        "score": 99.0
       }
     ],
     "prediction": {
       "verdict": "APPLY",
       "confidence": 97,
       "range_low": -0.4,
-      "range_high": 67.2,
-      "median": 42.4
+      "range_high": 68.2,
+      "median": 41.7
     },
     "retro": true
   },
@@ -1001,15 +1019,27 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 17.0
+        "score": 22.0
+      },
+      {
+        "tier": 66,
+        "expected_wr": 66.2,
+        "model": "LightGBM",
+        "score": 22.0
+      },
+      {
+        "tier": 67,
+        "expected_wr": 67.0,
+        "model": "LightGBM",
+        "score": 22.0
       }
     ],
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 77,
+      "confidence": 75,
       "range_low": -7.4,
-      "range_high": 20.9,
-      "median": -5.0
+      "range_high": 19.3,
+      "median": -7.2
     },
     "retro": true
   },
@@ -1033,10 +1063,10 @@
     "qualifying_tiers": [],
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 86,
+      "confidence": 84,
       "range_low": -13.6,
-      "range_high": 16.2,
-      "median": -3.7
+      "range_high": 13.9,
+      "median": -5.5
     },
     "retro": true
   }
