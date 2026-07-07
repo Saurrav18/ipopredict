@@ -304,7 +304,7 @@
       "ofs_pct": 27.0,
       "fresh_pct": 73.0,
       "sector": "Manufacturing",
-      "gmp": 3.74,
+      "gmp": 4.67,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -313,20 +313,20 @@
       "volatility": 11.6293,
       "trend": 2.0
     },
-    "win_score": 28,
+    "win_score": 34,
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 72,
-      "range_low": -7.5,
+      "confidence": 65,
+      "range_low": -8.2,
       "range_high": 30.8,
-      "median": 1.9,
+      "median": 2.2,
       "big_win_prob": 0,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +3.7%",
+          "head": "Grey market premium +4.7%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -366,31 +366,31 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 37.0
+        "score": 43.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 37.0
+        "score": 43.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 37.0
+        "score": 43.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 37.0
+        "score": 43.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 37.0
+        "score": 43.0
       }
     ],
     "state": "open"
