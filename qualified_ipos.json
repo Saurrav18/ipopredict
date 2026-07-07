@@ -22,8 +22,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0468,
-      "volatility": 11.6103,
+      "market_sentiment": 1.0462,
+      "volatility": 11.6107,
       "trend": 2.0
     },
     "win_score": 96,
@@ -309,8 +309,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0468,
-      "volatility": 11.6103,
+      "market_sentiment": 1.0462,
+      "volatility": 11.6107,
       "trend": 2.0
     },
     "win_score": 44,
@@ -418,8 +418,8 @@
       "hni": 146.64,
       "rii": 21.09,
       "sub": 87.17,
-      "market_sentiment": 1.0468,
-      "volatility": 11.6103,
+      "market_sentiment": 1.0462,
+      "volatility": 11.6107,
       "trend": 2.0
     },
     "win_score": 71,
@@ -517,25 +517,13 @@
         "tier": 70,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 54.0
+        "score": 53.0
       },
       {
         "tier": 71,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 54.0
-      },
-      {
-        "tier": 72,
-        "expected_wr": 72.0,
-        "model": "ExtraTrees",
-        "score": 54.0
-      },
-      {
-        "tier": 73,
-        "expected_wr": 72.0,
-        "model": "ExtraTrees",
-        "score": 54.0
+        "score": 53.0
       }
     ],
     "state": "open"
