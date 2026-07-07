@@ -22,8 +22,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0493,
-      "volatility": 11.6338,
+      "market_sentiment": 1.0468,
+      "volatility": 11.6103,
       "trend": 2.0
     },
     "win_score": 96,
@@ -304,29 +304,29 @@
       "ofs_pct": 27.0,
       "fresh_pct": 73.0,
       "sector": "Manufacturing",
-      "gmp": 7.48,
+      "gmp": 6.54,
       "qib": null,
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0493,
-      "volatility": 11.6338,
+      "market_sentiment": 1.0468,
+      "volatility": 11.6103,
       "trend": 2.0
     },
-    "win_score": 61,
+    "win_score": 44,
     "prediction": {
-      "verdict": "APPLY",
-      "confidence": 61,
+      "verdict": "SKIP",
+      "confidence": 55,
       "range_low": -7.9,
-      "range_high": 36.3,
-      "median": 4.9,
-      "big_win_prob": 1,
+      "range_high": 31.5,
+      "median": 4.6,
+      "big_win_prob": 0,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +7.5%",
+          "head": "Grey market premium +6.5%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -366,31 +366,31 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 81.0
+        "score": 53.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 81.0
+        "score": 53.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 81.0
+        "score": 53.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 81.0
+        "score": 53.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 81.0
+        "score": 53.0
       }
     ],
     "state": "open"
@@ -418,14 +418,14 @@
       "hni": 146.64,
       "rii": 21.09,
       "sub": 87.17,
-      "market_sentiment": 1.0493,
-      "volatility": 11.6338,
+      "market_sentiment": 1.0468,
+      "volatility": 11.6103,
       "trend": 2.0
     },
     "win_score": 71,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 72,
+      "confidence": 71,
       "range_low": -3.5,
       "range_high": 38.5,
       "median": 3.6,
