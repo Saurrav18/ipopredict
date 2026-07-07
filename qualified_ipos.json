@@ -22,8 +22,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0462,
-      "volatility": 11.6107,
+      "market_sentiment": 1.0454,
+      "volatility": 11.6149,
       "trend": 2.0
     },
     "win_score": 96,
@@ -309,8 +309,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0462,
-      "volatility": 11.6107,
+      "market_sentiment": 1.0454,
+      "volatility": 11.6149,
       "trend": 2.0
     },
     "win_score": 44,
@@ -418,8 +418,8 @@
       "hni": 146.64,
       "rii": 21.09,
       "sub": 87.17,
-      "market_sentiment": 1.0462,
-      "volatility": 11.6107,
+      "market_sentiment": 1.0454,
+      "volatility": 11.6149,
       "trend": 2.0
     },
     "win_score": 71,
