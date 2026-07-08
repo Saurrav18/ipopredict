@@ -18,23 +18,23 @@
       "fresh_pct": 0.0,
       "sector": "BFSI",
       "gmp": 41.29,
-      "qib": 0.01,
-      "hni": 3.64,
-      "rii": 2.19,
-      "sub": 1.87,
-      "market_sentiment": 1.0473,
-      "volatility": 11.293,
+      "qib": 0.2,
+      "hni": 4.29,
+      "rii": 2.48,
+      "sub": 2.21,
+      "market_sentiment": 1.0471,
+      "volatility": 11.3014,
       "trend": 2.0
     },
     "win_score": 98,
     "prediction": {
       "verdict": "APPLY",
       "confidence": 98,
-      "range_low": -8.6,
-      "range_high": 84.0,
-      "median": 25.7,
+      "range_low": -8.5,
+      "range_high": 84.1,
+      "median": 26.8,
       "big_win_prob": 84,
-      "allotment_pct": 45.7
+      "allotment_pct": 40.3
     },
     "cases": {
       "pos": [
@@ -62,7 +62,7 @@
           "more": ""
         },
         {
-          "head": "QIB only 0.0x despite GMP +41.3%, institutions not convinced",
+          "head": "QIB only 0.2x despite GMP +41.3%, institutions not convinced",
           "more": ""
         },
         {
@@ -313,8 +313,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0473,
-      "volatility": 11.293,
+      "market_sentiment": 1.0471,
+      "volatility": 11.3014,
       "trend": 2.0
     },
     "win_score": 78,
@@ -488,8 +488,8 @@
       "hni": 146.64,
       "rii": 21.09,
       "sub": 87.17,
-      "market_sentiment": 1.0473,
-      "volatility": 11.293,
+      "market_sentiment": 1.0471,
+      "volatility": 11.3014,
       "trend": 2.0
     },
     "win_score": 86,
