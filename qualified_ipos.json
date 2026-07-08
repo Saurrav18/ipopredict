@@ -1116,5 +1116,57 @@
       "median": 37.3
     },
     "retro": true
+  },
+  {
+    "ipo_name": "Waterways Leisure Tourism Ltd.",
+    "close_date": "25 Jun, 2026",
+    "listing_date": "Wed, Jul 1, 2026",
+    "listed_on": "Wed, Jul 1, 2026",
+    "offer_price": 808.0,
+    "list_price": 681.0,
+    "size_cr": 585.0,
+    "symbol": "CORDELIA",
+    "sector": "Pharma/Healthcare",
+    "actual": {
+      "pct": -15.72,
+      "price": 681.0,
+      "hit": true
+    },
+    "listing_gain": -15.72,
+    "state": "settled",
+    "qualifying_tiers": [
+      {
+        "tier": 65,
+        "expected_wr": 65.8,
+        "model": "LightGBM",
+        "score": 30.0
+      },
+      {
+        "tier": 66,
+        "expected_wr": 66.2,
+        "model": "LightGBM",
+        "score": 30.0
+      },
+      {
+        "tier": 67,
+        "expected_wr": 67.0,
+        "model": "LightGBM",
+        "score": 30.0
+      },
+      {
+        "tier": 68,
+        "expected_wr": 67.3,
+        "model": "LightGBM",
+        "score": 30.0
+      }
+    ],
+    "prediction": {
+      "verdict": "SKIP",
+      "confidence": 69,
+      "range_low": -10.5,
+      "range_high": 16.2,
+      "median": -5.1
+    },
+    "retro": true
   }
 ]
