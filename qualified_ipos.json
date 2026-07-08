@@ -17,11 +17,11 @@
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 37.23,
+      "gmp": 38.19,
       "qib": 0.5,
       "hni": 7.76,
-      "rii": 3.75,
-      "sub": 3.66,
+      "rii": 3.76,
+      "sub": 3.67,
       "market_sentiment": 1.0328,
       "volatility": 12.6736,
       "trend": 2.0
@@ -31,15 +31,15 @@
       "verdict": "APPLY",
       "confidence": 98,
       "range_low": -8.7,
-      "range_high": 83.0,
-      "median": 24.1,
-      "big_win_prob": 87,
-      "allotment_pct": 26.7
+      "range_high": 83.8,
+      "median": 24.0,
+      "big_win_prob": 86,
+      "allotment_pct": 26.6
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +37.2%",
+          "head": "Grey market premium +38.2%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -52,7 +52,7 @@
         },
         {
           "head": "Similar past IPOs: 5 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 5 listed above the offer price, averaging +21.9% on day one."
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 5 listed above the offer price, averaging +18.5% on day one."
         }
       ],
       "neu": [],
@@ -62,7 +62,7 @@
           "more": ""
         },
         {
-          "head": "QIB only 0.5x despite GMP +37.2%, institutions not convinced",
+          "head": "QIB only 0.5x despite GMP +38.2%, institutions not convinced",
           "more": ""
         },
         {
