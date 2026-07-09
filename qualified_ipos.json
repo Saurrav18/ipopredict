@@ -17,7 +17,7 @@
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 14.55,
+      "gmp": 14.63,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -305,7 +305,7 @@
       "ofs_pct": 27.0,
       "fresh_pct": 73.0,
       "sector": "Manufacturing",
-      "gmp": 10.75,
+      "gmp": 11.21,
       "qib": 0.0,
       "hni": 0.2,
       "rii": 0.26,
@@ -314,12 +314,12 @@
       "volatility": 12.6337,
       "trend": 2.0
     },
-    "win_score": 76,
+    "win_score": 77,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 76,
-      "range_low": -8.8,
-      "range_high": 31.9,
+      "confidence": 77,
+      "range_low": -9.0,
+      "range_high": 32.0,
       "median": 3.6,
       "big_win_prob": 1,
       "allotment_pct": 100.0
@@ -327,7 +327,7 @@
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +10.8%",
+          "head": "Grey market premium +11.2%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -354,7 +354,7 @@
       "neu": [],
       "neg": [
         {
-          "head": "QIB only 0.0x despite GMP +10.8%, institutions not convinced",
+          "head": "QIB only 0.0x despite GMP +11.2%, institutions not convinced",
           "more": ""
         },
         {
@@ -459,13 +459,13 @@
         "tier": 79,
         "expected_wr": 79.1,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 70.0
       },
       {
         "tier": 80,
         "expected_wr": 80.5,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 70.0
       }
     ],
     "state": "open"
