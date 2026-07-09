@@ -22,8 +22,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0337,
-      "volatility": 12.7126,
+      "market_sentiment": 1.0343,
+      "volatility": 12.7368,
       "trend": 2.0
     },
     "win_score": 91,
@@ -308,10 +308,10 @@
       "gmp": 7.01,
       "qib": 0.0,
       "hni": 0.04,
-      "rii": 0.09,
-      "sub": 0.05,
-      "market_sentiment": 1.0337,
-      "volatility": 12.7126,
+      "rii": 0.11,
+      "sub": 0.06,
+      "market_sentiment": 1.0343,
+      "volatility": 12.7368,
       "trend": 2.0
     },
     "win_score": 65,
@@ -320,7 +320,7 @@
       "confidence": 66,
       "range_low": -9.5,
       "range_high": 30.2,
-      "median": 1.7,
+      "median": 1.8,
       "big_win_prob": 0,
       "allotment_pct": 100.0
     },
@@ -358,7 +358,7 @@
           "more": ""
         },
         {
-          "head": "Undersubscribed: 0.05x",
+          "head": "Undersubscribed: 0.06x",
           "more": "Total demand was below the shares on offer, a weak sign."
         }
       ]
@@ -486,11 +486,11 @@
       "sector": "BFSI",
       "gmp": 36.99,
       "qib": 0.52,
-      "hni": 14.34,
-      "rii": 5.62,
-      "sub": 6.0,
-      "market_sentiment": 1.0337,
-      "volatility": 12.7126,
+      "hni": 15.22,
+      "rii": 5.88,
+      "sub": 6.32,
+      "market_sentiment": 1.0343,
+      "volatility": 12.7368,
       "trend": 2.0
     },
     "win_score": 98,
@@ -499,9 +499,9 @@
       "confidence": 98,
       "range_low": -8.6,
       "range_high": 84.8,
-      "median": 28.1,
+      "median": 28.2,
       "big_win_prob": 93,
-      "allotment_pct": 17.8
+      "allotment_pct": 17.0
     },
     "cases": {
       "pos": [
@@ -514,7 +514,7 @@
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 14x",
+          "head": "Wealthy investors keen: HNI 15x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
@@ -788,8 +788,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0337,
-      "volatility": 12.7126,
+      "market_sentiment": 1.0343,
+      "volatility": 12.7368,
       "trend": 2.0
     },
     "state": "upcoming",
@@ -1024,7 +1024,7 @@
       "confidence": 85,
       "range_low": -6.6,
       "range_high": 40.2,
-      "median": 3.0
+      "median": 3.2
     },
     "retro": true,
     "frozen": {
