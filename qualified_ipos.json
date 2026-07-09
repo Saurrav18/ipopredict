@@ -17,29 +17,29 @@
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 15.51,
+      "gmp": 14.63,
       "qib": null,
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0359,
-      "volatility": 12.8077,
+      "market_sentiment": 1.0342,
+      "volatility": 12.7328,
       "trend": 2.0
     },
     "win_score": 92,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 93,
+      "confidence": 92,
       "range_low": -6.2,
-      "range_high": 60.3,
+      "range_high": 60.1,
       "median": 12.5,
-      "big_win_prob": 27,
+      "big_win_prob": 28,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +15.5%",
+          "head": "Grey market premium +14.6%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -168,109 +168,109 @@
         "tier": 79,
         "expected_wr": 79.1,
         "model": "RandomForest",
-        "score": 88.0
+        "score": 87.0
       },
       {
         "tier": 80,
         "expected_wr": 80.5,
         "model": "RandomForest",
-        "score": 88.0
+        "score": 87.0
       },
       {
         "tier": 81,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 97.0
+        "score": 96.0
       },
       {
         "tier": 82,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 97.0
+        "score": 96.0
       },
       {
         "tier": 83,
         "expected_wr": 83.2,
         "model": "XGBoost",
-        "score": 97.0
+        "score": 96.0
       },
       {
         "tier": 84,
         "expected_wr": 83.2,
         "model": "XGBoost",
-        "score": 97.0
+        "score": 96.0
       },
       {
         "tier": 85,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 88.0
+        "score": 87.0
       },
       {
         "tier": 86,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 88.0
+        "score": 87.0
       },
       {
         "tier": 87,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 88.0
+        "score": 87.0
       },
       {
         "tier": 88,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 88.0
+        "score": 87.0
       },
       {
         "tier": 89,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 88.0
+        "score": 87.0
       },
       {
         "tier": 90,
         "expected_wr": 88.9,
         "model": "RandomForest",
-        "score": 88.0
+        "score": 87.0
       },
       {
         "tier": 91,
         "expected_wr": 88.9,
         "model": "RandomForest",
-        "score": 88.0
+        "score": 87.0
       },
       {
         "tier": 92,
         "expected_wr": 90.2,
         "model": "RandomForest",
-        "score": 88.0
+        "score": 87.0
       },
       {
         "tier": 93,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 88.0
+        "score": 87.0
       },
       {
         "tier": 94,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 88.0
+        "score": 87.0
       },
       {
         "tier": 95,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 88.0
+        "score": 87.0
       },
       {
         "tier": 96,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 88.0
+        "score": 87.0
       },
       {
         "tier": 97,
@@ -282,7 +282,7 @@
         "tier": 98,
         "expected_wr": 96.7,
         "model": "XGBoost",
-        "score": 97.0
+        "score": 96.0
       }
     ],
     "state": "open"
@@ -305,16 +305,16 @@
       "ofs_pct": 27.0,
       "fresh_pct": 73.0,
       "sector": "Manufacturing",
-      "gmp": 5.61,
+      "gmp": 5.84,
       "qib": 0.0,
       "hni": 0.09,
-      "rii": 0.16,
-      "sub": 0.1,
-      "market_sentiment": 1.0359,
-      "volatility": 12.8077,
+      "rii": 0.18,
+      "sub": 0.11,
+      "market_sentiment": 1.0342,
+      "volatility": 12.7328,
       "trend": 2.0
     },
-    "win_score": 55,
+    "win_score": 56,
     "prediction": {
       "verdict": "SKIP",
       "confidence": 44,
@@ -327,7 +327,7 @@
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +5.6%",
+          "head": "Grey market premium +5.8%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -358,7 +358,7 @@
           "more": ""
         },
         {
-          "head": "Undersubscribed: 0.10x",
+          "head": "Undersubscribed: 0.11x",
           "more": "Total demand was below the shares on offer, a weak sign."
         }
       ]
@@ -401,55 +401,55 @@
         "tier": 70,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 60.0
+        "score": 62.0
       },
       {
         "tier": 71,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 60.0
+        "score": 62.0
       },
       {
         "tier": 72,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 60.0
+        "score": 62.0
       },
       {
         "tier": 73,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 60.0
+        "score": 62.0
       },
       {
         "tier": 74,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 60.0
+        "score": 62.0
       },
       {
         "tier": 75,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 60.0
+        "score": 62.0
       },
       {
         "tier": 76,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 60.0
+        "score": 62.0
       },
       {
         "tier": 77,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 60.0
+        "score": 62.0
       },
       {
         "tier": 78,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 60.0
+        "score": 62.0
       },
       {
         "tier": 79,
@@ -479,12 +479,12 @@
       "fresh_pct": 0.0,
       "sector": "BFSI",
       "gmp": 36.99,
-      "qib": 1.74,
-      "hni": 24.17,
-      "rii": 7.6,
-      "sub": 9.42,
-      "market_sentiment": 1.0359,
-      "volatility": 12.8077,
+      "qib": 1.75,
+      "hni": 26.13,
+      "rii": 7.98,
+      "sub": 10.04,
+      "market_sentiment": 1.0342,
+      "volatility": 12.7328,
       "trend": 2.0
     },
     "win_score": 98,
@@ -493,9 +493,9 @@
       "confidence": 98,
       "range_low": -8.8,
       "range_high": 87.4,
-      "median": 31.4,
+      "median": 32.5,
       "big_win_prob": 94,
-      "allotment_pct": 13.2
+      "allotment_pct": 12.5
     },
     "cases": {
       "pos": [
@@ -504,11 +504,11 @@
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
-          "head": "Oversubscribed 9x overall",
+          "head": "Oversubscribed 10x overall",
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 24x",
+          "head": "Wealthy investors keen: HNI 26x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
@@ -778,8 +778,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0359,
-      "volatility": 12.8077,
+      "market_sentiment": 1.0342,
+      "volatility": 12.7328,
       "trend": 2.0
     },
     "state": "upcoming",
@@ -892,13 +892,13 @@
         "tier": 79,
         "expected_wr": 79.1,
         "model": "RandomForest",
-        "score": 75.0
+        "score": 74.0
       },
       {
         "tier": 80,
         "expected_wr": 80.5,
         "model": "RandomForest",
-        "score": 75.0
+        "score": 74.0
       },
       {
         "tier": 81,
@@ -928,73 +928,73 @@
         "tier": 85,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 75.0
+        "score": 74.0
       },
       {
         "tier": 86,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 75.0
+        "score": 74.0
       },
       {
         "tier": 87,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 75.0
+        "score": 74.0
       },
       {
         "tier": 88,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 75.0
+        "score": 74.0
       },
       {
         "tier": 89,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 75.0
+        "score": 74.0
       },
       {
         "tier": 90,
         "expected_wr": 88.9,
         "model": "RandomForest",
-        "score": 75.0
+        "score": 74.0
       },
       {
         "tier": 91,
         "expected_wr": 88.9,
         "model": "RandomForest",
-        "score": 75.0
+        "score": 74.0
       },
       {
         "tier": 92,
         "expected_wr": 90.2,
         "model": "RandomForest",
-        "score": 75.0
+        "score": 74.0
       },
       {
         "tier": 93,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 75.0
+        "score": 74.0
       },
       {
         "tier": 94,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 75.0
+        "score": 74.0
       },
       {
         "tier": 95,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 75.0
+        "score": 74.0
       },
       {
         "tier": 96,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 75.0
+        "score": 74.0
       },
       {
         "tier": 97,
@@ -1014,7 +1014,7 @@
       "confidence": 85,
       "range_low": -6.6,
       "range_high": 40.2,
-      "median": 3.2
+      "median": 3.0
     },
     "retro": true,
     "frozen": {
@@ -1122,36 +1122,36 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 36.0
+        "score": 38.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 36.0
+        "score": 38.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 36.0
+        "score": 38.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 36.0
+        "score": 38.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 36.0
+        "score": 38.0
       }
     ],
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 74,
+      "confidence": 73,
       "range_low": -18.7,
       "range_high": 12.6,
       "median": -4.7
@@ -1412,25 +1412,25 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 28.0
+        "score": 29.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 28.0
+        "score": 29.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 28.0
+        "score": 29.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 28.0
+        "score": 29.0
       }
     ],
     "prediction": {
