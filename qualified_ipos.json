@@ -307,9 +307,9 @@
       "sector": "Manufacturing",
       "gmp": 7.01,
       "qib": 0.0,
-      "hni": 0.13,
-      "rii": 0.21,
-      "sub": 0.14,
+      "hni": 0.16,
+      "rii": 0.22,
+      "sub": 0.15,
       "market_sentiment": 1.031,
       "volatility": 12.6337,
       "trend": 2.0
@@ -358,7 +358,7 @@
           "more": ""
         },
         {
-          "head": "Undersubscribed: 0.14x",
+          "head": "Undersubscribed: 0.15x",
           "more": "Total demand was below the shares on offer, a weak sign."
         }
       ]
@@ -485,10 +485,10 @@
       "fresh_pct": 0.0,
       "sector": "BFSI",
       "gmp": 36.99,
-      "qib": 1.77,
-      "hni": 31.83,
-      "rii": 9.17,
-      "sub": 11.84,
+      "qib": 1.8,
+      "hni": 34.04,
+      "rii": 9.5,
+      "sub": 12.48,
       "market_sentiment": 1.031,
       "volatility": 12.6337,
       "trend": 2.0
@@ -500,8 +500,8 @@
       "range_low": -8.8,
       "range_high": 87.1,
       "median": 33.1,
-      "big_win_prob": 93,
-      "allotment_pct": 10.9
+      "big_win_prob": 92,
+      "allotment_pct": 10.5
     },
     "cases": {
       "pos": [
@@ -514,7 +514,7 @@
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 32x",
+          "head": "Wealthy investors keen: HNI 34x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
@@ -527,7 +527,7 @@
         },
         {
           "head": "Similar past IPOs: 5 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 5 listed above the offer price, averaging +15.7% on day one."
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 5 listed above the offer price, averaging +22.4% on day one."
         }
       ],
       "neu": [],
