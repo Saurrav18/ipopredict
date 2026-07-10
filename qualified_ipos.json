@@ -412,9 +412,9 @@
       "sector": "Manufacturing",
       "gmp": 16.36,
       "qib": 0.68,
-      "hni": 1.51,
-      "rii": 0.76,
-      "sub": 0.9,
+      "hni": 1.89,
+      "rii": 0.81,
+      "sub": 1.0,
       "market_sentiment": 1.0427,
       "volatility": 12.9552,
       "trend": 2.0
@@ -465,16 +465,12 @@
         {
           "head": "Manufacturing sector is cold, COLD (recent 20% vs 74% historical)",
           "more": ""
-        },
-        {
-          "head": "Undersubscribed: 0.90x",
-          "more": "Total demand was below the shares on offer, a weak sign."
         }
       ]
     },
     "note": null,
-    "preliminary": true,
-    "tier_preliminary": true,
+    "preliminary": false,
+    "tier_preliminary": false,
     "qualifying_tiers": [
       {
         "tier": 65,
@@ -703,9 +699,9 @@
       "sector": "BFSI",
       "gmp": 37.71,
       "qib": 299.51,
-      "hni": 173.82,
-      "rii": 26.84,
-      "sub": 135.14,
+      "hni": 174.05,
+      "rii": 27.51,
+      "sub": 135.52,
       "market_sentiment": 1.0427,
       "volatility": 12.9552,
       "trend": 2.0
@@ -716,9 +712,9 @@
       "confidence": 98,
       "range_low": -5.3,
       "range_high": 96.1,
-      "median": 42.7,
-      "big_win_prob": 93,
-      "allotment_pct": 3.7
+      "median": 44.5,
+      "big_win_prob": 94,
+      "allotment_pct": 3.6
     },
     "cases": {
       "pos": [
@@ -731,7 +727,7 @@
           "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
         },
         {
-          "head": "Oversubscribed 135x overall",
+          "head": "Oversubscribed 136x overall",
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
