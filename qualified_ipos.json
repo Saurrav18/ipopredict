@@ -22,8 +22,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0409,
-      "volatility": 12.8505,
+      "market_sentiment": 1.0419,
+      "volatility": 12.9082,
       "trend": 2.0
     },
     "win_score": 38,
@@ -127,8 +127,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0409,
-      "volatility": 12.8505,
+      "market_sentiment": 1.0419,
+      "volatility": 12.9082,
       "trend": 2.0
     },
     "win_score": 93,
@@ -410,21 +410,21 @@
       "ofs_pct": 27.0,
       "fresh_pct": 73.0,
       "sector": "Manufacturing",
-      "gmp": 13.55,
+      "gmp": 14.95,
       "qib": 0.0,
-      "hni": 0.64,
-      "rii": 0.48,
-      "sub": 0.38,
-      "market_sentiment": 1.0409,
-      "volatility": 12.8505,
+      "hni": 0.7,
+      "rii": 0.51,
+      "sub": 0.4,
+      "market_sentiment": 1.0419,
+      "volatility": 12.9082,
       "trend": 2.0
     },
     "win_score": 85,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 85,
+      "confidence": 86,
       "range_low": -8.7,
-      "range_high": 32.6,
+      "range_high": 33.3,
       "median": 5.7,
       "big_win_prob": 1,
       "allotment_pct": 100.0
@@ -432,7 +432,7 @@
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +13.6%",
+          "head": "Grey market premium +14.9%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -459,7 +459,7 @@
       "neu": [],
       "neg": [
         {
-          "head": "QIB only 0.0x despite GMP +13.6%, institutions not convinced",
+          "head": "QIB only 0.0x despite GMP +14.9%, institutions not convinced",
           "more": ""
         },
         {
@@ -467,7 +467,7 @@
           "more": ""
         },
         {
-          "head": "Undersubscribed: 0.38x",
+          "head": "Undersubscribed: 0.40x",
           "more": "Total demand was below the shares on offer, a weak sign."
         }
       ]
@@ -564,13 +564,13 @@
         "tier": 79,
         "expected_wr": 79.1,
         "model": "RandomForest",
-        "score": 80.0
+        "score": 82.0
       },
       {
         "tier": 80,
         "expected_wr": 80.5,
         "model": "RandomForest",
-        "score": 80.0
+        "score": 82.0
       },
       {
         "tier": 81,
@@ -600,73 +600,73 @@
         "tier": 85,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 80.0
+        "score": 82.0
       },
       {
         "tier": 86,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 80.0
+        "score": 82.0
       },
       {
         "tier": 87,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 80.0
+        "score": 82.0
       },
       {
         "tier": 88,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 80.0
+        "score": 82.0
       },
       {
         "tier": 89,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 80.0
+        "score": 82.0
       },
       {
         "tier": 90,
         "expected_wr": 88.9,
         "model": "RandomForest",
-        "score": 80.0
+        "score": 82.0
       },
       {
         "tier": 91,
         "expected_wr": 88.9,
         "model": "RandomForest",
-        "score": 80.0
+        "score": 82.0
       },
       {
         "tier": 92,
         "expected_wr": 90.2,
         "model": "RandomForest",
-        "score": 80.0
+        "score": 82.0
       },
       {
         "tier": 93,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 80.0
+        "score": 82.0
       },
       {
         "tier": 94,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 80.0
+        "score": 82.0
       },
       {
         "tier": 95,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 80.0
+        "score": 82.0
       },
       {
         "tier": 96,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 80.0
+        "score": 82.0
       },
       {
         "tier": 97,
@@ -702,12 +702,12 @@
       "fresh_pct": 0.0,
       "sector": "BFSI",
       "gmp": 38.9,
-      "qib": 8.06,
-      "hni": 97.13,
-      "rii": 17.32,
-      "sub": 31.57,
-      "market_sentiment": 1.0409,
-      "volatility": 12.8505,
+      "qib": 10.32,
+      "hni": 108.56,
+      "rii": 18.39,
+      "sub": 35.18,
+      "market_sentiment": 1.0419,
+      "volatility": 12.9082,
       "trend": 2.0
     },
     "win_score": 98,
@@ -715,10 +715,10 @@
       "verdict": "APPLY",
       "confidence": 98,
       "range_low": -5.1,
-      "range_high": 85.4,
-      "median": 37.1,
+      "range_high": 85.3,
+      "median": 37.6,
       "big_win_prob": 92,
-      "allotment_pct": 5.8
+      "allotment_pct": 5.4
     },
     "cases": {
       "pos": [
@@ -727,11 +727,15 @@
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
-          "head": "Oversubscribed 32x overall",
+          "head": "Institutions piled in: QIB 10x",
+          "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
+        },
+        {
+          "head": "Oversubscribed 35x overall",
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 97x",
+          "head": "Wealthy investors keen: HNI 109x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
