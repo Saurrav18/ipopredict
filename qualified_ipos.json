@@ -122,7 +122,7 @@
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 19.51,
+      "gmp": 19.16,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -144,7 +144,7 @@
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +19.5%",
+          "head": "Grey market premium +19.2%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -412,9 +412,9 @@
       "sector": "Manufacturing",
       "gmp": 16.36,
       "qib": 0.68,
-      "hni": 1.89,
-      "rii": 0.81,
-      "sub": 1.0,
+      "hni": 2.03,
+      "rii": 0.84,
+      "sub": 1.05,
       "market_sentiment": 1.0427,
       "volatility": 12.9552,
       "trend": 2.0
@@ -425,7 +425,7 @@
       "confidence": 86,
       "range_low": -9.0,
       "range_high": 32.8,
-      "median": 6.1,
+      "median": 6.5,
       "big_win_prob": 1,
       "allotment_pct": 100.0
     },
@@ -697,11 +697,11 @@
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 37.71,
+      "gmp": 39.38,
       "qib": 299.51,
-      "hni": 174.05,
-      "rii": 27.51,
-      "sub": 135.52,
+      "hni": 174.27,
+      "rii": 27.93,
+      "sub": 135.78,
       "market_sentiment": 1.0427,
       "volatility": 12.9552,
       "trend": 2.0
@@ -711,15 +711,15 @@
       "verdict": "APPLY",
       "confidence": 98,
       "range_low": -5.3,
-      "range_high": 96.1,
-      "median": 44.5,
+      "range_high": 97.1,
+      "median": 44.4,
       "big_win_prob": 94,
       "allotment_pct": 3.6
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +37.7%",
+          "head": "Grey market premium +39.4%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
