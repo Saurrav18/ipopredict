@@ -22,8 +22,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0415,
-      "volatility": 12.8821,
+      "market_sentiment": 1.0409,
+      "volatility": 12.8505,
       "trend": 2.0
     },
     "win_score": 38,
@@ -127,8 +127,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0415,
-      "volatility": 12.8821,
+      "market_sentiment": 1.0409,
+      "volatility": 12.8505,
       "trend": 2.0
     },
     "win_score": 93,
@@ -412,11 +412,11 @@
       "sector": "Manufacturing",
       "gmp": 13.55,
       "qib": 0.0,
-      "hni": 0.6,
-      "rii": 0.46,
-      "sub": 0.36,
-      "market_sentiment": 1.0415,
-      "volatility": 12.8821,
+      "hni": 0.64,
+      "rii": 0.48,
+      "sub": 0.38,
+      "market_sentiment": 1.0409,
+      "volatility": 12.8505,
       "trend": 2.0
     },
     "win_score": 85,
@@ -425,7 +425,7 @@
       "confidence": 85,
       "range_low": -8.7,
       "range_high": 32.6,
-      "median": 5.5,
+      "median": 5.7,
       "big_win_prob": 1,
       "allotment_pct": 100.0
     },
@@ -467,7 +467,7 @@
           "more": ""
         },
         {
-          "head": "Undersubscribed: 0.36x",
+          "head": "Undersubscribed: 0.38x",
           "more": "Total demand was below the shares on offer, a weak sign."
         }
       ]
@@ -702,23 +702,23 @@
       "fresh_pct": 0.0,
       "sector": "BFSI",
       "gmp": 38.9,
-      "qib": 3.74,
-      "hni": 92.79,
-      "rii": 16.75,
-      "sub": 29.15,
-      "market_sentiment": 1.0415,
-      "volatility": 12.8821,
+      "qib": 8.06,
+      "hni": 97.13,
+      "rii": 17.32,
+      "sub": 31.57,
+      "market_sentiment": 1.0409,
+      "volatility": 12.8505,
       "trend": 2.0
     },
     "win_score": 98,
     "prediction": {
       "verdict": "APPLY",
       "confidence": 98,
-      "range_low": -5.6,
+      "range_low": -5.1,
       "range_high": 85.4,
       "median": 37.1,
       "big_win_prob": 92,
-      "allotment_pct": 6.0
+      "allotment_pct": 5.8
     },
     "cases": {
       "pos": [
@@ -727,11 +727,11 @@
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
-          "head": "Oversubscribed 29x overall",
+          "head": "Oversubscribed 32x overall",
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 93x",
+          "head": "Wealthy investors keen: HNI 97x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
