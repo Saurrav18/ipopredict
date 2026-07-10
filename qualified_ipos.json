@@ -23,7 +23,7 @@
       "rii": null,
       "sub": null,
       "market_sentiment": 1.041,
-      "volatility": 12.8586,
+      "volatility": 12.8595,
       "trend": 2.0
     },
     "win_score": 38,
@@ -128,7 +128,7 @@
       "rii": null,
       "sub": null,
       "market_sentiment": 1.041,
-      "volatility": 12.8586,
+      "volatility": 12.8595,
       "trend": 2.0
     },
     "win_score": 93,
@@ -412,11 +412,11 @@
       "sector": "Manufacturing",
       "gmp": 12.62,
       "qib": 0.0,
-      "hni": 0.51,
-      "rii": 0.43,
+      "hni": 0.52,
+      "rii": 0.44,
       "sub": 0.33,
       "market_sentiment": 1.041,
-      "volatility": 12.8586,
+      "volatility": 12.8595,
       "trend": 2.0
     },
     "win_score": 83,
@@ -702,12 +702,12 @@
       "fresh_pct": 0.0,
       "sector": "BFSI",
       "gmp": 37.95,
-      "qib": 3.44,
-      "hni": 84.13,
-      "rii": 15.53,
-      "sub": 26.61,
+      "qib": 3.45,
+      "hni": 85.45,
+      "rii": 15.73,
+      "sub": 26.99,
       "market_sentiment": 1.041,
-      "volatility": 12.8586,
+      "volatility": 12.8595,
       "trend": 2.0
     },
     "win_score": 98,
@@ -716,7 +716,7 @@
       "confidence": 98,
       "range_low": -5.8,
       "range_high": 85.5,
-      "median": 37.7,
+      "median": 37.8,
       "big_win_prob": 92,
       "allotment_pct": 6.4
     },
@@ -731,7 +731,7 @@
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 84x",
+          "head": "Wealthy investors keen: HNI 85x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
