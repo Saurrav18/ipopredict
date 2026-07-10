@@ -122,7 +122,7 @@
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 19.16,
+      "gmp": 19.51,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -144,7 +144,7 @@
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +19.2%",
+          "head": "Grey market premium +19.5%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -412,9 +412,9 @@
       "sector": "Manufacturing",
       "gmp": 16.36,
       "qib": 0.68,
-      "hni": 1.38,
-      "rii": 0.72,
-      "sub": 0.85,
+      "hni": 1.51,
+      "rii": 0.76,
+      "sub": 0.9,
       "market_sentiment": 1.0427,
       "volatility": 12.9552,
       "trend": 2.0
@@ -467,7 +467,7 @@
           "more": ""
         },
         {
-          "head": "Undersubscribed: 0.85x",
+          "head": "Undersubscribed: 0.90x",
           "more": "Total demand was below the shares on offer, a weak sign."
         }
       ]
@@ -702,10 +702,10 @@
       "fresh_pct": 0.0,
       "sector": "BFSI",
       "gmp": 37.71,
-      "qib": 295.41,
-      "hni": 172.29,
-      "rii": 25.92,
-      "sub": 133.19,
+      "qib": 299.51,
+      "hni": 173.82,
+      "rii": 26.84,
+      "sub": 135.14,
       "market_sentiment": 1.0427,
       "volatility": 12.9552,
       "trend": 2.0
@@ -718,7 +718,7 @@
       "range_high": 96.1,
       "median": 42.7,
       "big_win_prob": 93,
-      "allotment_pct": 3.9
+      "allotment_pct": 3.7
     },
     "cases": {
       "pos": [
@@ -727,15 +727,15 @@
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
-          "head": "Institutions piled in: QIB 295x",
+          "head": "Institutions piled in: QIB 300x",
           "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
         },
         {
-          "head": "Oversubscribed 133x overall",
+          "head": "Oversubscribed 135x overall",
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 172x",
+          "head": "Wealthy investors keen: HNI 174x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
@@ -748,7 +748,7 @@
         },
         {
           "head": "Similar past IPOs: 5 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 5 listed above the offer price, averaging +34.9% on day one."
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 5 listed above the offer price, averaging +26.9% on day one."
         }
       ],
       "neu": [],
@@ -981,5 +981,377 @@
       }
     ],
     "state": "open"
+  },
+  {
+    "ipo_name": "Knack Packaging Ltd.",
+    "close_date": "3 Jul, 2026",
+    "listing_date": "Wed, Jul 8, 2026",
+    "listed_on": "Wed, Jul 8, 2026",
+    "offer_price": 170.0,
+    "list_price": 188.0,
+    "size_cr": 439.0,
+    "symbol": "KNACK",
+    "sector": "BFSI",
+    "actual": {
+      "pct": 10.59,
+      "price": 188.0,
+      "hit": true
+    },
+    "listing_gain": 10.59,
+    "state": "settled",
+    "qualifying_tiers": [
+      {
+        "tier": 65,
+        "expected_wr": 65.8,
+        "model": "LightGBM",
+        "score": 96.0
+      },
+      {
+        "tier": 66,
+        "expected_wr": 66.2,
+        "model": "LightGBM",
+        "score": 96.0
+      },
+      {
+        "tier": 67,
+        "expected_wr": 67.0,
+        "model": "LightGBM",
+        "score": 96.0
+      },
+      {
+        "tier": 68,
+        "expected_wr": 67.3,
+        "model": "LightGBM",
+        "score": 96.0
+      },
+      {
+        "tier": 69,
+        "expected_wr": 69.0,
+        "model": "LightGBM",
+        "score": 96.0
+      },
+      {
+        "tier": 70,
+        "expected_wr": 71.5,
+        "model": "ExtraTrees",
+        "score": 80.0
+      },
+      {
+        "tier": 71,
+        "expected_wr": 71.5,
+        "model": "ExtraTrees",
+        "score": 80.0
+      },
+      {
+        "tier": 72,
+        "expected_wr": 72.0,
+        "model": "ExtraTrees",
+        "score": 80.0
+      },
+      {
+        "tier": 73,
+        "expected_wr": 72.0,
+        "model": "ExtraTrees",
+        "score": 80.0
+      },
+      {
+        "tier": 74,
+        "expected_wr": 73.6,
+        "model": "ExtraTrees",
+        "score": 80.0
+      },
+      {
+        "tier": 75,
+        "expected_wr": 73.6,
+        "model": "ExtraTrees",
+        "score": 80.0
+      },
+      {
+        "tier": 76,
+        "expected_wr": 73.6,
+        "model": "ExtraTrees",
+        "score": 80.0
+      },
+      {
+        "tier": 77,
+        "expected_wr": 75.8,
+        "model": "ExtraTrees",
+        "score": 80.0
+      },
+      {
+        "tier": 78,
+        "expected_wr": 75.8,
+        "model": "ExtraTrees",
+        "score": 80.0
+      },
+      {
+        "tier": 79,
+        "expected_wr": 79.1,
+        "model": "RandomForest",
+        "score": 74.0
+      },
+      {
+        "tier": 80,
+        "expected_wr": 80.5,
+        "model": "RandomForest",
+        "score": 74.0
+      },
+      {
+        "tier": 81,
+        "expected_wr": 81.9,
+        "model": "XGBoost",
+        "score": 92.0
+      },
+      {
+        "tier": 82,
+        "expected_wr": 81.9,
+        "model": "XGBoost",
+        "score": 92.0
+      },
+      {
+        "tier": 83,
+        "expected_wr": 83.2,
+        "model": "XGBoost",
+        "score": 92.0
+      },
+      {
+        "tier": 84,
+        "expected_wr": 83.2,
+        "model": "XGBoost",
+        "score": 92.0
+      },
+      {
+        "tier": 85,
+        "expected_wr": 88.0,
+        "model": "RandomForest",
+        "score": 74.0
+      },
+      {
+        "tier": 86,
+        "expected_wr": 88.0,
+        "model": "RandomForest",
+        "score": 74.0
+      },
+      {
+        "tier": 87,
+        "expected_wr": 88.0,
+        "model": "RandomForest",
+        "score": 74.0
+      },
+      {
+        "tier": 88,
+        "expected_wr": 88.0,
+        "model": "RandomForest",
+        "score": 74.0
+      },
+      {
+        "tier": 89,
+        "expected_wr": 88.0,
+        "model": "RandomForest",
+        "score": 74.0
+      },
+      {
+        "tier": 90,
+        "expected_wr": 88.9,
+        "model": "RandomForest",
+        "score": 74.0
+      },
+      {
+        "tier": 91,
+        "expected_wr": 88.9,
+        "model": "RandomForest",
+        "score": 74.0
+      },
+      {
+        "tier": 92,
+        "expected_wr": 90.2,
+        "model": "RandomForest",
+        "score": 74.0
+      },
+      {
+        "tier": 93,
+        "expected_wr": 94.1,
+        "model": "RandomForest",
+        "score": 74.0
+      },
+      {
+        "tier": 94,
+        "expected_wr": 94.1,
+        "model": "RandomForest",
+        "score": 74.0
+      },
+      {
+        "tier": 95,
+        "expected_wr": 94.1,
+        "model": "RandomForest",
+        "score": 74.0
+      },
+      {
+        "tier": 96,
+        "expected_wr": 94.1,
+        "model": "RandomForest",
+        "score": 74.0
+      },
+      {
+        "tier": 97,
+        "expected_wr": 94.8,
+        "model": "LightGBM",
+        "score": 96.0
+      },
+      {
+        "tier": 98,
+        "expected_wr": 96.7,
+        "model": "XGBoost",
+        "score": 92.0
+      }
+    ],
+    "prediction": {
+      "verdict": "APPLY",
+      "confidence": 86,
+      "range_low": -6.6,
+      "range_high": 39.0,
+      "median": 3.3
+    },
+    "retro": true,
+    "frozen": {
+      "ipo_name": "Knack Packaging Ltd.",
+      "locked": true,
+      "updated_on": "2026-07-04",
+      "verdict": "APPLY",
+      "range_low": -5.2,
+      "range_high": 44.9,
+      "median": 12.0,
+      "confidence": 88,
+      "max_tier": 98,
+      "locked_on": "2026-07-04"
+    },
+    "graded": {
+      "verdict": "APPLY",
+      "actual": 10.59,
+      "hit": true,
+      "range_low": -5.2,
+      "range_high": 44.9,
+      "in_range": true,
+      "confidence": 88
+    }
+  },
+  {
+    "ipo_name": "Aastha Spintex Ltd.",
+    "close_date": "1 Jul, 2026",
+    "listing_date": "Mon, Jul 6, 2026",
+    "listed_on": "Mon, Jul 6, 2026",
+    "offer_price": 136.0,
+    "list_price": 130.0,
+    "size_cr": 170.0,
+    "symbol": "AASTHA",
+    "sector": "BFSI",
+    "actual": {
+      "pct": -4.41,
+      "price": 130.0,
+      "hit": true
+    },
+    "listing_gain": -4.41,
+    "state": "settled",
+    "qualifying_tiers": [
+      {
+        "tier": 65,
+        "expected_wr": 65.8,
+        "model": "LightGBM",
+        "score": 21.0
+      },
+      {
+        "tier": 66,
+        "expected_wr": 66.2,
+        "model": "LightGBM",
+        "score": 21.0
+      }
+    ],
+    "prediction": {
+      "verdict": "SKIP",
+      "confidence": 77,
+      "range_low": -8.6,
+      "range_high": 14.4,
+      "median": 0.0
+    },
+    "retro": true,
+    "frozen": {
+      "ipo_name": "Aastha Spintex Ltd.",
+      "locked": true,
+      "updated_on": "2026-07-02",
+      "verdict": "SKIP",
+      "range_low": -4.6,
+      "range_high": 23.3,
+      "median": 3.4,
+      "confidence": 38,
+      "max_tier": 76,
+      "locked_on": "2026-07-03"
+    },
+    "graded": {
+      "verdict": "SKIP",
+      "actual": -4.41,
+      "hit": true,
+      "range_low": -4.6,
+      "range_high": 23.3,
+      "in_range": true,
+      "confidence": 38
+    }
+  },
+  {
+    "ipo_name": "CSM Technologies Ltd.",
+    "close_date": "29 Jun, 2026",
+    "listing_date": "Thu, Jul 2, 2026",
+    "listed_on": "Thu, Jul 2, 2026",
+    "offer_price": 113.0,
+    "list_price": 113.0,
+    "size_cr": 146.0,
+    "symbol": "CSM",
+    "sector": "Manufacturing",
+    "actual": {
+      "pct": 0.0,
+      "price": 113.0,
+      "hit": true
+    },
+    "listing_gain": 0.0,
+    "state": "settled",
+    "qualifying_tiers": [
+      {
+        "tier": 65,
+        "expected_wr": 65.8,
+        "model": "LightGBM",
+        "score": 38.0
+      },
+      {
+        "tier": 66,
+        "expected_wr": 66.2,
+        "model": "LightGBM",
+        "score": 38.0
+      },
+      {
+        "tier": 67,
+        "expected_wr": 67.0,
+        "model": "LightGBM",
+        "score": 38.0
+      },
+      {
+        "tier": 68,
+        "expected_wr": 67.3,
+        "model": "LightGBM",
+        "score": 38.0
+      },
+      {
+        "tier": 69,
+        "expected_wr": 69.0,
+        "model": "LightGBM",
+        "score": 38.0
+      }
+    ],
+    "prediction": {
+      "verdict": "SKIP",
+      "confidence": 72,
+      "range_low": -18.5,
+      "range_high": 12.4,
+      "median": -4.5
+    },
+    "retro": true
   }
 ]
