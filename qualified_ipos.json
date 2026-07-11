@@ -122,7 +122,7 @@
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 17.94,
+      "gmp": 17.6,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -137,14 +137,14 @@
       "confidence": 96,
       "range_low": -6.2,
       "range_high": 60.1,
-      "median": 15.7,
-      "big_win_prob": 31,
+      "median": 13.6,
+      "big_win_prob": 30,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +17.9%",
+          "head": "Grey market premium +17.6%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
