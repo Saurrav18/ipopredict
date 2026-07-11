@@ -122,7 +122,7 @@
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 19.34,
+      "gmp": 18.29,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -136,15 +136,15 @@
       "verdict": "APPLY",
       "confidence": 96,
       "range_low": -6.2,
-      "range_high": 60.7,
-      "median": 17.2,
-      "big_win_prob": 37,
+      "range_high": 60.1,
+      "median": 15.7,
+      "big_win_prob": 31,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +19.3%",
+          "head": "Grey market premium +18.3%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -219,55 +219,55 @@
         "tier": 70,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 89.0
       },
       {
         "tier": 71,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 89.0
       },
       {
         "tier": 72,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 89.0
       },
       {
         "tier": 73,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 89.0
       },
       {
         "tier": 74,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 89.0
       },
       {
         "tier": 75,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 89.0
       },
       {
         "tier": 76,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 89.0
       },
       {
         "tier": 77,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 89.0
       },
       {
         "tier": 78,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 89.0
       },
       {
         "tier": 79,
