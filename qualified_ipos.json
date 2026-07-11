@@ -112,17 +112,17 @@
     "listing_date": "Tue, Jul 21, 2026T",
     "listed_on": null,
     "offer_price": 574.0,
-    "size_cr": 11693.0,
+    "size_cr": 9813.0,
     "inputs": {
       "offer_price": 574.0,
-      "size_cr": 11693.0,
+      "size_cr": 9813.0,
       "pe": 38.12,
       "roe": 43.02,
-      "promoter_holding": 88.0,
+      "promoter_holding": 89.79,
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 19.16,
+      "gmp": 18.99,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -137,14 +137,14 @@
       "confidence": 96,
       "range_low": -6.2,
       "range_high": 60.7,
-      "median": 17.1,
+      "median": 17.2,
       "big_win_prob": 37,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +19.2%",
+          "head": "Grey market premium +19.0%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -152,12 +152,12 @@
           "more": "Return on equity shows how efficiently the company turns shareholder money into profit. Above roughly 15% is healthy."
         },
         {
-          "head": "Founders keep 88%",
+          "head": "Founders keep 90%",
           "more": "A high promoter holding after the IPO means founders keep significant skin in the game, aligning them with shareholders."
         },
         {
           "head": "Similar past IPOs: 4 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 4 listed above the offer price, averaging +18.4% on day one."
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 4 listed above the offer price, averaging +17.4% on day one."
         }
       ],
       "neu": [
@@ -219,55 +219,55 @@
         "tier": 70,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 90.0
       },
       {
         "tier": 71,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 90.0
       },
       {
         "tier": 72,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 90.0
       },
       {
         "tier": 73,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 90.0
       },
       {
         "tier": 74,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 90.0
       },
       {
         "tier": 75,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 90.0
       },
       {
         "tier": 76,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 90.0
       },
       {
         "tier": 77,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 90.0
       },
       {
         "tier": 78,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 90.0
       },
       {
         "tier": 79,
@@ -410,7 +410,7 @@
       "ofs_pct": 27.0,
       "fresh_pct": 73.0,
       "sector": "Manufacturing",
-      "gmp": 16.59,
+      "gmp": 16.82,
       "qib": 0.68,
       "hni": 2.03,
       "rii": 0.85,
@@ -419,10 +419,10 @@
       "volatility": 12.9552,
       "trend": 2.0
     },
-    "win_score": 86,
+    "win_score": 87,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 86,
+      "confidence": 87,
       "range_low": -9.0,
       "range_high": 32.8,
       "median": 6.5,
@@ -432,7 +432,7 @@
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +16.6%",
+          "head": "Grey market premium +16.8%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -459,7 +459,7 @@
       "neu": [],
       "neg": [
         {
-          "head": "QIB only 0.7x despite GMP +16.6%, institutions not convinced",
+          "head": "QIB only 0.7x despite GMP +16.8%, institutions not convinced",
           "more": ""
         },
         {
@@ -560,13 +560,13 @@
         "tier": 79,
         "expected_wr": 79.1,
         "model": "RandomForest",
-        "score": 82.0
+        "score": 84.0
       },
       {
         "tier": 80,
         "expected_wr": 80.5,
         "model": "RandomForest",
-        "score": 82.0
+        "score": 84.0
       },
       {
         "tier": 81,
@@ -596,73 +596,73 @@
         "tier": 85,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 82.0
+        "score": 84.0
       },
       {
         "tier": 86,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 82.0
+        "score": 84.0
       },
       {
         "tier": 87,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 82.0
+        "score": 84.0
       },
       {
         "tier": 88,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 82.0
+        "score": 84.0
       },
       {
         "tier": 89,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 82.0
+        "score": 84.0
       },
       {
         "tier": 90,
         "expected_wr": 88.9,
         "model": "RandomForest",
-        "score": 82.0
+        "score": 84.0
       },
       {
         "tier": 91,
         "expected_wr": 88.9,
         "model": "RandomForest",
-        "score": 82.0
+        "score": 84.0
       },
       {
         "tier": 92,
         "expected_wr": 90.2,
         "model": "RandomForest",
-        "score": 82.0
+        "score": 84.0
       },
       {
         "tier": 93,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 82.0
+        "score": 84.0
       },
       {
         "tier": 94,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 82.0
+        "score": 84.0
       },
       {
         "tier": 95,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 82.0
+        "score": 84.0
       },
       {
         "tier": 96,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 82.0
+        "score": 84.0
       },
       {
         "tier": 97,
@@ -682,7 +682,7 @@
   {
     "ipo_name": "Kusumgar",
     "close_date": "10 Jul, 2026",
-    "_closing_today": true,
+    "_closing_today": false,
     "_closing_tomorrow": false,
     "listing_date": "Wed, Jul 15, 2026T",
     "listed_on": null,
@@ -697,7 +697,7 @@
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 39.38,
+      "gmp": 38.19,
       "qib": 299.51,
       "hni": 174.28,
       "rii": 27.97,
@@ -711,7 +711,7 @@
       "verdict": "APPLY",
       "confidence": 98,
       "range_low": -5.3,
-      "range_high": 97.1,
+      "range_high": 94.2,
       "median": 44.4,
       "big_win_prob": 94,
       "allotment_pct": 3.6
@@ -719,7 +719,7 @@
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +39.4%",
+          "head": "Grey market premium +38.2%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
