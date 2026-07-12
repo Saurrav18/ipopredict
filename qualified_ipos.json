@@ -122,7 +122,7 @@
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 14.46,
+      "gmp": 15.16,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -136,15 +136,15 @@
       "verdict": "APPLY",
       "confidence": 93,
       "range_low": -6.2,
-      "range_high": 59.9,
+      "range_high": 60.1,
       "median": 13.0,
-      "big_win_prob": 28,
+      "big_win_prob": 27,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +14.5%",
+          "head": "Grey market premium +15.2%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -410,7 +410,7 @@
       "ofs_pct": 27.0,
       "fresh_pct": 73.0,
       "sector": "Manufacturing",
-      "gmp": 15.42,
+      "gmp": 16.36,
       "qib": 0.68,
       "hni": 2.03,
       "rii": 0.85,
@@ -419,10 +419,10 @@
       "volatility": 12.9552,
       "trend": 2.0
     },
-    "win_score": 87,
+    "win_score": 86,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 87,
+      "confidence": 86,
       "range_low": -9.0,
       "range_high": 32.8,
       "median": 6.5,
@@ -432,7 +432,7 @@
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +15.4%",
+          "head": "Grey market premium +16.4%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -459,7 +459,7 @@
       "neu": [],
       "neg": [
         {
-          "head": "QIB only 0.7x despite GMP +15.4%, institutions not convinced",
+          "head": "QIB only 0.7x despite GMP +16.4%, institutions not convinced",
           "more": ""
         },
         {
@@ -572,25 +572,25 @@
         "tier": 81,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 92.0
+        "score": 90.0
       },
       {
         "tier": 82,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 92.0
+        "score": 90.0
       },
       {
         "tier": 83,
         "expected_wr": 83.2,
         "model": "XGBoost",
-        "score": 92.0
+        "score": 90.0
       },
       {
         "tier": 84,
         "expected_wr": 83.2,
         "model": "XGBoost",
-        "score": 92.0
+        "score": 90.0
       },
       {
         "tier": 85,
@@ -674,7 +674,7 @@
         "tier": 98,
         "expected_wr": 96.7,
         "model": "XGBoost",
-        "score": 92.0
+        "score": 90.0
       }
     ],
     "state": "open"
