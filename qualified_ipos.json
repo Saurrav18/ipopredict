@@ -17,7 +17,7 @@
       "ofs_pct": 0.0,
       "fresh_pct": 100.0,
       "sector": "BFSI",
-      "gmp": 1.9,
+      "gmp": 3.81,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -26,18 +26,22 @@
       "volatility": 12.1269,
       "trend": 2.0
     },
-    "win_score": 36,
+    "win_score": 39,
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 63,
-      "range_low": -12.4,
-      "range_high": 30.4,
-      "median": 6.4,
+      "confidence": 61,
+      "range_low": -11.7,
+      "range_high": 33.6,
+      "median": 6.7,
       "big_win_prob": 1,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
+        {
+          "head": "Grey market premium +3.8%",
+          "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
+        },
         {
           "head": "Strong returns: ROE 33.9%",
           "more": "Return on equity shows how efficiently the company turns shareholder money into profit. Above roughly 15% is healthy."
@@ -75,31 +79,31 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 35.0
+        "score": 36.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 35.0
+        "score": 36.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 35.0
+        "score": 36.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 35.0
+        "score": 36.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 35.0
+        "score": 36.0
       }
     ],
     "state": "open"
@@ -122,7 +126,7 @@
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 17.07,
+      "gmp": 17.42,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -137,14 +141,14 @@
       "confidence": 96,
       "range_low": -6.2,
       "range_high": 60.3,
-      "median": 13.8,
+      "median": 14.3,
       "big_win_prob": 24,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +17.1%",
+          "head": "Grey market premium +17.4%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -219,55 +223,55 @@
         "tier": 70,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 88.0
+        "score": 89.0
       },
       {
         "tier": 71,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 88.0
+        "score": 89.0
       },
       {
         "tier": 72,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 88.0
+        "score": 89.0
       },
       {
         "tier": 73,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 88.0
+        "score": 89.0
       },
       {
         "tier": 74,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 88.0
+        "score": 89.0
       },
       {
         "tier": 75,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 88.0
+        "score": 89.0
       },
       {
         "tier": 76,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 88.0
+        "score": 89.0
       },
       {
         "tier": 77,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 88.0
+        "score": 89.0
       },
       {
         "tier": 78,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 88.0
+        "score": 89.0
       },
       {
         "tier": 79,
