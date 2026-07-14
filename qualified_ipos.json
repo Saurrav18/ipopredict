@@ -134,7 +134,7 @@
       "qib": 0.08,
       "hni": 1.39,
       "rii": 0.67,
-      "sub": 0.7,
+      "sub": 0.71,
       "market_sentiment": 1.0182,
       "volatility": 12.1028,
       "trend": 1.0
@@ -145,7 +145,7 @@
       "confidence": 93,
       "range_low": -6.2,
       "range_high": 57.9,
-      "median": 7.0,
+      "median": 7.1,
       "big_win_prob": 15,
       "allotment_pct": 100.0
     },
@@ -192,7 +192,7 @@
           "more": "Most of the issue is an offer-for-sale, so the money goes to selling shareholders, not into the business."
         },
         {
-          "head": "Undersubscribed: 0.70x",
+          "head": "Undersubscribed: 0.71x",
           "more": "Total demand was below the shares on offer, a weak sign."
         }
       ]
