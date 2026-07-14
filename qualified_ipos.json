@@ -132,7 +132,7 @@
       "sector": "BFSI",
       "gmp": 15.85,
       "qib": 0.08,
-      "hni": 1.39,
+      "hni": 1.4,
       "rii": 0.67,
       "sub": 0.71,
       "market_sentiment": 1.0182,
@@ -705,7 +705,7 @@
       "ofs_pct": 27.0,
       "fresh_pct": 73.0,
       "sector": "Manufacturing",
-      "gmp": 19.16,
+      "gmp": 20.09,
       "qib": 97.25,
       "hni": 45.69,
       "rii": 6.95,
@@ -719,15 +719,15 @@
       "verdict": "APPLY",
       "confidence": 94,
       "range_low": -5.4,
-      "range_high": 42.4,
-      "median": 17.5,
-      "big_win_prob": 1,
+      "range_high": 42.2,
+      "median": 18.7,
+      "big_win_prob": 4,
       "allotment_pct": 14.4
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +19.2%",
+          "head": "Grey market premium +20.1%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -760,7 +760,7 @@
         },
         {
           "head": "Similar past IPOs: 5 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 5 listed above the offer price, averaging +36.0% on day one."
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 5 listed above the offer price, averaging +36.9% on day one."
         }
       ],
       "neu": [],
@@ -809,55 +809,55 @@
         "tier": 70,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 86.0
+        "score": 87.0
       },
       {
         "tier": 71,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 86.0
+        "score": 87.0
       },
       {
         "tier": 72,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 86.0
+        "score": 87.0
       },
       {
         "tier": 73,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 86.0
+        "score": 87.0
       },
       {
         "tier": 74,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 86.0
+        "score": 87.0
       },
       {
         "tier": 75,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 86.0
+        "score": 87.0
       },
       {
         "tier": 76,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 86.0
+        "score": 87.0
       },
       {
         "tier": 77,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 86.0
+        "score": 87.0
       },
       {
         "tier": 78,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 86.0
+        "score": 87.0
       },
       {
         "tier": 79,
@@ -1000,7 +1000,7 @@
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 36.28,
+      "gmp": 36.99,
       "qib": 299.51,
       "hni": 174.28,
       "rii": 27.97,
@@ -1014,15 +1014,15 @@
       "verdict": "APPLY",
       "confidence": 98,
       "range_low": -5.3,
-      "range_high": 91.2,
-      "median": 41.1,
-      "big_win_prob": 89,
+      "range_high": 95.0,
+      "median": 42.0,
+      "big_win_prob": 90,
       "allotment_pct": 3.6
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +36.3%",
+          "head": "Grey market premium +37.0%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
