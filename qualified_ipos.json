@@ -399,7 +399,7 @@
   {
     "ipo_name": "Laser Power & Infra",
     "close_date": "13 Jul, 2026",
-    "_closing_today": true,
+    "_closing_today": false,
     "_closing_tomorrow": false,
     "listing_date": "Thu, Jul 16, 2026T",
     "listed_on": null,
@@ -1303,63 +1303,5 @@
       "in_range": true,
       "confidence": 38
     }
-  },
-  {
-    "ipo_name": "CSM Technologies Ltd.",
-    "close_date": "29 Jun, 2026",
-    "listing_date": "Thu, Jul 2, 2026",
-    "listed_on": "Thu, Jul 2, 2026",
-    "offer_price": 113.0,
-    "list_price": 113.0,
-    "size_cr": 146.0,
-    "symbol": "CSM",
-    "sector": "Manufacturing",
-    "actual": {
-      "pct": 0.0,
-      "price": 113.0,
-      "hit": true
-    },
-    "listing_gain": 0.0,
-    "state": "settled",
-    "qualifying_tiers": [
-      {
-        "tier": 65,
-        "expected_wr": 65.8,
-        "model": "LightGBM",
-        "score": 34.0
-      },
-      {
-        "tier": 66,
-        "expected_wr": 66.2,
-        "model": "LightGBM",
-        "score": 34.0
-      },
-      {
-        "tier": 67,
-        "expected_wr": 67.0,
-        "model": "LightGBM",
-        "score": 34.0
-      },
-      {
-        "tier": 68,
-        "expected_wr": 67.3,
-        "model": "LightGBM",
-        "score": 34.0
-      },
-      {
-        "tier": 69,
-        "expected_wr": 69.0,
-        "model": "LightGBM",
-        "score": 34.0
-      }
-    ],
-    "prediction": {
-      "verdict": "SKIP",
-      "confidence": 75,
-      "range_low": -18.7,
-      "range_high": 12.5,
-      "median": -4.7
-    },
-    "retro": true
   }
 ]
