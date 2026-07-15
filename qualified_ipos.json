@@ -329,9 +329,9 @@
       "sector": "BFSI",
       "gmp": 8.57,
       "qib": 1.0,
-      "hni": 0.58,
-      "rii": 0.79,
-      "sub": 0.73,
+      "hni": 0.59,
+      "rii": 0.8,
+      "sub": 0.74,
       "market_sentiment": 1.0193,
       "volatility": 12.0496,
       "trend": 1.0
@@ -342,7 +342,7 @@
       "confidence": 77,
       "range_low": -8.1,
       "range_high": 35.4,
-      "median": -0.1,
+      "median": 0.2,
       "big_win_prob": 0,
       "allotment_pct": 100.0
     },
@@ -380,7 +380,7 @@
           "more": ""
         },
         {
-          "head": "Undersubscribed: 0.73x",
+          "head": "Undersubscribed: 0.74x",
           "more": "Total demand was below the shares on offer, a weak sign."
         },
         {
@@ -620,9 +620,9 @@
       "sector": "BFSI",
       "gmp": 16.2,
       "qib": 1.42,
-      "hni": 5.86,
-      "rii": 1.6,
-      "sub": 2.57,
+      "hni": 6.05,
+      "rii": 1.62,
+      "sub": 2.62,
       "market_sentiment": 1.0193,
       "volatility": 12.0496,
       "trend": 1.0
@@ -635,7 +635,7 @@
       "range_high": 44.0,
       "median": 7.4,
       "big_win_prob": 33,
-      "allotment_pct": 62.5
+      "allotment_pct": 61.7
     },
     "cases": {
       "pos": [
