@@ -1,415 +1,6 @@
 [
   {
-    "ipo_name": "Alpine Texworld",
-    "close_date": "16 Jul, 2026",
-    "_closing_today": false,
-    "_closing_tomorrow": false,
-    "listing_date": "Tue, Jul 21, 2026T",
-    "listed_on": null,
-    "offer_price": 105.0,
-    "size_cr": 126.0,
-    "inputs": {
-      "offer_price": 105.0,
-      "size_cr": 126.0,
-      "pe": 12.68,
-      "roe": 33.85,
-      "promoter_holding": 61.96,
-      "ofs_pct": 0.0,
-      "fresh_pct": 100.0,
-      "sector": "BFSI",
-      "gmp": 4.76,
-      "qib": 1.0,
-      "hni": 0.31,
-      "rii": 0.26,
-      "sub": 0.28,
-      "market_sentiment": 1.0182,
-      "volatility": 12.1028,
-      "trend": 1.0
-    },
-    "win_score": 54,
-    "prediction": {
-      "verdict": "SKIP",
-      "confidence": 45,
-      "range_low": -12.0,
-      "range_high": 31.2,
-      "median": 1.9,
-      "big_win_prob": 0,
-      "allotment_pct": 100.0
-    },
-    "cases": {
-      "pos": [
-        {
-          "head": "Grey market premium +4.8%",
-          "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
-        },
-        {
-          "head": "Strong returns: ROE 33.9%",
-          "more": "Return on equity shows how efficiently the company turns shareholder money into profit. Above roughly 15% is healthy."
-        },
-        {
-          "head": "Reasonable price: P/E 12.7",
-          "more": "A lower price-to-earnings ratio means you pay less per rupee of profit, leaving more room to rise."
-        },
-        {
-          "head": "Founders keep 62%",
-          "more": "A high promoter holding after the IPO means founders keep significant skin in the game, aligning them with shareholders."
-        },
-        {
-          "head": "Mostly fresh capital (100% new money)",
-          "more": "Most of the money raised goes into the company (growth, repaying debt) rather than founders cashing out."
-        }
-      ],
-      "neu": [],
-      "neg": [
-        {
-          "head": "BFSI sector is cold, COLD (recent 40% vs 51% historical)",
-          "more": ""
-        },
-        {
-          "head": "Undersubscribed: 0.28x",
-          "more": "Total demand was below the shares on offer, a weak sign."
-        },
-        {
-          "head": "Similar past IPOs: 2 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 2 of 5 listed above the offer price. They averaged -0.2% on day one."
-        }
-      ]
-    },
-    "note": null,
-    "preliminary": true,
-    "tier_preliminary": true,
-    "qualifying_tiers": [
-      {
-        "tier": 65,
-        "expected_wr": 65.8,
-        "model": "LightGBM",
-        "score": 54.0
-      },
-      {
-        "tier": 66,
-        "expected_wr": 66.2,
-        "model": "LightGBM",
-        "score": 54.0
-      },
-      {
-        "tier": 67,
-        "expected_wr": 67.0,
-        "model": "LightGBM",
-        "score": 54.0
-      },
-      {
-        "tier": 68,
-        "expected_wr": 67.3,
-        "model": "LightGBM",
-        "score": 54.0
-      },
-      {
-        "tier": 69,
-        "expected_wr": 69.0,
-        "model": "LightGBM",
-        "score": 54.0
-      }
-    ],
-    "state": "open"
-  },
-  {
-    "ipo_name": "SBI Funds Management",
-    "close_date": "16 Jul, 2026",
-    "_closing_today": false,
-    "_closing_tomorrow": false,
-    "listing_date": "Tue, Jul 21, 2026T",
-    "listed_on": null,
-    "offer_price": 574.0,
-    "size_cr": 9813.0,
-    "inputs": {
-      "offer_price": 574.0,
-      "size_cr": 9813.0,
-      "pe": 38.12,
-      "roe": 43.02,
-      "promoter_holding": 89.79,
-      "ofs_pct": 100.0,
-      "fresh_pct": 0.0,
-      "sector": "BFSI",
-      "gmp": 15.33,
-      "qib": 0.08,
-      "hni": 1.4,
-      "rii": 0.67,
-      "sub": 0.71,
-      "market_sentiment": 1.0182,
-      "volatility": 12.1028,
-      "trend": 1.0
-    },
-    "win_score": 92,
-    "prediction": {
-      "verdict": "APPLY",
-      "confidence": 93,
-      "range_low": -6.2,
-      "range_high": 57.9,
-      "median": 7.4,
-      "big_win_prob": 15,
-      "allotment_pct": 100.0
-    },
-    "cases": {
-      "pos": [
-        {
-          "head": "Grey market premium +15.3%",
-          "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
-        },
-        {
-          "head": "Strong returns: ROE 43.0%",
-          "more": "Return on equity shows how efficiently the company turns shareholder money into profit. Above roughly 15% is healthy."
-        },
-        {
-          "head": "Founders keep 90%",
-          "more": "A high promoter holding after the IPO means founders keep significant skin in the game, aligning them with shareholders."
-        },
-        {
-          "head": "Similar past IPOs: 4 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 4 listed above the offer price, averaging +17.4% on day one."
-        }
-      ],
-      "neu": [
-        {
-          "head": "Middling valuation: P/E 38.1",
-          "more": "Not cheap, not extreme. Valuation sits in a neutral zone."
-        }
-      ],
-      "neg": [
-        {
-          "head": "100% OFS, promoters selling entire stake, company gets Rs 0",
-          "more": ""
-        },
-        {
-          "head": "QIB only 0.1x despite GMP +15.3%, institutions not convinced",
-          "more": ""
-        },
-        {
-          "head": "BFSI sector is cold, COLD (recent 40% vs 51% historical)",
-          "more": ""
-        },
-        {
-          "head": "Mostly promoters cashing out (100% OFS)",
-          "more": "Most of the issue is an offer-for-sale, so the money goes to selling shareholders, not into the business."
-        },
-        {
-          "head": "Undersubscribed: 0.71x",
-          "more": "Total demand was below the shares on offer, a weak sign."
-        }
-      ]
-    },
-    "note": null,
-    "preliminary": true,
-    "tier_preliminary": true,
-    "qualifying_tiers": [
-      {
-        "tier": 65,
-        "expected_wr": 65.8,
-        "model": "LightGBM",
-        "score": 99.0
-      },
-      {
-        "tier": 66,
-        "expected_wr": 66.2,
-        "model": "LightGBM",
-        "score": 99.0
-      },
-      {
-        "tier": 67,
-        "expected_wr": 67.0,
-        "model": "LightGBM",
-        "score": 99.0
-      },
-      {
-        "tier": 68,
-        "expected_wr": 67.3,
-        "model": "LightGBM",
-        "score": 99.0
-      },
-      {
-        "tier": 69,
-        "expected_wr": 69.0,
-        "model": "LightGBM",
-        "score": 99.0
-      },
-      {
-        "tier": 70,
-        "expected_wr": 71.5,
-        "model": "ExtraTrees",
-        "score": 87.0
-      },
-      {
-        "tier": 71,
-        "expected_wr": 71.5,
-        "model": "ExtraTrees",
-        "score": 87.0
-      },
-      {
-        "tier": 72,
-        "expected_wr": 72.0,
-        "model": "ExtraTrees",
-        "score": 87.0
-      },
-      {
-        "tier": 73,
-        "expected_wr": 72.0,
-        "model": "ExtraTrees",
-        "score": 87.0
-      },
-      {
-        "tier": 74,
-        "expected_wr": 73.6,
-        "model": "ExtraTrees",
-        "score": 87.0
-      },
-      {
-        "tier": 75,
-        "expected_wr": 73.6,
-        "model": "ExtraTrees",
-        "score": 87.0
-      },
-      {
-        "tier": 76,
-        "expected_wr": 73.6,
-        "model": "ExtraTrees",
-        "score": 87.0
-      },
-      {
-        "tier": 77,
-        "expected_wr": 75.8,
-        "model": "ExtraTrees",
-        "score": 87.0
-      },
-      {
-        "tier": 78,
-        "expected_wr": 75.8,
-        "model": "ExtraTrees",
-        "score": 87.0
-      },
-      {
-        "tier": 79,
-        "expected_wr": 79.1,
-        "model": "RandomForest",
-        "score": 88.0
-      },
-      {
-        "tier": 80,
-        "expected_wr": 80.5,
-        "model": "RandomForest",
-        "score": 88.0
-      },
-      {
-        "tier": 81,
-        "expected_wr": 81.9,
-        "model": "XGBoost",
-        "score": 97.0
-      },
-      {
-        "tier": 82,
-        "expected_wr": 81.9,
-        "model": "XGBoost",
-        "score": 97.0
-      },
-      {
-        "tier": 83,
-        "expected_wr": 83.2,
-        "model": "XGBoost",
-        "score": 97.0
-      },
-      {
-        "tier": 84,
-        "expected_wr": 83.2,
-        "model": "XGBoost",
-        "score": 97.0
-      },
-      {
-        "tier": 85,
-        "expected_wr": 88.0,
-        "model": "RandomForest",
-        "score": 88.0
-      },
-      {
-        "tier": 86,
-        "expected_wr": 88.0,
-        "model": "RandomForest",
-        "score": 88.0
-      },
-      {
-        "tier": 87,
-        "expected_wr": 88.0,
-        "model": "RandomForest",
-        "score": 88.0
-      },
-      {
-        "tier": 88,
-        "expected_wr": 88.0,
-        "model": "RandomForest",
-        "score": 88.0
-      },
-      {
-        "tier": 89,
-        "expected_wr": 88.0,
-        "model": "RandomForest",
-        "score": 88.0
-      },
-      {
-        "tier": 90,
-        "expected_wr": 88.9,
-        "model": "RandomForest",
-        "score": 88.0
-      },
-      {
-        "tier": 91,
-        "expected_wr": 88.9,
-        "model": "RandomForest",
-        "score": 88.0
-      },
-      {
-        "tier": 92,
-        "expected_wr": 90.2,
-        "model": "RandomForest",
-        "score": 88.0
-      },
-      {
-        "tier": 93,
-        "expected_wr": 94.1,
-        "model": "RandomForest",
-        "score": 88.0
-      },
-      {
-        "tier": 94,
-        "expected_wr": 94.1,
-        "model": "RandomForest",
-        "score": 88.0
-      },
-      {
-        "tier": 95,
-        "expected_wr": 94.1,
-        "model": "RandomForest",
-        "score": 88.0
-      },
-      {
-        "tier": 96,
-        "expected_wr": 94.1,
-        "model": "RandomForest",
-        "score": 88.0
-      },
-      {
-        "tier": 97,
-        "expected_wr": 94.8,
-        "model": "LightGBM",
-        "score": 99.0
-      },
-      {
-        "tier": 98,
-        "expected_wr": 96.7,
-        "model": "XGBoost",
-        "score": 97.0
-      }
-    ],
-    "state": "open"
-  },
-  {
-    "ipo_name": "Caliber Mining & Logistics Ltd.",
+    "ipo_name": "Caliber Mining",
     "close_date": "21 Jul, 2026",
     "_closing_today": false,
     "_closing_tomorrow": false,
@@ -431,8 +22,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0182,
-      "volatility": 12.1028,
+      "market_sentiment": 1.018,
+      "volatility": 12.1139,
       "trend": 1.0
     },
     "win_score": 93,
@@ -688,6 +279,919 @@
     "state": "open"
   },
   {
+    "ipo_name": "Cube Highways Trust InvIT",
+    "close_date": "24 Jul, 2026",
+    "_closing_today": false,
+    "_closing_tomorrow": false,
+    "listing_date": "Wed, Jul 29, 2026T",
+    "listed_on": null,
+    "offer_price": null,
+    "size_cr": 5000.0,
+    "inputs": {
+      "offer_price": null,
+      "size_cr": 5000.0,
+      "pe": null,
+      "roe": null,
+      "promoter_holding": null,
+      "ofs_pct": 100.0,
+      "fresh_pct": 0.0,
+      "sector": "Manufacturing",
+      "gmp": 0.0,
+      "qib": null,
+      "hni": null,
+      "rii": null,
+      "sub": null,
+      "market_sentiment": 1.018,
+      "volatility": 12.1139,
+      "trend": 1.0
+    },
+    "state": "upcoming",
+    "qualifying_tiers": [],
+    "opens_note": "Opening soon. A call appears once grey-market and subscription data is available."
+  },
+  {
+    "ipo_name": "Alpine Texworld",
+    "close_date": "16 Jul, 2026",
+    "_closing_today": false,
+    "_closing_tomorrow": true,
+    "listing_date": "Tue, Jul 21, 2026T",
+    "listed_on": null,
+    "offer_price": 105.0,
+    "size_cr": 126.0,
+    "inputs": {
+      "offer_price": 105.0,
+      "size_cr": 126.0,
+      "pe": 12.68,
+      "roe": 33.85,
+      "promoter_holding": 61.96,
+      "ofs_pct": 0.0,
+      "fresh_pct": 100.0,
+      "sector": "BFSI",
+      "gmp": 9.52,
+      "qib": 1.0,
+      "hni": 0.49,
+      "rii": 0.66,
+      "sub": 0.61,
+      "market_sentiment": 1.018,
+      "volatility": 12.1139,
+      "trend": 1.0
+    },
+    "win_score": 75,
+    "prediction": {
+      "verdict": "APPLY",
+      "confidence": 76,
+      "range_low": -9.8,
+      "range_high": 39.9,
+      "median": 2.4,
+      "big_win_prob": 0,
+      "allotment_pct": 100.0
+    },
+    "cases": {
+      "pos": [
+        {
+          "head": "Grey market premium +9.5%",
+          "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
+        },
+        {
+          "head": "Strong returns: ROE 33.9%",
+          "more": "Return on equity shows how efficiently the company turns shareholder money into profit. Above roughly 15% is healthy."
+        },
+        {
+          "head": "Reasonable price: P/E 12.7",
+          "more": "A lower price-to-earnings ratio means you pay less per rupee of profit, leaving more room to rise."
+        },
+        {
+          "head": "Founders keep 62%",
+          "more": "A high promoter holding after the IPO means founders keep significant skin in the game, aligning them with shareholders."
+        },
+        {
+          "head": "Mostly fresh capital (100% new money)",
+          "more": "Most of the money raised goes into the company (growth, repaying debt) rather than founders cashing out."
+        }
+      ],
+      "neu": [],
+      "neg": [
+        {
+          "head": "ML bullish (76%) but similar past IPOs only 40% WR",
+          "more": ""
+        },
+        {
+          "head": "BFSI sector is cold, COLD (recent 40% vs 51% historical)",
+          "more": ""
+        },
+        {
+          "head": "Undersubscribed: 0.61x",
+          "more": "Total demand was below the shares on offer, a weak sign."
+        },
+        {
+          "head": "Similar past IPOs: 2 of 5 listed positive",
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 2 of 5 listed above the offer price. They averaged -0.2% on day one."
+        }
+      ]
+    },
+    "note": null,
+    "preliminary": true,
+    "tier_preliminary": true,
+    "qualifying_tiers": [
+      {
+        "tier": 65,
+        "expected_wr": 65.8,
+        "model": "LightGBM",
+        "score": 77.0
+      },
+      {
+        "tier": 66,
+        "expected_wr": 66.2,
+        "model": "LightGBM",
+        "score": 77.0
+      },
+      {
+        "tier": 67,
+        "expected_wr": 67.0,
+        "model": "LightGBM",
+        "score": 77.0
+      },
+      {
+        "tier": 68,
+        "expected_wr": 67.3,
+        "model": "LightGBM",
+        "score": 77.0
+      },
+      {
+        "tier": 69,
+        "expected_wr": 69.0,
+        "model": "LightGBM",
+        "score": 77.0
+      },
+      {
+        "tier": 70,
+        "expected_wr": 71.5,
+        "model": "ExtraTrees",
+        "score": 68.0
+      },
+      {
+        "tier": 71,
+        "expected_wr": 71.5,
+        "model": "ExtraTrees",
+        "score": 68.0
+      },
+      {
+        "tier": 72,
+        "expected_wr": 72.0,
+        "model": "ExtraTrees",
+        "score": 68.0
+      },
+      {
+        "tier": 73,
+        "expected_wr": 72.0,
+        "model": "ExtraTrees",
+        "score": 68.0
+      },
+      {
+        "tier": 74,
+        "expected_wr": 73.6,
+        "model": "ExtraTrees",
+        "score": 68.0
+      },
+      {
+        "tier": 75,
+        "expected_wr": 73.6,
+        "model": "ExtraTrees",
+        "score": 68.0
+      },
+      {
+        "tier": 76,
+        "expected_wr": 73.6,
+        "model": "ExtraTrees",
+        "score": 68.0
+      },
+      {
+        "tier": 77,
+        "expected_wr": 75.8,
+        "model": "ExtraTrees",
+        "score": 68.0
+      },
+      {
+        "tier": 78,
+        "expected_wr": 75.8,
+        "model": "ExtraTrees",
+        "score": 68.0
+      },
+      {
+        "tier": 79,
+        "expected_wr": 79.1,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 80,
+        "expected_wr": 80.5,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 81,
+        "expected_wr": 81.9,
+        "model": "XGBoost",
+        "score": 90.0
+      },
+      {
+        "tier": 82,
+        "expected_wr": 81.9,
+        "model": "XGBoost",
+        "score": 90.0
+      },
+      {
+        "tier": 83,
+        "expected_wr": 83.2,
+        "model": "XGBoost",
+        "score": 90.0
+      },
+      {
+        "tier": 84,
+        "expected_wr": 83.2,
+        "model": "XGBoost",
+        "score": 90.0
+      },
+      {
+        "tier": 85,
+        "expected_wr": 88.0,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 86,
+        "expected_wr": 88.0,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 87,
+        "expected_wr": 88.0,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 88,
+        "expected_wr": 88.0,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 89,
+        "expected_wr": 88.0,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 90,
+        "expected_wr": 88.9,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 91,
+        "expected_wr": 88.9,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 92,
+        "expected_wr": 90.2,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 93,
+        "expected_wr": 94.1,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 94,
+        "expected_wr": 94.1,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 95,
+        "expected_wr": 94.1,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 96,
+        "expected_wr": 94.1,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 97,
+        "expected_wr": 94.8,
+        "model": "LightGBM",
+        "score": 77.0
+      },
+      {
+        "tier": 98,
+        "expected_wr": 96.7,
+        "model": "XGBoost",
+        "score": 90.0
+      }
+    ],
+    "state": "open"
+  },
+  {
+    "ipo_name": "SBI Funds Management",
+    "close_date": "16 Jul, 2026",
+    "_closing_today": false,
+    "_closing_tomorrow": true,
+    "listing_date": "Tue, Jul 21, 2026T",
+    "listed_on": null,
+    "offer_price": 574.0,
+    "size_cr": 9813.0,
+    "inputs": {
+      "offer_price": 574.0,
+      "size_cr": 9813.0,
+      "pe": 38.12,
+      "roe": 43.02,
+      "promoter_holding": 89.79,
+      "ofs_pct": 100.0,
+      "fresh_pct": 0.0,
+      "sector": "BFSI",
+      "gmp": 15.68,
+      "qib": 0.32,
+      "hni": 4.34,
+      "rii": 1.36,
+      "sub": 1.81,
+      "market_sentiment": 1.018,
+      "volatility": 12.1139,
+      "trend": 1.0
+    },
+    "win_score": 93,
+    "prediction": {
+      "verdict": "APPLY",
+      "confidence": 94,
+      "range_low": -5.7,
+      "range_high": 57.4,
+      "median": 7.3,
+      "big_win_prob": 19,
+      "allotment_pct": 73.5
+    },
+    "cases": {
+      "pos": [
+        {
+          "head": "Grey market premium +15.7%",
+          "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
+        },
+        {
+          "head": "Strong returns: ROE 43.0%",
+          "more": "Return on equity shows how efficiently the company turns shareholder money into profit. Above roughly 15% is healthy."
+        },
+        {
+          "head": "Founders keep 90%",
+          "more": "A high promoter holding after the IPO means founders keep significant skin in the game, aligning them with shareholders."
+        },
+        {
+          "head": "Similar past IPOs: 4 of 5 listed positive",
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 4 listed above the offer price, averaging +17.4% on day one."
+        }
+      ],
+      "neu": [
+        {
+          "head": "Middling valuation: P/E 38.1",
+          "more": "Not cheap, not extreme. Valuation sits in a neutral zone."
+        }
+      ],
+      "neg": [
+        {
+          "head": "100% OFS, promoters selling entire stake, company gets Rs 0",
+          "more": ""
+        },
+        {
+          "head": "QIB only 0.3x despite GMP +15.7%, institutions not convinced",
+          "more": ""
+        },
+        {
+          "head": "BFSI sector is cold, COLD (recent 40% vs 51% historical)",
+          "more": ""
+        },
+        {
+          "head": "Mostly promoters cashing out (100% OFS)",
+          "more": "Most of the issue is an offer-for-sale, so the money goes to selling shareholders, not into the business."
+        }
+      ]
+    },
+    "note": null,
+    "preliminary": false,
+    "tier_preliminary": false,
+    "qualifying_tiers": [
+      {
+        "tier": 65,
+        "expected_wr": 65.8,
+        "model": "LightGBM",
+        "score": 99.0
+      },
+      {
+        "tier": 66,
+        "expected_wr": 66.2,
+        "model": "LightGBM",
+        "score": 99.0
+      },
+      {
+        "tier": 67,
+        "expected_wr": 67.0,
+        "model": "LightGBM",
+        "score": 99.0
+      },
+      {
+        "tier": 68,
+        "expected_wr": 67.3,
+        "model": "LightGBM",
+        "score": 99.0
+      },
+      {
+        "tier": 69,
+        "expected_wr": 69.0,
+        "model": "LightGBM",
+        "score": 99.0
+      },
+      {
+        "tier": 70,
+        "expected_wr": 71.5,
+        "model": "ExtraTrees",
+        "score": 88.0
+      },
+      {
+        "tier": 71,
+        "expected_wr": 71.5,
+        "model": "ExtraTrees",
+        "score": 88.0
+      },
+      {
+        "tier": 72,
+        "expected_wr": 72.0,
+        "model": "ExtraTrees",
+        "score": 88.0
+      },
+      {
+        "tier": 73,
+        "expected_wr": 72.0,
+        "model": "ExtraTrees",
+        "score": 88.0
+      },
+      {
+        "tier": 74,
+        "expected_wr": 73.6,
+        "model": "ExtraTrees",
+        "score": 88.0
+      },
+      {
+        "tier": 75,
+        "expected_wr": 73.6,
+        "model": "ExtraTrees",
+        "score": 88.0
+      },
+      {
+        "tier": 76,
+        "expected_wr": 73.6,
+        "model": "ExtraTrees",
+        "score": 88.0
+      },
+      {
+        "tier": 77,
+        "expected_wr": 75.8,
+        "model": "ExtraTrees",
+        "score": 88.0
+      },
+      {
+        "tier": 78,
+        "expected_wr": 75.8,
+        "model": "ExtraTrees",
+        "score": 88.0
+      },
+      {
+        "tier": 79,
+        "expected_wr": 79.1,
+        "model": "RandomForest",
+        "score": 89.0
+      },
+      {
+        "tier": 80,
+        "expected_wr": 80.5,
+        "model": "RandomForest",
+        "score": 89.0
+      },
+      {
+        "tier": 81,
+        "expected_wr": 81.9,
+        "model": "XGBoost",
+        "score": 98.0
+      },
+      {
+        "tier": 82,
+        "expected_wr": 81.9,
+        "model": "XGBoost",
+        "score": 98.0
+      },
+      {
+        "tier": 83,
+        "expected_wr": 83.2,
+        "model": "XGBoost",
+        "score": 98.0
+      },
+      {
+        "tier": 84,
+        "expected_wr": 83.2,
+        "model": "XGBoost",
+        "score": 98.0
+      },
+      {
+        "tier": 85,
+        "expected_wr": 88.0,
+        "model": "RandomForest",
+        "score": 89.0
+      },
+      {
+        "tier": 86,
+        "expected_wr": 88.0,
+        "model": "RandomForest",
+        "score": 89.0
+      },
+      {
+        "tier": 87,
+        "expected_wr": 88.0,
+        "model": "RandomForest",
+        "score": 89.0
+      },
+      {
+        "tier": 88,
+        "expected_wr": 88.0,
+        "model": "RandomForest",
+        "score": 89.0
+      },
+      {
+        "tier": 89,
+        "expected_wr": 88.0,
+        "model": "RandomForest",
+        "score": 89.0
+      },
+      {
+        "tier": 90,
+        "expected_wr": 88.9,
+        "model": "RandomForest",
+        "score": 89.0
+      },
+      {
+        "tier": 91,
+        "expected_wr": 88.9,
+        "model": "RandomForest",
+        "score": 89.0
+      },
+      {
+        "tier": 92,
+        "expected_wr": 90.2,
+        "model": "RandomForest",
+        "score": 89.0
+      },
+      {
+        "tier": 93,
+        "expected_wr": 94.1,
+        "model": "RandomForest",
+        "score": 89.0
+      },
+      {
+        "tier": 94,
+        "expected_wr": 94.1,
+        "model": "RandomForest",
+        "score": 89.0
+      },
+      {
+        "tier": 95,
+        "expected_wr": 94.1,
+        "model": "RandomForest",
+        "score": 89.0
+      },
+      {
+        "tier": 96,
+        "expected_wr": 94.1,
+        "model": "RandomForest",
+        "score": 89.0
+      },
+      {
+        "tier": 97,
+        "expected_wr": 94.8,
+        "model": "LightGBM",
+        "score": 99.0
+      },
+      {
+        "tier": 98,
+        "expected_wr": 96.7,
+        "model": "XGBoost",
+        "score": 98.0
+      }
+    ],
+    "state": "open"
+  },
+  {
+    "ipo_name": "Kusumgar",
+    "close_date": "10 Jul, 2026",
+    "_closing_today": false,
+    "_closing_tomorrow": false,
+    "listing_date": "Wed, Jul 15, 2026",
+    "listed_on": null,
+    "offer_price": 419.0,
+    "size_cr": 650.0,
+    "inputs": {
+      "offer_price": 419.0,
+      "size_cr": 650.0,
+      "pe": 44.8,
+      "roe": 25.82,
+      "promoter_holding": 74.72,
+      "ofs_pct": 100.0,
+      "fresh_pct": 0.0,
+      "sector": "BFSI",
+      "gmp": 38.42,
+      "qib": 299.51,
+      "hni": 174.28,
+      "rii": 27.97,
+      "sub": 135.8,
+      "market_sentiment": 1.018,
+      "volatility": 12.1139,
+      "trend": 1.0
+    },
+    "win_score": 98,
+    "prediction": {
+      "verdict": "APPLY",
+      "confidence": 98,
+      "range_low": -5.3,
+      "range_high": 93.1,
+      "median": 41.9,
+      "big_win_prob": 89,
+      "allotment_pct": 3.6
+    },
+    "cases": {
+      "pos": [
+        {
+          "head": "Grey market premium +38.4%",
+          "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
+        },
+        {
+          "head": "Institutions piled in: QIB 300x",
+          "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
+        },
+        {
+          "head": "Oversubscribed 136x overall",
+          "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
+        },
+        {
+          "head": "Wealthy investors keen: HNI 174x",
+          "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
+        },
+        {
+          "head": "Strong returns: ROE 25.8%",
+          "more": "Return on equity shows how efficiently the company turns shareholder money into profit. Above roughly 15% is healthy."
+        },
+        {
+          "head": "Founders keep 75%",
+          "more": "A high promoter holding after the IPO means founders keep significant skin in the game, aligning them with shareholders."
+        },
+        {
+          "head": "Similar past IPOs: 5 of 5 listed positive",
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 5 listed above the offer price, averaging +26.9% on day one."
+        }
+      ],
+      "neu": [],
+      "neg": [
+        {
+          "head": "100% OFS, promoters selling entire stake, company gets Rs 0",
+          "more": ""
+        },
+        {
+          "head": "BFSI sector is cold, COLD (recent 40% vs 51% historical)",
+          "more": ""
+        },
+        {
+          "head": "Expensive: P/E 44.8",
+          "more": "A high price-to-earnings ratio means you pay a lot per rupee of profit, leaving less room to rise."
+        },
+        {
+          "head": "Mostly promoters cashing out (100% OFS)",
+          "more": "Most of the issue is an offer-for-sale, so the money goes to selling shareholders, not into the business."
+        }
+      ]
+    },
+    "note": null,
+    "preliminary": false,
+    "tier_preliminary": false,
+    "qualifying_tiers": [
+      {
+        "tier": 65,
+        "expected_wr": 65.8,
+        "model": "LightGBM",
+        "score": 100.0
+      },
+      {
+        "tier": 66,
+        "expected_wr": 66.2,
+        "model": "LightGBM",
+        "score": 100.0
+      },
+      {
+        "tier": 67,
+        "expected_wr": 67.0,
+        "model": "LightGBM",
+        "score": 100.0
+      },
+      {
+        "tier": 68,
+        "expected_wr": 67.3,
+        "model": "LightGBM",
+        "score": 100.0
+      },
+      {
+        "tier": 69,
+        "expected_wr": 69.0,
+        "model": "LightGBM",
+        "score": 100.0
+      },
+      {
+        "tier": 70,
+        "expected_wr": 71.5,
+        "model": "ExtraTrees",
+        "score": 93.0
+      },
+      {
+        "tier": 71,
+        "expected_wr": 71.5,
+        "model": "ExtraTrees",
+        "score": 93.0
+      },
+      {
+        "tier": 72,
+        "expected_wr": 72.0,
+        "model": "ExtraTrees",
+        "score": 93.0
+      },
+      {
+        "tier": 73,
+        "expected_wr": 72.0,
+        "model": "ExtraTrees",
+        "score": 93.0
+      },
+      {
+        "tier": 74,
+        "expected_wr": 73.6,
+        "model": "ExtraTrees",
+        "score": 93.0
+      },
+      {
+        "tier": 75,
+        "expected_wr": 73.6,
+        "model": "ExtraTrees",
+        "score": 93.0
+      },
+      {
+        "tier": 76,
+        "expected_wr": 73.6,
+        "model": "ExtraTrees",
+        "score": 93.0
+      },
+      {
+        "tier": 77,
+        "expected_wr": 75.8,
+        "model": "ExtraTrees",
+        "score": 93.0
+      },
+      {
+        "tier": 78,
+        "expected_wr": 75.8,
+        "model": "ExtraTrees",
+        "score": 93.0
+      },
+      {
+        "tier": 79,
+        "expected_wr": 79.1,
+        "model": "RandomForest",
+        "score": 99.0
+      },
+      {
+        "tier": 80,
+        "expected_wr": 80.5,
+        "model": "RandomForest",
+        "score": 99.0
+      },
+      {
+        "tier": 81,
+        "expected_wr": 81.9,
+        "model": "XGBoost",
+        "score": 100.0
+      },
+      {
+        "tier": 82,
+        "expected_wr": 81.9,
+        "model": "XGBoost",
+        "score": 100.0
+      },
+      {
+        "tier": 83,
+        "expected_wr": 83.2,
+        "model": "XGBoost",
+        "score": 100.0
+      },
+      {
+        "tier": 84,
+        "expected_wr": 83.2,
+        "model": "XGBoost",
+        "score": 100.0
+      },
+      {
+        "tier": 85,
+        "expected_wr": 88.0,
+        "model": "RandomForest",
+        "score": 99.0
+      },
+      {
+        "tier": 86,
+        "expected_wr": 88.0,
+        "model": "RandomForest",
+        "score": 99.0
+      },
+      {
+        "tier": 87,
+        "expected_wr": 88.0,
+        "model": "RandomForest",
+        "score": 99.0
+      },
+      {
+        "tier": 88,
+        "expected_wr": 88.0,
+        "model": "RandomForest",
+        "score": 99.0
+      },
+      {
+        "tier": 89,
+        "expected_wr": 88.0,
+        "model": "RandomForest",
+        "score": 99.0
+      },
+      {
+        "tier": 90,
+        "expected_wr": 88.9,
+        "model": "RandomForest",
+        "score": 99.0
+      },
+      {
+        "tier": 91,
+        "expected_wr": 88.9,
+        "model": "RandomForest",
+        "score": 99.0
+      },
+      {
+        "tier": 92,
+        "expected_wr": 90.2,
+        "model": "RandomForest",
+        "score": 99.0
+      },
+      {
+        "tier": 93,
+        "expected_wr": 94.1,
+        "model": "RandomForest",
+        "score": 99.0
+      },
+      {
+        "tier": 94,
+        "expected_wr": 94.1,
+        "model": "RandomForest",
+        "score": 99.0
+      },
+      {
+        "tier": 95,
+        "expected_wr": 94.1,
+        "model": "RandomForest",
+        "score": 99.0
+      },
+      {
+        "tier": 96,
+        "expected_wr": 94.1,
+        "model": "RandomForest",
+        "score": 99.0
+      },
+      {
+        "tier": 97,
+        "expected_wr": 94.8,
+        "model": "LightGBM",
+        "score": 100.0
+      },
+      {
+        "tier": 98,
+        "expected_wr": 96.7,
+        "model": "XGBoost",
+        "score": 100.0
+      }
+    ],
+    "state": "open"
+  },
+  {
     "ipo_name": "Laser Power & Infra Ltd.",
     "close_date": "13 Jul, 2026",
     "_closing_today": false,
@@ -710,8 +1214,8 @@
       "hni": 45.69,
       "rii": 6.95,
       "sub": 41.05,
-      "market_sentiment": 1.0182,
-      "volatility": 12.1028,
+      "market_sentiment": 1.018,
+      "volatility": 12.1139,
       "trend": 1.0
     },
     "win_score": 94,
@@ -978,305 +1482,6 @@
         "expected_wr": 96.7,
         "model": "XGBoost",
         "score": 99.0
-      }
-    ],
-    "state": "open"
-  },
-  {
-    "ipo_name": "Kusumgar Ltd.",
-    "close_date": "10 Jul, 2026",
-    "_closing_today": false,
-    "_closing_tomorrow": false,
-    "listing_date": "Wed, Jul 15, 2026",
-    "listed_on": null,
-    "offer_price": 419.0,
-    "size_cr": 650.0,
-    "inputs": {
-      "offer_price": 419.0,
-      "size_cr": 650.0,
-      "pe": 44.8,
-      "roe": 25.82,
-      "promoter_holding": 74.72,
-      "ofs_pct": 100.0,
-      "fresh_pct": 0.0,
-      "sector": "BFSI",
-      "gmp": 37.47,
-      "qib": 299.51,
-      "hni": 174.28,
-      "rii": 27.97,
-      "sub": 135.8,
-      "market_sentiment": 1.0182,
-      "volatility": 12.1028,
-      "trend": 1.0
-    },
-    "win_score": 98,
-    "prediction": {
-      "verdict": "APPLY",
-      "confidence": 98,
-      "range_low": -5.3,
-      "range_high": 95.0,
-      "median": 41.9,
-      "big_win_prob": 89,
-      "allotment_pct": 3.6
-    },
-    "cases": {
-      "pos": [
-        {
-          "head": "Grey market premium +37.5%",
-          "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
-        },
-        {
-          "head": "Institutions piled in: QIB 300x",
-          "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
-        },
-        {
-          "head": "Oversubscribed 136x overall",
-          "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
-        },
-        {
-          "head": "Wealthy investors keen: HNI 174x",
-          "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
-        },
-        {
-          "head": "Strong returns: ROE 25.8%",
-          "more": "Return on equity shows how efficiently the company turns shareholder money into profit. Above roughly 15% is healthy."
-        },
-        {
-          "head": "Founders keep 75%",
-          "more": "A high promoter holding after the IPO means founders keep significant skin in the game, aligning them with shareholders."
-        },
-        {
-          "head": "Similar past IPOs: 5 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 5 listed above the offer price, averaging +26.9% on day one."
-        }
-      ],
-      "neu": [],
-      "neg": [
-        {
-          "head": "100% OFS, promoters selling entire stake, company gets Rs 0",
-          "more": ""
-        },
-        {
-          "head": "BFSI sector is cold, COLD (recent 40% vs 51% historical)",
-          "more": ""
-        },
-        {
-          "head": "Expensive: P/E 44.8",
-          "more": "A high price-to-earnings ratio means you pay a lot per rupee of profit, leaving less room to rise."
-        },
-        {
-          "head": "Mostly promoters cashing out (100% OFS)",
-          "more": "Most of the issue is an offer-for-sale, so the money goes to selling shareholders, not into the business."
-        }
-      ]
-    },
-    "note": null,
-    "preliminary": false,
-    "tier_preliminary": false,
-    "qualifying_tiers": [
-      {
-        "tier": 65,
-        "expected_wr": 65.8,
-        "model": "LightGBM",
-        "score": 100.0
-      },
-      {
-        "tier": 66,
-        "expected_wr": 66.2,
-        "model": "LightGBM",
-        "score": 100.0
-      },
-      {
-        "tier": 67,
-        "expected_wr": 67.0,
-        "model": "LightGBM",
-        "score": 100.0
-      },
-      {
-        "tier": 68,
-        "expected_wr": 67.3,
-        "model": "LightGBM",
-        "score": 100.0
-      },
-      {
-        "tier": 69,
-        "expected_wr": 69.0,
-        "model": "LightGBM",
-        "score": 100.0
-      },
-      {
-        "tier": 70,
-        "expected_wr": 71.5,
-        "model": "ExtraTrees",
-        "score": 93.0
-      },
-      {
-        "tier": 71,
-        "expected_wr": 71.5,
-        "model": "ExtraTrees",
-        "score": 93.0
-      },
-      {
-        "tier": 72,
-        "expected_wr": 72.0,
-        "model": "ExtraTrees",
-        "score": 93.0
-      },
-      {
-        "tier": 73,
-        "expected_wr": 72.0,
-        "model": "ExtraTrees",
-        "score": 93.0
-      },
-      {
-        "tier": 74,
-        "expected_wr": 73.6,
-        "model": "ExtraTrees",
-        "score": 93.0
-      },
-      {
-        "tier": 75,
-        "expected_wr": 73.6,
-        "model": "ExtraTrees",
-        "score": 93.0
-      },
-      {
-        "tier": 76,
-        "expected_wr": 73.6,
-        "model": "ExtraTrees",
-        "score": 93.0
-      },
-      {
-        "tier": 77,
-        "expected_wr": 75.8,
-        "model": "ExtraTrees",
-        "score": 93.0
-      },
-      {
-        "tier": 78,
-        "expected_wr": 75.8,
-        "model": "ExtraTrees",
-        "score": 93.0
-      },
-      {
-        "tier": 79,
-        "expected_wr": 79.1,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 80,
-        "expected_wr": 80.5,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 81,
-        "expected_wr": 81.9,
-        "model": "XGBoost",
-        "score": 100.0
-      },
-      {
-        "tier": 82,
-        "expected_wr": 81.9,
-        "model": "XGBoost",
-        "score": 100.0
-      },
-      {
-        "tier": 83,
-        "expected_wr": 83.2,
-        "model": "XGBoost",
-        "score": 100.0
-      },
-      {
-        "tier": 84,
-        "expected_wr": 83.2,
-        "model": "XGBoost",
-        "score": 100.0
-      },
-      {
-        "tier": 85,
-        "expected_wr": 88.0,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 86,
-        "expected_wr": 88.0,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 87,
-        "expected_wr": 88.0,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 88,
-        "expected_wr": 88.0,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 89,
-        "expected_wr": 88.0,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 90,
-        "expected_wr": 88.9,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 91,
-        "expected_wr": 88.9,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 92,
-        "expected_wr": 90.2,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 93,
-        "expected_wr": 94.1,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 94,
-        "expected_wr": 94.1,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 95,
-        "expected_wr": 94.1,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 96,
-        "expected_wr": 94.1,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 97,
-        "expected_wr": 94.8,
-        "model": "LightGBM",
-        "score": 100.0
-      },
-      {
-        "tier": 98,
-        "expected_wr": 96.7,
-        "model": "XGBoost",
-        "score": 100.0
       }
     ],
     "state": "open"
