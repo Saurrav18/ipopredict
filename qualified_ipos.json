@@ -326,7 +326,7 @@
       "gmp": 0.95,
       "qib": 1.09,
       "hni": 1.09,
-      "rii": 1.53,
+      "rii": 1.54,
       "sub": 1.4,
       "market_sentiment": 1.0035,
       "volatility": 12.0048,
@@ -340,7 +340,7 @@
       "range_high": 23.8,
       "median": -2.0,
       "big_win_prob": 0,
-      "allotment_pct": 65.4
+      "allotment_pct": 64.9
     },
     "cases": {
       "pos": [
