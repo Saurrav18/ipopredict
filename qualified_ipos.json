@@ -17,7 +17,7 @@
       "ofs_pct": 11.1,
       "fresh_pct": 88.9,
       "sector": "BFSI",
-      "gmp": 23.58,
+      "gmp": 24.76,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -32,14 +32,14 @@
       "confidence": 98,
       "range_low": -6.0,
       "range_high": 40.4,
-      "median": 14.4,
-      "big_win_prob": 42,
+      "median": 16.2,
+      "big_win_prob": 48,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +23.6%",
+          "head": "Grey market premium +24.8%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -101,67 +101,67 @@
         "tier": 70,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 97.0
       },
       {
         "tier": 71,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 97.0
       },
       {
         "tier": 72,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 97.0
       },
       {
         "tier": 73,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 97.0
       },
       {
         "tier": 74,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 97.0
       },
       {
         "tier": 75,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 97.0
       },
       {
         "tier": 76,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 97.0
       },
       {
         "tier": 77,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 97.0
       },
       {
         "tier": 78,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 97.0
       },
       {
         "tier": 79,
         "expected_wr": 79.1,
         "model": "RandomForest",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 80,
         "expected_wr": 80.5,
         "model": "RandomForest",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 81,
@@ -191,73 +191,73 @@
         "tier": 85,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 86,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 87,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 88,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 89,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 90,
         "expected_wr": 88.9,
         "model": "RandomForest",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 91,
         "expected_wr": 88.9,
         "model": "RandomForest",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 92,
         "expected_wr": 90.2,
         "model": "RandomForest",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 93,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 94,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 95,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 96,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 97,
@@ -406,7 +406,7 @@
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 16.81,
+      "gmp": 16.9,
       "qib": 140.11,
       "hni": 22.51,
       "rii": 3.76,
@@ -421,14 +421,14 @@
       "confidence": 98,
       "range_low": -3.3,
       "range_high": 50.3,
-      "median": 9.3,
+      "median": 9.8,
       "big_win_prob": 54,
       "allotment_pct": 26.6
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +16.8%",
+          "head": "Grey market premium +16.9%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
