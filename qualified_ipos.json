@@ -949,10 +949,10 @@
     "listing_date": "Thu, Jul 30, 2026T",
     "listed_on": null,
     "offer_price": 127.0,
-    "size_cr": 170.0,
+    "size_cr": 167.0,
     "inputs": {
       "offer_price": 127.0,
-      "size_cr": 170.0,
+      "size_cr": 167.0,
       "pe": 12.21,
       "roe": 44.31,
       "promoter_holding": 62.63,
@@ -1223,6 +1223,37 @@
       }
     ],
     "state": "open"
+  },
+  {
+    "ipo_name": "Lohia Corp Ltd.",
+    "close_date": "27 Jul, 2026",
+    "_closing_today": false,
+    "_closing_tomorrow": false,
+    "listing_date": "Thu, Jul 30, 2026T",
+    "listed_on": null,
+    "offer_price": null,
+    "size_cr": null,
+    "inputs": {
+      "offer_price": null,
+      "size_cr": null,
+      "pe": null,
+      "roe": 31.71,
+      "promoter_holding": null,
+      "ofs_pct": null,
+      "fresh_pct": null,
+      "sector": "BFSI",
+      "gmp": 0.0,
+      "qib": null,
+      "hni": null,
+      "rii": null,
+      "sub": null,
+      "market_sentiment": 1.0103,
+      "volatility": 12.3298,
+      "trend": 1.0
+    },
+    "state": "upcoming",
+    "qualifying_tiers": [],
+    "opens_note": "Opening soon. A call appears once grey-market and subscription data is available."
   },
   {
     "ipo_name": "Kusumgar Ltd.",
