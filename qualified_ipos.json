@@ -17,7 +17,7 @@
       "ofs_pct": 11.1,
       "fresh_pct": 88.9,
       "sector": "BFSI",
-      "gmp": 27.36,
+      "gmp": 27.83,
       "qib": 0.31,
       "hni": 1.69,
       "rii": 1.72,
@@ -33,13 +33,13 @@
       "range_low": -6.3,
       "range_high": 39.6,
       "median": 18.7,
-      "big_win_prob": 48,
+      "big_win_prob": 49,
       "allotment_pct": 58.1
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +27.4%",
+          "head": "Grey market premium +27.8%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -54,7 +54,7 @@
       "neu": [],
       "neg": [
         {
-          "head": "QIB only 0.3x despite GMP +27.4%, institutions not convinced",
+          "head": "QIB only 0.3x despite GMP +27.8%, institutions not convinced",
           "more": ""
         },
         {
@@ -410,7 +410,7 @@
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 16.38,
+      "gmp": 16.03,
       "qib": 140.11,
       "hni": 22.51,
       "rii": 3.76,
@@ -422,17 +422,17 @@
     "win_score": 95,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 96,
+      "confidence": 95,
       "range_low": -3.3,
-      "range_high": 51.2,
-      "median": 8.3,
+      "range_high": 50.3,
+      "median": 8.2,
       "big_win_prob": 54,
       "allotment_pct": 26.6
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +16.4%",
+          "head": "Grey market premium +16.0%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -485,31 +485,31 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 97.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 97.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 97.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 97.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 97.0
       },
       {
         "tier": 70,
@@ -569,13 +569,13 @@
         "tier": 79,
         "expected_wr": 79.1,
         "model": "RandomForest",
-        "score": 94.0
+        "score": 93.0
       },
       {
         "tier": 80,
         "expected_wr": 80.5,
         "model": "RandomForest",
-        "score": 94.0
+        "score": 93.0
       },
       {
         "tier": 81,
@@ -605,79 +605,79 @@
         "tier": 85,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 94.0
+        "score": 93.0
       },
       {
         "tier": 86,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 94.0
+        "score": 93.0
       },
       {
         "tier": 87,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 94.0
+        "score": 93.0
       },
       {
         "tier": 88,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 94.0
+        "score": 93.0
       },
       {
         "tier": 89,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 94.0
+        "score": 93.0
       },
       {
         "tier": 90,
         "expected_wr": 88.9,
         "model": "RandomForest",
-        "score": 94.0
+        "score": 93.0
       },
       {
         "tier": 91,
         "expected_wr": 88.9,
         "model": "RandomForest",
-        "score": 94.0
+        "score": 93.0
       },
       {
         "tier": 92,
         "expected_wr": 90.2,
         "model": "RandomForest",
-        "score": 94.0
+        "score": 93.0
       },
       {
         "tier": 93,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 94.0
+        "score": 93.0
       },
       {
         "tier": 94,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 94.0
+        "score": 93.0
       },
       {
         "tier": 95,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 94.0
+        "score": 93.0
       },
       {
         "tier": 96,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 94.0
+        "score": 93.0
       },
       {
         "tier": 97,
         "expected_wr": 94.8,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 97.0
       },
       {
         "tier": 98,
@@ -949,12 +949,12 @@
     "listing_date": "Thu, Jul 30, 2026T",
     "listed_on": null,
     "offer_price": 127.0,
-    "size_cr": 167.0,
+    "size_cr": 170.0,
     "inputs": {
       "offer_price": 127.0,
-      "size_cr": 167.0,
-      "pe": null,
-      "roe": 31.12,
+      "size_cr": 170.0,
+      "pe": 12.21,
+      "roe": 44.31,
       "promoter_holding": 62.63,
       "ofs_pct": 0.0,
       "fresh_pct": 100.0,
@@ -968,14 +968,14 @@
       "volatility": 12.3298,
       "trend": 1.0
     },
-    "win_score": 97,
+    "win_score": 96,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 97,
-      "range_low": -7.4,
-      "range_high": 41.3,
-      "median": 9.1,
-      "big_win_prob": 7,
+      "confidence": 96,
+      "range_low": -7.2,
+      "range_high": 42.2,
+      "median": 8.7,
+      "big_win_prob": 6,
       "allotment_pct": 100.0
     },
     "cases": {
@@ -985,8 +985,12 @@
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
-          "head": "Strong returns: ROE 31.1%",
+          "head": "Strong returns: ROE 44.3%",
           "more": "Return on equity shows how efficiently the company turns shareholder money into profit. Above roughly 15% is healthy."
+        },
+        {
+          "head": "Reasonable price: P/E 12.2",
+          "more": "A lower price-to-earnings ratio means you pay less per rupee of profit, leaving more room to rise."
         },
         {
           "head": "Founders keep 63%",
@@ -1000,12 +1004,12 @@
       "neu": [],
       "neg": [
         {
-          "head": "ML bullish (97%) but similar past IPOs only 0% WR",
+          "head": "ML bullish (96%) but similar past IPOs only 20% WR",
           "more": ""
         },
         {
-          "head": "Similar past IPOs: 0 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), none of the 5 listed above the offer price. They averaged -4.5% on day one."
+          "head": "Similar past IPOs: 1 of 5 listed positive",
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 1 of 5 listed above the offer price. They averaged +0.3% on day one."
         }
       ]
     },
@@ -1017,31 +1021,31 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 98.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 98.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 98.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 98.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 98.0
       },
       {
         "tier": 70,
@@ -1101,13 +1105,13 @@
         "tier": 79,
         "expected_wr": 79.1,
         "model": "RandomForest",
-        "score": 97.0
+        "score": 96.0
       },
       {
         "tier": 80,
         "expected_wr": 80.5,
         "model": "RandomForest",
-        "score": 97.0
+        "score": 96.0
       },
       {
         "tier": 81,
@@ -1137,79 +1141,79 @@
         "tier": 85,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 97.0
+        "score": 96.0
       },
       {
         "tier": 86,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 97.0
+        "score": 96.0
       },
       {
         "tier": 87,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 97.0
+        "score": 96.0
       },
       {
         "tier": 88,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 97.0
+        "score": 96.0
       },
       {
         "tier": 89,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 97.0
+        "score": 96.0
       },
       {
         "tier": 90,
         "expected_wr": 88.9,
         "model": "RandomForest",
-        "score": 97.0
+        "score": 96.0
       },
       {
         "tier": 91,
         "expected_wr": 88.9,
         "model": "RandomForest",
-        "score": 97.0
+        "score": 96.0
       },
       {
         "tier": 92,
         "expected_wr": 90.2,
         "model": "RandomForest",
-        "score": 97.0
+        "score": 96.0
       },
       {
         "tier": 93,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 97.0
+        "score": 96.0
       },
       {
         "tier": 94,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 97.0
+        "score": 96.0
       },
       {
         "tier": 95,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 97.0
+        "score": 96.0
       },
       {
         "tier": 96,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 97.0
+        "score": 96.0
       },
       {
         "tier": 97,
         "expected_wr": 94.8,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 98.0
       },
       {
         "tier": 98,
@@ -1471,151 +1475,6 @@
       "range_high": 94.2,
       "in_range": true,
       "confidence": 98
-    }
-  },
-  {
-    "ipo_name": "Knack Packaging Ltd.",
-    "close_date": "3 Jul, 2026",
-    "listing_date": "Wed, Jul 8, 2026",
-    "listed_on": "Wed, Jul 8, 2026",
-    "offer_price": 170.0,
-    "list_price": 188.0,
-    "size_cr": 439.0,
-    "symbol": "KNACK",
-    "sector": "BFSI",
-    "actual": {
-      "pct": 10.59,
-      "price": 188.0,
-      "hit": true
-    },
-    "listing_gain": 10.59,
-    "state": "settled",
-    "qualifying_tiers": [
-      {
-        "tier": 65,
-        "expected_wr": 65.8,
-        "model": "LightGBM",
-        "score": 77.0
-      },
-      {
-        "tier": 66,
-        "expected_wr": 66.2,
-        "model": "LightGBM",
-        "score": 77.0
-      },
-      {
-        "tier": 67,
-        "expected_wr": 67.0,
-        "model": "LightGBM",
-        "score": 77.0
-      },
-      {
-        "tier": 68,
-        "expected_wr": 67.3,
-        "model": "LightGBM",
-        "score": 77.0
-      },
-      {
-        "tier": 69,
-        "expected_wr": 69.0,
-        "model": "LightGBM",
-        "score": 77.0
-      },
-      {
-        "tier": 70,
-        "expected_wr": 71.5,
-        "model": "ExtraTrees",
-        "score": 74.0
-      },
-      {
-        "tier": 71,
-        "expected_wr": 71.5,
-        "model": "ExtraTrees",
-        "score": 74.0
-      },
-      {
-        "tier": 72,
-        "expected_wr": 72.0,
-        "model": "ExtraTrees",
-        "score": 74.0
-      },
-      {
-        "tier": 73,
-        "expected_wr": 72.0,
-        "model": "ExtraTrees",
-        "score": 74.0
-      },
-      {
-        "tier": 74,
-        "expected_wr": 73.6,
-        "model": "ExtraTrees",
-        "score": 74.0
-      },
-      {
-        "tier": 75,
-        "expected_wr": 73.6,
-        "model": "ExtraTrees",
-        "score": 74.0
-      },
-      {
-        "tier": 76,
-        "expected_wr": 73.6,
-        "model": "ExtraTrees",
-        "score": 74.0
-      },
-      {
-        "tier": 77,
-        "expected_wr": 75.8,
-        "model": "ExtraTrees",
-        "score": 74.0
-      },
-      {
-        "tier": 78,
-        "expected_wr": 75.8,
-        "model": "ExtraTrees",
-        "score": 74.0
-      },
-      {
-        "tier": 79,
-        "expected_wr": 79.1,
-        "model": "RandomForest",
-        "score": 72.0
-      },
-      {
-        "tier": 80,
-        "expected_wr": 80.5,
-        "model": "RandomForest",
-        "score": 72.0
-      }
-    ],
-    "prediction": {
-      "verdict": "APPLY",
-      "confidence": 76,
-      "range_low": -6.8,
-      "range_high": 33.7,
-      "median": 3.5
-    },
-    "retro": true,
-    "frozen": {
-      "ipo_name": "Knack Packaging Ltd.",
-      "locked": true,
-      "updated_on": "2026-07-04",
-      "verdict": "APPLY",
-      "range_low": -5.2,
-      "range_high": 44.9,
-      "median": 12.0,
-      "confidence": 88,
-      "max_tier": 98,
-      "locked_on": "2026-07-04"
-    },
-    "graded": {
-      "verdict": "APPLY",
-      "actual": 10.59,
-      "hit": true,
-      "range_low": -5.2,
-      "range_high": 44.9,
-      "in_range": true,
-      "confidence": 88
     }
   }
 ]
