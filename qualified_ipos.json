@@ -18,10 +18,10 @@
       "fresh_pct": 88.9,
       "sector": "BFSI",
       "gmp": 25.94,
-      "qib": 1.36,
-      "hni": 60.14,
-      "rii": 14.89,
-      "sub": 20.72,
+      "qib": 1.44,
+      "hni": 63.71,
+      "rii": 15.58,
+      "sub": 21.85,
       "market_sentiment": 1.0029,
       "volatility": 12.3828,
       "trend": 1.0
@@ -32,9 +32,9 @@
       "confidence": 99,
       "range_low": -1.2,
       "range_high": 30.4,
-      "median": 17.7,
+      "median": 17.4,
       "big_win_prob": 37,
-      "allotment_pct": 6.7
+      "allotment_pct": 6.4
     },
     "cases": {
       "pos": [
@@ -43,11 +43,11 @@
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
-          "head": "Oversubscribed 21x overall",
+          "head": "Oversubscribed 22x overall",
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 60x",
+          "head": "Wealthy investors keen: HNI 64x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
@@ -897,7 +897,7 @@
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 20.47,
+      "gmp": 21.18,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -911,15 +911,15 @@
       "verdict": "APPLY",
       "confidence": 99,
       "range_low": -0.6,
-      "range_high": 29.2,
-      "median": 13.1,
-      "big_win_prob": 15,
+      "range_high": 29.6,
+      "median": 13.7,
+      "big_win_prob": 20,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +20.5%",
+          "head": "Grey market premium +21.2%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
