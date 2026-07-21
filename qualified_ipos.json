@@ -26,14 +26,14 @@
       "volatility": 11.9423,
       "trend": 1.0
     },
-    "win_score": 98,
+    "win_score": 96,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 98,
-      "range_low": -2.3,
-      "range_high": 35.8,
-      "median": 14.6,
-      "big_win_prob": 7,
+      "confidence": 96,
+      "range_low": -8.3,
+      "range_high": 34.3,
+      "median": 12.3,
+      "big_win_prob": 4,
       "allotment_pct": 2.3
     },
     "cases": {
@@ -108,163 +108,163 @@
         "tier": 70,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 93.0
       },
       {
         "tier": 71,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 93.0
       },
       {
         "tier": 72,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 93.0
       },
       {
         "tier": 73,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 93.0
       },
       {
         "tier": 74,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 93.0
       },
       {
         "tier": 75,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 93.0
       },
       {
         "tier": 76,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 93.0
       },
       {
         "tier": 77,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 93.0
       },
       {
         "tier": 78,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 93.0
       },
       {
         "tier": 79,
         "expected_wr": 79.1,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 96.0
       },
       {
         "tier": 80,
         "expected_wr": 80.5,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 96.0
       },
       {
         "tier": 81,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 99.0
+        "score": 98.0
       },
       {
         "tier": 82,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 99.0
+        "score": 98.0
       },
       {
         "tier": 83,
         "expected_wr": 83.2,
         "model": "XGBoost",
-        "score": 99.0
+        "score": 98.0
       },
       {
         "tier": 84,
         "expected_wr": 83.2,
         "model": "XGBoost",
-        "score": 99.0
+        "score": 98.0
       },
       {
         "tier": 85,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 96.0
       },
       {
         "tier": 86,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 96.0
       },
       {
         "tier": 87,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 96.0
       },
       {
         "tier": 88,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 96.0
       },
       {
         "tier": 89,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 96.0
       },
       {
         "tier": 90,
         "expected_wr": 88.9,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 96.0
       },
       {
         "tier": 91,
         "expected_wr": 88.9,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 96.0
       },
       {
         "tier": 92,
         "expected_wr": 90.2,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 96.0
       },
       {
         "tier": 93,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 96.0
       },
       {
         "tier": 94,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 96.0
       },
       {
         "tier": 95,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 96.0
       },
       {
         "tier": 96,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 96.0
       },
       {
         "tier": 97,
@@ -276,7 +276,7 @@
         "tier": 98,
         "expected_wr": 96.7,
         "model": "XGBoost",
-        "score": 99.0
+        "score": 98.0
       }
     ],
     "state": "open"
@@ -339,14 +339,14 @@
       "volatility": 11.9423,
       "trend": 1.0
     },
-    "win_score": 96,
+    "win_score": 94,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 96,
-      "range_low": -0.7,
-      "range_high": 23.3,
-      "median": 4.9,
-      "big_win_prob": 3,
+      "confidence": 94,
+      "range_low": -5.7,
+      "range_high": 20.5,
+      "median": 8.1,
+      "big_win_prob": 1,
       "allotment_pct": 100.0
     },
     "cases": {
@@ -375,7 +375,7 @@
       "neu": [],
       "neg": [
         {
-          "head": "ML bullish (96%) but similar past IPOs only 20% WR",
+          "head": "ML bullish (94%) but similar past IPOs only 20% WR",
           "more": ""
         },
         {
@@ -392,205 +392,205 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 98.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 98.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 98.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 98.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 98.0
       },
       {
         "tier": 70,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 88.0
       },
       {
         "tier": 71,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 88.0
       },
       {
         "tier": 72,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 88.0
       },
       {
         "tier": 73,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 88.0
       },
       {
         "tier": 74,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 88.0
       },
       {
         "tier": 75,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 88.0
       },
       {
         "tier": 76,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 88.0
       },
       {
         "tier": 77,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 88.0
       },
       {
         "tier": 78,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 91.0
+        "score": 88.0
       },
       {
         "tier": 79,
         "expected_wr": 79.1,
         "model": "RandomForest",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 80,
         "expected_wr": 80.5,
         "model": "RandomForest",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 81,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 99.0
+        "score": 96.0
       },
       {
         "tier": 82,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 99.0
+        "score": 96.0
       },
       {
         "tier": 83,
         "expected_wr": 83.2,
         "model": "XGBoost",
-        "score": 99.0
+        "score": 96.0
       },
       {
         "tier": 84,
         "expected_wr": 83.2,
         "model": "XGBoost",
-        "score": 99.0
+        "score": 96.0
       },
       {
         "tier": 85,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 86,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 87,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 88,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 89,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 90,
         "expected_wr": 88.9,
         "model": "RandomForest",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 91,
         "expected_wr": 88.9,
         "model": "RandomForest",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 92,
         "expected_wr": 90.2,
         "model": "RandomForest",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 93,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 94,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 95,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 96,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 97,
         "expected_wr": 94.8,
         "model": "LightGBM",
-        "score": 99.0
+        "score": 98.0
       },
       {
         "tier": 98,
         "expected_wr": 96.7,
         "model": "XGBoost",
-        "score": 99.0
+        "score": 96.0
       }
     ],
     "state": "open"
@@ -626,10 +626,10 @@
     "prediction": {
       "verdict": "APPLY",
       "confidence": 99,
-      "range_low": -0.8,
-      "range_high": 49.1,
-      "median": 24.2,
-      "big_win_prob": 96,
+      "range_low": -7.0,
+      "range_high": 42.0,
+      "median": 24.5,
+      "big_win_prob": 92,
       "allotment_pct": 100.0
     },
     "cases": {
@@ -648,13 +648,13 @@
         },
         {
           "head": "Similar past IPOs: 4 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 4 listed above the offer price, averaging +14.7% on day one."
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 4 listed above the offer price, averaging +15.8% on day one."
         }
       ],
       "neu": [],
       "neg": [
         {
-          "head": "Manufacturing sector is cold, COLD (recent 40% vs 74% historical)",
+          "head": "Manufacturing sector is cold, COLD (recent 40% vs 73% historical)",
           "more": ""
         },
         {
@@ -705,67 +705,67 @@
         "tier": 70,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 71,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 72,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 73,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 74,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 75,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 76,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 77,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 78,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 79,
         "expected_wr": 79.1,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 80,
         "expected_wr": 80.5,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 81,
@@ -795,73 +795,73 @@
         "tier": 85,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 86,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 87,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 88,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 89,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 90,
         "expected_wr": 88.9,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 91,
         "expected_wr": 88.9,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 92,
         "expected_wr": 90.2,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 93,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 94,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 95,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 96,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 99.0
+        "score": 100.0
       },
       {
         "tier": 97,
@@ -908,11 +908,11 @@
     "win_score": 83,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 83,
-      "range_low": -1.5,
-      "range_high": 21.9,
-      "median": 6.5,
-      "big_win_prob": 1,
+      "confidence": 84,
+      "range_low": -7.0,
+      "range_high": 17.8,
+      "median": 5.8,
+      "big_win_prob": 0,
       "allotment_pct": 100.0
     },
     "cases": {
@@ -958,85 +958,85 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 92.0
+        "score": 91.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 92.0
+        "score": 91.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 92.0
+        "score": 91.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 92.0
+        "score": 91.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 92.0
+        "score": 91.0
       },
       {
         "tier": 70,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 79.0
+        "score": 81.0
       },
       {
         "tier": 71,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 79.0
+        "score": 81.0
       },
       {
         "tier": 72,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 79.0
+        "score": 81.0
       },
       {
         "tier": 73,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 79.0
+        "score": 81.0
       },
       {
         "tier": 74,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 79.0
+        "score": 81.0
       },
       {
         "tier": 75,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 79.0
+        "score": 81.0
       },
       {
         "tier": 76,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 79.0
+        "score": 81.0
       },
       {
         "tier": 77,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 79.0
+        "score": 81.0
       },
       {
         "tier": 78,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 79.0
+        "score": 81.0
       },
       {
         "tier": 79,
@@ -1054,25 +1054,25 @@
         "tier": 81,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 88.0
+        "score": 89.0
       },
       {
         "tier": 82,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 88.0
+        "score": 89.0
       },
       {
         "tier": 83,
         "expected_wr": 83.2,
         "model": "XGBoost",
-        "score": 88.0
+        "score": 89.0
       },
       {
         "tier": 84,
         "expected_wr": 83.2,
         "model": "XGBoost",
-        "score": 88.0
+        "score": 89.0
       },
       {
         "tier": 85,
@@ -1150,13 +1150,13 @@
         "tier": 97,
         "expected_wr": 94.8,
         "model": "LightGBM",
-        "score": 92.0
+        "score": 91.0
       },
       {
         "tier": 98,
         "expected_wr": 96.7,
         "model": "XGBoost",
-        "score": 88.0
+        "score": 89.0
       }
     ],
     "state": "open"
@@ -1188,14 +1188,14 @@
       "volatility": 11.9423,
       "trend": 1.0
     },
-    "win_score": 87,
+    "win_score": 90,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 87,
-      "range_low": 0.1,
-      "range_high": 26.9,
-      "median": 7.6,
-      "big_win_prob": 24,
+      "confidence": 90,
+      "range_low": -7.0,
+      "range_high": 22.0,
+      "median": 9.6,
+      "big_win_prob": 6,
       "allotment_pct": 26.6
     },
     "cases": {
@@ -1226,7 +1226,7 @@
         },
         {
           "head": "Similar past IPOs: 4 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 4 listed above the offer price, averaging +15.0% on day one."
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 4 listed above the offer price, averaging +16.8% on day one."
         }
       ],
       "neu": [
@@ -1254,205 +1254,205 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 70,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 85.0
+        "score": 90.0
       },
       {
         "tier": 71,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 85.0
+        "score": 90.0
       },
       {
         "tier": 72,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 85.0
+        "score": 90.0
       },
       {
         "tier": 73,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 85.0
+        "score": 90.0
       },
       {
         "tier": 74,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 85.0
+        "score": 90.0
       },
       {
         "tier": 75,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 85.0
+        "score": 90.0
       },
       {
         "tier": 76,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 85.0
+        "score": 90.0
       },
       {
         "tier": 77,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 85.0
+        "score": 90.0
       },
       {
         "tier": 78,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 85.0
+        "score": 90.0
       },
       {
         "tier": 79,
         "expected_wr": 79.1,
         "model": "RandomForest",
-        "score": 78.0
+        "score": 84.0
       },
       {
         "tier": 80,
         "expected_wr": 80.5,
         "model": "RandomForest",
-        "score": 78.0
+        "score": 84.0
       },
       {
         "tier": 81,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 90.0
+        "score": 92.0
       },
       {
         "tier": 82,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 90.0
+        "score": 92.0
       },
       {
         "tier": 83,
         "expected_wr": 83.2,
         "model": "XGBoost",
-        "score": 90.0
+        "score": 92.0
       },
       {
         "tier": 84,
         "expected_wr": 83.2,
         "model": "XGBoost",
-        "score": 90.0
+        "score": 92.0
       },
       {
         "tier": 85,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 78.0
+        "score": 84.0
       },
       {
         "tier": 86,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 78.0
+        "score": 84.0
       },
       {
         "tier": 87,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 78.0
+        "score": 84.0
       },
       {
         "tier": 88,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 78.0
+        "score": 84.0
       },
       {
         "tier": 89,
         "expected_wr": 88.0,
         "model": "RandomForest",
-        "score": 78.0
+        "score": 84.0
       },
       {
         "tier": 90,
         "expected_wr": 88.9,
         "model": "RandomForest",
-        "score": 78.0
+        "score": 84.0
       },
       {
         "tier": 91,
         "expected_wr": 88.9,
         "model": "RandomForest",
-        "score": 78.0
+        "score": 84.0
       },
       {
         "tier": 92,
         "expected_wr": 90.2,
         "model": "RandomForest",
-        "score": 78.0
+        "score": 84.0
       },
       {
         "tier": 93,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 78.0
+        "score": 84.0
       },
       {
         "tier": 94,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 78.0
+        "score": 84.0
       },
       {
         "tier": 95,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 78.0
+        "score": 84.0
       },
       {
         "tier": 96,
         "expected_wr": 94.1,
         "model": "RandomForest",
-        "score": 78.0
+        "score": 84.0
       },
       {
         "tier": 97,
         "expected_wr": 94.8,
         "model": "LightGBM",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 98,
         "expected_wr": 96.7,
         "model": "XGBoost",
-        "score": 90.0
+        "score": 92.0
       }
     ],
     "state": "open"
@@ -1484,13 +1484,13 @@
       "volatility": 11.9423,
       "trend": 1.0
     },
-    "win_score": 31,
+    "win_score": 13,
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 69,
-      "range_low": -9.4,
-      "range_high": 19.1,
-      "median": -5.0,
+      "confidence": 86,
+      "range_low": -13.7,
+      "range_high": 20.6,
+      "median": -6.1,
       "big_win_prob": 0,
       "allotment_pct": 64.9
     },
@@ -1516,7 +1516,7 @@
       "neu": [],
       "neg": [
         {
-          "head": "Manufacturing sector is cold, COLD (recent 40% vs 74% historical)",
+          "head": "Manufacturing sector is cold, COLD (recent 40% vs 73% historical)",
           "more": ""
         }
       ]
@@ -1524,20 +1524,7 @@
     "note": null,
     "preliminary": false,
     "tier_preliminary": false,
-    "qualifying_tiers": [
-      {
-        "tier": 65,
-        "expected_wr": 65.8,
-        "model": "LightGBM",
-        "score": 20.0
-      },
-      {
-        "tier": 66,
-        "expected_wr": 66.2,
-        "model": "LightGBM",
-        "score": 20.0
-      }
-    ],
+    "qualifying_tiers": [],
     "state": "open"
   },
   {
@@ -1562,85 +1549,85 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 100.0
+        "score": 99.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 100.0
+        "score": 99.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 100.0
+        "score": 99.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 100.0
+        "score": 99.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 100.0
+        "score": 99.0
       },
       {
         "tier": 70,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 71,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 72,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 73,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 74,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 75,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 76,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 77,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 78,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 96.0
+        "score": 94.0
       },
       {
         "tier": 79,
@@ -1658,25 +1645,25 @@
         "tier": 81,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 99.0
+        "score": 98.0
       },
       {
         "tier": 82,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 99.0
+        "score": 98.0
       },
       {
         "tier": 83,
         "expected_wr": 83.2,
         "model": "XGBoost",
-        "score": 99.0
+        "score": 98.0
       },
       {
         "tier": 84,
         "expected_wr": 83.2,
         "model": "XGBoost",
-        "score": 99.0
+        "score": 98.0
       },
       {
         "tier": 85,
@@ -1754,21 +1741,21 @@
         "tier": 97,
         "expected_wr": 94.8,
         "model": "LightGBM",
-        "score": 100.0
+        "score": 99.0
       },
       {
         "tier": 98,
         "expected_wr": 96.7,
         "model": "XGBoost",
-        "score": 99.0
+        "score": 98.0
       }
     ],
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 98,
-      "range_low": -2.4,
-      "range_high": 28.3,
-      "median": 4.3
+      "confidence": 97,
+      "range_low": -8.3,
+      "range_high": 25.9,
+      "median": 5.2
     },
     "retro": true,
     "frozen": {
@@ -1911,25 +1898,25 @@
         "tier": 81,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 100.0
+        "score": 99.0
       },
       {
         "tier": 82,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 100.0
+        "score": 99.0
       },
       {
         "tier": 83,
         "expected_wr": 83.2,
         "model": "XGBoost",
-        "score": 100.0
+        "score": 99.0
       },
       {
         "tier": 84,
         "expected_wr": 83.2,
         "model": "XGBoost",
-        "score": 100.0
+        "score": 99.0
       },
       {
         "tier": 85,
@@ -2013,15 +2000,15 @@
         "tier": 98,
         "expected_wr": 96.7,
         "model": "XGBoost",
-        "score": 100.0
+        "score": 99.0
       }
     ],
     "prediction": {
       "verdict": "APPLY",
       "confidence": 99,
-      "range_low": -2.3,
-      "range_high": 68.6,
-      "median": 35.0
+      "range_low": -8.4,
+      "range_high": 54.2,
+      "median": 19.7
     },
     "retro": true,
     "frozen": {
