@@ -22,8 +22,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 0.9968,
-      "volatility": 12.1177,
+      "market_sentiment": 0.9969,
+      "volatility": 12.1118,
       "trend": 0.0
     },
     "win_score": 84,
@@ -305,8 +305,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 0.9968,
-      "volatility": 12.1177,
+      "market_sentiment": 0.9969,
+      "volatility": 12.1118,
       "trend": 0.0
     },
     "win_score": 99,
@@ -588,8 +588,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 0.9968,
-      "volatility": 12.1177,
+      "market_sentiment": 0.9969,
+      "volatility": 12.1118,
       "trend": 0.0
     },
     "win_score": 66,
@@ -759,8 +759,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 0.9968,
-      "volatility": 12.1177,
+      "market_sentiment": 0.9969,
+      "volatility": 12.1118,
       "trend": 0.0
     },
     "state": "upcoming",
@@ -781,7 +781,7 @@
       "size_cr": 450.0,
       "pe": 15.02,
       "roe": null,
-      "promoter_holding": null,
+      "promoter_holding": 74.18,
       "ofs_pct": 11.1,
       "fresh_pct": 88.9,
       "sector": "BFSI",
@@ -790,17 +790,17 @@
       "hni": 281.99,
       "rii": 43.4,
       "sub": 154.66,
-      "market_sentiment": 0.9968,
-      "volatility": 12.1177,
+      "market_sentiment": 0.9969,
+      "volatility": 12.1118,
       "trend": 0.0
     },
-    "win_score": 93,
+    "win_score": 94,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 94,
+      "confidence": 95,
       "range_low": -8.3,
-      "range_high": 27.9,
-      "median": 7.4,
+      "range_high": 28.0,
+      "median": 6.2,
       "big_win_prob": 0,
       "allotment_pct": 2.3
     },
@@ -827,12 +827,16 @@
           "more": "A lower price-to-earnings ratio means you pay less per rupee of profit, leaving more room to rise."
         },
         {
+          "head": "Founders keep 74%",
+          "more": "A high promoter holding after the IPO means founders keep significant skin in the game, aligning them with shareholders."
+        },
+        {
           "head": "Mostly fresh capital (89% new money)",
           "more": "Most of the money raised goes into the company (growth, repaying debt) rather than founders cashing out."
         },
         {
-          "head": "Similar past IPOs: 4 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 4 listed above the offer price, averaging +11.5% on day one."
+          "head": "Similar past IPOs: 5 of 5 listed positive",
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 5 listed above the offer price, averaging +23.5% on day one."
         }
       ],
       "neu": [],
@@ -846,85 +850,85 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 70,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 88.0
+        "score": 89.0
       },
       {
         "tier": 71,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 88.0
+        "score": 89.0
       },
       {
         "tier": 72,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 88.0
+        "score": 89.0
       },
       {
         "tier": 73,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 88.0
+        "score": 89.0
       },
       {
         "tier": 74,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 88.0
+        "score": 89.0
       },
       {
         "tier": 75,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 88.0
+        "score": 89.0
       },
       {
         "tier": 76,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 88.0
+        "score": 89.0
       },
       {
         "tier": 77,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 88.0
+        "score": 89.0
       },
       {
         "tier": 78,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 88.0
+        "score": 89.0
       },
       {
         "tier": 79,
@@ -942,25 +946,25 @@
         "tier": 81,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 94.0
+        "score": 96.0
       },
       {
         "tier": 82,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 94.0
+        "score": 96.0
       },
       {
         "tier": 83,
         "expected_wr": 83.2,
         "model": "XGBoost",
-        "score": 94.0
+        "score": 96.0
       },
       {
         "tier": 84,
         "expected_wr": 83.2,
         "model": "XGBoost",
-        "score": 94.0
+        "score": 96.0
       },
       {
         "tier": 85,
@@ -1038,13 +1042,13 @@
         "tier": 97,
         "expected_wr": 94.8,
         "model": "LightGBM",
-        "score": 98.0
+        "score": 99.0
       },
       {
         "tier": 98,
         "expected_wr": 96.7,
         "model": "XGBoost",
-        "score": 94.0
+        "score": 96.0
       }
     ],
     "state": "open"
