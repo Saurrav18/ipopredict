@@ -487,7 +487,7 @@
       "ofs_pct": 0.0,
       "fresh_pct": 100.0,
       "sector": "BFSI",
-      "gmp": 13.39,
+      "gmp": 10.24,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -496,20 +496,20 @@
       "volatility": 12.1874,
       "trend": 0.0
     },
-    "win_score": 66,
+    "win_score": 57,
     "prediction": {
-      "verdict": "APPLY",
-      "confidence": 66,
-      "range_low": -6.0,
-      "range_high": 18.8,
-      "median": 8.3,
+      "verdict": "SKIP",
+      "confidence": 42,
+      "range_low": -6.8,
+      "range_high": 18.6,
+      "median": 6.3,
       "big_win_prob": 1,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +13.4%",
+          "head": "Grey market premium +10.2%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -532,8 +532,8 @@
       "neu": [],
       "neg": [
         {
-          "head": "Similar past IPOs: 1 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 1 of 5 listed above the offer price. They averaged +0.3% on day one."
+          "head": "Similar past IPOs: 0 of 5 listed positive",
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), none of the 5 listed above the offer price. They averaged -1.6% on day one."
         }
       ]
     },
@@ -545,97 +545,97 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 47.0
+        "score": 46.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 47.0
+        "score": 46.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 47.0
+        "score": 46.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 47.0
+        "score": 46.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 47.0
+        "score": 46.0
       },
       {
         "tier": 70,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 81.0
+        "score": 72.0
       },
       {
         "tier": 71,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 81.0
+        "score": 72.0
       },
       {
         "tier": 72,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 81.0
+        "score": 72.0
       },
       {
         "tier": 73,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 81.0
+        "score": 72.0
       },
       {
         "tier": 74,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 81.0
+        "score": 72.0
       },
       {
         "tier": 75,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 81.0
+        "score": 72.0
       },
       {
         "tier": 76,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 81.0
+        "score": 72.0
       },
       {
         "tier": 77,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 81.0
+        "score": 72.0
       },
       {
         "tier": 78,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 81.0
+        "score": 72.0
       },
       {
         "tier": 79,
         "expected_wr": 79.1,
         "model": "RandomForest",
-        "score": 81.0
+        "score": 63.0
       },
       {
         "tier": 80,
         "expected_wr": 80.5,
         "model": "RandomForest",
-        "score": 81.0
+        "score": 63.0
       }
     ],
     "state": "open"
@@ -662,7 +662,7 @@
       "qib": 0.0,
       "hni": 0.1,
       "rii": null,
-      "sub": 0.04,
+      "sub": 0.05,
       "market_sentiment": 0.9956,
       "volatility": 12.1874,
       "trend": 0.0
@@ -699,7 +699,7 @@
           "more": "Most of the issue is an offer-for-sale, so the money goes to selling shareholders, not into the business."
         },
         {
-          "head": "Undersubscribed: 0.04x",
+          "head": "Undersubscribed: 0.05x",
           "more": "Total demand was below the shares on offer, a weak sign."
         }
       ]
