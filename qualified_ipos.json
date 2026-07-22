@@ -22,8 +22,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 0.9947,
-      "volatility": 12.2436,
+      "market_sentiment": 0.9956,
+      "volatility": 12.1874,
       "trend": 0.0
     },
     "win_score": 82,
@@ -209,8 +209,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 0.9947,
-      "volatility": 12.2436,
+      "market_sentiment": 0.9956,
+      "volatility": 12.1874,
       "trend": 0.0
     },
     "win_score": 99,
@@ -492,8 +492,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 0.9947,
-      "volatility": 12.2436,
+      "market_sentiment": 0.9956,
+      "volatility": 12.1874,
       "trend": 0.0
     },
     "win_score": 66,
@@ -660,11 +660,11 @@
       "sector": "Manufacturing",
       "gmp": 0.0,
       "qib": 0.0,
-      "hni": 0.04,
+      "hni": 0.09,
       "rii": null,
-      "sub": 0.02,
-      "market_sentiment": 0.9947,
-      "volatility": 12.2436,
+      "sub": 0.04,
+      "market_sentiment": 0.9956,
+      "volatility": 12.1874,
       "trend": 0.0
     },
     "win_score": 55,
@@ -673,7 +673,7 @@
       "confidence": 44,
       "range_low": -10.4,
       "range_high": 7.8,
-      "median": -4.2,
+      "median": -4.1,
       "big_win_prob": 0,
       "allotment_pct": 100.0
     },
@@ -699,7 +699,7 @@
           "more": "Most of the issue is an offer-for-sale, so the money goes to selling shareholders, not into the business."
         },
         {
-          "head": "Undersubscribed: 0.02x",
+          "head": "Undersubscribed: 0.04x",
           "more": "Total demand was below the shares on offer, a weak sign."
         }
       ]
@@ -764,8 +764,8 @@
       "hni": 281.99,
       "rii": 43.4,
       "sub": 154.66,
-      "market_sentiment": 0.9947,
-      "volatility": 12.2436,
+      "market_sentiment": 0.9956,
+      "volatility": 12.1874,
       "trend": 0.0
     },
     "win_score": 80,
