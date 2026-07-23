@@ -22,14 +22,14 @@
       "hni": 0.11,
       "rii": null,
       "sub": 0.05,
-      "market_sentiment": 0.9956,
-      "volatility": 12.1874,
-      "trend": 0.0
+      "market_sentiment": 1.0034,
+      "volatility": 12.2518,
+      "trend": 1.0
     },
-    "win_score": 55,
+    "win_score": 54,
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 44,
+      "confidence": 45,
       "range_low": -10.4,
       "range_high": 7.8,
       "median": -4.1,
@@ -123,16 +123,16 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 0.9956,
-      "volatility": 12.1874,
-      "trend": 0.0
+      "market_sentiment": 1.0034,
+      "volatility": 12.2518,
+      "trend": 1.0
     },
-    "win_score": 83,
+    "win_score": 82,
     "prediction": {
       "verdict": "APPLY",
       "confidence": 83,
       "range_low": -7.0,
-      "range_high": 17.5,
+      "range_high": 17.4,
       "median": 3.8,
       "big_win_prob": 0,
       "allotment_pct": 100.0
@@ -276,109 +276,13 @@
         "tier": 81,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 82,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 86.0
-      },
-      {
-        "tier": 83,
-        "expected_wr": 83.2,
-        "model": "XGBoost",
-        "score": 86.0
-      },
-      {
-        "tier": 84,
-        "expected_wr": 83.2,
-        "model": "XGBoost",
-        "score": 86.0
-      },
-      {
-        "tier": 85,
-        "expected_wr": 88.0,
-        "model": "RandomForest",
-        "score": 75.0
-      },
-      {
-        "tier": 86,
-        "expected_wr": 88.0,
-        "model": "RandomForest",
-        "score": 75.0
-      },
-      {
-        "tier": 87,
-        "expected_wr": 88.0,
-        "model": "RandomForest",
-        "score": 75.0
-      },
-      {
-        "tier": 88,
-        "expected_wr": 88.0,
-        "model": "RandomForest",
-        "score": 75.0
-      },
-      {
-        "tier": 89,
-        "expected_wr": 88.0,
-        "model": "RandomForest",
-        "score": 75.0
-      },
-      {
-        "tier": 90,
-        "expected_wr": 88.9,
-        "model": "RandomForest",
-        "score": 75.0
-      },
-      {
-        "tier": 91,
-        "expected_wr": 88.9,
-        "model": "RandomForest",
-        "score": 75.0
-      },
-      {
-        "tier": 92,
-        "expected_wr": 90.2,
-        "model": "RandomForest",
-        "score": 75.0
-      },
-      {
-        "tier": 93,
-        "expected_wr": 94.1,
-        "model": "RandomForest",
-        "score": 75.0
-      },
-      {
-        "tier": 94,
-        "expected_wr": 94.1,
-        "model": "RandomForest",
-        "score": 75.0
-      },
-      {
-        "tier": 95,
-        "expected_wr": 94.1,
-        "model": "RandomForest",
-        "score": 75.0
-      },
-      {
-        "tier": 96,
-        "expected_wr": 94.1,
-        "model": "RandomForest",
-        "score": 75.0
-      },
-      {
-        "tier": 97,
-        "expected_wr": 94.8,
-        "model": "LightGBM",
-        "score": 91.0
-      },
-      {
-        "tier": 98,
-        "expected_wr": 96.7,
-        "model": "XGBoost",
-        "score": 86.0
+        "score": 85.0
       }
     ],
     "state": "open"
@@ -406,9 +310,9 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 0.9956,
-      "volatility": 12.1874,
-      "trend": 0.0
+      "market_sentiment": 1.0034,
+      "volatility": 12.2518,
+      "trend": 1.0
     },
     "win_score": 99,
     "prediction": {
@@ -689,16 +593,16 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 0.9956,
-      "volatility": 12.1874,
-      "trend": 0.0
+      "market_sentiment": 1.0034,
+      "volatility": 12.2518,
+      "trend": 1.0
     },
-    "win_score": 57,
+    "win_score": 55,
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 42,
+      "confidence": 44,
       "range_low": -6.8,
-      "range_high": 18.6,
+      "range_high": 18.5,
       "median": 6.3,
       "big_win_prob": 1,
       "allotment_pct": 100.0
@@ -772,67 +676,61 @@
         "tier": 70,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 72.0
+        "score": 69.0
       },
       {
         "tier": 71,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 72.0
+        "score": 69.0
       },
       {
         "tier": 72,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 72.0
+        "score": 69.0
       },
       {
         "tier": 73,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 72.0
+        "score": 69.0
       },
       {
         "tier": 74,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 72.0
+        "score": 69.0
       },
       {
         "tier": 75,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 72.0
+        "score": 69.0
       },
       {
         "tier": 76,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 72.0
+        "score": 69.0
       },
       {
         "tier": 77,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 72.0
+        "score": 69.0
       },
       {
         "tier": 78,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 72.0
+        "score": 69.0
       },
       {
         "tier": 79,
         "expected_wr": 79.1,
         "model": "RandomForest",
-        "score": 63.0
-      },
-      {
-        "tier": 80,
-        "expected_wr": 80.5,
-        "model": "RandomForest",
-        "score": 63.0
+        "score": 61.0
       }
     ],
     "state": "open"
@@ -860,9 +758,9 @@
       "hni": 281.99,
       "rii": 43.4,
       "sub": 154.66,
-      "market_sentiment": 0.9956,
-      "volatility": 12.1874,
-      "trend": 0.0
+      "market_sentiment": 1.0034,
+      "volatility": 12.2518,
+      "trend": 1.0
     },
     "win_score": 96,
     "prediction": {
@@ -1241,25 +1139,25 @@
         "tier": 81,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 91.0
+        "score": 90.0
       },
       {
         "tier": 82,
         "expected_wr": 81.9,
         "model": "XGBoost",
-        "score": 91.0
+        "score": 90.0
       },
       {
         "tier": 83,
         "expected_wr": 83.2,
         "model": "XGBoost",
-        "score": 91.0
+        "score": 90.0
       },
       {
         "tier": 84,
         "expected_wr": 83.2,
         "model": "XGBoost",
-        "score": 91.0
+        "score": 90.0
       },
       {
         "tier": 85,
@@ -1343,7 +1241,7 @@
         "tier": 98,
         "expected_wr": 96.7,
         "model": "XGBoost",
-        "score": 91.0
+        "score": 90.0
       }
     ],
     "prediction": {
