@@ -118,7 +118,7 @@
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 3.53,
+      "gmp": 2.82,
       "qib": 0.43,
       "hni": 0.15,
       "rii": 0.68,
@@ -127,22 +127,18 @@
       "volatility": 12.3072,
       "trend": 1.0
     },
-    "win_score": 63,
+    "win_score": 59,
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 36,
+      "confidence": 41,
       "range_low": -7.3,
-      "range_high": 11.1,
-      "median": 2.0,
+      "range_high": 9.3,
+      "median": 1.0,
       "big_win_prob": 0,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
-        {
-          "head": "Grey market premium +3.5%",
-          "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
-        },
         {
           "head": "Strong returns: ROE 31.7%",
           "more": "Return on equity shows how efficiently the company turns shareholder money into profit. Above roughly 15% is healthy."
@@ -184,91 +180,85 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "LightGBM",
-        "score": 74.0
+        "score": 67.0
       },
       {
         "tier": 66,
         "expected_wr": 66.2,
         "model": "LightGBM",
-        "score": 74.0
+        "score": 67.0
       },
       {
         "tier": 67,
         "expected_wr": 67.0,
         "model": "LightGBM",
-        "score": 74.0
+        "score": 67.0
       },
       {
         "tier": 68,
         "expected_wr": 67.3,
         "model": "LightGBM",
-        "score": 74.0
+        "score": 67.0
       },
       {
         "tier": 69,
         "expected_wr": 69.0,
         "model": "LightGBM",
-        "score": 74.0
+        "score": 67.0
       },
       {
         "tier": 70,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 64.0
+        "score": 60.0
       },
       {
         "tier": 71,
         "expected_wr": 71.5,
         "model": "ExtraTrees",
-        "score": 64.0
+        "score": 60.0
       },
       {
         "tier": 72,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 64.0
+        "score": 60.0
       },
       {
         "tier": 73,
         "expected_wr": 72.0,
         "model": "ExtraTrees",
-        "score": 64.0
+        "score": 60.0
       },
       {
         "tier": 74,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 64.0
+        "score": 60.0
       },
       {
         "tier": 75,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 64.0
+        "score": 60.0
       },
       {
         "tier": 76,
         "expected_wr": 73.6,
         "model": "ExtraTrees",
-        "score": 64.0
+        "score": 60.0
       },
       {
         "tier": 77,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 64.0
+        "score": 60.0
       },
       {
         "tier": 78,
         "expected_wr": 75.8,
         "model": "ExtraTrees",
-        "score": 64.0
-      },
-      {
-        "tier": 79,
-        "expected_wr": 79.1,
-        "model": "RandomForest",
-        "score": 61.0
+        "score": 60.0
       }
     ],
     "state": "open"
@@ -736,7 +726,7 @@
     "close_date": "21 Jul, 2026",
     "_closing_today": false,
     "_closing_tomorrow": false,
-    "listing_date": "Fri, Jul 24, 2026T",
+    "listing_date": "Fri, Jul 24, 2026",
     "listed_on": null,
     "offer_price": 424.0,
     "size_cr": 450.0,
