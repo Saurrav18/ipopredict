@@ -291,7 +291,7 @@
       "ofs_pct": 86.9,
       "fresh_pct": 13.1,
       "sector": "Manufacturing",
-      "gmp": 36.49,
+      "gmp": 36.29,
       "qib": 0.18,
       "hni": 3.04,
       "rii": 0.88,
@@ -313,7 +313,7 @@
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +36.5%",
+          "head": "Grey market premium +36.3%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -332,7 +332,7 @@
       "neu": [],
       "neg": [
         {
-          "head": "QIB only 0.2x despite GMP +36.5%, institutions not convinced",
+          "head": "QIB only 0.2x despite GMP +36.3%, institutions not convinced",
           "more": ""
         },
         {
@@ -749,7 +749,7 @@
       "ofs_pct": 11.1,
       "fresh_pct": 88.9,
       "sector": "BFSI",
-      "gmp": 17.92,
+      "gmp": 17.69,
       "qib": 253.88,
       "hni": 281.99,
       "rii": 43.4,
@@ -763,15 +763,15 @@
       "verdict": "APPLY",
       "confidence": 96,
       "range_low": -8.3,
-      "range_high": 29.1,
-      "median": 7.4,
-      "big_win_prob": 1,
+      "range_high": 28.0,
+      "median": 6.2,
+      "big_win_prob": 0,
       "allotment_pct": 2.3
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +17.9%",
+          "head": "Grey market premium +17.7%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
