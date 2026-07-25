@@ -593,7 +593,7 @@
       "ofs_pct": 13.7,
       "fresh_pct": 86.3,
       "sector": "Pharma/Healthcare",
-      "gmp": 3.73,
+      "gmp": 3.39,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -602,20 +602,20 @@
       "volatility": 12.3641,
       "trend": 0.0
     },
-    "win_score": 67,
+    "win_score": 63,
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 33,
-      "range_low": -10.2,
-      "range_high": 16.4,
-      "median": 6.3,
-      "big_win_prob": 3,
+      "confidence": 36,
+      "range_low": -10.4,
+      "range_high": 13.3,
+      "median": 0.2,
+      "big_win_prob": 1,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +3.7%",
+          "head": "Grey market premium +3.4%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -647,55 +647,49 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "RandomForest",
-        "score": 58.0
+        "score": 57.0
       },
       {
         "tier": 66,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 58.0
+        "score": 57.0
       },
       {
         "tier": 67,
         "expected_wr": 69.1,
         "model": "RandomForest",
-        "score": 58.0
+        "score": 57.0
       },
       {
         "tier": 68,
         "expected_wr": 69.1,
         "model": "RandomForest",
-        "score": 58.0
+        "score": 57.0
       },
       {
         "tier": 69,
         "expected_wr": 69.4,
         "model": "RandomForest",
-        "score": 58.0
+        "score": 57.0
       },
       {
         "tier": 70,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 58.0
+        "score": 57.0
       },
       {
         "tier": 71,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 58.0
+        "score": 57.0
       },
       {
         "tier": 72,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 58.0
-      },
-      {
-        "tier": 73,
-        "expected_wr": 72.3,
-        "model": "RandomForest",
-        "score": 58.0
+        "score": 57.0
       }
     ],
     "state": "open"
