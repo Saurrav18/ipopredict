@@ -180,7 +180,7 @@
       "ofs_pct": 86.9,
       "fresh_pct": 13.1,
       "sector": "Manufacturing",
-      "gmp": 38.97,
+      "gmp": 38.14,
       "qib": 1.11,
       "hni": 8.45,
       "rii": 1.9,
@@ -194,15 +194,15 @@
       "verdict": "APPLY",
       "confidence": 99,
       "range_low": -7.8,
-      "range_high": 52.4,
-      "median": 23.8,
+      "range_high": 52.1,
+      "median": 24.0,
       "big_win_prob": 94,
       "allotment_pct": 52.6
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +39.0%",
+          "head": "Grey market premium +38.1%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -212,6 +212,10 @@
         {
           "head": "Founders keep 78%",
           "more": "A high promoter holding after the IPO means founders keep significant skin in the game, aligning them with shareholders."
+        },
+        {
+          "head": "Similar past IPOs: 4 of 5 listed positive",
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 4 listed above the offer price, averaging +15.8% on day one."
         }
       ],
       "neu": [],
@@ -619,7 +623,7 @@
       "ofs_pct": 13.7,
       "fresh_pct": 86.3,
       "sector": "Pharma/Healthcare",
-      "gmp": 5.93,
+      "gmp": 5.08,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -628,20 +632,20 @@
       "volatility": 12.3641,
       "trend": 0.0
     },
-    "win_score": 77,
+    "win_score": 78,
     "prediction": {
       "verdict": "SKIP",
       "confidence": 22,
-      "range_low": -9.7,
+      "range_low": -10.1,
       "range_high": 16.9,
-      "median": 6.2,
+      "median": 6.1,
       "big_win_prob": 3,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +5.9%",
+          "head": "Grey market premium +5.1%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
