@@ -3,7 +3,7 @@
     "ipo_name": "Lohia Corp",
     "close_date": "27 Jul, 2026",
     "_closing_today": false,
-    "_closing_tomorrow": false,
+    "_closing_tomorrow": true,
     "listing_date": "Thu, Jul 30, 2026T",
     "listed_on": null,
     "offer_price": 425.0,
@@ -130,7 +130,7 @@
     "ipo_name": "Indo-MIM",
     "close_date": "27 Jul, 2026",
     "_closing_today": false,
-    "_closing_tomorrow": false,
+    "_closing_tomorrow": true,
     "listing_date": "Thu, Jul 30, 2026T",
     "listed_on": null,
     "offer_price": 485.0,
@@ -413,7 +413,7 @@
     "ipo_name": "Xtranet Technologies",
     "close_date": "27 Jul, 2026",
     "_closing_today": false,
-    "_closing_tomorrow": false,
+    "_closing_tomorrow": true,
     "listing_date": "Thu, Jul 30, 2026T",
     "listed_on": null,
     "offer_price": 127.0,
@@ -427,7 +427,7 @@
       "ofs_pct": 0.0,
       "fresh_pct": 100.0,
       "sector": "BFSI",
-      "gmp": 5.91,
+      "gmp": 7.09,
       "qib": 0.91,
       "hni": 2.12,
       "rii": 2.5,
@@ -436,20 +436,20 @@
       "volatility": 12.3641,
       "trend": 0.0
     },
-    "win_score": 52,
+    "win_score": 54,
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 48,
-      "range_low": -9.6,
-      "range_high": 13.7,
-      "median": -2.0,
+      "confidence": 45,
+      "range_low": -10.2,
+      "range_high": 13.9,
+      "median": -2.2,
       "big_win_prob": 0,
       "allotment_pct": 40.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +5.9%",
+          "head": "Grey market premium +7.1%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -472,8 +472,8 @@
       "neu": [],
       "neg": [
         {
-          "head": "Similar past IPOs: 0 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), none of the 5 listed above the offer price. They averaged -1.6% on day one."
+          "head": "Similar past IPOs: 1 of 5 listed positive",
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 1 of 5 listed above the offer price. They averaged +0.3% on day one."
         }
       ]
     },
@@ -485,49 +485,55 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "RandomForest",
-        "score": 55.0
+        "score": 58.0
       },
       {
         "tier": 66,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 55.0
+        "score": 58.0
       },
       {
         "tier": 67,
         "expected_wr": 69.1,
         "model": "RandomForest",
-        "score": 55.0
+        "score": 58.0
       },
       {
         "tier": 68,
         "expected_wr": 69.1,
         "model": "RandomForest",
-        "score": 55.0
+        "score": 58.0
       },
       {
         "tier": 69,
         "expected_wr": 69.4,
         "model": "RandomForest",
-        "score": 55.0
+        "score": 58.0
       },
       {
         "tier": 70,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 55.0
+        "score": 58.0
       },
       {
         "tier": 71,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 55.0
+        "score": 58.0
       },
       {
         "tier": 72,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 55.0
+        "score": 58.0
+      },
+      {
+        "tier": 73,
+        "expected_wr": 72.3,
+        "model": "RandomForest",
+        "score": 58.0
       }
     ],
     "state": "open"

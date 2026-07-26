@@ -521,6 +521,7 @@ table.ledger td:nth-child(2){white-space:normal; min-width:120px; line-height:1.
     <button class="navbtn" data-nav="alerts">Alerts</button>
     <button class="navbtn" data-nav="ask">Ask</button>
     <button class="navbtn" data-nav="method">How it works</button>
+    <button class="navbtn" onclick="location.href='/drhp/'" title="Read an IPO prospectus (DRHP/RHP) with page-cited analysis">DRHP Scanner</button>
   </nav>
   <button id="authBtn" class="caps" data-nav="account" style="border:1px solid var(--hairline); padding:3px 10px; margin-right:8px">Sign in</button>
   <button id="themeBtn" class="caps" aria-label="Switch theme">Dark</button>
@@ -1203,10 +1204,20 @@ function tick(){
 setInterval(tick, 1000); tick();
 
 /* theme */
-$("#themeBtn").addEventListener("click", () => {
-  const dark = document.documentElement.classList.toggle("dark");
-  $("#themeBtn").textContent = dark ? "Light" : "Dark";
-});
+(function(){                      /* shared theme, persists across /drhp */
+  var KEY = "ipopredict_theme";
+  function apply(dark){
+    document.documentElement.classList.toggle("dark", dark);
+    var b = document.getElementById("themeBtn");
+    if (b) b.textContent = dark ? "Light" : "Dark";
+  }
+  try { apply(localStorage.getItem(KEY) === "dark"); } catch(e){}
+  $("#themeBtn").addEventListener("click", function(){
+    var dark = !document.documentElement.classList.contains("dark");
+    apply(dark);
+    try { localStorage.setItem(KEY, dark ? "dark" : "light"); } catch(e){}
+  });
+})();
 
 /* navigation: pure JS view switching, no links (works inside sandboxed previews) */
 function showView(view, arg, push){
@@ -2518,6 +2529,10 @@ renderLedger();
 refreshAuth();
 (function(){
   var sv = typeof START_VIEW !== "undefined" ? START_VIEW : "ledger";
+  try {                                  // honour an incoming #view deep link
+    var _h = (location.hash || "").replace(/^#/, "").split("/")[0];
+    if (_h && ['ledger', 'archive', 'patterns', 'alerts', 'ask', 'method', 'account'].indexOf(_h) >= 0) sv = _h;
+  } catch(e){}
   var sa = typeof START_ARG !== "undefined" ? START_ARG : null;
   try { history.replaceState({view: sv, arg: sa}, "",
           "#" + sv + (sa ? "/" + encodeURIComponent(sa) : "")); } catch(e){}
