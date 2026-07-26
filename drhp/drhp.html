@@ -258,6 +258,7 @@ footer{border-top:1px solid var(--hairline); padding:22px 20px; font-family:'Jet
     <div class="cases" id="cases"></div>
 
     <div class="caps" style="margin-top:26px">Fundamentals (as stated in the prospectus)</div>
+    <div id="dataWarn"></div>
     <div id="fundamentals"></div>
 
     <div class="caps" style="margin-top:26px">Red-flag scan</div>
@@ -486,6 +487,27 @@ function render(d){
   const yrs = (F.find(f => f.years && f.years.length >= 2) || {}).years || [];
   const heads = [0,1,2].map(i => yrs[i] ? "FY " + yrs[i] : ["Latest","Prior","Prior-1"][i]);
   const unitCap = d.digest.units ? ` <span style="text-transform:none; letter-spacing:0">(figures in \u20b9 ${esc(d.digest.units)} unless stated)</span>` : "";
+  // Extraction cross-check results. A wrong number shown confidently is worse
+  // than a flagged one, so anything that failed an arithmetic sanity check is
+  // named here and its dependent ratios are already withdrawn server-side.
+  (function(){
+    var W = (d.digest && d.digest.data_warnings) || [];
+    var box = $("#dataWarn");
+    if (!box) return;
+    box.innerHTML = W.length ? `
+      <div style="border:1px solid var(--bad); padding:12px 14px; margin:10px 0 14px">
+        <div class="caps" style="color:var(--bad); margin-bottom:6px">Extraction warnings</div>
+        <div style="font-size:13.5px; color:var(--ink-soft)">
+          Some figures failed an internal consistency check and are marked
+          unverified below. Ratios that depend on them were withdrawn rather
+          than shown. Verify these against the prospectus before relying on them.
+        </div>
+        <ul style="margin:8px 0 0 18px; font-size:13px; color:var(--ink-soft)">
+          ${W.map(w => `<li>${esc(w)}</li>`).join("")}
+        </ul>
+      </div>` : "";
+  })();
+
   // group the metrics like a broker note: P&L, balance sheet, cash flow, ratios, operations
   const GROUPS = [
     ["Profit & loss", ["revenue","total_income","ebitda","ebitda_margin","employee_cost","finance_cost","depreciation","pbt","pat","eps"]],

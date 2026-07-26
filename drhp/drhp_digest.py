@@ -178,6 +178,20 @@ def extract_fundamentals(index):
                 if re.search(r"(as at|growth|grew|increase|decrease|january|february|march|april|may|june|"
                              r"july|august|september|october|november|december)", gap, re.I):
                     continue                     # date rows and growth rows are not the KPI
+                # A risk-factor table listing each SUBSIDIARY's revenue/net worth uses
+                # the same row labels as the consolidated P&L. On one document that
+                # table sat ~230 pages before the real statement and won the tie, so
+                # the company's revenue was reported as a subsidiary's (2,539 vs
+                # 36,529) and its net worth likewise - which then produced an
+                # impossible 5.2x debt/equity. The giveaway is the "Subsidiary /
+                # Particulars" header, or a "Private Limited" name used as the row
+                # label. Consolidated statements say "and its Subsidiaries" in prose
+                # and never carry that header, so this does not catch them.
+                _pre = c["text"][max(0, m.start() - 220):m.start()]
+                if re.search(r"Subsidiar(?:y|ies)\s+Particulars", c["text"], re.I) or \
+                   re.search(r"(Private Limited|Pvt\.?\s*Ltd)\s*$", _pre.strip()[-80:], re.I) or \
+                   re.search(r"(Private Limited|Pvt\.?\s*Ltd)[^.]{0,40}$", _pre[-120:], re.I):
+                    continue
                 if key == "pe":
                     # company P/E is [placeholder] pre-pricing; a concrete P/E in the
                     # basis-for-price section belongs to a PEER, never the company
@@ -194,7 +208,17 @@ def extract_fundamentals(index):
                         except: pass
                     # a magnitude metric with all values < 50 is a mislabeled ratio row
                     if _mv and max(_mv) < 50: continue
-                score = len(vals) * 2 + (1 if c["section"] == "basis_of_price" else 0)
+                # Ties used to be broken by document order, which is arbitrary -
+                # the first chunk containing the label won, wherever it lived.
+                # Prefer the audited statements, which is where these figures are
+                # authoritative, over a mention elsewhere in the prospectus.
+                _stmt = bool(re.search(r"Restated (?:Consolidated|Standalone) Statement of "
+                                       r"(?:Profit and Loss|Assets and Liabilities|Cash Flow)|"
+                                       r"Balance Sheet|Statement of Profit and Loss",
+                                       c["text"][:400], re.I))
+                score = (len(vals) * 2
+                         + (3 if _stmt else 0)
+                         + (1 if c["section"] == "basis_of_price" else 0))
                 if score > best_score:
                     best, best_score = {"key": key, "label": label, "values": vals,
                                         "page": c["page_start"], "section": c["section"]}, score
@@ -1010,6 +1034,8 @@ def build_digest(index, table_fund=None, statements=None, offer=None, segments=N
         _seen_lbl[_f.get("label", "")] = _f
         _kept.append(_f)
     digest["fundamentals"] = _kept
+    consistency_audit(digest)
+
     # iteration 23: statement-level dualities - the document itself prints two
     # totals for some metrics (consolidated vs standalone); disclose both.
     try:
@@ -1429,3 +1455,119 @@ def detect_statement_dualities(raw_pages, fundamentals):
                         "note": "document prints two totals (different statement/"
                                 "presentation); both shown, page-cited"})
     return out
+
+
+def _num(v):
+    """parse a displayed value back to a float; (1,2) means negative"""
+    try:
+        t = str(v).replace(",", "").strip().rstrip("%").rstrip("xX").strip()
+        if t.startswith("(") and t.endswith(")"):
+            return -float(t[1:-1])
+        return float(t)
+    except (ValueError, AttributeError):
+        return None
+
+
+def consistency_audit(digest):
+    """Cross-check the extracted numbers AGAINST EACH OTHER and refuse to show
+    values that are arithmetically impossible.
+
+    Why this exists: golden tests prove we do not REGRESS on five known
+    documents; they cannot prove we GENERALISE to a sixth layout. On an unseen
+    prospectus the extractor picked a wrong revenue row and a wrong net-worth
+    row, and the page then displayed - side by side - a revenue that was 7% of
+    total income, a net worth that contradicted the document's own printed ROE
+    by 17x, an EBITDA margin of 8% next to an EBITDA of 117% of revenue, and a
+    salary bill of 119% of revenue. Every one of those is checkable with
+    arithmetic we already have. A wrong number shown confidently is worse than
+    a missing one, so a metric that fails its cross-check is marked suspect,
+    and any derived ratio built on it is withdrawn rather than published.
+
+    Returns a list of warnings and mutates the digest in place.
+    """
+    F = {f["key"]: f for f in digest.get("fundamentals", [])}
+    def v(k, i=0):
+        f = F.get(k)
+        return _num(f["values"][i]) if f and len(f.get("values", [])) > i else None
+
+    suspect, warn = set(), []
+
+    def flag(key, msg):
+        if key in F and key not in suspect:
+            suspect.add(key)
+            warn.append(msg)
+
+    # 1. revenue must be a sensible share of total income. Other income is a
+    #    minority line by definition; a revenue far below total income means a
+    #    segment/KPI row was captured instead of the P&L line.
+    rev, ti = v("revenue"), v("total_income")
+    if rev and ti and ti > 0 and rev < 0.30 * ti:
+        flag("revenue", f"revenue {rev:,.2f} is only {rev/ti:.0%} of total income "
+                        f"{ti:,.2f} - likely the wrong row was captured")
+
+    # 2. the document's own ROE implies a net worth. If the captured net worth
+    #    disagrees by more than 2x, one of them is not what we think it is.
+    pat, roe, nw = v("pat"), v("roe"), v("networth")
+    if pat and roe and nw and roe > 0:
+        implied = pat / (roe / 100.0)
+        if implied > 0 and (nw / implied > 2 or implied / nw > 2):
+            flag("networth", f"net worth {nw:,.2f} contradicts the stated ROE "
+                             f"{roe:.2f}% on PAT {pat:,.2f} (implies ~{implied:,.0f})")
+
+    # 3. EBITDA must be consistent with revenue x its own margin
+    ebitda, marg = v("ebitda"), v("ebitda_margin")
+    if ebitda and marg and rev and rev > 0:
+        shown = 100.0 * ebitda / rev
+        if abs(shown - marg) > max(10.0, 0.5 * marg):
+            flag("ebitda", f"EBITDA {ebitda:,.2f} is {shown:.0f}% of revenue but the "
+                           f"stated margin is {marg:.2f}%")
+
+    # 4. implausible-by-construction ratios
+    wf = v("workforce_pct")
+    if wf and wf > 60:
+        flag("workforce_pct", f"workforce cost is {wf:.0f}% of revenue - implausible; "
+                              f"the revenue base is probably wrong")
+
+    # 5. malformed thousands grouping ("2,3,5" parses to 235.0, so a float()
+    #    check cannot catch it - the grouping itself is the tell). Valid groups
+    #    after the first are 3 digits (western) or 2 (Indian lakh format).
+    for k, f in list(F.items()):
+        for val in f.get("values", []):
+            t = str(val).strip().lstrip("(").rstrip(")").split(".")[0]
+            parts = t.split(",")
+            if len(parts) > 1 and any(len(p) not in (2, 3) for p in parts[1:]):
+                flag(k, f"{f.get('label', k)} has a malformed number '{val}'")
+                break
+
+    if not suspect:
+        digest["data_warnings"] = []
+        return []
+
+    # withdraw every derived ratio that depends on a suspect input - publishing
+    # "debt/equity 5.2x" off a broken net worth turns one extraction miss into a
+    # false narrative (it drove two tensions and a red flag on that document)
+    DEPENDS = {
+        "debt_equity": ("networth",), "roe": ("networth", "pat"),
+        "roce": ("networth",), "nd_ebitda": ("ebitda",),
+        "interest_cov": ("ebitda",), "ebitda_margin": ("revenue", "ebitda"),
+        "workforce_pct": ("revenue",), "wc_days": ("revenue",),
+        "fixed_asset_turnover": ("revenue",), "top1_customer": ("revenue",),
+        "top5_customers": ("revenue",), "top10_customers": ("revenue",),
+        "top10_suppliers": ("revenue",),
+    }
+    withdrawn = [k for k, deps in DEPENDS.items()
+                 if k in F and any(d in suspect for d in deps)]
+    if withdrawn:
+        digest["fundamentals"] = [f for f in digest["fundamentals"]
+                                  if f["key"] not in withdrawn]
+        warn.append("withdrew derived ratios that depend on the values above: "
+                    + ", ".join(sorted(withdrawn)))
+
+    # mark the suspect rows so the table itself carries the caveat
+    for f in digest["fundamentals"]:
+        if f["key"] in suspect and "(unverified" not in f.get("label", ""):
+            f["label"] = f["label"] + " (unverified - failed cross-check)"
+
+    digest["data_warnings"] = warn
+    digest["suspect_metrics"] = sorted(suspect)
+    return warn
