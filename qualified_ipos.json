@@ -1026,13 +1026,72 @@
         "score": 97.0
       }
     ],
+    "inputs": {
+      "offer_price": 424.0,
+      "size_cr": 450.0,
+      "pe": 15.02,
+      "roe": null,
+      "promoter_holding": 74.18,
+      "ofs_pct": 11.1,
+      "fresh_pct": 88.9,
+      "sector": "BFSI",
+      "gmp": 14.15,
+      "qib": 253.88,
+      "hni": 281.99,
+      "rii": 43.4,
+      "sub": 154.66,
+      "market_sentiment": 0.9894,
+      "volatility": 12.3641,
+      "trend": 0.0
+    },
     "prediction": {
       "verdict": "APPLY",
       "confidence": 94,
       "range_low": -7.3,
       "range_high": 23.5,
-      "median": 10.4
+      "median": 10.4,
+      "big_win_prob": 0,
+      "allotment_pct": 2.3
     },
+    "cases": {
+      "pos": [
+        {
+          "head": "Grey market premium +14.2%",
+          "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
+        },
+        {
+          "head": "Institutions piled in: QIB 254x",
+          "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
+        },
+        {
+          "head": "Oversubscribed 155x overall",
+          "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
+        },
+        {
+          "head": "Wealthy investors keen: HNI 282x",
+          "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
+        },
+        {
+          "head": "Reasonable price: P/E 15.0",
+          "more": "A lower price-to-earnings ratio means you pay less per rupee of profit, leaving more room to rise."
+        },
+        {
+          "head": "Founders keep 74%",
+          "more": "A high promoter holding after the IPO means founders keep significant skin in the game, aligning them with shareholders."
+        },
+        {
+          "head": "Mostly fresh capital (89% new money)",
+          "more": "Most of the money raised goes into the company (growth, repaying debt) rather than founders cashing out."
+        },
+        {
+          "head": "Similar past IPOs: 5 of 5 listed positive",
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 5 listed above the offer price, averaging +26.9% on day one."
+        }
+      ],
+      "neu": [],
+      "neg": []
+    },
+    "note": null,
     "retro": true,
     "frozen": {
       "ipo_name": "Caliber Mining & Logistics Ltd.",
@@ -1279,13 +1338,82 @@
         "score": 86.0
       }
     ],
+    "inputs": {
+      "offer_price": 574.0,
+      "size_cr": 9795.0,
+      "pe": 38.12,
+      "roe": 43.02,
+      "promoter_holding": 88.0,
+      "ofs_pct": 100.0,
+      "fresh_pct": 0.0,
+      "sector": "BFSI",
+      "gmp": 11.32,
+      "qib": 140.11,
+      "hni": 22.51,
+      "rii": 3.76,
+      "sub": 41.73,
+      "market_sentiment": 0.9894,
+      "volatility": 12.3641,
+      "trend": 0.0
+    },
     "prediction": {
       "verdict": "APPLY",
       "confidence": 92,
       "range_low": -4.7,
       "range_high": 24.2,
-      "median": 5.6
+      "median": 5.6,
+      "big_win_prob": 6,
+      "allotment_pct": 26.6
     },
+    "cases": {
+      "pos": [
+        {
+          "head": "Grey market premium +11.3%",
+          "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
+        },
+        {
+          "head": "Institutions piled in: QIB 140x",
+          "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
+        },
+        {
+          "head": "Oversubscribed 42x overall",
+          "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
+        },
+        {
+          "head": "Wealthy investors keen: HNI 23x",
+          "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
+        },
+        {
+          "head": "Strong returns: ROE 43.0%",
+          "more": "Return on equity shows how efficiently the company turns shareholder money into profit. Above roughly 15% is healthy."
+        },
+        {
+          "head": "Founders keep 88%",
+          "more": "A high promoter holding after the IPO means founders keep significant skin in the game, aligning them with shareholders."
+        },
+        {
+          "head": "Similar past IPOs: 4 of 5 listed positive",
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 4 listed above the offer price, averaging +16.8% on day one."
+        }
+      ],
+      "neu": [
+        {
+          "head": "Middling valuation: P/E 38.1",
+          "more": "Not cheap, not extreme. Valuation sits in a neutral zone."
+        }
+      ],
+      "neg": [
+        {
+          "head": "100% OFS, promoters selling entire stake, company gets Rs 0",
+          "more": ""
+        },
+        {
+          "head": "Mostly promoters cashing out (100% OFS)",
+          "more": "Most of the issue is an offer-for-sale, so the money goes to selling shareholders, not into the business."
+        }
+      ]
+    },
+    "note": null,
     "retro": true,
     "frozen": {
       "ipo_name": "SBI Funds Management Ltd.",
@@ -1327,13 +1455,61 @@
     "listing_gain": 0.0,
     "state": "settled",
     "qualifying_tiers": [],
+    "inputs": {
+      "offer_price": 105.0,
+      "size_cr": 126.0,
+      "pe": 12.68,
+      "roe": 33.85,
+      "promoter_holding": 61.95,
+      "ofs_pct": 0.0,
+      "fresh_pct": 100.0,
+      "sector": "Manufacturing",
+      "gmp": 0.95,
+      "qib": 1.09,
+      "hni": 1.09,
+      "rii": 1.54,
+      "sub": 1.4,
+      "market_sentiment": 0.9894,
+      "volatility": 12.3641,
+      "trend": 0.0
+    },
     "prediction": {
       "verdict": "SKIP",
       "confidence": 85,
       "range_low": -13.7,
       "range_high": 20.8,
-      "median": -5.0
+      "median": -5.0,
+      "big_win_prob": 0,
+      "allotment_pct": 64.9
     },
+    "cases": {
+      "pos": [
+        {
+          "head": "Strong returns: ROE 33.9%",
+          "more": "Return on equity shows how efficiently the company turns shareholder money into profit. Above roughly 15% is healthy."
+        },
+        {
+          "head": "Reasonable price: P/E 12.7",
+          "more": "A lower price-to-earnings ratio means you pay less per rupee of profit, leaving more room to rise."
+        },
+        {
+          "head": "Founders keep 62%",
+          "more": "A high promoter holding after the IPO means founders keep significant skin in the game, aligning them with shareholders."
+        },
+        {
+          "head": "Mostly fresh capital (100% new money)",
+          "more": "Most of the money raised goes into the company (growth, repaying debt) rather than founders cashing out."
+        }
+      ],
+      "neu": [],
+      "neg": [
+        {
+          "head": "Manufacturing sector is cold, COLD (recent 40% vs 73% historical)",
+          "more": ""
+        }
+      ]
+    },
+    "note": null,
     "retro": true,
     "frozen": {
       "ipo_name": "Alpine Texworld Ltd.",
@@ -1580,13 +1756,81 @@
         "score": 99.0
       }
     ],
+    "inputs": {
+      "offer_price": 214.0,
+      "size_cr": 742.0,
+      "pe": 16.24,
+      "roe": 23.32,
+      "promoter_holding": 75.29,
+      "ofs_pct": 27.0,
+      "fresh_pct": 73.0,
+      "sector": "Manufacturing",
+      "gmp": 18.22,
+      "qib": 97.25,
+      "hni": 45.69,
+      "rii": 6.95,
+      "sub": 41.05,
+      "market_sentiment": 0.9894,
+      "volatility": 12.3641,
+      "trend": 0.0
+    },
     "prediction": {
       "verdict": "APPLY",
       "confidence": 98,
       "range_low": -7.2,
       "range_high": 25.1,
-      "median": 8.1
+      "median": 8.1,
+      "big_win_prob": 0,
+      "allotment_pct": 14.4
     },
+    "cases": {
+      "pos": [
+        {
+          "head": "Grey market premium +18.2%",
+          "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
+        },
+        {
+          "head": "Institutions piled in: QIB 97x",
+          "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
+        },
+        {
+          "head": "Oversubscribed 41x overall",
+          "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
+        },
+        {
+          "head": "Wealthy investors keen: HNI 46x",
+          "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
+        },
+        {
+          "head": "Strong returns: ROE 23.3%",
+          "more": "Return on equity shows how efficiently the company turns shareholder money into profit. Above roughly 15% is healthy."
+        },
+        {
+          "head": "Reasonable price: P/E 16.2",
+          "more": "A lower price-to-earnings ratio means you pay less per rupee of profit, leaving more room to rise."
+        },
+        {
+          "head": "Founders keep 75%",
+          "more": "A high promoter holding after the IPO means founders keep significant skin in the game, aligning them with shareholders."
+        },
+        {
+          "head": "Mostly fresh capital (73% new money)",
+          "more": "Most of the money raised goes into the company (growth, repaying debt) rather than founders cashing out."
+        },
+        {
+          "head": "Similar past IPOs: 5 of 5 listed positive",
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 5 listed above the offer price, averaging +26.7% on day one."
+        }
+      ],
+      "neu": [],
+      "neg": [
+        {
+          "head": "Manufacturing sector is cold, COLD (recent 40% vs 73% historical)",
+          "more": ""
+        }
+      ]
+    },
+    "note": null,
     "retro": true,
     "frozen": {
       "ipo_name": "Laser Power & Infra Ltd.",
