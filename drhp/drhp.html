@@ -21,26 +21,34 @@ html.dark{
   --row-hover:#141414;
   --ai:#8f9cff; --ai-bg:#12162e; --web:#d9a441; --web-bg:#241c0c;
 }
-*{box-sizing:border-box; margin:0; padding:0}
-body{background:var(--bg); color:var(--ink); font-family:Inter,system-ui,sans-serif; font-size:15px; line-height:1.55}
+*{box-sizing:border-box; border-radius:0; margin:0; padding:0}
+button{font:inherit; color:inherit; background:none; border:none; cursor:pointer; padding:0}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'Inter',sans-serif; font-size:16px; line-height:1.6;
+  -webkit-font-smoothing:antialiased; min-height:100dvh;
+  display:flex; flex-direction:column;
+}
 .mono{font-family:'JetBrains Mono',monospace}
 header{
   border-bottom:2px solid var(--rule);
   display:flex; justify-content:space-between; align-items:center;
-  padding:14px 20px; gap:16px; flex-wrap:wrap; background:var(--card);
+  padding:14px 20px; gap:16px; flex-wrap:wrap;
 }
 header .brand{display:flex; align-items:baseline; gap:14px}
-header nav{display:flex; gap:18px; flex-wrap:wrap}
-header nav .navbtn{background:none; border:0; cursor:pointer; color:var(--ink-faint);
-  padding:2px 0; font-family:'JetBrains Mono',monospace; font-size:12px;
-  font-weight:700; letter-spacing:.08em; text-transform:uppercase}
-header nav .navbtn:hover{color:var(--ink)}
-header nav .navbtn.active{color:var(--ink); text-decoration:underline;
-  text-underline-offset:5px; text-decoration-thickness:2px; cursor:default}
-#themeBtn{background:none; border:0; cursor:pointer; color:var(--ink-faint);
+header nav{display:flex; gap:18px}
+.navbtn{background:none; border:0; cursor:pointer;
+  color:var(--ink-faint); padding:2px 0;
   font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700;
   letter-spacing:.08em; text-transform:uppercase}
-#themeBtn:hover{color:var(--ink)}
+.navbtn:hover{color:var(--ink)}
+header nav .navbtn.active{color:var(--ink); text-decoration:underline;
+  text-underline-offset:5px; text-decoration-thickness:2px; cursor:default}
+#themeBtn{background:none; cursor:pointer; color:var(--ink);
+  border:1px solid var(--hairline); padding:3px 10px}
+#authBtn{background:none; cursor:pointer; color:var(--ink);
+  border:1px solid var(--hairline); padding:3px 10px; margin-right:8px}
+.nav-toggle{display:none}
 .nav-toggle{display:none}
               border-bottom:2px solid var(--rule); padding-bottom:1px}
 header .brand{font-family:'JetBrains Mono',monospace; font-weight:700; letter-spacing:.06em}
@@ -48,16 +56,16 @@ header .tag{font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(
 main{max-width:880px; margin:0 auto; padding:36px 20px 64px}
 h1{font-size:26px; margin-bottom:6px}
 .sub{color:var(--ink-soft); margin-bottom:26px}
-.caps{font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-faint)}
+.caps{font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase}
 
-.panel{border:1px solid var(--hairline); background:var(--card); border-radius:12px; padding:20px; margin-bottom:18px}
+.panel{border:1px solid var(--hairline); background:var(--card); padding:20px; margin-bottom:18px}
 .row2{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
-input[type=text]{flex:1; min-width:240px; border:1px solid var(--hairline); background:var(--bg); color:var(--ink); padding:12px 13px; font:inherit; border-radius:8px}
+input[type=text]{flex:1; min-width:240px; border:1px solid var(--hairline); background:var(--bg); color:var(--ink); padding:12px 13px; font:inherit}
 input[type=text]:focus{outline:none; border-color:var(--ink)}
-.btn{border:2px solid var(--rule); background:none; color:var(--ink); padding:11px 20px; font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; cursor:pointer; border-radius:8px}
+.btn{border:2px solid var(--rule); background:none; color:var(--ink); padding:11px 20px; font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; cursor:pointer}
 .btn:hover{background:var(--ink); color:var(--bg)}
 .btn[disabled]{opacity:.45; cursor:default}
-.filebox{border:2px dashed var(--hairline); border-radius:10px; padding:26px; text-align:center; color:var(--ink-soft); cursor:pointer; transition:border-color .15s}
+.filebox{border:2px dashed var(--hairline); padding:26px; text-align:center; color:var(--ink-soft); cursor:pointer; transition:border-color .15s}
 .filebox:hover,.filebox.drag{border-color:var(--ink)}
 .filebox input{display:none}
 .or{color:var(--ink-faint); font-family:'JetBrains Mono',monospace; font-size:12px; margin:14px 0; text-align:center; text-transform:uppercase; letter-spacing:.08em}
@@ -67,12 +75,12 @@ input[type=text]:focus{outline:none; border-color:var(--ink)}
 .meta-line{font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--ink-faint); margin-bottom:20px}
 
 .flags{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 24px}
-.flag{border:1px solid var(--hairline); border-radius:999px; padding:7px 14px; font-family:'JetBrains Mono',monospace; font-size:12px; cursor:pointer}
+.flag{border:1px solid var(--hairline); padding:7px 14px; font-family:'JetBrains Mono',monospace; font-size:12px; cursor:pointer}
 .flag.on{border-color:var(--bad); color:var(--bad); font-weight:700}
 .flag.on.sev-high{background:#fbeeee}
 .flag.on.sev-medium{border-color:var(--web); color:var(--web)}
 .flag.on.sev-info{border-color:var(--ink-faint); color:var(--ink-soft)}
-.corpus{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-soft); border:1px dashed var(--hairline); border-radius:10px; padding:10px 14px; margin:0 0 18px}
+.corpus{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-soft); border:1px dashed var(--hairline); padding:10px 14px; margin:0 0 18px}
 .flag.off{color:var(--ink-faint); text-decoration:line-through; text-decoration-thickness:1px}
 
 .field{border-top:1px solid var(--hairline); padding:20px 0}
@@ -84,25 +92,47 @@ input[type=text]:focus{outline:none; border-color:var(--ink)}
 .evi-toggle:hover{color:var(--ink)}
 .evidence{display:none; margin-top:8px}
 .evidence.open{display:block}
-.evi{background:var(--bg); border:1px solid var(--hairline); border-radius:8px; padding:12px 14px; margin:8px 0; font-size:13.5px; color:var(--ink-soft)}
+.evi{background:var(--bg); border:1px solid var(--hairline); padding:12px 14px; margin:8px 0; font-size:13.5px; color:var(--ink-soft)}
 .evi .src{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-faint); margin-bottom:5px; text-transform:uppercase; letter-spacing:.05em}
 .quote{background:var(--bg); border-left:3px solid var(--bad); padding:10px 14px; margin-top:8px; font-size:13.5px; color:var(--ink-soft)}
 
 .glance{display:flex; gap:12px; flex-wrap:wrap; margin:12px 0 22px}
-.stat{border:1px solid var(--hairline); background:var(--card); border-radius:10px; padding:12px 18px; min-width:120px}
+.stat{border:1px solid var(--hairline); background:var(--card); padding:12px 18px; min-width:120px}
 .stat .n{font-family:'JetBrains Mono',monospace; font-size:22px; font-weight:700}
 .stat .l{font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-faint); margin-top:2px}
 .stat.warn .n{color:var(--bad)}
 
 .cases{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin:6px 0 8px}
-.case-col{border:1px solid var(--hairline); background:var(--card); border-radius:12px; padding:16px}
+.case-col{border:1px solid var(--hairline); background:var(--card); padding:16px}
 .case-col h3{font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:10px}
 .case-col.pos h3{color:var(--good)} .case-col.neg h3{color:var(--bad)} .case-col.neu h3{color:var(--ink-faint)}
 .case-col .item{border-left-color:var(--hairline); font-size:13.5px}
 .case-col.pos .item{border-left-color:var(--good)}
 .case-col.neg .item{border-left-color:var(--bad)}
 .case-col .empty{color:var(--ink-faint); font-size:13px}
-@media(max-width:760px){
+@media(max-width:768px){
+  /* header collapses to brand + hamburger - copied verbatim from the dashboard
+     so both apps behave identically at every width */
+  header{padding:12px 16px; gap:10px; row-gap:0; position:relative}
+  header .brand{order:1}
+  .nav-toggle{display:flex; order:2; margin-left:auto; flex-direction:column;
+    justify-content:center; gap:5px; width:34px; height:34px; padding:5px;
+    background:none; border:none; cursor:pointer}
+  .nav-toggle span{display:block; height:2px; width:22px; background:var(--ink); transition:.2s ease}
+  header.nav-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  header.nav-open .nav-toggle span:nth-child(2){opacity:0}
+  header.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  #themeBtn{order:3; margin-left:10px; border:1px solid var(--hairline); padding:5px 10px}
+  header nav{order:4; flex-basis:100%; display:none; flex-direction:column;
+    align-items:stretch; gap:0; margin-top:12px; border-top:1px solid var(--hairline)}
+  header.nav-open nav{display:flex}
+  header nav .navbtn{width:100%; text-align:left; padding:15px 4px; font-size:14px;
+    border-bottom:1px solid var(--hairline)}
+  header nav .navbtn.active{text-decoration:none; color:var(--good)}
+  #authBtn{order:5; flex-basis:100%; display:none; width:100%; text-align:center;
+    margin:14px 0 2px!important; padding:13px 0!important}
+  header.nav-open #authBtn{display:block}
+
   /* header becomes brand + hamburger, links drop down - copied from the
      dashboard so the two apps collapse identically instead of one wrapping */
   header{padding:12px 16px; gap:10px; row-gap:0; position:relative}
@@ -122,7 +152,7 @@ input[type=text]:focus{outline:none; border-color:var(--ink)}
     border-bottom:1px solid var(--hairline)}
   header nav .navbtn.active{text-decoration:none; color:var(--good)} .cases{grid-template-columns:1fr} }
 
-table.fund{width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--hairline); border-radius:12px; overflow:hidden; margin-top:10px}
+table.fund{width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--hairline); overflow:hidden; margin-top:10px}
 table.fund th, table.fund td{padding:11px 14px; text-align:left; border-top:1px solid var(--hairline); font-size:13.5px}
 table.fund th{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-faint); border-top:none}
 table.fund td.vals{font-family:'JetBrains Mono',monospace; font-weight:500}
@@ -130,40 +160,38 @@ table.fund td.pg{font-family:'JetBrains Mono',monospace; color:var(--ink-faint);
 
 #askPanel{margin-top:34px}
 .answer{margin-top:16px}
-.spin{display:inline-block; width:14px; height:14px; border:2px solid var(--ink-faint); border-top-color:var(--ink); border-radius:50%; animation:sp .8s linear infinite; vertical-align:-2px; margin-right:8px}
+.spin{display:inline-block; width:14px; height:14px; border:2px solid var(--ink-faint); border-top-color:var(--ink); animation:sp .8s linear infinite; vertical-align:-2px; margin-right:8px}
 @keyframes sp{to{transform:rotate(360deg)}}
 .legend{display:flex; gap:16px; flex-wrap:wrap; margin:6px 0 20px; font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-faint)}
 .legend .key{display:flex; align-items:center; gap:6px}
-.legend .sw{width:10px; height:10px; border-radius:3px; display:inline-block}
+.legend .sw{width:10px; height:10px; display:inline-block}
 .toolbar{display:flex; gap:10px; flex-wrap:wrap; margin:4px 0 20px}
 .btn.ai-btn{border-color:var(--ai); color:var(--ai)} .btn.ai-btn:hover{background:var(--ai); color:#fff}
 .btn.web-btn{border-color:var(--web); color:var(--web)} .btn.web-btn:hover{background:var(--web); color:#fff}
-.ai-block{border:1px solid var(--hairline); border-left:4px solid var(--ai); background:var(--ai-bg); border-radius:10px; padding:16px 18px; margin:12px 0}
+.ai-block{border:1px solid var(--hairline); border-left:4px solid var(--ai); background:var(--ai-bg); padding:16px 18px; margin:12px 0}
 .ai-block h4{color:var(--ai); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:6px}
 .ai-block p{font-size:14px; margin-bottom:10px}
 .ai-badge{font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--ai); text-transform:uppercase; letter-spacing:.06em}
-.web-block{border:1px solid var(--hairline); border-left:4px solid var(--web); background:var(--web-bg); border-radius:10px; padding:16px 18px; margin:12px 0}
+.web-block{border:1px solid var(--hairline); border-left:4px solid var(--web); background:var(--web-bg); padding:16px 18px; margin:12px 0}
 .web-block h4{color:var(--web); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:8px}
 .web-item{padding:8px 0; border-top:1px dashed var(--hairline); font-size:13.5px}
 .web-item:first-of-type{border-top:none}
 .web-item a{color:var(--web); font-family:'JetBrains Mono',monospace; font-size:11.5px; word-break:break-all}
 .gnote{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-faint); margin-top:6px}
 .stance{display:flex; align-items:center; gap:14px; margin:4px 0 14px}
-.stance .tag2{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:15px; letter-spacing:.05em; padding:8px 14px; border:2px solid var(--ink); border-radius:8px}
+.stance .tag2{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:15px; letter-spacing:.05em; padding:8px 14px; border:2px solid var(--ink)}
 .stance.warn .tag2{border-color:var(--bad); color:var(--bad)}
 .pillar{display:grid; grid-template-columns:190px 44px 1fr; gap:10px; align-items:start; padding:9px 0; border-top:1px solid var(--hairline)}
 .pillar .pn{font-weight:600; font-size:13.5px}
 .pillar .ps{font-family:'JetBrains Mono',monospace; font-weight:700}
-.pillar .bar{height:7px; border-radius:4px; background:var(--hairline); position:relative; margin-top:6px}
-.pillar .bar i{position:absolute; left:0; top:0; bottom:0; border-radius:4px; background:var(--ink)}
+.pillar .bar{height:7px; background:var(--hairline); position:relative; margin-top:6px}
+.pillar .bar i{position:absolute; left:0; top:0; bottom:0; background:var(--ink)}
 .pillar.low .bar i{background:var(--bad)} .pillar.mid .bar i{background:var(--web)}
 .pillar .why{grid-column:1/-1; font-size:13px; color:var(--ink-soft); padding-left:2px}
-.chip{display:inline-block; font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--ink-faint); border:1px solid var(--hairline); border-radius:99px; padding:1px 8px; margin-left:6px; vertical-align:1px}
+.chip{display:inline-block; font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--ink-faint); border:1px solid var(--hairline); padding:1px 8px; margin-left:6px; vertical-align:1px}
 .qline{font-size:13.5px; padding:6px 0 6px 14px; border-left:2px solid var(--ai)}
 footer{border-top:1px solid var(--hairline); padding:22px 20px; font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--ink-faint); text-align:center; text-transform:uppercase; letter-spacing:.06em}
 @media(max-width:560px){
-  header{padding:10px 14px}
-  header .brand .mono{font-size:11px}
   header .brand{gap:10px; flex-wrap:wrap} main{padding:22px 14px 60px} h1{font-size:22px} }
 </style>
 </head>
@@ -171,8 +199,7 @@ footer{border-top:1px solid var(--hairline); padding:22px 20px; font-family:'Jet
 <header>
   <div class="brand">
     <span class="caps">IPOPredict</span>
-    <span class="mono" style="font-size:12px; color:var(--ink-faint)">DRHP Scanner</span>
-    <span class="mono" id="modeTag" style="font-size:11px; color:var(--ink-faint)"></span>
+    <span id="clock" class="mono" style="font-size:14px">--:--:--.IST</span>
   </div>
   <nav class="caps" id="topnav">
     <button class="navbtn" data-view="ledger">Live IPOs</button>
@@ -183,12 +210,14 @@ footer{border-top:1px solid var(--hairline); padding:22px 20px; font-family:'Jet
     <button class="navbtn" data-view="method">How it works</button>
     <button class="navbtn active" aria-current="page">DRHP Scanner</button>
   </nav>
+  <button id="authBtn" class="caps" data-view="account">Sign in</button>
   <button id="themeBtn" class="caps" aria-label="Switch theme">Dark</button>
   <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </header>
 
 <main>
   <h1>Read the prospectus in one minute</h1>
+  <div id="modeTag" class="mono" style="font-size:11.5px; color:var(--ink-faint); margin:-6px 0 10px"></div>
   <p class="sub">Upload an IPO's DRHP / RHP (the SEBI prospectus PDF) and get the risk factors,
   litigation, where the money goes, and a red-flag scan. Every claim cites its page.</p>
 
@@ -262,27 +291,37 @@ const $ = s => document.querySelector(s);
   // then works in both deployments.
   const ROOT = (API.replace(/\/drhp$/, "") || "") + "/";
   (function wireChrome(){
-    // nav: each button returns to the dashboard's matching view. ROOT strips a
-    // trailing /drhp so one file serves both standalone and mounted deploys.
+    // nav buttons return to the dashboard's matching view. ROOT strips a trailing
+    // /drhp so one file serves both the standalone and mounted deployments.
     document.querySelectorAll("#topnav .navbtn[data-view]").forEach(function(b){
       b.addEventListener("click", function(){
         location.href = ROOT + "#" + b.getAttribute("data-view");
       });
     });
+    var auth = document.getElementById("authBtn");
+    if (auth) auth.addEventListener("click", function(){ location.href = ROOT + "#account"; });
+    var brand = document.querySelector("header .brand");
+    if (brand){ brand.style.cursor = "pointer";
+      brand.addEventListener("click", function(){ location.href = ROOT; }); }
+
+    // the same IST clock the dashboard shows, so the two headers are identical
+    function tick(){
+      var now = new Date(Date.now() + (330 + new Date().getTimezoneOffset()) * 60000);
+      var p = function(n){ return String(n).padStart(2, "0"); };
+      var el = document.getElementById("clock");
+      if (el) el.textContent = p(now.getHours()) + ":" + p(now.getMinutes()) + ":" + p(now.getSeconds()) + ".IST";
+    }
+    setInterval(tick, 1000); tick();
+
     var tg = document.getElementById("navToggle"), hd = document.querySelector("header");
     if (tg) tg.addEventListener("click", function(){
       var open = hd.classList.toggle("nav-open");
       tg.setAttribute("aria-expanded", open ? "true" : "false");
     });
-    document.querySelector("header .brand").style.cursor = "pointer";
-    document.querySelector("header .brand").addEventListener("click", function(){
-      location.href = ROOT;
-    });
-    // theme: persisted in localStorage under the SAME key the dashboard uses,
-    // so switching to dark on one app carries across to the other - without
-    // that, crossing between them flashes a different-looking site.
-    var KEY = "ipopredict_theme";
-    var btn = document.getElementById("themeBtn");
+
+    // theme persists under the SAME key the dashboard uses, so crossing between
+    // the two apps never flips the colour scheme
+    var KEY = "ipopredict_theme", btn = document.getElementById("themeBtn");
     function apply(dark){
       document.documentElement.classList.toggle("dark", dark);
       if (btn) btn.textContent = dark ? "Light" : "Dark";
@@ -343,7 +382,7 @@ function render(d){
   const cm0 = document.getElementById("complianceBadge"); if (cm0) cm0.remove();
   if (d.digest.compliance_mode){
     $("#metaLine").insertAdjacentHTML("afterend",
-      `<div id="complianceBadge" style="margin:8px 0; padding:8px 12px; background:#0d3320; border:1px solid #1a5c3a; border-radius:6px; font-size:12px; color:#7ee0a8">
+      `<div id="complianceBadge" style="margin:8px 0; padding:8px 12px; background:#0d3320; border:1px solid #1a5c3a; font-size:12px; color:#7ee0a8">
         \u2713 Pure relay mode \u00b7 every item below is extracted directly from the prospectus and page-cited \u00b7 no AI, no paraphrasing, no generated text anywhere in this report</div>`);
   }
 
@@ -380,7 +419,7 @@ function render(d){
       <div id="claimsBox" style="margin:16px 0 8px">
         <div class="caps" style="margin-bottom:6px">What the prospectus says vs what the numbers show</div>
         <div style="font-size:12px; color:var(--ink-faint); margin-bottom:8px">${CONS.length} tension${CONS.length>1?"s":""} the document contains \u00b7 each side page-cited \u00b7 the analyst's first read</div>
-        <table style="width:100%; border-collapse:collapse; border:1px solid var(--line); border-radius:8px; overflow:hidden">
+        <table style="width:100%; border-collapse:collapse; border:1px solid var(--line); overflow:hidden">
           <thead><tr>
             <th style="text-align:left; padding:8px 12px; background:var(--bg-soft); font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-soft)">The claim / the story</th>
             <th style="text-align:left; padding:8px 12px; background:var(--bg-soft); font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-soft)">What the numbers show</th>
