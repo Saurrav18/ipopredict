@@ -439,6 +439,30 @@ def main():
                 "listing_gain": listing_gain,
                 "state": "settled",
                 "qualifying_tiers": [],
+                # A settled IPO kept no inputs, so its card rendered bare: no
+                # "case for/against", no numbers, no peer comparison - even though
+                # the closing-day data that produced the call is right here in `r`.
+                # The story of a finished IPO ("here is what we saw, here is what
+                # happened") is the most useful card on the site, so carry the same
+                # inputs block the open path builds.
+                "inputs": {
+                    "offer_price": num(r.get("Offer Price")),
+                    "size_cr": num(r.get("Issue_Size(crores)")),
+                    "pe": num(r.get("pre_issue_pe")),
+                    "roe": num(r.get("roe_ronw")),
+                    "promoter_holding": num(r.get("promoter_holding_post_ipo")),
+                    "ofs_pct": num(r.get("ofs_pct")),
+                    "fresh_pct": num(r.get("fresh_issue_pct")),
+                    "sector": r.get("sector"),
+                    "gmp": num(r.get("gmp_closing_gain_pct")),
+                    "qib": num(r.get("QIB")),
+                    "hni": num(r.get("HNI")) if num(r.get("HNI")) is not None else num(r.get("NII")),
+                    "rii": num(r.get("RII")) if num(r.get("RII")) is not None else num(r.get("Retail")),
+                    "sub": num(r.get("Total")) if num(r.get("Total")) is not None else num(r.get("Overall")),
+                    "market_sentiment": num(r.get("market_sentiment_ratio")),
+                    "volatility": num(r.get("nifty_volatility_30d")),
+                    "trend": num(r.get("trend_score")),
+                },
             }
             # retro-score from closing-day inputs (GMP, subscription, fundamentals)
             if models is not None and listing_gain is not None:
@@ -455,7 +479,14 @@ def main():
                         "confidence": s["confidence"],
                         "range_low": lo, "range_high": hi,
                         "median": s["signal2_mid"],
+                        "big_win_prob": int(s["signal3_big_prob"] * 100),
+                        "allotment_pct": s["signal4_allot_pct"],
                     }
+                    # the retro-score gives us everything build_cases needs, so a
+                    # settled card can explain itself exactly like a live one
+                    _pos, _neu, _neg, _note = build_cases(r, s)
+                    settled["cases"] = {"pos": _pos, "neu": _neu, "neg": _neg}
+                    settled["note"] = _note
                     # HIT = the call was right (APPLY->gain / SKIP->no gain)
                     hit = (listing_gain > 0) if verdict == "APPLY" else (listing_gain <= 0)
                     settled["actual"]["hit"] = bool(hit)

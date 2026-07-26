@@ -620,3 +620,11 @@ def ask(body: AskBody, request: Request):
         raise HTTPException(503, "dataset not available on this server")
     except Exception as e:
         raise HTTPException(500, f"research agent error: {type(e).__name__}")
+
+# ---------------------------------------------------------------- DRHP Scanner
+try:
+    from drhp import scanner_app
+    app.mount("/drhp", scanner_app)
+    print("  [drhp] scanner mounted at /drhp")
+except Exception as _e:
+    print(f"  [drhp] scanner not mounted ({type(_e).__name__}: {_e})")

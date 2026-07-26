@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DRHP Scanner - IPOPredict</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* tokens copied from the IPOPredict dashboard so both apps are one product */
+  --bg:#ffffff; --ink:#1a1a1a; --ink-soft:#444748; --ink-faint:#747878;
+  --hairline:#e5e5e5; --rule:#1a1a1a;
+  --good:#0F6E56; --bad:#ba1a1a; --card:#ffffff;
+  --row-hover:#f4f3f3;
+  --ai:#3f51c9; --ai-bg:#f2f4fd; --web:#6E4B00; --web-bg:#F5F1E9;
+}
+html.dark{
+  --bg:#000000; --ink:#e2e2e2; --ink-soft:#c4c7c8; --ink-faint:#8a8d8e;
+  --hairline:#333333; --rule:#ffffff;
+  --good:#1a9b78; --bad:#ff6b66; --card:#0d0d0d;
+  --row-hover:#141414;
+  --ai:#8f9cff; --ai-bg:#12162e; --web:#d9a441; --web-bg:#241c0c;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+body{background:var(--bg); color:var(--ink); font-family:Inter,system-ui,sans-serif; font-size:15px; line-height:1.55}
+.mono{font-family:'JetBrains Mono',monospace}
+header{
+  border-bottom:2px solid var(--rule);
+  display:flex; justify-content:space-between; align-items:center;
+  padding:14px 20px; gap:16px; flex-wrap:wrap; background:var(--card);
+}
+header .brand{display:flex; align-items:baseline; gap:14px}
+header nav{display:flex; gap:18px; flex-wrap:wrap}
+header nav .navbtn{background:none; border:0; cursor:pointer; color:var(--ink-faint);
+  padding:2px 0; font-family:'JetBrains Mono',monospace; font-size:12px;
+  font-weight:700; letter-spacing:.08em; text-transform:uppercase}
+header nav .navbtn:hover{color:var(--ink)}
+header nav .navbtn.active{color:var(--ink); text-decoration:underline;
+  text-underline-offset:5px; text-decoration-thickness:2px; cursor:default}
+#themeBtn{background:none; border:0; cursor:pointer; color:var(--ink-faint);
+  font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700;
+  letter-spacing:.08em; text-transform:uppercase}
+#themeBtn:hover{color:var(--ink)}
+.nav-toggle{display:none}
+              border-bottom:2px solid var(--rule); padding-bottom:1px}
+header .brand{font-family:'JetBrains Mono',monospace; font-weight:700; letter-spacing:.06em}
+header .tag{font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.08em}
+main{max-width:880px; margin:0 auto; padding:36px 20px 64px}
+h1{font-size:26px; margin-bottom:6px}
+.sub{color:var(--ink-soft); margin-bottom:26px}
+.caps{font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-faint)}
+
+.panel{border:1px solid var(--hairline); background:var(--card); border-radius:12px; padding:20px; margin-bottom:18px}
+.row2{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+input[type=text]{flex:1; min-width:240px; border:1px solid var(--hairline); background:var(--bg); color:var(--ink); padding:12px 13px; font:inherit; border-radius:8px}
+input[type=text]:focus{outline:none; border-color:var(--ink)}
+.btn{border:2px solid var(--rule); background:none; color:var(--ink); padding:11px 20px; font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; cursor:pointer; border-radius:8px}
+.btn:hover{background:var(--ink); color:var(--bg)}
+.btn[disabled]{opacity:.45; cursor:default}
+.filebox{border:2px dashed var(--hairline); border-radius:10px; padding:26px; text-align:center; color:var(--ink-soft); cursor:pointer; transition:border-color .15s}
+.filebox:hover,.filebox.drag{border-color:var(--ink)}
+.filebox input{display:none}
+.or{color:var(--ink-faint); font-family:'JetBrains Mono',monospace; font-size:12px; margin:14px 0; text-align:center; text-transform:uppercase; letter-spacing:.08em}
+
+#status{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--ink-soft); margin:10px 0; min-height:20px}
+#status.err{color:var(--bad)}
+.meta-line{font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--ink-faint); margin-bottom:20px}
+
+.flags{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 24px}
+.flag{border:1px solid var(--hairline); border-radius:999px; padding:7px 14px; font-family:'JetBrains Mono',monospace; font-size:12px; cursor:pointer}
+.flag.on{border-color:var(--bad); color:var(--bad); font-weight:700}
+.flag.on.sev-high{background:#fbeeee}
+.flag.on.sev-medium{border-color:var(--web); color:var(--web)}
+.flag.on.sev-info{border-color:var(--ink-faint); color:var(--ink-soft)}
+.corpus{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-soft); border:1px dashed var(--hairline); border-radius:10px; padding:10px 14px; margin:0 0 18px}
+.flag.off{color:var(--ink-faint); text-decoration:line-through; text-decoration-thickness:1px}
+
+.field{border-top:1px solid var(--hairline); padding:20px 0}
+.field h2{font-size:17px; margin-bottom:4px}
+.field .note{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--bad); margin:4px 0}
+.item{padding:9px 0 9px 16px; border-left:2px solid var(--hairline); margin:8px 0}
+.item .pg{font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--ink-faint); margin-left:8px; white-space:nowrap}
+.evi-toggle{font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint); background:none; border:none; cursor:pointer; padding:4px 0}
+.evi-toggle:hover{color:var(--ink)}
+.evidence{display:none; margin-top:8px}
+.evidence.open{display:block}
+.evi{background:var(--bg); border:1px solid var(--hairline); border-radius:8px; padding:12px 14px; margin:8px 0; font-size:13.5px; color:var(--ink-soft)}
+.evi .src{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-faint); margin-bottom:5px; text-transform:uppercase; letter-spacing:.05em}
+.quote{background:var(--bg); border-left:3px solid var(--bad); padding:10px 14px; margin-top:8px; font-size:13.5px; color:var(--ink-soft)}
+
+.glance{display:flex; gap:12px; flex-wrap:wrap; margin:12px 0 22px}
+.stat{border:1px solid var(--hairline); background:var(--card); border-radius:10px; padding:12px 18px; min-width:120px}
+.stat .n{font-family:'JetBrains Mono',monospace; font-size:22px; font-weight:700}
+.stat .l{font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-faint); margin-top:2px}
+.stat.warn .n{color:var(--bad)}
+
+.cases{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin:6px 0 8px}
+.case-col{border:1px solid var(--hairline); background:var(--card); border-radius:12px; padding:16px}
+.case-col h3{font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:10px}
+.case-col.pos h3{color:var(--good)} .case-col.neg h3{color:var(--bad)} .case-col.neu h3{color:var(--ink-faint)}
+.case-col .item{border-left-color:var(--hairline); font-size:13.5px}
+.case-col.pos .item{border-left-color:var(--good)}
+.case-col.neg .item{border-left-color:var(--bad)}
+.case-col .empty{color:var(--ink-faint); font-size:13px}
+@media(max-width:760px){
+  /* header becomes brand + hamburger, links drop down - copied from the
+     dashboard so the two apps collapse identically instead of one wrapping */
+  header{padding:12px 16px; gap:10px; row-gap:0; position:relative}
+  header .brand{order:1}
+  .nav-toggle{display:flex; order:2; margin-left:auto; flex-direction:column;
+    justify-content:center; gap:5px; width:34px; height:34px; padding:5px;
+    background:none; border:none; cursor:pointer}
+  .nav-toggle span{display:block; height:2px; width:22px; background:var(--ink); transition:.2s ease}
+  header.nav-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  header.nav-open .nav-toggle span:nth-child(2){opacity:0}
+  header.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  #themeBtn{order:3; margin-left:10px; border:1px solid var(--hairline); padding:5px 10px}
+  header nav{order:4; flex-basis:100%; display:none; flex-direction:column;
+    align-items:stretch; gap:0; margin-top:12px; border-top:1px solid var(--hairline)}
+  header.nav-open nav{display:flex}
+  header nav .navbtn{width:100%; text-align:left; padding:15px 4px; font-size:14px;
+    border-bottom:1px solid var(--hairline)}
+  header nav .navbtn.active{text-decoration:none; color:var(--good)} .cases{grid-template-columns:1fr} }
+
+table.fund{width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--hairline); border-radius:12px; overflow:hidden; margin-top:10px}
+table.fund th, table.fund td{padding:11px 14px; text-align:left; border-top:1px solid var(--hairline); font-size:13.5px}
+table.fund th{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-faint); border-top:none}
+table.fund td.vals{font-family:'JetBrains Mono',monospace; font-weight:500}
+table.fund td.pg{font-family:'JetBrains Mono',monospace; color:var(--ink-faint); font-size:11.5px; white-space:nowrap}
+
+#askPanel{margin-top:34px}
+.answer{margin-top:16px}
+.spin{display:inline-block; width:14px; height:14px; border:2px solid var(--ink-faint); border-top-color:var(--ink); border-radius:50%; animation:sp .8s linear infinite; vertical-align:-2px; margin-right:8px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.legend{display:flex; gap:16px; flex-wrap:wrap; margin:6px 0 20px; font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-faint)}
+.legend .key{display:flex; align-items:center; gap:6px}
+.legend .sw{width:10px; height:10px; border-radius:3px; display:inline-block}
+.toolbar{display:flex; gap:10px; flex-wrap:wrap; margin:4px 0 20px}
+.btn.ai-btn{border-color:var(--ai); color:var(--ai)} .btn.ai-btn:hover{background:var(--ai); color:#fff}
+.btn.web-btn{border-color:var(--web); color:var(--web)} .btn.web-btn:hover{background:var(--web); color:#fff}
+.ai-block{border:1px solid var(--hairline); border-left:4px solid var(--ai); background:var(--ai-bg); border-radius:10px; padding:16px 18px; margin:12px 0}
+.ai-block h4{color:var(--ai); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:6px}
+.ai-block p{font-size:14px; margin-bottom:10px}
+.ai-badge{font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--ai); text-transform:uppercase; letter-spacing:.06em}
+.web-block{border:1px solid var(--hairline); border-left:4px solid var(--web); background:var(--web-bg); border-radius:10px; padding:16px 18px; margin:12px 0}
+.web-block h4{color:var(--web); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:8px}
+.web-item{padding:8px 0; border-top:1px dashed var(--hairline); font-size:13.5px}
+.web-item:first-of-type{border-top:none}
+.web-item a{color:var(--web); font-family:'JetBrains Mono',monospace; font-size:11.5px; word-break:break-all}
+.gnote{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-faint); margin-top:6px}
+.stance{display:flex; align-items:center; gap:14px; margin:4px 0 14px}
+.stance .tag2{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:15px; letter-spacing:.05em; padding:8px 14px; border:2px solid var(--ink); border-radius:8px}
+.stance.warn .tag2{border-color:var(--bad); color:var(--bad)}
+.pillar{display:grid; grid-template-columns:190px 44px 1fr; gap:10px; align-items:start; padding:9px 0; border-top:1px solid var(--hairline)}
+.pillar .pn{font-weight:600; font-size:13.5px}
+.pillar .ps{font-family:'JetBrains Mono',monospace; font-weight:700}
+.pillar .bar{height:7px; border-radius:4px; background:var(--hairline); position:relative; margin-top:6px}
+.pillar .bar i{position:absolute; left:0; top:0; bottom:0; border-radius:4px; background:var(--ink)}
+.pillar.low .bar i{background:var(--bad)} .pillar.mid .bar i{background:var(--web)}
+.pillar .why{grid-column:1/-1; font-size:13px; color:var(--ink-soft); padding-left:2px}
+.chip{display:inline-block; font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--ink-faint); border:1px solid var(--hairline); border-radius:99px; padding:1px 8px; margin-left:6px; vertical-align:1px}
+.qline{font-size:13.5px; padding:6px 0 6px 14px; border-left:2px solid var(--ai)}
+footer{border-top:1px solid var(--hairline); padding:22px 20px; font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--ink-faint); text-align:center; text-transform:uppercase; letter-spacing:.06em}
+@media(max-width:560px){
+  header{padding:10px 14px}
+  header .brand .mono{font-size:11px}
+  header .brand{gap:10px; flex-wrap:wrap} main{padding:22px 14px 60px} h1{font-size:22px} }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <span class="caps">IPOPredict</span>
+    <span class="mono" style="font-size:12px; color:var(--ink-faint)">DRHP Scanner</span>
+    <span class="mono" id="modeTag" style="font-size:11px; color:var(--ink-faint)"></span>
+  </div>
+  <nav class="caps" id="topnav">
+    <button class="navbtn" data-view="ledger">Live IPOs</button>
+    <button class="navbtn" data-view="archive">Past IPOs</button>
+    <button class="navbtn" data-view="patterns">Insights</button>
+    <button class="navbtn" data-view="alerts">Alerts</button>
+    <button class="navbtn" data-view="ask">Ask</button>
+    <button class="navbtn" data-view="method">How it works</button>
+    <button class="navbtn active" aria-current="page">DRHP Scanner</button>
+  </nav>
+  <button id="themeBtn" class="caps" aria-label="Switch theme">Dark</button>
+  <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+
+<main>
+  <h1>Read the prospectus in one minute</h1>
+  <p class="sub">Upload an IPO's DRHP / RHP (the SEBI prospectus PDF) and get the risk factors,
+  litigation, where the money goes, and a red-flag scan. Every claim cites its page.</p>
+
+  <div class="panel">
+    <label class="filebox" id="drop">
+      <input type="file" id="file" accept=".pdf,.txt">
+      <div class="caps" style="margin-bottom:6px">Drop the DRHP PDF here</div>
+      <div>or click to choose a file (.pdf / .txt)</div>
+    </label>
+    <div class="or">or paste a direct PDF link</div>
+    <div class="row2">
+      <input type="text" id="url" placeholder="https://.../drhp.pdf" spellcheck="false">
+      <button class="btn" id="scanBtn">Scan</button>
+    </div>
+    <div id="status"></div>
+  </div>
+
+  <div id="report" style="display:none">
+    <div class="meta-line" id="metaLine"></div>
+    <div class="legend">
+      <span class="key"><span class="sw" style="background:var(--ink)"></span> from the prospectus (page-cited)</span>
+      <span class="key"><span class="sw" style="background:var(--ai)"></span> AI explanation (grounded in cited pages)</span>
+      <span class="key"><span class="sw" style="background:var(--web)"></span> web research (external, with source links)</span>
+    </div>
+    <div class="toolbar">
+      <button class="btn ai-btn" id="memoBtn">Analyst memo</button>
+      <button class="btn ai-btn" id="aiBtn">Explain like an analyst</button>
+      <button class="btn web-btn" id="webBtn">Run web research</button>
+    </div>
+    <div class="caps">Issue snapshot</div>
+    <div class="glance" id="offerBox"></div>
+
+    <div id="aiPanel"></div>
+
+    <div class="caps">At a glance</div>
+    <div class="glance" id="glance"></div>
+
+    <div class="cases" id="cases"></div>
+
+    <div class="caps" style="margin-top:26px">Fundamentals (as stated in the prospectus)</div>
+    <div id="fundamentals"></div>
+
+    <div class="caps" style="margin-top:26px">Red-flag scan</div>
+    <div class="flags" id="flags"></div>
+    <div id="flagDetail"></div>
+
+    <div class="caps" style="margin-top:26px">Deep dive</div>
+    <div id="fields"></div>
+
+    <div id="webPanel"></div>
+
+    <div class="panel" id="askPanel">
+      <div class="caps" style="margin-bottom:10px">Ask this prospectus</div>
+      <div class="row2">
+        <input type="text" id="q" placeholder="e.g. what lawsuits do the promoters face?" spellcheck="false">
+        <button class="btn" id="askBtn">Ask</button>
+      </div>
+      <div class="answer" id="answer"></div>
+    </div>
+  </div>
+</main>
+
+<footer>Grounded in the uploaded document only &middot; not investment advice &middot; IPOPredict</footer>
+
+<script>
+const $ = s => document.querySelector(s);
+  // API base path: works standalone ("/" -> "") and mounted ("/drhp/" -> "/drhp")
+  const API = location.pathname.replace(/\/index\.html$/, "").replace(/\/$/, "");
+  // The scanner may run standalone ("/") or mounted ("/drhp/"). The main app is
+  // always the parent, so strip a trailing /drhp to get its root - one HTML file
+  // then works in both deployments.
+  const ROOT = (API.replace(/\/drhp$/, "") || "") + "/";
+  (function wireChrome(){
+    // nav: each button returns to the dashboard's matching view. ROOT strips a
+    // trailing /drhp so one file serves both standalone and mounted deploys.
+    document.querySelectorAll("#topnav .navbtn[data-view]").forEach(function(b){
+      b.addEventListener("click", function(){
+        location.href = ROOT + "#" + b.getAttribute("data-view");
+      });
+    });
+    var tg = document.getElementById("navToggle"), hd = document.querySelector("header");
+    if (tg) tg.addEventListener("click", function(){
+      var open = hd.classList.toggle("nav-open");
+      tg.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    document.querySelector("header .brand").style.cursor = "pointer";
+    document.querySelector("header .brand").addEventListener("click", function(){
+      location.href = ROOT;
+    });
+    // theme: persisted in localStorage under the SAME key the dashboard uses,
+    // so switching to dark on one app carries across to the other - without
+    // that, crossing between them flashes a different-looking site.
+    var KEY = "ipopredict_theme";
+    var btn = document.getElementById("themeBtn");
+    function apply(dark){
+      document.documentElement.classList.toggle("dark", dark);
+      if (btn) btn.textContent = dark ? "Light" : "Dark";
+    }
+    try { apply(localStorage.getItem(KEY) === "dark"); } catch(e){ apply(false); }
+    if (btn) btn.addEventListener("click", function(){
+      var dark = !document.documentElement.classList.contains("dark");
+      apply(dark);
+      try { localStorage.setItem(KEY, dark ? "dark" : "light"); } catch(e){}
+    });
+  })();
+const esc = s => (s||"").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+const drop = $("#drop"), fileIn = $("#file");
+let chosen = null;
+fileIn.addEventListener("change", () => { chosen = fileIn.files[0] || null; if (chosen) drop.querySelector("div").textContent = chosen.name; });
+["dragover","dragenter"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add("drag"); }));
+["dragleave","drop"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove("drag"); }));
+drop.addEventListener("drop", e => { const f = e.dataTransfer.files[0]; if (f){ chosen = f; drop.querySelector("div").textContent = f.name; } });
+
+$("#scanBtn").addEventListener("click", scan);
+// restore the last report after a refresh (server keeps it in memory)
+fetch(API + "/last").then(r => r.ok ? r.json() : null).then(d => { if (d) render(d); }).catch(()=>{});
+$("#aiBtn").addEventListener("click", runAnalysis);
+$("#memoBtn").addEventListener("click", runMemo);
+$("#webBtn").addEventListener("click", () => runResearch(null));
+$("#askBtn").addEventListener("click", ask);
+$("#q").addEventListener("keydown", e => { if (e.key === "Enter") ask(); });
+
+async function scan(){
+  const url = $("#url").value.trim();
+  if (!chosen && !url){ setStatus("Choose a PDF or paste a link first.", true); return; }
+  const fd = new FormData();
+  if (chosen) fd.append("file", chosen); else fd.append("url", url);
+  setStatus('<span class="spin"></span>Reading the prospectus... large DRHPs take a minute or two.');
+  $("#scanBtn").disabled = true;
+  try{
+    const r = await fetch(API + "/scan", { method:"POST", body: fd });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.detail || "scan failed");
+    render(d);
+    setStatus("");
+  }catch(e){ setStatus("Could not scan: " + esc(e.message), true); }
+  $("#scanBtn").disabled = false;
+}
+
+function setStatus(html, err){ const s = $("#status"); s.innerHTML = html; s.className = err ? "err" : ""; }
+
+function render(d){
+  if (d && d.doc) window.DOC = d.doc;   // pin follow-up questions to THIS document
+  $("#report").style.display = "block";
+  $("#modeTag").textContent = d.digest.mode + " \u00b7 " + d.digest.backend;
+  if (d.llm_hint && !d.llm_available){
+    setStatus("LLM layer off \u2014 " + esc(d.llm_hint), true);
+  }
+  $("#metaLine").textContent = `${d.name} \u00b7 ${d.meta.pages} pages \u00b7 ${d.meta.chunks} chunks`;
+  // pure-relay badge: prove to the user there is zero LLM in this view
+  const cm0 = document.getElementById("complianceBadge"); if (cm0) cm0.remove();
+  if (d.digest.compliance_mode){
+    $("#metaLine").insertAdjacentHTML("afterend",
+      `<div id="complianceBadge" style="margin:8px 0; padding:8px 12px; background:#0d3320; border:1px solid #1a5c3a; border-radius:6px; font-size:12px; color:#7ee0a8">
+        \u2713 Pure relay mode \u00b7 every item below is extracted directly from the prospectus and page-cited \u00b7 no AI, no paraphrasing, no generated text anywhere in this report</div>`);
+  }
+
+  // issue snapshot (broker-note top box)
+  const O = d.digest.offer || {};
+  const oorder = ["price_band","issue_size","fresh_issue","ofs","promoter_waca","waca_recent_txn",
+                  "face_value","lot_size","opens","closes","listing_at"];
+  const olabel = {price_band:"Price band", issue_size:"Issue size", fresh_issue:"Fresh issue",
+                  ofs:"Offer for sale", promoter_waca:"Promoter avg. cost/share", waca_recent_txn:"Recent investors paid",
+                  face_value:"Face value", lot_size:"Lot size", opens:"Opens",
+                  closes:"Closes", listing_at:"Listing at"};
+  const okeys = [...oorder.filter(k => k in O), ...Object.keys(O).filter(k => !oorder.includes(k))];
+  $("#offerBox").innerHTML = okeys.length
+    ? okeys.map(k => `<div class="stat"><div class="n" style="font-size:14px">${esc(O[k])}</div><div class="l">${esc(olabel[k]||k)}</div></div>`).join("")
+    : '<div class="stat"><div class="n" style="font-size:13px; color:var(--ink-faint)">not stated in parseable form</div><div class="l">offer terms</div></div>';
+
+  // ============ PRIMARY VIEW: What they claim vs What the numbers say ============
+  const cv0 = document.getElementById("claimsBox"); if (cv0) cv0.remove();
+  const CONS = d.digest.contradictions || [];
+  if (CONS.length){
+    const sevColor = s => s === "major" ? "var(--bad)" : "var(--ai)";
+    const rows = CONS.map(c => `
+      <tr>
+        <td style="padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top; width:50%">
+          <div style="font-weight:600; color:var(--ink); font-size:13px; margin-bottom:3px">${esc(c.title)}</div>
+          <div style="color:var(--ink-soft); font-size:13px">${esc(c.a)}</div>
+        </td>
+        <td style="padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top; width:50%; border-left:2px solid ${sevColor(c.severity)}">
+          <div style="color:var(--ink); font-size:13px">${esc(c.b)}</div>
+          ${c.question ? `<div style="color:var(--ink-faint); font-size:12px; margin-top:5px; font-style:italic">${esc(c.question)}</div>` : ""}
+        </td>
+      </tr>`).join("");
+    $("#offerBox").insertAdjacentHTML("afterend", `
+      <div id="claimsBox" style="margin:16px 0 8px">
+        <div class="caps" style="margin-bottom:6px">What the prospectus says vs what the numbers show</div>
+        <div style="font-size:12px; color:var(--ink-faint); margin-bottom:8px">${CONS.length} tension${CONS.length>1?"s":""} the document contains \u00b7 each side page-cited \u00b7 the analyst's first read</div>
+        <table style="width:100%; border-collapse:collapse; border:1px solid var(--line); border-radius:8px; overflow:hidden">
+          <thead><tr>
+            <th style="text-align:left; padding:8px 12px; background:var(--bg-soft); font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-soft)">The claim / the story</th>
+            <th style="text-align:left; padding:8px 12px; background:var(--bg-soft); font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-soft)">What the numbers show</th>
+          </tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`);
+  }
+  // plain-english overview (grounded LLM, numbers verified)
+  const pe0 = document.getElementById("plainBox"); if (pe0) pe0.remove();
+  if (d.digest.plain_english){
+    $("#offerBox").insertAdjacentHTML("afterend",
+      `<div class="ai-block" id="plainBox" style="margin:14px 0 6px">
+         <div class="ai-badge">In plain English \u00b7 built only from page-cited facts \u00b7 numbers verified</div>
+         <p style="margin:8px 0 0">${esc(d.digest.plain_english)}</p></div>`);
+  }
+  // THESIS compression box (separate, clearly LLM-phrased, numbers verified)
+  const tb0 = document.getElementById("thesisBox"); if (tb0) tb0.remove();
+  const TH = d.digest.thesis;
+  if (TH && (TH.bull || TH.bear || TH.verdict)){
+    $("#offerBox").insertAdjacentHTML("afterend", `
+      <div class="ai-block" id="thesisBox" style="margin:14px 0 6px; border-left:3px solid var(--ai)">
+        <div class="ai-badge">The trade in three lines \u00b7 phrased by AI, every number verified against the cited facts \u00b7 not advice</div>
+        ${TH.bull ? `<p style="margin:8px 0 4px"><strong style="color:var(--good)">Bull</strong> \u00b7 ${esc(TH.bull)}</p>` : ""}
+        ${TH.bear ? `<p style="margin:4px 0"><strong style="color:var(--bad)">Bear</strong> \u00b7 ${esc(TH.bear)}</p>` : ""}
+        ${TH.verdict ? `<p style="margin:4px 0 0"><strong>The deciding question</strong> \u00b7 ${esc(TH.verdict)}</p>` : ""}
+      </div>`);
+  } else if (TH && TH.error){
+    // fail honestly and visibly rather than showing anything unverified
+    $("#offerBox").insertAdjacentHTML("afterend",
+      `<div class="gnote" id="thesisBox" style="margin:12px 0">three-line thesis withheld (${esc(TH.error)}) \u2014 the extracted facts and contradictions below are unaffected</div>`);
+  }
+  // at a glance
+  const h = d.digest.summary.headline;
+  $("#glance").innerHTML = `
+    <div class="stat ${h.flags_triggered ? "warn" : ""}"><div class="n">${h.flags_triggered}/${h.flags_total}</div><div class="l">red flags</div></div>
+    <div class="stat"><div class="n">${h.fundamentals_found}</div><div class="l">metrics parsed</div></div>
+    <div class="stat"><div class="n">${d.meta.pages}</div><div class="l">pages read</div></div>`;
+
+  // cross-document context
+  const cc = d.digest.corpus_context || [];
+  const ccEl = document.getElementById("corpusCtx");
+  if (ccEl) ccEl.remove();
+  if (cc.length){
+    $("#cases").insertAdjacentHTML("beforebegin",
+      `<div class="corpus" id="corpusCtx">${cc.map(esc).join("<br>")}</div>`);
+  }
+
+  // positives / negatives / neutral
+  const S = d.digest.summary;
+  const col = (cls, title, items) => `
+    <div class="case-col ${cls}"><h3>${title}</h3>
+      ${(items && items.length)
+        ? items.map(it => `<div class="item">${esc(it.text)}${it.page ? `<span class="pg">p.${it.page}</span>` : ""}</div>`).join("")
+        : '<div class="empty">nothing clean enough to quote</div>'}
+    </div>`;
+  $("#cases").innerHTML =
+    col("pos", "The case for",      S.positives) +
+    col("neg", "The case against",  S.negatives) +
+    col("neu", "Worth noting",      S.neutral);
+
+  // fundamentals table
+  const F = d.digest.fundamentals || [];
+  const yrs = (F.find(f => f.years && f.years.length >= 2) || {}).years || [];
+  const heads = [0,1,2].map(i => yrs[i] ? "FY " + yrs[i] : ["Latest","Prior","Prior-1"][i]);
+  const unitCap = d.digest.units ? ` <span style="text-transform:none; letter-spacing:0">(figures in \u20b9 ${esc(d.digest.units)} unless stated)</span>` : "";
+  // group the metrics like a broker note: P&L, balance sheet, cash flow, ratios, operations
+  const GROUPS = [
+    ["Profit & loss", ["revenue","total_income","ebitda","ebitda_margin","employee_cost","finance_cost","depreciation","pbt","pat","eps"]],
+    ["Balance sheet", ["networth","borrowings","inventory","receivables","cash","payables","ppe","total_assets"]],
+    ["Cash flow", ["ocf"]],
+    ["Returns & ratios (computed)", ["roe","roce","current_ratio","interest_cov","debt_equity","nd_ebitda","wc_days","workforce_pct"]],
+    ["Customers & operations", ["top1_customer","top5_customers","top10_customers","top10_suppliers","order_book","capacity_util","rpt_total"]],
+  ];
+  const byKey = {}; F.forEach(f => { byKey[f.key] = f; });
+  const placed = new Set();
+  const rowHTML = f => `<tr><td>${esc(f.label)}</td>
+        ${[0,1,2].map(i => `<td class="vals" style="text-align:right">${esc(f.values[i]||"\u2014")}</td>`).join("")}
+        <td class="pg">${f.page ? "p."+f.page : ""}</td></tr>`;
+  let bodyHTML = "";
+  GROUPS.forEach(([gname, keys]) => {
+    const rows = keys.filter(k => byKey[k]).map(k => { placed.add(k); return rowHTML(byKey[k]); });
+    if (rows.length) bodyHTML += `<tr class="grp"><td colspan="5" style="padding-top:14px; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); border-bottom:1px solid var(--line)">${gname}</td></tr>` + rows.join("");
+  });
+  const rest = F.filter(f => !placed.has(f.key));
+  if (rest.length) bodyHTML += `<tr class="grp"><td colspan="5" style="padding-top:14px; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); border-bottom:1px solid var(--line)">Other</td></tr>` + rest.map(rowHTML).join("");
+  $("#fundamentals").innerHTML = F.length ? `
+    <table class="fund">
+      <tr><th>Metric${unitCap}</th><th style="text-align:right">${heads[0]}</th><th style="text-align:right">${heads[1]}</th><th style="text-align:right">${heads[2]}</th><th>Source</th></tr>
+      ${bodyHTML}
+    </table>` : '<div class="empty" style="color:var(--ink-faint); margin-top:8px">no KPI table found in a parseable format</div>';
+  const PR = d.digest.peers || [];
+  if (PR.length >= 2){
+    $("#fundamentals").insertAdjacentHTML("beforeend", `
+      <div class="caps" style="margin-top:18px">Peer comparison (as disclosed in the prospectus)</div>
+      <table class="fund">${PR.map(p => `<tr><td>${esc(p.name)}</td><td class="vals">${esc(p.values.join("  |  "))}</td><td class="pg">p.${p.page}</td></tr>`).join("")}</table>`);
+  }
+  const SG = d.digest.segments || [];
+  if (SG.length >= 2){
+    $("#fundamentals").insertAdjacentHTML("beforeend", `
+      <div class="caps" style="margin-top:18px">Revenue mix by segment (share of revenue, latest first)</div>
+      <table class="fund">${SG.map(s => `<tr><td>${esc(s.label)}</td><td class="vals">${esc(s.shares.join("  |  "))}</td><td class="pg">p.${s.page}</td></tr>`).join("")}</table>`);
+  }
+  const ST = d.digest.statements || [];
+  if (ST.length){
+    const seen = new Set();
+    const rows = ST.filter(r => { const k = r.key + r.page; if (seen.has(k)) return false; seen.add(k); return true; });
+    $("#fundamentals").insertAdjacentHTML("beforeend",
+      `<button class="evi-toggle" id="stT" style="margin-top:8px">show all ${rows.length} captured statement rows \u25be</button>
+       <div class="evidence" id="stB"><table class="fund">
+       ${rows.map(r => `<tr><td>${esc(r.label)}</td><td class="vals">${esc(r.values.join("  |  "))}</td><td class="pg">p.${r.page}</td></tr>`).join("")}
+       </table></div>`);
+    document.getElementById("stT").addEventListener("click", () => {
+      const e = document.getElementById("stB"); e.classList.toggle("open");
+    });
+  }
+
+  const flags = $("#flags"); flags.innerHTML = ""; $("#flagDetail").innerHTML = "";
+  const sevRank = {high:0, medium:1, info:2};
+  [...d.digest.red_flags].sort((a,b)=> (a.triggered!==b.triggered) ? (b.triggered-a.triggered)
+      : (sevRank[a.severity]-sevRank[b.severity])).forEach(f => {
+    const el = document.createElement("button");
+    el.className = "flag " + (f.triggered ? "on sev-"+f.severity : "off");
+    el.textContent = (f.triggered ? "\u26a0 " : "\u2713 ") + f.label +
+                     (f.triggered ? " \u00b7 " + f.severity : "");
+    if (f.triggered && f.why) el.title = "why it matters: " + f.why;
+    if (f.triggered && f.evidence){
+      el.addEventListener("click", () => {
+        $("#flagDetail").innerHTML =
+          `<div class="quote">\u201c...${esc(f.evidence.quote)}...\u201d
+           <span class="pg">p.${f.evidence.page} \u00b7 ${esc(f.evidence.section)}</span></div>`;
+        window.scrollTo({ top: $("#flagDetail").offsetTop - 80, behavior: "smooth" });
+      });
+    }
+    flags.appendChild(el);
+  });
+
+  const box = $("#fields"); box.innerHTML = "";
+  d.digest.fields.forEach((f, i) => {
+    const items = (f.items || []).map(it =>
+      `<div class="item">${esc(it.text)}${it.page ? `<span class="pg">p.${it.page}</span>` : ""}</div>`).join("");
+    const evi = (f.evidence || []).map(e =>
+      `<div class="evi"><div class="src">p.${e.page} \u00b7 ${esc(e.section)} \u00b7 score ${e.score}</div>${esc(e.text)}</div>`).join("");
+    box.insertAdjacentHTML("beforeend", `
+      <div class="field">
+        <h2>${esc(f.label)}</h2>
+        ${f.intro ? `<div class="field-intro" style="color:var(--ink-soft); font-size:13px; margin:-2px 0 10px">${esc(f.intro)}</div>` : ""}
+        ${f.key === "litigation" && (d.digest.litigation_itemized||[]).length ? `<div class="litig-table" style="margin:6px 0 10px">${d.digest.litigation_itemized.map(l => `<div class="litig-row" style="font-size:13px; padding:3px 0; border-bottom:1px solid var(--line)">⚖ ${esc(l)}</div>`).join("")}</div>` : ""}
+        ${f.note ? `<div class="note">${esc(f.note)}</div>` : ""}
+        ${items || '<div class="item" style="color:var(--ink-faint)">not covered in this document</div>'}
+        <button class="evi-toggle" data-i="${i}">show evidence \u25be</button>
+        <div class="evidence" id="evi${i}">${evi}</div>
+      </div>`);
+  });
+  box.querySelectorAll(".evi-toggle").forEach(b => b.addEventListener("click", () => {
+    const e = $("#evi" + b.dataset.i); e.classList.toggle("open");
+    b.textContent = e.classList.contains("open") ? "hide evidence \u25b4" : "show evidence \u25be";
+  }));
+}
+
+async function runMemo(){
+  $("#aiPanel").innerHTML = '<div class="ai-block"><span class="spin"></span>scoring the pillars like an analyst...</div>';
+  try{
+    const r = await fetch(API + "/analyst", { method:"POST" });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.detail || "memo failed");
+    $("#aiPanel").innerHTML = `<div class="ai-block">
+      <div class="ai-badge">Analyst memo · deterministic pillar scoring, page-cited · not advice</div>
+      <h4>${esc(d.stance)} · composite ${d.score}/10 · ${d.high_severity_flags} high-severity flags</h4>
+      ${d.pillars.map(p => `<p><strong>${esc(p.name)}: ${p.score}/10</strong><br>
+        ${p.reasons.map(r => esc(r.text) + (r.page ? ` <span class="pg">p.${r.page}</span>` : "")).join("<br>")}</p>`).join("")}
+      ${d.questions.length ? `<h4>Questions an analyst would ask</h4>${d.questions.map(q=>`<p>? ${esc(q)}</p>`).join("")}` : ""}
+      ${d.coverage_gaps.length ? `<div class="gnote">not surfaced by this scan (verify manually): ${esc(d.coverage_gaps.join(", "))}</div>` : ""}
+      ${d.narrative && d.narrative.text ? `<h4>Narrative</h4><p>${esc(d.narrative.text)}</p><div class="gnote">${esc(d.narrative.note)}</div>` : ""}
+      </div>`;
+  }catch(e){ $("#aiPanel").innerHTML = `<div class="ai-block"><div class="gnote">${esc(e.message)}</div></div>`; }
+}
+
+async function runAnalysis(){
+  $("#aiPanel").innerHTML = '<div class="ai-block"><span class="spin"></span>reading the extracted facts and writing the analyst view...</div>';
+  try{
+    const r = await fetch(API + "/analyze", { method:"POST" });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.detail || "analysis failed");
+    $("#aiPanel").innerHTML = `<div class="ai-block">
+      <div class="ai-badge">AI explanation · built only from the page-cited facts above</div>
+      ${(d.parts||[]).map(p => `<h4>${esc(p.title)}</h4><p>${esc(p.text)}</p>`).join("")}
+      <div class="gnote">${esc(d.note || "")}</div></div>`;
+  }catch(e){ $("#aiPanel").innerHTML = `<div class="ai-block"><div class="gnote">${esc(e.message)}</div></div>`; }
+}
+
+async function runResearch(custom){
+  $("#webPanel").innerHTML = '<div class="web-block"><span class="spin"></span>searching the web (this is EXTERNAL info, not the prospectus)...</div>';
+  try{
+    const r = await fetch(API + "/research", { method:"POST", headers:{ "Content-Type":"application/json" },
+                                         body: JSON.stringify(custom ? { query: custom } : {}) });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.detail || "research failed");
+    $("#webPanel").innerHTML = `<div class="web-block">
+      <h4>Web research · ${esc(d.company || "")} · engine: ${esc(d.engine)}</h4>
+      <div class="gnote">External sources, not the prospectus. Always verify at the link.</div>
+      ${(() => {
+        const withHits = d.topics.filter(t => (t.items||[]).some(it => (it.text||"").length > 35));
+        if (!withHits.length) return '<div class="web-item" style="color:var(--ink-faint); margin-top:10px">No public coverage found for this issuer yet (common for SME IPOs) - the prospectus analysis above is unaffected.</div>';
+        return withHits.map(t => `
+        <div style="margin-top:12px"><strong style="font-size:13px">${esc(t.topic)}</strong>
+        ${t.items.filter(it => (it.text||"").length > 35).map(it => `
+          <div class="web-item">${esc(it.text)}
+            ${(it.sources||[]).map(sc => `<div><a href="${esc(sc.url)}" target="_blank" rel="noopener">${esc(sc.title)}</a></div>`).join("")}
+          </div>`).join("")}
+        </div>`).join("");
+      })()}
+      </div>`;
+  }catch(e){ $("#webPanel").innerHTML = `<div class="web-block"><div class="gnote">${esc(e.message)}</div></div>`; }
+}
+
+async function ask(){
+  const q = $("#q").value.trim(); if (!q) return;
+  $("#answer").innerHTML = '<span class="spin"></span>searching the document...';
+  try{
+    const r = await fetch(API + "/ask", { method:"POST", headers:{ "Content-Type":"application/json" },
+                                    body: JSON.stringify({ question: q, doc: window.DOC || null }) });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.detail || "ask failed");
+    // defensive: the answer may arrive as a string (agent path on older server
+    // builds) or a list of items - normalize so the UI can never crash on shape
+    let _ans = d.answer || [];
+    if (typeof _ans === "string") _ans = [{text: _ans, page: null, section: "agent"}];
+    if (!Array.isArray(_ans)) _ans = [ _ans ];
+    const items = _ans.map(it =>
+      `<div class="item">${esc(it.text)}${it.page ? `<span class="pg">p.${it.page}</span>` : ""}</div>`).join("");
+    const evi = (d.evidence || []).map(e =>
+      `<div class="evi"><div class="src">p.${e.page} \u00b7 ${esc(e.section)} \u00b7 score ${e.score}</div>${esc(e.text)}</div>`).join("");
+    $("#answer").innerHTML =
+      (items || '<div class="item" style="color:var(--ink-faint)">nothing relevant found in this document</div>') +
+      (d.note ? `<div class="note">${esc(d.note)}</div>` : "") +
+      (evi ? `<button class="evi-toggle" id="aevT">show evidence \u25be</button><div class="evidence" id="aev">${evi}</div>` : "");
+    const t = $("#aevT");
+    if (t) t.addEventListener("click", () => {
+      const e = $("#aev"); e.classList.toggle("open");
+      t.textContent = e.classList.contains("open") ? "hide evidence \u25b4" : "show evidence \u25be";
+    });
+  }catch(e){ $("#answer").innerHTML = `<div class="note">${esc(e.message)}</div>`; }
+}
+</script>
+</body>
+</html>

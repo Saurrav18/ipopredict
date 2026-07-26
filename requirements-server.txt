@@ -8,3 +8,6 @@ openpyxl
 scikit-learn
 xgboost
 lightgbm
+pdfplumber
+PyMuPDF
+python-multipart
