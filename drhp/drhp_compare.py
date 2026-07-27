@@ -1,3 +1,4 @@
+import drhp_log
 """
 drhp_compare.py - Dynamic multi-document comparison.
 
@@ -48,7 +49,8 @@ def list_library():
                 with open(os.path.join(LIB_DIR, fn)) as f:
                     d = json.load(f)
                 out.append({"file": fn, "name": d.get("name", fn[:-5])})
-            except Exception:
+            except Exception as _sw:
+                drhp_log.swallowed("drhp_compare", _sw)
                 pass
     return out
 
@@ -62,7 +64,8 @@ def _load(sel):
             try:
                 with open(os.path.join(LIB_DIR, entry["file"])) as f:
                     docs[entry["name"]] = json.load(f)
-            except Exception:
+            except Exception as _sw:
+                drhp_log.swallowed("drhp_compare", _sw)
                 pass
     return docs
 

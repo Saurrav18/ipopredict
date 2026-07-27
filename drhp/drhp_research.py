@@ -1,3 +1,4 @@
+import drhp_log
 """
 drhp_research.py - EXTERNAL research layer for the DRHP scanner.
 
@@ -93,7 +94,8 @@ def _ddg(query, n=3):
             with urllib.request.urlopen(req, timeout=20) as r:
                 page = r.read().decode("utf-8", "ignore")
             if "result" in page or "uddg" in page: break
-        except Exception:
+        except Exception as _sw:
+            drhp_log.swallowed("drhp_research", _sw)
             continue
     out = []
     blocks = re.findall(

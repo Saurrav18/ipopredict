@@ -1,3 +1,4 @@
+import drhp_log
 """
 drhp_analyst.py - a deterministic IPO-analyst agent over the extracted data.
 
@@ -227,7 +228,8 @@ if __name__ == "__main__":
         try:
             pages = json.load(open(f"/tmp/cache_{name}.json"))
             tf = json.load(open(f"/tmp/tables_{name}.json"))
-        except Exception:
+        except Exception as _sw:
+            drhp_log.swallowed("drhp_analyst", _sw)
             continue
         idx = drhp_ingest.TfidfIndex(drhp_ingest.chunk_document([(p, t) for p, t in pages]))
         d = drhp_digest.build_digest(idx, table_fund=tf)

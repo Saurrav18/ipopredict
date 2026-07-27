@@ -1,3 +1,4 @@
+import drhp_log
 """
 drhp_llm.py - one interface, many free LLM providers.
 
@@ -224,7 +225,8 @@ def complete(prompt, json_mode=False):
                     ra = None
                     try:
                         ra = float(e.headers.get("retry-after"))   # type: ignore
-                    except Exception:
+                    except Exception as _sw:
+                        drhp_log.swallowed("drhp_llm", _sw)
                         pass
                     delay = min(ra if ra else (gap * attempt) + 2, 30)
                     if os.environ.get("LLM_DEBUG", "") == "1":
@@ -280,7 +282,8 @@ def selftest():
             try:
                 body = e.read().decode()[:200]   # HTTPError body has Google's real message
                 detail += " | " + body
-            except Exception:
+            except Exception as _sw:
+                drhp_log.swallowed("drhp_llm", _sw)
                 pass
             out.append({"provider": name, "ok": False, "error": detail})
     return out or [{"ok": False, "error": "no provider keys configured"}]

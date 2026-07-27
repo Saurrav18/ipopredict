@@ -8,6 +8,7 @@ map), and returns structured rows. Feeds: fundamentals (multi-year statements),
 red-flag thresholds (OCF trend, litigation amounts), and the UI's statements block.
 """
 import re
+import drhp_log
 
 # canonical financial line-items we hunt for in statement/KPI tables
 LINE_ITEMS = [
@@ -154,7 +155,8 @@ def extract_financial_tables(pdf_path, raw_pages):
                 try:
                     t = page.extract_tables(settings) if settings else page.extract_tables()
                     if t: tables += t
-                except Exception:
+                except Exception as _sw:
+                    drhp_log.swallowed("drhp_tables", _sw)
                     pass
             for tb in tables:
                 tb_years = _years_of(tb)

@@ -1,3 +1,5 @@
+import drhp_log
+import drhp_config
 """
 drhp_digest.py - build the structured Digest from an ingested DRHP index.
 
@@ -379,7 +381,8 @@ def _polish_summary(index, digest):
         clean, off = _verify_llm(raw, _wide)
         if clean:
             digest["plain_english"] = clean
-    except Exception:
+    except Exception as _sw:
+        drhp_log.swallowed("drhp_digest", _sw)
         pass
     for key, ask, passages in jobs:
         if not passages: continue
@@ -1035,6 +1038,18 @@ def build_digest(index, table_fund=None, statements=None, offer=None, segments=N
         _kept.append(_f)
     digest["fundamentals"] = _kept
     consistency_audit(digest)
+    # SELF-CORRECTION: detection alone leaves a hole where a number should be.
+    # If the auditor flagged anything, hand the digest to the repair agent, which
+    # re-extracts each suspect metric from authoritative statement pages and
+    # accepts a candidate ONLY if it passes the same cross-check that rejected
+    # the original. Bounded, verifier-gated, and cannot make the output worse.
+    if digest.get("suspect_metrics"):
+        try:
+            import drhp_autofix
+            drhp_autofix.autofix(index, digest)
+        except Exception as _e:
+            digest.setdefault("data_warnings", []).append(
+                f"self-repair unavailable ({type(_e).__name__})")
 
     # iteration 23: statement-level dualities - the document itself prints two
     # totals for some metrics (consolidated vs standalone); disclose both.
@@ -1056,7 +1071,8 @@ def build_digest(index, table_fund=None, statements=None, offer=None, segments=N
                                 _raw2[_f["page"]], re.I)
                 if _m and "(" not in _m.group(1):
                     _f["label"] = f"Capacity utilisation ({_m.group(1).strip().rstrip(',')})"
-    except Exception:
+    except Exception as _sw:
+        drhp_log.swallowed("drhp_digest", _sw)
         pass
     digest["red_flags"] += numeric_flags(digest["fundamentals"])
     try:
@@ -1405,7 +1421,8 @@ def detect_statement_dualities(raw_pages, fundamentals):
         if not f or not f.get("values"): continue
         try:
             chosen = float(str(f["values"][0]).replace(",", "").strip("()"))
-        except ValueError:
+        except ValueError as _sw:
+            drhp_log.swallowed("drhp_digest", _sw)
             continue
         own_years = set()
         for v in f.get("values", [])[:4]:
@@ -1422,7 +1439,8 @@ def detect_statement_dualities(raw_pages, fundamentals):
                 if len(nums) < 2: continue
                 try:
                     v0 = float(nums[0].replace(",", "").strip("()"))
-                except ValueError:
+                except ValueError as _sw:
+                    drhp_log.swallowed("drhp_digest", _sw)
                     continue
                 if v0 <= 0: continue
                 # breakdown rows: segment/split lines CONTAIN the chosen total
@@ -1501,7 +1519,7 @@ def consistency_audit(digest):
     #    minority line by definition; a revenue far below total income means a
     #    segment/KPI row was captured instead of the P&L line.
     rev, ti = v("revenue"), v("total_income")
-    if rev and ti and ti > 0 and rev < 0.30 * ti:
+    if rev and ti and ti > 0 and rev < drhp_config.AUDIT_REV_SHARE_MIN * ti:
         flag("revenue", f"revenue {rev:,.2f} is only {rev/ti:.0%} of total income "
                         f"{ti:,.2f} - likely the wrong row was captured")
 
@@ -1510,7 +1528,7 @@ def consistency_audit(digest):
     pat, roe, nw = v("pat"), v("roe"), v("networth")
     if pat and roe and nw and roe > 0:
         implied = pat / (roe / 100.0)
-        if implied > 0 and (nw / implied > 2 or implied / nw > 2):
+        if implied > 0 and (nw / implied > drhp_config.AUDIT_ROE_DISAGREE_X or implied / nw > drhp_config.AUDIT_ROE_DISAGREE_X):
             flag("networth", f"net worth {nw:,.2f} contradicts the stated ROE "
                              f"{roe:.2f}% on PAT {pat:,.2f} (implies ~{implied:,.0f})")
 
@@ -1518,13 +1536,13 @@ def consistency_audit(digest):
     ebitda, marg = v("ebitda"), v("ebitda_margin")
     if ebitda and marg and rev and rev > 0:
         shown = 100.0 * ebitda / rev
-        if abs(shown - marg) > max(10.0, 0.5 * marg):
+        if abs(shown - marg) > max(drhp_config.AUDIT_EBITDA_ABS_PTS, drhp_config.AUDIT_EBITDA_REL_FRAC * marg):
             flag("ebitda", f"EBITDA {ebitda:,.2f} is {shown:.0f}% of revenue but the "
                            f"stated margin is {marg:.2f}%")
 
     # 4. implausible-by-construction ratios
     wf = v("workforce_pct")
-    if wf and wf > 60:
+    if wf and wf > drhp_config.AUDIT_WORKFORCE_MAX:
         flag("workforce_pct", f"workforce cost is {wf:.0f}% of revenue - implausible; "
                               f"the revenue base is probably wrong")
 
@@ -1541,7 +1559,8 @@ def consistency_audit(digest):
 
     if not suspect:
         digest["data_warnings"] = []
-        return []
+        digest["suspect_metrics"] = []      # must CLEAR, or a repaired metric
+        return []                          # stays flagged for the rest of the run
 
     # withdraw every derived ratio that depends on a suspect input - publishing
     # "debt/equity 5.2x" off a broken net worth turns one extraction miss into a
@@ -1556,7 +1575,8 @@ def consistency_audit(digest):
         "top10_suppliers": ("revenue",),
     }
     withdrawn = [k for k, deps in DEPENDS.items()
-                 if k in F and any(d in suspect for d in deps)]
+                 if k in F and any(d in suspect for d in deps)
+                 and "(computed" in F[k].get("label", "")]
     if withdrawn:
         digest["fundamentals"] = [f for f in digest["fundamentals"]
                                   if f["key"] not in withdrawn]

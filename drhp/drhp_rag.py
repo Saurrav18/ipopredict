@@ -16,6 +16,7 @@ across every field, and validation guarantees the value is right - which pure RA
 cannot do on financial tables.
 """
 import re
+import drhp_log
 
 # Natural-language intents -> DENSE retrieval finds these even when a future RHP
 # words them differently ("cost of acquisition" vs "cost of procurement").
@@ -339,7 +340,8 @@ def rag_extract_peers(index, llm_fn=None, k=5):
                            ("industry_pe_avg", "avg")):
                 if data.get(jk) and rk not in result["industry_pe"]:
                     result["industry_pe"][rk] = str(data[jk])
-        except Exception:
+        except Exception as _sw:
+            drhp_log.swallowed("drhp_rag", _sw)
             pass          # LLM failed/unavailable -> keep the regex P/E range only
     return result
 
@@ -394,7 +396,8 @@ def rag_extract_litigation(index, llm_fn=None, k=6):
             it["page"] = src_page
             items.append(it)
         result["items"] = items
-    except Exception:
+    except Exception as _sw:
+        drhp_log.swallowed("drhp_rag", _sw)
         pass
     return result
 
@@ -497,7 +500,8 @@ def rag_business_model(index, llm_fn=None, k=6):
             result["warning"] = (f"summary rejected - only {int(ratio*100)}% of its "
                                  f"terms were in the retrieved text (likely outside "
                                  f"knowledge, not the document)")
-    except Exception:
+    except Exception as _sw:
+        drhp_log.swallowed("drhp_rag", _sw)
         pass
     return result
 
@@ -539,7 +543,8 @@ def rag_extract_concentration(index, llm_fn=None, k=8):
                 digits = "".join(ch for ch in str(v) if ch.isdigit())
                 if digits and digits[:3] in low.replace(",", ""):
                     result[rk] = str(v)
-    except Exception:
+    except Exception as _sw:
+        drhp_log.swallowed("drhp_rag", _sw)
         pass
     return result
 
@@ -636,7 +641,8 @@ def rag_extract_rpt(index, llm_fn=None, k=6):
             if digits and digits in context.replace(",", "").replace(" ", ""):
                 result["rpt_total"] = str(v)
                 result["year_hint"] = data.get("year")
-    except Exception:
+    except Exception as _sw:
+        drhp_log.swallowed("drhp_rag", _sw)
         pass
     return result
 
@@ -781,7 +787,8 @@ def rag_litigation_reasoning(index, litigation_items, networth=None, llm_fn=None
                     pct = a / (nw * 100000 if nw < 10000 else nw) * 100
                     row["materiality"] = (f"{pct:.2f}% of net worth"
                                           if pct < 1000 else "scale mismatch - check units")
-                except ValueError:
+                except ValueError as _sw:
+                    drhp_log.swallowed("drhp_rag", _sw)
                     pass
             out.append(row)
         return out or None

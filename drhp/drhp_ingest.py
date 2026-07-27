@@ -1,3 +1,4 @@
+import drhp_log
 """
 drhp_ingest.py - turn a DRHP/RHP prospectus (PDF or TXT) into a searchable index.
 
@@ -97,7 +98,8 @@ def extract_pages(path):
                 print("  [PDF engine] PyMuPDF (fast) - text extracted in seconds")
                 os.environ["_PDF_ENGINE_SHOWN"] = "1"
             return pages
-     except Exception:
+     except Exception as _sw:
+        drhp_log.swallowed("drhp_ingest", _sw)
         pass
     # fallback: pdfplumber (slower but robust)
     if not os.environ.get("_PDF_ENGINE_SHOWN"):
@@ -409,7 +411,8 @@ class _DenseLeg:
                 self.col = col
                 return
             self._client.delete_collection(name)
-        except Exception:
+        except Exception as _sw:
+            drhp_log.swallowed("drhp_ingest", _sw)
             pass
         self.col = self._client.create_collection(
             name, embedding_function=embed_fn, metadata={"hnsw:space": "cosine"})

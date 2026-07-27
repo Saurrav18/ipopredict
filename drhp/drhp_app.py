@@ -1,3 +1,4 @@
+import drhp_log
 """
 drhp_app.py - local test server for the DRHP Scanner (Phase 1).
 
@@ -15,7 +16,7 @@ at a time (module-level), which is exactly right for a single-user scanner.
 """
 import os, io, json, tempfile, urllib.request
 from pathlib import Path
-from fastapi import FastAPI, UploadFile, File, Form, HTTPException
+from fastapi import FastAPI, UploadFile, File, Form, HTTPException, Request
 from fastapi.responses import HTMLResponse, JSONResponse
 import uvicorn
 
@@ -51,6 +52,68 @@ _load_env()
 import drhp_ingest, drhp_digest, drhp_research, drhp_tables, drhp_corpus, drhp_analyst
 
 app = FastAPI(title="DRHP Scanner")
+
+
+# ------------------------------------------------------------- hardening
+def _assert_public_url(url):
+    """SSRF guard for URL scans. The audit's live finding: /scan fetched ANY
+    user-supplied URL, so a hosted instance could be told to fetch cloud
+    metadata (169.254.169.254) or internal services. Policy: http(s) only,
+    every resolved address must be public, and redirects are not followed
+    (a public URL 302-ing to localhost is the classic bypass)."""
+    import socket, ipaddress
+    from urllib.parse import urlparse
+    u = urlparse(url)
+    if u.scheme not in ("http", "https"):
+        raise HTTPException(400, "Only http(s) URLs can be scanned.")
+    host = u.hostname or ""
+    try:
+        infos = socket.getaddrinfo(host, u.port or (443 if u.scheme == "https" else 80))
+    except socket.gaierror:
+        raise HTTPException(400, "Host could not be resolved.")
+    for info in infos:
+        ip = ipaddress.ip_address(info[4][0])
+        if (ip.is_private or ip.is_loopback or ip.is_link_local
+                or ip.is_reserved or ip.is_multicast or ip.is_unspecified):
+            raise HTTPException(400, "URL resolves to a non-public address.")
+
+
+class _NoRedirect(__import__("urllib.request", fromlist=["x"]).HTTPRedirectHandler):
+    def redirect_request(self, *a, **k):
+        raise HTTPException(400, "Redirects are not followed for URL scans.")
+
+
+_BUCKETS = {}
+def _rate_limit(request, kind, per_hour):
+    """Per-client inbound rate limit (audit: outbound pacing existed, inbound
+    did not - one caller could monopolise the single worker). In-memory token
+    bucket, which matches the single-instance deployment; the multi-instance
+    upgrade is the same interface backed by Redis."""
+    import time as _t
+    ip = getattr(getattr(request, "client", None), "host", None) or "anon"
+    key = (kind, ip)
+    now = _t.time()
+    tokens, last = _BUCKETS.get(key, (per_hour, now))
+    tokens = min(per_hour, tokens + (now - last) * per_hour / 3600.0)
+    if tokens < 1:
+        drhp_log.warn("rate_limited", kind=kind, ip=ip)
+        raise HTTPException(429, f"Rate limit: {per_hour} {kind}/hour. Try later.")
+    _BUCKETS[key] = (tokens - 1, now)
+
+
+@app.middleware("http")
+async def _observe(request, call_next):
+    """Request ID + timing on every call - the trace the audit said was missing."""
+    import time as _t
+    rid = drhp_log.new_request_id()
+    request.state.rid = rid
+    t0 = _t.time()
+    resp = await call_next(request)
+    drhp_log.info("request", rid=rid, path=request.url.path,
+                  status=resp.status_code, ms=round((_t.time()-t0)*1000))
+    resp.headers["x-request-id"] = rid
+    return resp
+
 CACHE_VERSION = "29"   # bump whenever digest/extraction output changes
 CACHE_DIR = Path(__file__).resolve().parent / "cache"
 
@@ -100,7 +163,8 @@ def _rebuild_index(pages):
 
 
 @app.post("/scan")
-async def scan(file: UploadFile = File(None), url: str = Form(None)):
+async def scan(request: Request, file: UploadFile = File(None), url: str = Form(None)):
+    _rate_limit(request, "scans", int(os.environ.get("DRHP_SCANS_PER_HOUR", "12")))
     if file is None and not url:
         raise HTTPException(400, "Upload a PDF/TXT or provide a URL.")
     suffix = ".pdf"
@@ -110,8 +174,10 @@ async def scan(file: UploadFile = File(None), url: str = Form(None)):
         data = await file.read()
     else:
         name = url.rsplit("/", 1)[-1] or "drhp.pdf"
+        _assert_public_url(url)          # SSRF guard (audit finding, live)
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-        with urllib.request.urlopen(req, timeout=120) as r:
+        _opener = urllib.request.build_opener(_NoRedirect)
+        with _opener.open(req, timeout=120) as r:
             data = r.read()
     if len(data) > 80 * 1024 * 1024:
         raise HTTPException(413, "File too large (80MB cap).")
@@ -138,7 +204,8 @@ async def scan(file: UploadFile = File(None), url: str = Form(None)):
             _hit["resp"]["doc"] = _dochash
             STATE["last_response"] = _hit["resp"]
             return JSONResponse(_hit["resp"])
-        except Exception:
+        except Exception as _sw:
+            drhp_log.swallowed("drhp_app", _sw)
             pass   # corrupt/legacy cache entry - fall through to a fresh scan
     with tempfile.NamedTemporaryFile(suffix=suffix, delete=False) as tf:
         tf.write(data); tmp = tf.name
@@ -169,12 +236,28 @@ async def scan(file: UploadFile = File(None), url: str = Form(None)):
     try:
         offer = drhp_tables.offer_snapshot(pages)
         units = drhp_tables.detect_units(pages)
-    except Exception:
+    except Exception as _sw:
+        drhp_log.swallowed("drhp_app", _sw)
         pass
     digest = drhp_digest.build_digest(index, table_fund=table_fund,
                                       statements=statements, offer=offer, segments=segments)
     digest["peers"] = peers
     digest["units"] = units
+    # cross-document library: index this scan for semantic search (iteration 38).
+    # Fire-and-forget thread: embedding must never delay or fail a scan; without
+    # a backend it reports UNAVAILABLE and the scan proceeds untouched.
+    def _sem_index(_h=_dochash, _n=name, _ix=index):
+        try:
+            import drhp_semantic
+            _c = _ix.chunks
+            _ch = list(_c.values()) if isinstance(_c, dict) else list(_c)
+            r = drhp_semantic.index_document(_h, _n, _ch)
+            drhp_log.info("semantic_index", doc=_h,
+                          status=r.get("status"), added=r.get("added"))
+        except Exception as _e:
+            drhp_log.swallowed("drhp_app._sem_index", _e)
+    import threading as _th
+    _th.Thread(target=_sem_index, daemon=True).start()
     company = drhp_research.company_identity(index) or name
     try:
         drhp_corpus.update(company, digest)
@@ -188,7 +271,8 @@ async def scan(file: UploadFile = File(None), url: str = Form(None)):
     try:
         import drhp_compare
         drhp_compare.save_to_library(name.rsplit(".", 1)[0], digest)
-    except Exception:
+    except Exception as _sw:
+        drhp_log.swallowed("drhp_app", _sw)
         pass
     import drhp_llm
     status, hint = drhp_llm.health()
@@ -199,7 +283,8 @@ async def scan(file: UploadFile = File(None), url: str = Form(None)):
         _cpath.write_text(json.dumps(
             {"version": CACHE_VERSION, "name": name, "meta": meta,
              "digest": digest, "pages": pages, "resp": resp}))
-    except Exception:
+    except Exception as _sw:
+        drhp_log.swallowed("drhp_app", _sw)
         pass
     return JSONResponse(resp)
 
@@ -227,8 +312,24 @@ async def compare(body: dict = None):
     return JSONResponse(drhp_compare.compare(selection=sel))
 
 
+
+@app.post("/semantic")
+async def semantic(request: Request, body: dict):
+    """Search ACROSS every scanned prospectus - the one retrieval problem
+    lexical search structurally cannot solve (same risk, different wording per
+    issuer). Honest degradation: no embedding backend -> status UNAVAILABLE."""
+    _rate_limit(request, "questions", int(os.environ.get("DRHP_ASKS_PER_HOUR", "120")))
+    q = (body or {}).get("query", "").strip()
+    if not q:
+        raise HTTPException(400, "Empty query.")
+    import drhp_semantic
+    out = drhp_semantic.search_library(q, k=int((body or {}).get("k", 8)),
+                                       exclude_doc=(body or {}).get("exclude_doc"))
+    return JSONResponse(out)
+
 @app.post("/ask")
-async def ask(body: dict):
+async def ask(request: Request, body: dict):
+    _rate_limit(request, "questions", int(os.environ.get("DRHP_ASKS_PER_HOUR", "120")))
     if STATE["index"] is None:
         raise HTTPException(409, "Scan a document first.")
     q = (body.get("question") or "").strip()
@@ -255,7 +356,8 @@ async def ask(body: dict):
     try:
         import drhp_rag
         idx._reranked = drhp_rag.rag_answer_reranked(idx, q)
-    except Exception:
+    except Exception as _sw:
+        drhp_log.swallowed("drhp_app", _sw)
         pass
     # iteration 17: tool-calling agent. When an LLM is live, it DECIDES which
     # proven tool answers the question (validated financials / litigation / peers
@@ -283,7 +385,8 @@ async def ask(body: dict):
                 base["note"] = "answered by the tool-calling agent (tools: " + \
                                ", ".join(_ag.get("tools_used", [])) + ")"
                 return JSONResponse(base)
-    except Exception:
+    except Exception as _sw:
+        drhp_log.swallowed("drhp_app", _sw)
         pass
     return JSONResponse(drhp_digest.answer_question(idx, q, digest=_digest or STATE["digest"]))
 

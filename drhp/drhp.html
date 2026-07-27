@@ -235,6 +235,16 @@ footer{border-top:1px solid var(--hairline); padding:22px 20px; font-family:'Jet
     <div id="status"></div>
   </div>
 
+  <div class="panel">
+    <div class="caps" style="margin-bottom:8px">Search across scanned IPOs</div>
+    <div style="display:flex; gap:8px">
+      <input id="semQ" type="text" placeholder="e.g. customer concentration risk, debt-funded expansion"
+             style="flex:1; padding:9px 12px; border:1px solid var(--hairline); background:var(--bg); color:var(--ink); font:inherit">
+      <button class="btn" id="semGo">Search</button>
+    </div>
+    <div id="semOut"></div>
+  </div>
+
   <div id="report" style="display:none">
     <div class="meta-line" id="metaLine"></div>
     <div class="legend">
@@ -291,6 +301,34 @@ const $ = s => document.querySelector(s);
   // always the parent, so strip a trailing /drhp to get its root - one HTML file
   // then works in both deployments.
   const ROOT = (API.replace(/\/drhp$/, "") || "") + "/";
+  (function wireSemantic(){
+    var go = document.getElementById("semGo"), q = document.getElementById("semQ");
+    if (!go) return;
+    function run(){
+      var v = (q.value || "").trim(); if (!v) return;
+      var out = document.getElementById("semOut");
+      out.innerHTML = '<div class="tag">searching across scanned documents...</div>';
+      fetch(API + "/semantic", {method:"POST", headers:{"Content-Type":"application/json"},
+            body: JSON.stringify({query: v})})
+        .then(r => r.json()).then(function(d){
+          if (d.status === "UNAVAILABLE"){
+            out.innerHTML = '<div class="tag">Semantic search needs an embedding backend ' +
+                            '(ollama pull nomic-embed-text, or a Gemini key). ' + esc(d.note || "") + "</div>";
+            return;
+          }
+          if (!d.hits || !d.hits.length){ out.innerHTML = '<div class="tag">No matches across the library.</div>'; return; }
+          out.innerHTML = d.hits.map(function(h){
+            return '<div style="border:1px solid var(--hairline); padding:10px 12px; margin:6px 0">' +
+                   '<span class="caps" style="font-size:11px">' + esc(h.issuer) + ' - p.' + h.page +
+                   ' - ' + esc(h.section) + ' - score ' + h.score + '</span>' +
+                   '<div style="font-size:13.5px; margin-top:4px">' + esc(h.text) + '</div></div>';
+          }).join("");
+        }).catch(function(e){ out.innerHTML = '<div class="tag">search failed: ' + esc(String(e)) + '</div>'; });
+    }
+    go.addEventListener("click", run);
+    q.addEventListener("keydown", function(e){ if (e.key === "Enter") run(); });
+  })();
+
   (function wireChrome(){
     // nav buttons return to the dashboard's matching view. ROOT strips a trailing
     // /drhp so one file serves both the standalone and mounted deployments.
