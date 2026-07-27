@@ -588,7 +588,7 @@
       "ofs_pct": 0.0,
       "fresh_pct": 100.0,
       "sector": "Manufacturing",
-      "gmp": 21.18,
+      "gmp": 24.24,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -600,17 +600,17 @@
     "win_score": 96,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 96,
+      "confidence": 97,
       "range_low": -8.3,
-      "range_high": 29.1,
-      "median": 10.2,
-      "big_win_prob": 17,
+      "range_high": 28.7,
+      "median": 12.0,
+      "big_win_prob": 32,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +21.2%",
+          "head": "Grey market premium +24.2%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -621,7 +621,7 @@
       "neu": [],
       "neg": [
         {
-          "head": "ML bullish (96%) but similar past IPOs only 40% WR",
+          "head": "ML bullish (97%) but similar past IPOs only 40% WR",
           "more": ""
         },
         {
@@ -898,7 +898,7 @@
       "ofs_pct": 13.7,
       "fresh_pct": 86.3,
       "sector": "Pharma/Healthcare",
-      "gmp": 3.56,
+      "gmp": 2.71,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -907,22 +907,18 @@
       "volatility": 11.3384,
       "trend": 0.0
     },
-    "win_score": 64,
+    "win_score": 62,
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 35,
+      "confidence": 37,
       "range_low": -10.4,
       "range_high": 13.3,
-      "median": 0.2,
+      "median": 0.1,
       "big_win_prob": 1,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
-        {
-          "head": "Grey market premium +3.6%",
-          "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
-        },
         {
           "head": "Founders keep 72%",
           "more": "A high promoter holding after the IPO means founders keep significant skin in the game, aligning them with shareholders."
@@ -952,55 +948,49 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "RandomForest",
-        "score": 58.0
+        "score": 55.0
       },
       {
         "tier": 66,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 58.0
+        "score": 55.0
       },
       {
         "tier": 67,
         "expected_wr": 69.1,
         "model": "RandomForest",
-        "score": 58.0
+        "score": 55.0
       },
       {
         "tier": 68,
         "expected_wr": 69.1,
         "model": "RandomForest",
-        "score": 58.0
+        "score": 55.0
       },
       {
         "tier": 69,
         "expected_wr": 69.4,
         "model": "RandomForest",
-        "score": 58.0
+        "score": 55.0
       },
       {
         "tier": 70,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 58.0
+        "score": 55.0
       },
       {
         "tier": 71,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 58.0
+        "score": 55.0
       },
       {
         "tier": 72,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 58.0
-      },
-      {
-        "tier": 73,
-        "expected_wr": 72.3,
-        "model": "RandomForest",
-        "score": 58.0
+        "score": 55.0
       }
     ],
     "state": "open"
