@@ -17,7 +17,7 @@
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 2.82,
+      "gmp": 2.59,
       "qib": 9.11,
       "hni": 6.82,
       "rii": 2.78,
@@ -31,7 +31,7 @@
       "verdict": "SKIP",
       "confidence": 28,
       "range_low": -8.4,
-      "range_high": 9.7,
+      "range_high": 9.4,
       "median": -3.1,
       "big_win_prob": 0,
       "allotment_pct": 36.0
@@ -79,85 +79,79 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 60.0
       },
       {
         "tier": 66,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 60.0
       },
       {
         "tier": 67,
         "expected_wr": 69.1,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 60.0
       },
       {
         "tier": 68,
         "expected_wr": 69.1,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 60.0
       },
       {
         "tier": 69,
         "expected_wr": 69.4,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 60.0
       },
       {
         "tier": 70,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 60.0
       },
       {
         "tier": 71,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 60.0
       },
       {
         "tier": 72,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 60.0
       },
       {
         "tier": 73,
         "expected_wr": 72.3,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 60.0
       },
       {
         "tier": 74,
         "expected_wr": 74.5,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 60.0
       },
       {
         "tier": 75,
         "expected_wr": 74.5,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 60.0
       },
       {
         "tier": 76,
         "expected_wr": 74.5,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 60.0
       },
       {
         "tier": 77,
         "expected_wr": 74.5,
         "model": "RandomForest",
-        "score": 61.0
-      },
-      {
-        "tier": 78,
-        "expected_wr": 76.4,
-        "model": "RandomForest",
-        "score": 61.0
+        "score": 60.0
       }
     ],
     "state": "open"
@@ -180,7 +174,7 @@
       "ofs_pct": 86.9,
       "fresh_pct": 13.1,
       "sector": "Manufacturing",
-      "gmp": 39.79,
+      "gmp": 40.0,
       "qib": 204.47,
       "hni": 50.65,
       "rii": 6.69,
@@ -195,14 +189,14 @@
       "confidence": 99,
       "range_low": -7.2,
       "range_high": 53.5,
-      "median": 39.4,
+      "median": 40.5,
       "big_win_prob": 93,
       "allotment_pct": 14.9
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +39.8%",
+          "head": "Grey market premium +40.0%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -475,7 +469,7 @@
       "ofs_pct": 0.0,
       "fresh_pct": 100.0,
       "sector": "BFSI",
-      "gmp": 4.72,
+      "gmp": 5.51,
       "qib": 7.13,
       "hni": 26.65,
       "rii": 8.98,
@@ -484,12 +478,12 @@
       "volatility": 11.3384,
       "trend": 0.0
     },
-    "win_score": 48,
+    "win_score": 49,
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 52,
-      "range_low": -8.2,
-      "range_high": 11.6,
+      "confidence": 51,
+      "range_low": -8.1,
+      "range_high": 11.9,
       "median": -2.2,
       "big_win_prob": 0,
       "allotment_pct": 11.1
@@ -497,7 +491,7 @@
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +4.7%",
+          "head": "Grey market premium +5.5%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -541,13 +535,31 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "RandomForest",
-        "score": 51.0
+        "score": 53.0
       },
       {
         "tier": 66,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 51.0
+        "score": 53.0
+      },
+      {
+        "tier": 67,
+        "expected_wr": 69.1,
+        "model": "RandomForest",
+        "score": 53.0
+      },
+      {
+        "tier": 68,
+        "expected_wr": 69.1,
+        "model": "RandomForest",
+        "score": 53.0
+      },
+      {
+        "tier": 69,
+        "expected_wr": 69.4,
+        "model": "RandomForest",
+        "score": 53.0
       }
     ],
     "state": "open"
@@ -570,7 +582,7 @@
       "ofs_pct": 0.0,
       "fresh_pct": 100.0,
       "sector": "Manufacturing",
-      "gmp": 17.65,
+      "gmp": 21.18,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -584,15 +596,15 @@
       "verdict": "APPLY",
       "confidence": 96,
       "range_low": -8.3,
-      "range_high": 21.1,
-      "median": 9.1,
-      "big_win_prob": 5,
+      "range_high": 29.1,
+      "median": 10.2,
+      "big_win_prob": 17,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +17.6%",
+          "head": "Grey market premium +21.2%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
