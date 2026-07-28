@@ -1,5 +1,36 @@
 [
   {
+    "ipo_name": "Ardee Industries",
+    "close_date": "7 Aug, 2026",
+    "_closing_today": false,
+    "_closing_tomorrow": false,
+    "listing_date": "Wed, Aug 12, 2026T",
+    "listed_on": null,
+    "offer_price": null,
+    "size_cr": null,
+    "inputs": {
+      "offer_price": null,
+      "size_cr": null,
+      "pe": null,
+      "roe": 72.0,
+      "promoter_holding": null,
+      "ofs_pct": null,
+      "fresh_pct": null,
+      "sector": "BFSI",
+      "gmp": 0.0,
+      "qib": null,
+      "hni": null,
+      "rii": null,
+      "sub": null,
+      "market_sentiment": 1.0016,
+      "volatility": 11.0087,
+      "trend": 1.0
+    },
+    "state": "upcoming",
+    "qualifying_tiers": [],
+    "opens_note": "Opening soon. A call appears once grey-market and subscription data is available."
+  },
+  {
     "ipo_name": "Manipal Health Enterprises",
     "close_date": "31 Jul, 2026",
     "_closing_today": false,
@@ -96,7 +127,7 @@
       "ofs_pct": 0.0,
       "fresh_pct": 100.0,
       "sector": "BFSI",
-      "gmp": 5.78,
+      "gmp": 7.11,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -105,20 +136,20 @@
       "volatility": 11.0087,
       "trend": 1.0
     },
-    "win_score": 63,
+    "win_score": 67,
     "prediction": {
-      "verdict": "SKIP",
-      "confidence": 37,
-      "range_low": -5.5,
+      "verdict": "APPLY",
+      "confidence": 67,
+      "range_low": -6.0,
       "range_high": 36.3,
-      "median": 9.1,
+      "median": 9.0,
       "big_win_prob": 2,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +5.8%",
+          "head": "Grey market premium +7.1%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -150,91 +181,163 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "RandomForest",
-        "score": 63.0
+        "score": 67.0
       },
       {
         "tier": 66,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 63.0
+        "score": 67.0
       },
       {
         "tier": 67,
         "expected_wr": 69.1,
         "model": "RandomForest",
-        "score": 63.0
+        "score": 67.0
       },
       {
         "tier": 68,
         "expected_wr": 69.1,
         "model": "RandomForest",
-        "score": 63.0
+        "score": 67.0
       },
       {
         "tier": 69,
         "expected_wr": 69.4,
         "model": "RandomForest",
-        "score": 63.0
+        "score": 67.0
       },
       {
         "tier": 70,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 63.0
+        "score": 67.0
       },
       {
         "tier": 71,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 63.0
+        "score": 67.0
       },
       {
         "tier": 72,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 63.0
+        "score": 67.0
       },
       {
         "tier": 73,
         "expected_wr": 72.3,
         "model": "RandomForest",
-        "score": 63.0
+        "score": 67.0
       },
       {
         "tier": 74,
         "expected_wr": 74.5,
         "model": "RandomForest",
-        "score": 63.0
+        "score": 67.0
       },
       {
         "tier": 75,
         "expected_wr": 74.5,
         "model": "RandomForest",
-        "score": 63.0
+        "score": 67.0
       },
       {
         "tier": 76,
         "expected_wr": 74.5,
         "model": "RandomForest",
-        "score": 63.0
+        "score": 67.0
       },
       {
         "tier": 77,
         "expected_wr": 74.5,
         "model": "RandomForest",
-        "score": 63.0
+        "score": 67.0
       },
       {
         "tier": 78,
         "expected_wr": 76.4,
         "model": "RandomForest",
-        "score": 63.0
+        "score": 67.0
       },
       {
         "tier": 79,
         "expected_wr": 77.1,
         "model": "RandomForest",
-        "score": 63.0
+        "score": 67.0
+      },
+      {
+        "tier": 80,
+        "expected_wr": 79.4,
+        "model": "RandomForest",
+        "score": 67.0
+      },
+      {
+        "tier": 81,
+        "expected_wr": 79.4,
+        "model": "RandomForest",
+        "score": 67.0
+      },
+      {
+        "tier": 82,
+        "expected_wr": 86.6,
+        "model": "RandomForest",
+        "score": 67.0
+      },
+      {
+        "tier": 83,
+        "expected_wr": 86.6,
+        "model": "RandomForest",
+        "score": 67.0
+      },
+      {
+        "tier": 84,
+        "expected_wr": 86.6,
+        "model": "RandomForest",
+        "score": 67.0
+      },
+      {
+        "tier": 85,
+        "expected_wr": 86.6,
+        "model": "RandomForest",
+        "score": 67.0
+      },
+      {
+        "tier": 86,
+        "expected_wr": 86.6,
+        "model": "RandomForest",
+        "score": 67.0
+      },
+      {
+        "tier": 87,
+        "expected_wr": 90.2,
+        "model": "RandomForest",
+        "score": 67.0
+      },
+      {
+        "tier": 88,
+        "expected_wr": 90.2,
+        "model": "RandomForest",
+        "score": 67.0
+      },
+      {
+        "tier": 89,
+        "expected_wr": 90.2,
+        "model": "RandomForest",
+        "score": 67.0
+      },
+      {
+        "tier": 90,
+        "expected_wr": 90.2,
+        "model": "RandomForest",
+        "score": 67.0
+      },
+      {
+        "tier": 91,
+        "expected_wr": 90.2,
+        "model": "RandomForest",
+        "score": 67.0
       }
     ],
     "state": "open"
@@ -536,7 +639,7 @@
       "ofs_pct": 0.0,
       "fresh_pct": 100.0,
       "sector": "BFSI",
-      "gmp": 6.69,
+      "gmp": 10.24,
       "qib": 7.13,
       "hni": 26.65,
       "rii": 8.98,
@@ -545,20 +648,20 @@
       "volatility": 11.0087,
       "trend": 1.0
     },
-    "win_score": 51,
+    "win_score": 65,
     "prediction": {
-      "verdict": "SKIP",
-      "confidence": 49,
-      "range_low": -8.4,
-      "range_high": 12.4,
-      "median": -1.6,
+      "verdict": "APPLY",
+      "confidence": 66,
+      "range_low": -7.6,
+      "range_high": 15.3,
+      "median": -0.7,
       "big_win_prob": 0,
       "allotment_pct": 11.1
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +6.7%",
+          "head": "Grey market premium +10.2%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -598,25 +701,85 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "RandomForest",
-        "score": 52.0
+        "score": 61.0
       },
       {
         "tier": 66,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 52.0
+        "score": 61.0
       },
       {
         "tier": 67,
         "expected_wr": 69.1,
         "model": "RandomForest",
-        "score": 52.0
+        "score": 61.0
       },
       {
         "tier": 68,
         "expected_wr": 69.1,
         "model": "RandomForest",
-        "score": 52.0
+        "score": 61.0
+      },
+      {
+        "tier": 69,
+        "expected_wr": 69.4,
+        "model": "RandomForest",
+        "score": 61.0
+      },
+      {
+        "tier": 70,
+        "expected_wr": 71.2,
+        "model": "RandomForest",
+        "score": 61.0
+      },
+      {
+        "tier": 71,
+        "expected_wr": 71.2,
+        "model": "RandomForest",
+        "score": 61.0
+      },
+      {
+        "tier": 72,
+        "expected_wr": 71.2,
+        "model": "RandomForest",
+        "score": 61.0
+      },
+      {
+        "tier": 73,
+        "expected_wr": 72.3,
+        "model": "RandomForest",
+        "score": 61.0
+      },
+      {
+        "tier": 74,
+        "expected_wr": 74.5,
+        "model": "RandomForest",
+        "score": 61.0
+      },
+      {
+        "tier": 75,
+        "expected_wr": 74.5,
+        "model": "RandomForest",
+        "score": 61.0
+      },
+      {
+        "tier": 76,
+        "expected_wr": 74.5,
+        "model": "RandomForest",
+        "score": 61.0
+      },
+      {
+        "tier": 77,
+        "expected_wr": 74.5,
+        "model": "RandomForest",
+        "score": 61.0
+      },
+      {
+        "tier": 78,
+        "expected_wr": 76.4,
+        "model": "RandomForest",
+        "score": 61.0
       }
     ],
     "state": "open"
@@ -1432,6 +1595,102 @@
     }
   },
   {
+    "ipo_name": "Alpine Texworld Ltd.",
+    "close_date": "16 Jul, 2026",
+    "listing_date": "Tue, Jul 21, 2026",
+    "listed_on": "Tue, Jul 21, 2026",
+    "offer_price": 105.0,
+    "list_price": 105.0,
+    "size_cr": 126.0,
+    "symbol": "ALPINETEX",
+    "sector": "Manufacturing",
+    "actual": {
+      "pct": 0.0,
+      "price": 105.0,
+      "hit": true
+    },
+    "listing_gain": 0.0,
+    "state": "settled",
+    "qualifying_tiers": [],
+    "inputs": {
+      "offer_price": 105.0,
+      "size_cr": 126.0,
+      "pe": 12.68,
+      "roe": 33.85,
+      "promoter_holding": null,
+      "ofs_pct": 0.0,
+      "fresh_pct": 100.0,
+      "sector": "Manufacturing",
+      "gmp": 0.95,
+      "qib": 1.09,
+      "hni": 1.09,
+      "rii": 1.54,
+      "sub": 1.4,
+      "market_sentiment": 1.0016,
+      "volatility": 11.0087,
+      "trend": 1.0
+    },
+    "prediction": {
+      "verdict": "SKIP",
+      "confidence": 85,
+      "range_low": -13.7,
+      "range_high": 21.4,
+      "median": -4.7,
+      "big_win_prob": 1,
+      "allotment_pct": 64.9
+    },
+    "cases": {
+      "pos": [
+        {
+          "head": "Strong returns: ROE 33.9%",
+          "more": "Return on equity shows how efficiently the company turns shareholder money into profit. Above roughly 15% is healthy."
+        },
+        {
+          "head": "Reasonable price: P/E 12.7",
+          "more": "A lower price-to-earnings ratio means you pay less per rupee of profit, leaving more room to rise."
+        },
+        {
+          "head": "Mostly fresh capital (100% new money)",
+          "more": "Most of the money raised goes into the company (growth, repaying debt) rather than founders cashing out."
+        }
+      ],
+      "neu": [],
+      "neg": [
+        {
+          "head": "Manufacturing sector is cold, COLD (recent 40% vs 73% historical)",
+          "more": ""
+        },
+        {
+          "head": "Similar past IPOs: 0 of 5 listed positive",
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), none of the 5 listed above the offer price. They averaged -7.5% on day one."
+        }
+      ]
+    },
+    "note": null,
+    "retro": true,
+    "frozen": {
+      "ipo_name": "Alpine Texworld Ltd.",
+      "locked": true,
+      "updated_on": "2026-07-10",
+      "verdict": "SKIP",
+      "range_low": -12.4,
+      "range_high": 30.3,
+      "median": 5.3,
+      "confidence": 61,
+      "max_tier": 69,
+      "locked_on": "2026-07-19"
+    },
+    "graded": {
+      "verdict": "SKIP",
+      "actual": 0.0,
+      "hit": true,
+      "range_low": -12.4,
+      "range_high": 30.3,
+      "in_range": true,
+      "confidence": 61
+    }
+  },
+  {
     "ipo_name": "SBI Funds Management Ltd.",
     "close_date": "16 Jul, 2026",
     "listing_date": "Tue, Jul 21, 2026",
@@ -1751,102 +2010,6 @@
       "range_high": 51.2,
       "in_range": true,
       "confidence": 96
-    }
-  },
-  {
-    "ipo_name": "Alpine Texworld Ltd.",
-    "close_date": "16 Jul, 2026",
-    "listing_date": "Tue, Jul 21, 2026",
-    "listed_on": "Tue, Jul 21, 2026",
-    "offer_price": 105.0,
-    "list_price": 105.0,
-    "size_cr": 126.0,
-    "symbol": "ALPINETEX",
-    "sector": "Manufacturing",
-    "actual": {
-      "pct": 0.0,
-      "price": 105.0,
-      "hit": true
-    },
-    "listing_gain": 0.0,
-    "state": "settled",
-    "qualifying_tiers": [],
-    "inputs": {
-      "offer_price": 105.0,
-      "size_cr": 126.0,
-      "pe": 12.68,
-      "roe": 33.85,
-      "promoter_holding": null,
-      "ofs_pct": 0.0,
-      "fresh_pct": 100.0,
-      "sector": "Manufacturing",
-      "gmp": 0.95,
-      "qib": 1.09,
-      "hni": 1.09,
-      "rii": 1.54,
-      "sub": 1.4,
-      "market_sentiment": 1.0016,
-      "volatility": 11.0087,
-      "trend": 1.0
-    },
-    "prediction": {
-      "verdict": "SKIP",
-      "confidence": 85,
-      "range_low": -13.7,
-      "range_high": 21.4,
-      "median": -4.7,
-      "big_win_prob": 1,
-      "allotment_pct": 64.9
-    },
-    "cases": {
-      "pos": [
-        {
-          "head": "Strong returns: ROE 33.9%",
-          "more": "Return on equity shows how efficiently the company turns shareholder money into profit. Above roughly 15% is healthy."
-        },
-        {
-          "head": "Reasonable price: P/E 12.7",
-          "more": "A lower price-to-earnings ratio means you pay less per rupee of profit, leaving more room to rise."
-        },
-        {
-          "head": "Mostly fresh capital (100% new money)",
-          "more": "Most of the money raised goes into the company (growth, repaying debt) rather than founders cashing out."
-        }
-      ],
-      "neu": [],
-      "neg": [
-        {
-          "head": "Manufacturing sector is cold, COLD (recent 40% vs 73% historical)",
-          "more": ""
-        },
-        {
-          "head": "Similar past IPOs: 0 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), none of the 5 listed above the offer price. They averaged -7.5% on day one."
-        }
-      ]
-    },
-    "note": null,
-    "retro": true,
-    "frozen": {
-      "ipo_name": "Alpine Texworld Ltd.",
-      "locked": true,
-      "updated_on": "2026-07-10",
-      "verdict": "SKIP",
-      "range_low": -12.4,
-      "range_high": 30.3,
-      "median": 5.3,
-      "confidence": 61,
-      "max_tier": 69,
-      "locked_on": "2026-07-19"
-    },
-    "graded": {
-      "verdict": "SKIP",
-      "actual": 0.0,
-      "hit": true,
-      "range_low": -12.4,
-      "range_high": 30.3,
-      "in_range": true,
-      "confidence": 61
     }
   }
 ]
