@@ -1196,7 +1196,7 @@
     "close_date": "27 Jul, 2026",
     "_closing_today": false,
     "_closing_tomorrow": false,
-    "listing_date": "Thu, Jul 30, 2026T",
+    "listing_date": "Thu, Jul 30, 2026",
     "listed_on": null,
     "offer_price": 485.0,
     "size_cr": 3811.0,
@@ -1209,7 +1209,7 @@
       "ofs_pct": 86.9,
       "fresh_pct": 13.1,
       "sector": "Manufacturing",
-      "gmp": 37.11,
+      "gmp": 38.35,
       "qib": 204.47,
       "hni": 50.65,
       "rii": 6.69,
@@ -1224,14 +1224,14 @@
       "confidence": 99,
       "range_low": -7.2,
       "range_high": 49.2,
-      "median": 29.8,
+      "median": 32.0,
       "big_win_prob": 95,
       "allotment_pct": 14.9
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +37.1%",
+          "head": "Grey market premium +38.4%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -1500,7 +1500,7 @@
       "ofs_pct": 100.0,
       "fresh_pct": 0.0,
       "sector": "BFSI",
-      "gmp": 4.0,
+      "gmp": 4.35,
       "qib": 9.11,
       "hni": 6.82,
       "rii": 2.78,
@@ -1509,20 +1509,20 @@
       "volatility": 11.3343,
       "trend": 1.0
     },
-    "win_score": 69,
+    "win_score": 72,
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 31,
+      "confidence": 28,
       "range_low": -8.1,
       "range_high": 11.4,
-      "median": 1.5,
+      "median": 1.2,
       "big_win_prob": 0,
       "allotment_pct": 36.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +4.0%",
+          "head": "Grey market premium +4.3%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -1545,6 +1545,10 @@
           "more": ""
         },
         {
+          "head": "ML bullish (72%) but similar past IPOs only 20% WR",
+          "more": ""
+        },
+        {
           "head": "Mostly promoters cashing out (100% OFS)",
           "more": "Most of the issue is an offer-for-sale, so the money goes to selling shareholders, not into the business."
         },
@@ -1562,133 +1566,133 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 68.0
       },
       {
         "tier": 66,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 68.0
       },
       {
         "tier": 67,
         "expected_wr": 69.1,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 68.0
       },
       {
         "tier": 68,
         "expected_wr": 69.1,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 68.0
       },
       {
         "tier": 69,
         "expected_wr": 69.4,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 68.0
       },
       {
         "tier": 70,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 68.0
       },
       {
         "tier": 71,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 68.0
       },
       {
         "tier": 72,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 68.0
       },
       {
         "tier": 73,
         "expected_wr": 72.3,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 68.0
       },
       {
         "tier": 74,
         "expected_wr": 74.5,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 68.0
       },
       {
         "tier": 75,
         "expected_wr": 74.5,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 68.0
       },
       {
         "tier": 76,
         "expected_wr": 74.5,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 68.0
       },
       {
         "tier": 77,
         "expected_wr": 74.5,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 68.0
       },
       {
         "tier": 78,
         "expected_wr": 76.4,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 68.0
       },
       {
         "tier": 79,
         "expected_wr": 77.1,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 68.0
       },
       {
         "tier": 80,
         "expected_wr": 79.4,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 68.0
       },
       {
         "tier": 81,
         "expected_wr": 79.4,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 68.0
       },
       {
         "tier": 82,
         "expected_wr": 86.6,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 68.0
       },
       {
         "tier": 83,
         "expected_wr": 86.6,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 68.0
       },
       {
         "tier": 84,
         "expected_wr": 86.6,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 68.0
       },
       {
         "tier": 85,
         "expected_wr": 86.6,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 68.0
       },
       {
         "tier": 86,
         "expected_wr": 86.6,
         "model": "RandomForest",
-        "score": 67.0
+        "score": 68.0
       }
     ],
     "state": "open"
