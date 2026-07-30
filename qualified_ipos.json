@@ -644,7 +644,7 @@
       "ofs_pct": 13.7,
       "fresh_pct": 86.3,
       "sector": "Pharma/Healthcare",
-      "gmp": 0.85,
+      "gmp": 1.19,
       "qib": 0.62,
       "hni": 0.15,
       "rii": 0.48,
@@ -656,10 +656,10 @@
     "win_score": 47,
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 52,
-      "range_low": -9.2,
-      "range_high": 8.4,
-      "median": -1.4,
+      "confidence": 53,
+      "range_low": -10.1,
+      "range_high": 8.8,
+      "median": -1.5,
       "big_win_prob": 0,
       "allotment_pct": 100.0
     },
@@ -698,25 +698,31 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "RandomForest",
-        "score": 52.0
+        "score": 54.0
       },
       {
         "tier": 66,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 52.0
+        "score": 54.0
       },
       {
         "tier": 67,
         "expected_wr": 69.1,
         "model": "RandomForest",
-        "score": 52.0
+        "score": 54.0
       },
       {
         "tier": 68,
         "expected_wr": 69.1,
         "model": "RandomForest",
-        "score": 52.0
+        "score": 54.0
+      },
+      {
+        "tier": 69,
+        "expected_wr": 69.4,
+        "model": "RandomForest",
+        "score": 54.0
       }
     ],
     "state": "open"
