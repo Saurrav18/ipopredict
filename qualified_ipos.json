@@ -17,7 +17,7 @@
       "ofs_pct": 24.9,
       "fresh_pct": 75.1,
       "sector": "BFSI",
-      "gmp": 16.98,
+      "gmp": 18.87,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -26,20 +26,20 @@
       "volatility": 11.3059,
       "trend": 1.0
     },
-    "win_score": 96,
+    "win_score": 97,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 96,
-      "range_low": -0.6,
-      "range_high": 22.8,
-      "median": 9.1,
-      "big_win_prob": 2,
+      "confidence": 97,
+      "range_low": -0.2,
+      "range_high": 28.5,
+      "median": 10.9,
+      "big_win_prob": 4,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +17.0%",
+          "head": "Grey market premium +18.9%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -291,29 +291,29 @@
       "ofs_pct": 0.0,
       "fresh_pct": 100.0,
       "sector": "BFSI",
-      "gmp": 4.44,
+      "gmp": 4.0,
       "qib": 1.05,
-      "hni": 0.04,
+      "hni": 0.05,
       "rii": 0.12,
-      "sub": 0.37,
+      "sub": 0.38,
       "market_sentiment": 1.013,
       "volatility": 11.3059,
       "trend": 1.0
     },
-    "win_score": 52,
+    "win_score": 42,
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 48,
-      "range_low": -7.2,
-      "range_high": 7.6,
-      "median": -1.8,
+      "confidence": 58,
+      "range_low": -8.3,
+      "range_high": 7.5,
+      "median": -2.3,
       "big_win_prob": 0,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +4.4%",
+          "head": "Grey market premium +4.0%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -328,7 +328,7 @@
           "more": "A high price-to-earnings ratio means you pay a lot per rupee of profit, leaving less room to rise."
         },
         {
-          "head": "Undersubscribed: 0.37x",
+          "head": "Undersubscribed: 0.38x",
           "more": "Total demand was below the shares on offer, a weak sign."
         },
         {
@@ -345,31 +345,13 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "RandomForest",
-        "score": 54.0
+        "score": 50.0
       },
       {
         "tier": 66,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 54.0
-      },
-      {
-        "tier": 67,
-        "expected_wr": 69.1,
-        "model": "RandomForest",
-        "score": 54.0
-      },
-      {
-        "tier": 68,
-        "expected_wr": 69.1,
-        "model": "RandomForest",
-        "score": 54.0
-      },
-      {
-        "tier": 69,
-        "expected_wr": 69.4,
-        "model": "RandomForest",
-        "score": 54.0
+        "score": 50.0
       }
     ],
     "state": "open"
@@ -392,11 +374,11 @@
       "ofs_pct": 0.0,
       "fresh_pct": 100.0,
       "sector": "Manufacturing",
-      "gmp": 25.88,
-      "qib": 0.86,
-      "hni": 3.0,
-      "rii": 11.14,
-      "sub": 3.31,
+      "gmp": 26.35,
+      "qib": 0.87,
+      "hni": 3.7,
+      "rii": 11.96,
+      "sub": 3.66,
       "market_sentiment": 1.013,
       "volatility": 11.3059,
       "trend": 1.0
@@ -406,15 +388,15 @@
       "verdict": "APPLY",
       "confidence": 97,
       "range_low": -1.7,
-      "range_high": 35.1,
-      "median": 11.0,
-      "big_win_prob": 33,
-      "allotment_pct": 9.0
+      "range_high": 35.3,
+      "median": 10.8,
+      "big_win_prob": 37,
+      "allotment_pct": 8.4
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +25.9%",
+          "head": "Grey market premium +26.4%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -425,7 +407,7 @@
       "neu": [],
       "neg": [
         {
-          "head": "QIB only 0.9x despite GMP +25.9%, institutions not convinced",
+          "head": "QIB only 0.9x despite GMP +26.4%, institutions not convinced",
           "more": ""
         },
         {
@@ -676,10 +658,10 @@
       "fresh_pct": 86.3,
       "sector": "Pharma/Healthcare",
       "gmp": 0.85,
-      "qib": 0.46,
-      "hni": 0.14,
-      "rii": 0.46,
-      "sub": 0.37,
+      "qib": 0.51,
+      "hni": 0.15,
+      "rii": 0.47,
+      "sub": 0.41,
       "market_sentiment": 1.013,
       "volatility": 11.3059,
       "trend": 1.0
@@ -716,7 +698,7 @@
           "more": "A high price-to-earnings ratio means you pay a lot per rupee of profit, leaving less room to rise."
         },
         {
-          "head": "Undersubscribed: 0.37x",
+          "head": "Undersubscribed: 0.41x",
           "more": "Total demand was below the shares on offer, a weak sign."
         }
       ]
