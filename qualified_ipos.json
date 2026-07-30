@@ -22,8 +22,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0128,
-      "volatility": 11.3029,
+      "market_sentiment": 1.013,
+      "volatility": 11.3059,
       "trend": 1.0
     },
     "win_score": 96,
@@ -294,10 +294,10 @@
       "gmp": 4.44,
       "qib": 1.05,
       "hni": 0.04,
-      "rii": 0.11,
+      "rii": 0.12,
       "sub": 0.37,
-      "market_sentiment": 1.0128,
-      "volatility": 11.3029,
+      "market_sentiment": 1.013,
+      "volatility": 11.3059,
       "trend": 1.0
     },
     "win_score": 52,
@@ -393,23 +393,23 @@
       "fresh_pct": 100.0,
       "sector": "Manufacturing",
       "gmp": 25.88,
-      "qib": 0.06,
-      "hni": 2.67,
-      "rii": 10.33,
-      "sub": 2.64,
-      "market_sentiment": 1.0128,
-      "volatility": 11.3029,
+      "qib": 0.86,
+      "hni": 3.0,
+      "rii": 11.14,
+      "sub": 3.31,
+      "market_sentiment": 1.013,
+      "volatility": 11.3059,
       "trend": 1.0
     },
     "win_score": 97,
     "prediction": {
       "verdict": "APPLY",
       "confidence": 97,
-      "range_low": -1.9,
-      "range_high": 34.9,
-      "median": 10.9,
-      "big_win_prob": 31,
-      "allotment_pct": 9.7
+      "range_low": -1.7,
+      "range_high": 35.1,
+      "median": 11.0,
+      "big_win_prob": 33,
+      "allotment_pct": 9.0
     },
     "cases": {
       "pos": [
@@ -425,7 +425,7 @@
       "neu": [],
       "neg": [
         {
-          "head": "QIB only 0.1x despite GMP +25.9%, institutions not convinced",
+          "head": "QIB only 0.9x despite GMP +25.9%, institutions not convinced",
           "more": ""
         },
         {
@@ -676,12 +676,12 @@
       "fresh_pct": 86.3,
       "sector": "Pharma/Healthcare",
       "gmp": 0.85,
-      "qib": 0.43,
-      "hni": 0.13,
-      "rii": 0.45,
-      "sub": 0.35,
-      "market_sentiment": 1.0128,
-      "volatility": 11.3029,
+      "qib": 0.46,
+      "hni": 0.14,
+      "rii": 0.46,
+      "sub": 0.37,
+      "market_sentiment": 1.013,
+      "volatility": 11.3059,
       "trend": 1.0
     },
     "win_score": 47,
@@ -690,7 +690,7 @@
       "confidence": 52,
       "range_low": -8.8,
       "range_high": 8.2,
-      "median": -1.5,
+      "median": -1.4,
       "big_win_prob": 0,
       "allotment_pct": 100.0
     },
@@ -716,7 +716,7 @@
           "more": "A high price-to-earnings ratio means you pay a lot per rupee of profit, leaving less room to rise."
         },
         {
-          "head": "Undersubscribed: 0.35x",
+          "head": "Undersubscribed: 0.37x",
           "more": "Total demand was below the shares on offer, a weak sign."
         }
       ]
@@ -775,8 +775,8 @@
       "hni": 6.82,
       "rii": 2.78,
       "sub": 7.26,
-      "market_sentiment": 1.0128,
-      "volatility": 11.3029,
+      "market_sentiment": 1.013,
+      "volatility": 11.3059,
       "trend": 1.0
     },
     "win_score": 83,
@@ -990,8 +990,8 @@
       "hni": 50.65,
       "rii": 6.69,
       "sub": 72.37,
-      "market_sentiment": 1.0128,
-      "volatility": 11.3029,
+      "market_sentiment": 1.013,
+      "volatility": 11.3059,
       "trend": 1.0
     },
     "win_score": 99,
@@ -1281,8 +1281,8 @@
       "hni": 26.65,
       "rii": 8.98,
       "sub": 12.24,
-      "market_sentiment": 1.0128,
-      "volatility": 11.3029,
+      "market_sentiment": 1.013,
+      "volatility": 11.3059,
       "trend": 1.0
     },
     "win_score": 87,
@@ -1782,8 +1782,8 @@
       "hni": 281.99,
       "rii": 43.4,
       "sub": 154.66,
-      "market_sentiment": 1.0128,
-      "volatility": 11.3029,
+      "market_sentiment": 1.013,
+      "volatility": 11.3059,
       "trend": 1.0
     },
     "prediction": {
@@ -1885,8 +1885,8 @@
       "hni": 1.09,
       "rii": 1.54,
       "sub": 1.4,
-      "market_sentiment": 1.0128,
-      "volatility": 11.3029,
+      "market_sentiment": 1.013,
+      "volatility": 11.3059,
       "trend": 1.0
     },
     "prediction": {
@@ -2186,8 +2186,8 @@
       "hni": 22.51,
       "rii": 3.76,
       "sub": 41.73,
-      "market_sentiment": 1.0128,
-      "volatility": 11.3029,
+      "market_sentiment": 1.013,
+      "volatility": 11.3059,
       "trend": 1.0
     },
     "prediction": {
