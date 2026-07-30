@@ -374,11 +374,11 @@
       "ofs_pct": 0.0,
       "fresh_pct": 100.0,
       "sector": "Manufacturing",
-      "gmp": 26.35,
+      "gmp": 27.29,
       "qib": 0.87,
-      "hni": 3.94,
-      "rii": 12.45,
-      "sub": 3.81,
+      "hni": 4.0,
+      "rii": 12.68,
+      "sub": 3.87,
       "market_sentiment": 1.013,
       "volatility": 11.3059,
       "trend": 1.0
@@ -389,14 +389,14 @@
       "confidence": 97,
       "range_low": -1.7,
       "range_high": 35.3,
-      "median": 10.8,
+      "median": 11.2,
       "big_win_prob": 37,
-      "allotment_pct": 8.0
+      "allotment_pct": 7.9
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +26.4%",
+          "head": "Grey market premium +27.3%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -407,7 +407,7 @@
       "neu": [],
       "neg": [
         {
-          "head": "QIB only 0.9x despite GMP +26.4%, institutions not convinced",
+          "head": "QIB only 0.9x despite GMP +27.3%, institutions not convinced",
           "more": ""
         },
         {
