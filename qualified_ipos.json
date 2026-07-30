@@ -294,7 +294,7 @@
       "gmp": 4.0,
       "qib": 1.05,
       "hni": 0.05,
-      "rii": 0.12,
+      "rii": 0.13,
       "sub": 0.38,
       "market_sentiment": 1.013,
       "volatility": 11.3059,
@@ -376,9 +376,9 @@
       "sector": "Manufacturing",
       "gmp": 26.35,
       "qib": 0.87,
-      "hni": 3.7,
-      "rii": 11.96,
-      "sub": 3.66,
+      "hni": 3.94,
+      "rii": 12.45,
+      "sub": 3.81,
       "market_sentiment": 1.013,
       "volatility": 11.3059,
       "trend": 1.0
@@ -391,7 +391,7 @@
       "range_high": 35.3,
       "median": 10.8,
       "big_win_prob": 37,
-      "allotment_pct": 8.4
+      "allotment_pct": 8.0
     },
     "cases": {
       "pos": [
@@ -658,10 +658,10 @@
       "fresh_pct": 86.3,
       "sector": "Pharma/Healthcare",
       "gmp": 0.85,
-      "qib": 0.51,
+      "qib": 0.62,
       "hni": 0.15,
-      "rii": 0.47,
-      "sub": 0.41,
+      "rii": 0.48,
+      "sub": 0.47,
       "market_sentiment": 1.013,
       "volatility": 11.3059,
       "trend": 1.0
@@ -670,8 +670,8 @@
     "prediction": {
       "verdict": "SKIP",
       "confidence": 52,
-      "range_low": -8.8,
-      "range_high": 8.2,
+      "range_low": -9.2,
+      "range_high": 8.4,
       "median": -1.4,
       "big_win_prob": 0,
       "allotment_pct": 100.0
@@ -698,7 +698,7 @@
           "more": "A high price-to-earnings ratio means you pay a lot per rupee of profit, leaving less room to rise."
         },
         {
-          "head": "Undersubscribed: 0.41x",
+          "head": "Undersubscribed: 0.47x",
           "more": "Total demand was below the shares on offer, a weak sign."
         }
       ]
