@@ -17,7 +17,7 @@
       "ofs_pct": 24.9,
       "fresh_pct": 75.1,
       "sector": "BFSI",
-      "gmp": 24.53,
+      "gmp": 18.87,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -26,20 +26,20 @@
       "volatility": 11.2919,
       "trend": 1.0
     },
-    "win_score": 98,
+    "win_score": 97,
     "prediction": {
       "verdict": "APPLY",
       "confidence": 98,
       "range_low": -3.0,
-      "range_high": 21.7,
-      "median": 14.3,
-      "big_win_prob": 15,
+      "range_high": 19.3,
+      "median": 11.4,
+      "big_win_prob": 3,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +24.5%",
+          "head": "Grey market premium +18.9%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -358,10 +358,10 @@
       "fresh_pct": 100.0,
       "sector": "Manufacturing",
       "gmp": 31.29,
-      "qib": 0.91,
-      "hni": 13.47,
-      "rii": 38.89,
-      "sub": 11.24,
+      "qib": 0.96,
+      "hni": 13.77,
+      "rii": 39.49,
+      "sub": 11.46,
       "market_sentiment": 1.0086,
       "volatility": 11.2919,
       "trend": 1.0
@@ -374,7 +374,7 @@
       "range_high": 27.3,
       "median": 22.8,
       "big_win_prob": 76,
-      "allotment_pct": 2.6
+      "allotment_pct": 2.5
     },
     "cases": {
       "pos": [
@@ -387,7 +387,7 @@
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 13x",
+          "head": "Wealthy investors keen: HNI 14x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
@@ -398,7 +398,7 @@
       "neu": [],
       "neg": [
         {
-          "head": "QIB only 0.9x despite GMP +31.3%, institutions not convinced",
+          "head": "QIB only 1.0x despite GMP +31.3%, institutions not convinced",
           "more": ""
         },
         {
@@ -644,22 +644,22 @@
       "ofs_pct": 13.7,
       "fresh_pct": 86.3,
       "sector": "Pharma/Healthcare",
-      "gmp": 0.59,
+      "gmp": 0.55,
       "qib": 8.54,
-      "hni": 1.04,
-      "rii": 0.85,
-      "sub": 5.09,
+      "hni": 1.05,
+      "rii": 0.9,
+      "sub": 5.1,
       "market_sentiment": 1.0086,
       "volatility": 11.2919,
       "trend": 1.0
     },
-    "win_score": 49,
+    "win_score": 48,
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 50,
+      "confidence": 52,
       "range_low": -10.3,
       "range_high": 10.4,
-      "median": -0.7,
+      "median": -0.1,
       "big_win_prob": 0,
       "allotment_pct": 100.0
     },
@@ -694,7 +694,7 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "RandomForest",
-        "score": 49.0
+        "score": 48.0
       }
     ],
     "state": "open"
