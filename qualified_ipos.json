@@ -17,7 +17,7 @@
       "ofs_pct": 24.9,
       "fresh_pct": 75.1,
       "sector": "BFSI",
-      "gmp": 13.21,
+      "gmp": 12.26,
       "qib": null,
       "hni": null,
       "rii": null,
@@ -26,20 +26,20 @@
       "volatility": 11.2919,
       "trend": 1.0
     },
-    "win_score": 91,
+    "win_score": 90,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 91,
-      "range_low": -3.1,
-      "range_high": 14.7,
-      "median": 6.9,
+      "confidence": 90,
+      "range_low": -3.4,
+      "range_high": 13.6,
+      "median": 7.1,
       "big_win_prob": 0,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +13.2%",
+          "head": "Grey market premium +12.3%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -70,205 +70,205 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 66,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 67,
         "expected_wr": 69.1,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 68,
         "expected_wr": 69.1,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 69,
         "expected_wr": 69.4,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 70,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 71,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 72,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 73,
         "expected_wr": 72.3,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 74,
         "expected_wr": 74.5,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 75,
         "expected_wr": 74.5,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 76,
         "expected_wr": 74.5,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 77,
         "expected_wr": 74.5,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 78,
         "expected_wr": 76.4,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 79,
         "expected_wr": 77.1,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 80,
         "expected_wr": 79.4,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 81,
         "expected_wr": 79.4,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 82,
         "expected_wr": 86.6,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 83,
         "expected_wr": 86.6,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 84,
         "expected_wr": 86.6,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 85,
         "expected_wr": 86.6,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 86,
         "expected_wr": 86.6,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 87,
         "expected_wr": 90.2,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 88,
         "expected_wr": 90.2,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 89,
         "expected_wr": 90.2,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 90,
         "expected_wr": 90.2,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 91,
         "expected_wr": 90.2,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 92,
         "expected_wr": 91.8,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 93,
         "expected_wr": 91.8,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 94,
         "expected_wr": 91.8,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 95,
         "expected_wr": 95.3,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 96,
         "expected_wr": 95.3,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 97,
         "expected_wr": 95.3,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       },
       {
         "tier": 98,
         "expected_wr": 95.6,
         "model": "RandomForest",
-        "score": 89.0
+        "score": 87.0
       }
     ],
     "state": "open"
@@ -627,9 +627,40 @@
     "state": "open"
   },
   {
-    "ipo_name": "Manipal Health Enterprises",
+    "ipo_name": "Technocraft Ventures Ltd.",
+    "close_date": "11 Aug, 2026",
+    "_closing_today": false,
+    "_closing_tomorrow": false,
+    "listing_date": "Fri, Aug 14, 2026T",
+    "listed_on": null,
+    "offer_price": null,
+    "size_cr": null,
+    "inputs": {
+      "offer_price": null,
+      "size_cr": null,
+      "pe": null,
+      "roe": 26.51,
+      "promoter_holding": null,
+      "ofs_pct": null,
+      "fresh_pct": null,
+      "sector": "Manufacturing",
+      "gmp": 0.0,
+      "qib": 50.0,
+      "hni": 15.0,
+      "rii": 35.0,
+      "sub": null,
+      "market_sentiment": 1.0086,
+      "volatility": 11.2919,
+      "trend": 1.0
+    },
+    "state": "upcoming",
+    "qualifying_tiers": [],
+    "opens_note": "Opening soon. A call appears once grey-market and subscription data is available."
+  },
+  {
+    "ipo_name": "Manipal Health Enterprises Ltd.",
     "close_date": "31 Jul, 2026",
-    "_closing_today": true,
+    "_closing_today": false,
     "_closing_tomorrow": false,
     "listing_date": "Wed, Aug 5, 2026T",
     "listed_on": null,
@@ -691,37 +722,6 @@
     "tier_preliminary": false,
     "qualifying_tiers": [],
     "state": "open"
-  },
-  {
-    "ipo_name": "Technocraft Ventures Ltd.",
-    "close_date": "11 Aug, 2026",
-    "_closing_today": false,
-    "_closing_tomorrow": false,
-    "listing_date": "Fri, Aug 14, 2026T",
-    "listed_on": null,
-    "offer_price": null,
-    "size_cr": null,
-    "inputs": {
-      "offer_price": null,
-      "size_cr": null,
-      "pe": null,
-      "roe": 26.51,
-      "promoter_holding": null,
-      "ofs_pct": null,
-      "fresh_pct": null,
-      "sector": "Manufacturing",
-      "gmp": 0.0,
-      "qib": 50.0,
-      "hni": 15.0,
-      "rii": 35.0,
-      "sub": null,
-      "market_sentiment": 1.0086,
-      "volatility": 11.2919,
-      "trend": 1.0
-    },
-    "state": "upcoming",
-    "qualifying_tiers": [],
-    "opens_note": "Opening soon. A call appears once grey-market and subscription data is available."
   },
   {
     "ipo_name": "Xtranet Technologies Ltd.",
