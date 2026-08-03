@@ -528,7 +528,7 @@
       "ofs_pct": 0.0,
       "fresh_pct": 100.0,
       "sector": "BFSI",
-      "gmp": 2.0,
+      "gmp": 2.22,
       "qib": 26.22,
       "hni": 1.92,
       "rii": 0.98,
@@ -537,13 +537,13 @@
       "volatility": 11.9584,
       "trend": 2.0
     },
-    "win_score": 36,
+    "win_score": 35,
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 64,
-      "range_low": -10.0,
+      "confidence": 65,
+      "range_low": -9.4,
       "range_high": 12.0,
-      "median": 2.3,
+      "median": 2.7,
       "big_win_prob": 2,
       "allotment_pct": 100.0
     },
@@ -600,9 +600,9 @@
       "sector": "Manufacturing",
       "gmp": 23.53,
       "qib": 96.13,
-      "hni": 363.27,
+      "hni": 397.99,
       "rii": 218.25,
-      "sub": 191.19,
+      "sub": 200.66,
       "market_sentiment": 1.0207,
       "volatility": 11.9584,
       "trend": 2.0
@@ -614,7 +614,7 @@
       "range_low": 3.0,
       "range_high": 38.0,
       "median": 22.8,
-      "big_win_prob": 54,
+      "big_win_prob": 56,
       "allotment_pct": 0.5
     },
     "cases": {
@@ -628,11 +628,11 @@
           "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
         },
         {
-          "head": "Oversubscribed 191x overall",
+          "head": "Oversubscribed 201x overall",
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 363x",
+          "head": "Wealthy investors keen: HNI 398x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
