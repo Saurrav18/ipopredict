@@ -22,8 +22,8 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0133,
-      "volatility": 11.3499,
+      "market_sentiment": 1.0131,
+      "volatility": 11.3386,
       "trend": 1.0
     },
     "win_score": 89,
@@ -296,8 +296,8 @@
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 1.0133,
-      "volatility": 11.3499,
+      "market_sentiment": 1.0131,
+      "volatility": 11.3386,
       "trend": 1.0
     },
     "win_score": 68,
@@ -465,8 +465,8 @@
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 1.0133,
-      "volatility": 11.3499,
+      "market_sentiment": 1.0131,
+      "volatility": 11.3386,
       "trend": 1.0
     },
     "win_score": 36,
@@ -539,8 +539,8 @@
       "hni": 0.33,
       "rii": 0.37,
       "sub": 2.8,
-      "market_sentiment": 1.0133,
-      "volatility": 11.3499,
+      "market_sentiment": 1.0131,
+      "volatility": 11.3386,
       "trend": 1.0
     },
     "win_score": 32,
@@ -601,14 +601,14 @@
       "hni": 273.48,
       "rii": 156.9,
       "sub": 108.79,
-      "market_sentiment": 1.0133,
-      "volatility": 11.3499,
+      "market_sentiment": 1.0131,
+      "volatility": 11.3386,
       "trend": 1.0
     },
     "win_score": 97,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 97,
+      "confidence": 98,
       "range_low": 5.6,
       "range_high": 43.3,
       "median": 21.7,
@@ -884,8 +884,8 @@
       "hni": 1.06,
       "rii": 0.98,
       "sub": 5.12,
-      "market_sentiment": 1.0133,
-      "volatility": 11.3499,
+      "market_sentiment": 1.0131,
+      "volatility": 11.3386,
       "trend": 1.0
     },
     "win_score": 44,
@@ -1164,8 +1164,8 @@
       "hni": 26.65,
       "rii": 8.98,
       "sub": 12.24,
-      "market_sentiment": 1.0133,
-      "volatility": 11.3499,
+      "market_sentiment": 1.0131,
+      "volatility": 11.3386,
       "trend": 1.0
     },
     "prediction": {
@@ -1477,8 +1477,8 @@
       "hni": 50.65,
       "rii": 6.69,
       "sub": 72.37,
-      "market_sentiment": 1.0133,
-      "volatility": 11.3499,
+      "market_sentiment": 1.0131,
+      "volatility": 11.3386,
       "trend": 1.0
     },
     "prediction": {
@@ -1718,8 +1718,8 @@
       "hni": 6.82,
       "rii": 2.78,
       "sub": 7.26,
-      "market_sentiment": 1.0133,
-      "volatility": 11.3499,
+      "market_sentiment": 1.0131,
+      "volatility": 11.3386,
       "trend": 1.0
     },
     "prediction": {
@@ -2031,8 +2031,8 @@
       "hni": 281.99,
       "rii": 43.4,
       "sub": 154.66,
-      "market_sentiment": 1.0133,
-      "volatility": 11.3499,
+      "market_sentiment": 1.0131,
+      "volatility": 11.3386,
       "trend": 1.0
     },
     "prediction": {
