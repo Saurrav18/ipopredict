@@ -529,10 +529,10 @@
       "fresh_pct": 100.0,
       "sector": "BFSI",
       "gmp": 0.76,
-      "qib": 22.02,
-      "hni": 1.55,
-      "rii": 0.47,
-      "sub": 6.85,
+      "qib": 26.22,
+      "hni": 1.84,
+      "rii": 0.59,
+      "sub": 8.17,
       "market_sentiment": 1.0207,
       "volatility": 11.9584,
       "trend": 2.0
@@ -542,19 +542,19 @@
       "verdict": "SKIP",
       "confidence": 69,
       "range_low": -10.0,
-      "range_high": 10.8,
-      "median": 1.6,
+      "range_high": 12.0,
+      "median": 2.0,
       "big_win_prob": 2,
       "allotment_pct": 100.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Institutions piled in: QIB 22x",
+          "head": "Institutions piled in: QIB 26x",
           "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
         },
         {
-          "head": "Oversubscribed 7x overall",
+          "head": "Oversubscribed 8x overall",
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
@@ -599,10 +599,10 @@
       "fresh_pct": 100.0,
       "sector": "Manufacturing",
       "gmp": 26.35,
-      "qib": 76.46,
-      "hni": 386.45,
-      "rii": 197.85,
-      "sub": 183.07,
+      "qib": 96.13,
+      "hni": 396.18,
+      "rii": 206.87,
+      "sub": 198.09,
       "market_sentiment": 1.0207,
       "volatility": 11.9584,
       "trend": 2.0
@@ -612,9 +612,9 @@
       "verdict": "APPLY",
       "confidence": 97,
       "range_low": 3.0,
-      "range_high": 43.8,
-      "median": 22.5,
-      "big_win_prob": 61,
+      "range_high": 39.8,
+      "median": 22.3,
+      "big_win_prob": 57,
       "allotment_pct": 0.5
     },
     "cases": {
@@ -624,15 +624,15 @@
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
-          "head": "Institutions piled in: QIB 76x",
+          "head": "Institutions piled in: QIB 96x",
           "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
         },
         {
-          "head": "Oversubscribed 183x overall",
+          "head": "Oversubscribed 198x overall",
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 386x",
+          "head": "Wealthy investors keen: HNI 396x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
