@@ -22,17 +22,17 @@
       "hni": null,
       "rii": null,
       "sub": null,
-      "market_sentiment": 1.0086,
-      "volatility": 11.2919,
+      "market_sentiment": 1.0133,
+      "volatility": 11.3499,
       "trend": 1.0
     },
-    "win_score": 90,
+    "win_score": 89,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 91,
+      "confidence": 89,
       "range_low": -3.4,
-      "range_high": 13.6,
-      "median": 7.1,
+      "range_high": 14.7,
+      "median": 7.4,
       "big_win_prob": 0,
       "allotment_pct": 100.0
     },
@@ -291,18 +291,156 @@
       "ofs_pct": 19.8,
       "fresh_pct": 80.2,
       "sector": "Manufacturing",
-      "gmp": 0.0,
+      "gmp": 7.55,
       "qib": 50.0,
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 1.0086,
-      "volatility": 11.2919,
+      "market_sentiment": 1.0133,
+      "volatility": 11.3499,
       "trend": 1.0
     },
-    "state": "upcoming",
-    "qualifying_tiers": [],
-    "opens_note": "Opening soon. A call appears once grey-market and subscription data is available."
+    "win_score": 68,
+    "prediction": {
+      "verdict": "APPLY",
+      "confidence": 68,
+      "range_low": -4.0,
+      "range_high": 16.4,
+      "median": 2.4,
+      "big_win_prob": 0,
+      "allotment_pct": 2.9
+    },
+    "cases": {
+      "pos": [
+        {
+          "head": "Grey market premium +7.5%",
+          "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
+        },
+        {
+          "head": "Institutions piled in: QIB 50x",
+          "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
+        },
+        {
+          "head": "Wealthy investors keen: HNI 15x",
+          "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
+        },
+        {
+          "head": "Strong returns: ROE 26.5%",
+          "more": "Return on equity shows how efficiently the company turns shareholder money into profit. Above roughly 15% is healthy."
+        },
+        {
+          "head": "Reasonable price: P/E 14.7",
+          "more": "A lower price-to-earnings ratio means you pay less per rupee of profit, leaving more room to rise."
+        },
+        {
+          "head": "Mostly fresh capital (80% new money)",
+          "more": "Most of the money raised goes into the company (growth, repaying debt) rather than founders cashing out."
+        }
+      ],
+      "neu": [],
+      "neg": [
+        {
+          "head": "Similar past IPOs: 2 of 5 listed positive",
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 2 of 5 listed above the offer price. They averaged +0.0% on day one."
+        }
+      ]
+    },
+    "note": null,
+    "preliminary": true,
+    "tier_preliminary": true,
+    "qualifying_tiers": [
+      {
+        "tier": 65,
+        "expected_wr": 65.8,
+        "model": "RandomForest",
+        "score": 63.0
+      },
+      {
+        "tier": 66,
+        "expected_wr": 67.4,
+        "model": "RandomForest",
+        "score": 63.0
+      },
+      {
+        "tier": 67,
+        "expected_wr": 69.1,
+        "model": "RandomForest",
+        "score": 63.0
+      },
+      {
+        "tier": 68,
+        "expected_wr": 69.1,
+        "model": "RandomForest",
+        "score": 63.0
+      },
+      {
+        "tier": 69,
+        "expected_wr": 69.4,
+        "model": "RandomForest",
+        "score": 63.0
+      },
+      {
+        "tier": 70,
+        "expected_wr": 71.2,
+        "model": "RandomForest",
+        "score": 63.0
+      },
+      {
+        "tier": 71,
+        "expected_wr": 71.2,
+        "model": "RandomForest",
+        "score": 63.0
+      },
+      {
+        "tier": 72,
+        "expected_wr": 71.2,
+        "model": "RandomForest",
+        "score": 63.0
+      },
+      {
+        "tier": 73,
+        "expected_wr": 72.3,
+        "model": "RandomForest",
+        "score": 63.0
+      },
+      {
+        "tier": 74,
+        "expected_wr": 74.5,
+        "model": "RandomForest",
+        "score": 63.0
+      },
+      {
+        "tier": 75,
+        "expected_wr": 74.5,
+        "model": "RandomForest",
+        "score": 63.0
+      },
+      {
+        "tier": 76,
+        "expected_wr": 74.5,
+        "model": "RandomForest",
+        "score": 63.0
+      },
+      {
+        "tier": 77,
+        "expected_wr": 74.5,
+        "model": "RandomForest",
+        "score": 63.0
+      },
+      {
+        "tier": 78,
+        "expected_wr": 76.4,
+        "model": "RandomForest",
+        "score": 63.0
+      },
+      {
+        "tier": 79,
+        "expected_wr": 77.1,
+        "model": "RandomForest",
+        "score": 63.0
+      }
+    ],
+    "state": "open"
   },
   {
     "ipo_name": "LEAP India",
@@ -322,31 +460,27 @@
       "ofs_pct": 80.6,
       "fresh_pct": 19.4,
       "sector": "FMCG/Consumer",
-      "gmp": 5.03,
+      "gmp": 2.52,
       "qib": 50.0,
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 1.0086,
-      "volatility": 11.2919,
+      "market_sentiment": 1.0133,
+      "volatility": 11.3499,
       "trend": 1.0
     },
-    "win_score": 55,
+    "win_score": 36,
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 44,
-      "range_low": -5.8,
-      "range_high": 15.4,
-      "median": 2.5,
-      "big_win_prob": 0,
+      "confidence": 64,
+      "range_low": -9.3,
+      "range_high": 14.3,
+      "median": 0.5,
+      "big_win_prob": 1,
       "allotment_pct": 2.9
     },
     "cases": {
       "pos": [
-        {
-          "head": "Grey market premium +5.0%",
-          "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
-        },
         {
           "head": "Institutions piled in: QIB 50x",
           "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
@@ -379,92 +513,7 @@
     "note": null,
     "preliminary": true,
     "tier_preliminary": true,
-    "qualifying_tiers": [
-      {
-        "tier": 65,
-        "expected_wr": 65.8,
-        "model": "RandomForest",
-        "score": 61.0
-      },
-      {
-        "tier": 66,
-        "expected_wr": 67.4,
-        "model": "RandomForest",
-        "score": 61.0
-      },
-      {
-        "tier": 67,
-        "expected_wr": 69.1,
-        "model": "RandomForest",
-        "score": 61.0
-      },
-      {
-        "tier": 68,
-        "expected_wr": 69.1,
-        "model": "RandomForest",
-        "score": 61.0
-      },
-      {
-        "tier": 69,
-        "expected_wr": 69.4,
-        "model": "RandomForest",
-        "score": 61.0
-      },
-      {
-        "tier": 70,
-        "expected_wr": 71.2,
-        "model": "RandomForest",
-        "score": 61.0
-      },
-      {
-        "tier": 71,
-        "expected_wr": 71.2,
-        "model": "RandomForest",
-        "score": 61.0
-      },
-      {
-        "tier": 72,
-        "expected_wr": 71.2,
-        "model": "RandomForest",
-        "score": 61.0
-      },
-      {
-        "tier": 73,
-        "expected_wr": 72.3,
-        "model": "RandomForest",
-        "score": 61.0
-      },
-      {
-        "tier": 74,
-        "expected_wr": 74.5,
-        "model": "RandomForest",
-        "score": 61.0
-      },
-      {
-        "tier": 75,
-        "expected_wr": 74.5,
-        "model": "RandomForest",
-        "score": 61.0
-      },
-      {
-        "tier": 76,
-        "expected_wr": 74.5,
-        "model": "RandomForest",
-        "score": 61.0
-      },
-      {
-        "tier": 77,
-        "expected_wr": 74.5,
-        "model": "RandomForest",
-        "score": 61.0
-      },
-      {
-        "tier": 78,
-        "expected_wr": 76.4,
-        "model": "RandomForest",
-        "score": 61.0
-      }
-    ],
+    "qualifying_tiers": [],
     "state": "open"
   },
   {
@@ -485,22 +534,22 @@
       "ofs_pct": 0.0,
       "fresh_pct": 100.0,
       "sector": "BFSI",
-      "gmp": 0.78,
-      "qib": 1.25,
-      "hni": 0.09,
-      "rii": 0.23,
-      "sub": 0.49,
-      "market_sentiment": 1.0086,
-      "volatility": 11.2919,
+      "gmp": 0.6,
+      "qib": 8.9,
+      "hni": 0.33,
+      "rii": 0.37,
+      "sub": 2.8,
+      "market_sentiment": 1.0133,
+      "volatility": 11.3499,
       "trend": 1.0
     },
-    "win_score": 33,
+    "win_score": 32,
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 66,
-      "range_low": -12.6,
-      "range_high": 7.7,
-      "median": -2.8,
+      "confidence": 68,
+      "range_low": -11.1,
+      "range_high": 9.1,
+      "median": -0.8,
       "big_win_prob": 0,
       "allotment_pct": 100.0
     },
@@ -518,18 +567,14 @@
           "more": "A high price-to-earnings ratio means you pay a lot per rupee of profit, leaving less room to rise."
         },
         {
-          "head": "Undersubscribed: 0.49x",
-          "more": "Total demand was below the shares on offer, a weak sign."
-        },
-        {
           "head": "Similar past IPOs: 1 of 5 listed positive",
           "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 1 of 5 listed above the offer price. They averaged +0.2% on day one."
         }
       ]
     },
     "note": null,
-    "preliminary": true,
-    "tier_preliminary": true,
+    "preliminary": false,
+    "tier_preliminary": false,
     "qualifying_tiers": [],
     "state": "open"
   },
@@ -551,61 +596,57 @@
       "ofs_pct": 0.0,
       "fresh_pct": 100.0,
       "sector": "Manufacturing",
-      "gmp": 27.06,
-      "qib": 0.97,
-      "hni": 16.76,
-      "rii": 42.28,
-      "sub": 12.79,
-      "market_sentiment": 1.0086,
-      "volatility": 11.2919,
+      "gmp": 26.35,
+      "qib": 10.41,
+      "hni": 273.48,
+      "rii": 156.9,
+      "sub": 108.79,
+      "market_sentiment": 1.0133,
+      "volatility": 11.3499,
       "trend": 1.0
     },
     "win_score": 97,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 98,
-      "range_low": 1.9,
-      "range_high": 26.1,
-      "median": 20.3,
-      "big_win_prob": 45,
-      "allotment_pct": 2.4
+      "confidence": 97,
+      "range_low": 5.6,
+      "range_high": 43.3,
+      "median": 21.7,
+      "big_win_prob": 59,
+      "allotment_pct": 0.6
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +27.1%",
+          "head": "Grey market premium +26.4%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
-          "head": "Oversubscribed 13x overall",
+          "head": "Institutions piled in: QIB 10x",
+          "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
+        },
+        {
+          "head": "Oversubscribed 109x overall",
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 17x",
+          "head": "Wealthy investors keen: HNI 273x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
           "head": "Mostly fresh capital (100% new money)",
           "more": "Most of the money raised goes into the company (growth, repaying debt) rather than founders cashing out."
+        },
+        {
+          "head": "Similar past IPOs: 4 of 5 listed positive",
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 4 listed above the offer price, averaging +21.3% on day one."
         }
       ],
       "neu": [],
       "neg": [
         {
-          "head": "QIB only 1.0x despite GMP +27.1%, institutions not convinced",
-          "more": ""
-        },
-        {
-          "head": "ML bullish (98%) but similar past IPOs only 40% WR",
-          "more": ""
-        },
-        {
           "head": "Loss-making (negative P/E)",
           "more": "The company is not yet profitable, which adds risk to the valuation."
-        },
-        {
-          "head": "Similar past IPOs: 2 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 2 of 5 listed above the offer price. They averaged -5.5% on day one."
         }
       ]
     },
@@ -843,18 +884,18 @@
       "hni": 1.06,
       "rii": 0.98,
       "sub": 5.12,
-      "market_sentiment": 1.0086,
-      "volatility": 11.2919,
+      "market_sentiment": 1.0133,
+      "volatility": 11.3499,
       "trend": 1.0
     },
-    "win_score": 46,
+    "win_score": 44,
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 54,
-      "range_low": -9.7,
-      "range_high": 9.3,
-      "median": -0.0,
-      "big_win_prob": 0,
+      "confidence": 55,
+      "range_low": -9.0,
+      "range_high": 9.9,
+      "median": 0.2,
+      "big_win_prob": 1,
       "allotment_pct": 100.0
     },
     "cases": {
@@ -1123,16 +1164,16 @@
       "hni": 26.65,
       "rii": 8.98,
       "sub": 12.24,
-      "market_sentiment": 1.0086,
-      "volatility": 11.2919,
+      "market_sentiment": 1.0133,
+      "volatility": 11.3499,
       "trend": 1.0
     },
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 90,
+      "confidence": 88,
       "range_low": -6.9,
-      "range_high": 15.3,
-      "median": 3.2,
+      "range_high": 15.4,
+      "median": 3.7,
       "big_win_prob": 0,
       "allotment_pct": 11.1
     },
@@ -1166,7 +1207,7 @@
       "neu": [],
       "neg": [
         {
-          "head": "ML bullish (90%) but similar past IPOs only 0% WR",
+          "head": "ML bullish (88%) but similar past IPOs only 0% WR",
           "more": ""
         },
         {
@@ -1436,16 +1477,16 @@
       "hni": 50.65,
       "rii": 6.69,
       "sub": 72.37,
-      "market_sentiment": 1.0086,
-      "volatility": 11.2919,
+      "market_sentiment": 1.0133,
+      "volatility": 11.3499,
       "trend": 1.0
     },
     "prediction": {
       "verdict": "APPLY",
       "confidence": 99,
-      "range_low": -5.5,
-      "range_high": 46.5,
-      "median": 27.9,
+      "range_low": -4.8,
+      "range_high": 47.9,
+      "median": 28.2,
       "big_win_prob": 98,
       "allotment_pct": 14.9
     },
@@ -1534,133 +1575,133 @@
         "tier": 65,
         "expected_wr": 65.8,
         "model": "RandomForest",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 66,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 67,
         "expected_wr": 69.1,
         "model": "RandomForest",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 68,
         "expected_wr": 69.1,
         "model": "RandomForest",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 69,
         "expected_wr": 69.4,
         "model": "RandomForest",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 70,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 71,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 72,
         "expected_wr": 71.2,
         "model": "RandomForest",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 73,
         "expected_wr": 72.3,
         "model": "RandomForest",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 74,
         "expected_wr": 74.5,
         "model": "RandomForest",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 75,
         "expected_wr": 74.5,
         "model": "RandomForest",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 76,
         "expected_wr": 74.5,
         "model": "RandomForest",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 77,
         "expected_wr": 74.5,
         "model": "RandomForest",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 78,
         "expected_wr": 76.4,
         "model": "RandomForest",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 79,
         "expected_wr": 77.1,
         "model": "RandomForest",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 80,
         "expected_wr": 79.4,
         "model": "RandomForest",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 81,
         "expected_wr": 79.4,
         "model": "RandomForest",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 82,
         "expected_wr": 86.6,
         "model": "RandomForest",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 83,
         "expected_wr": 86.6,
         "model": "RandomForest",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 84,
         "expected_wr": 86.6,
         "model": "RandomForest",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 85,
         "expected_wr": 86.6,
         "model": "RandomForest",
-        "score": 86.0
+        "score": 85.0
       },
       {
         "tier": 86,
         "expected_wr": 86.6,
         "model": "RandomForest",
-        "score": 86.0
+        "score": 85.0
       }
     ],
     "inputs": {
@@ -1677,16 +1718,16 @@
       "hni": 6.82,
       "rii": 2.78,
       "sub": 7.26,
-      "market_sentiment": 1.0086,
-      "volatility": 11.2919,
+      "market_sentiment": 1.0133,
+      "volatility": 11.3499,
       "trend": 1.0
     },
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 11,
+      "confidence": 12,
       "range_low": -10.6,
-      "range_high": 11.7,
-      "median": -1.8,
+      "range_high": 11.8,
+      "median": -1.5,
       "big_win_prob": 0,
       "allotment_pct": 36.0
     },
@@ -1716,7 +1757,7 @@
           "more": ""
         },
         {
-          "head": "ML bullish (89%) but similar past IPOs only 20% WR",
+          "head": "ML bullish (88%) but similar past IPOs only 20% WR",
           "more": ""
         },
         {
@@ -1990,16 +2031,16 @@
       "hni": 281.99,
       "rii": 43.4,
       "sub": 154.66,
-      "market_sentiment": 1.0086,
-      "volatility": 11.2919,
+      "market_sentiment": 1.0133,
+      "volatility": 11.3499,
       "trend": 1.0
     },
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 92,
+      "confidence": 91,
       "range_low": -5.6,
-      "range_high": 23.6,
-      "median": 4.6,
+      "range_high": 24.4,
+      "median": 4.9,
       "big_win_prob": 0,
       "allotment_pct": 2.3
     },
