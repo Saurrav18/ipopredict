@@ -36,6 +36,13 @@ SECTION_PATTERNS = [
     ("offer_structure",     r"\bTERMS\s+OF\s+THE\s+(ISSUE|OFFER)\b|\b(ISSUE|OFFER)\s+STRUCTURE\b"),
 ]
 
+# A heading naming a legal proceeding belongs to litigation even when it also
+# names promoters/directors/subsidiaries - those are the sub-scopes of SECTION VI,
+# not the start of a new chapter.
+_LITIGATION_SUBHEAD = re.compile(
+    r"\bLITIGATIONS?\b|\bLEGAL\s+PROCEEDINGS?\b|\bPROCEEDINGS?\s+INVOLVING\b|"
+    r"\b(CRIMINAL|CIVIL|TAX|STATUTORY|REGULATORY)\s+(PROCEEDINGS?|MATTERS?|CASES?)\b")
+
 # lines that are pure boilerplate noise in every prospectus
 _NOISE = re.compile(
     r"^(page\s+\d+|draft red herring prospectus|red herring prospectus|"
@@ -131,6 +138,20 @@ def detect_section(line, current):
     if not alpha or sum(c.isupper() for c in alpha) / len(alpha) < 0.7:
         return current                    # body text, not a heading
     up = st.upper()
+    # SECTION VI subdivides litigation by WHOM it involves:
+    #   "2. LITIGATION INVOLVING OUR PROMOTERS/ DIRECTORS"
+    # That heading matches the promoters pattern, which sits earlier in
+    # SECTION_PATTERNS, so it used to retag the rest of the legal chapter as
+    # "promoters" - and index.sweep("litigation") then could not see half the
+    # cases (CS/148755/2025, CS/422/2025 and the promoter civil proceedings all
+    # vanished from the report). A heading that names a proceeding stays in
+    # litigation no matter whose proceedings they are.
+    # Only HOLD the section, never ENTER it: a bare "LITIGATIONS" heading also
+    # appears in Our Group Companies as a cross-reference stub ("please refer to
+    # ... on page 350"), and entering litigation there stole three chunks from
+    # financials. Entering is still governed by the chapter patterns below.
+    if current == "litigation" and _LITIGATION_SUBHEAD.search(up):
+        return "litigation"
     for key, pat in SECTION_PATTERNS:
         if re.search(pat, up):
             return key

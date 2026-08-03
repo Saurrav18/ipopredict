@@ -103,8 +103,54 @@ def _top_sentences(passages, limit=6, require=None, reject=None,
                         "page": p["page_start"], "section": p["section"]})
             took += 1
             if took >= per_chunk: break
-        if len(out) >= limit: break
+        if len(out) >= limit * _OVERSAMPLE: break
+    # Rank before truncating. This used to return the first `limit` sentences in
+    # DOCUMENT ORDER, which is why the swept risk set - now complete at 39/39 -
+    # still surfaced generic competition boilerplate while dropping the promoter
+    # loans repayable on demand (p.69), the absent monitoring agency (p.70) and
+    # the struck-off directorship (p.75). Those were retrieved and then thrown
+    # away by position. Materiality has to beat position.
+    out.sort(key=lambda d: -_materiality(d["text"]))
     return out[:limit]
+
+
+_OVERSAMPLE = 20     # gather this many times `limit` before ranking. Must exceed
+                     # the sweep size or ranking never sees the tail: the
+                     # struck-off directorship sits at sweep position 52 and was
+                     # cut by a 36-sentence budget despite scoring above every
+                     # item that did get shown.
+
+# What makes a disclosure matter to an investor, in rough order of severity.
+# Deliberately explicit rather than learned: an interviewer can audit this list,
+# and a wrong weight is visible instead of buried in a model.
+_MATERIAL_SIGNALS = (
+    (5, r"struck[\s-]?off|disqualif|debarr|blacklist|fraud|siphon|divert"),
+    (5, r"qualified opinion|adverse opinion|emphasis of matter|going concern"),
+    (4, r"repayable on demand|callable|recalled at|withdraw(n|al) of (the )?(loan|facility)"),
+    (4, r"no monitoring agency|not been appraised|at the discretion of (our )?(management|board)"),
+    (4, r"unsecured loans?\s+(from|taken from)\s+(our )?(promoter|director)"),
+    (4, r"pledg(e|ed|ing)|encumber|guarantee(d|s)? by (our )?promoter"),
+    (3, r"default(ed|s)?\b|delay(ed)? .{0,30}(statutory|payment|filing)|penalt"),
+    (3, r"contingent liabilit|show cause|demand order|criminal|prosecut"),
+    (3, r"negative cash flow|erosion|impair|write[- ]off|written off"),
+    (2, r"concentrat|depend(s|ent|ence)? on a limited|single (customer|supplier|facility)"),
+    (2, r"related part(y|ies)"),
+    (2, r"terminat(e|ion)|non[- ]renewal|revocation|lapse of (licence|license|approval)"),
+    (1, r"\d+(\.\d+)?\s*%|\u20b9|rs\.?\s*[\d,]"),          # quantified beats vague
+)
+# Pure IPO boilerplate that should never outrank a real disclosure.
+_BOILERPLATE = re.compile(
+    r"highly competitive|face competition from|quality management system|"
+    r"skilled (technical )?professionals|enhance our .{0,20}(image|brand)|"
+    r"there can be no assurance that we will be able to compete", re.I)
+
+
+def _materiality(text):
+    sc = 0
+    for w, pat in _MATERIAL_SIGNALS:
+        if re.search(pat, text, re.I): sc += w
+    if _BOILERPLATE.search(text): sc -= 4
+    return sc
 
 def _all_chunks(index):
     c = index.chunks
@@ -147,6 +193,10 @@ def _clean_values(raw_vals):
 # (stops "Revenue grew 16.09%" from being read as revenue), ratios must not
 # carry % either, and percentage metrics must actually be percentages.
 _MAG_KEYS = {"revenue", "pat", "ocf", "debt"}      # rupee magnitudes
+# A fiscal series can move a lot, but not 25x between adjacent years. Matches
+# the band drhp_tables._sane already applied to the table pass; Pass 1 had no
+# equivalent, which is how the Kusumgar revenue series kept a 99.07 outlier.
+_SERIES_OUTLIER_X = 25
 _PCT_KEYS = {"ebitda_margin", "roe", "roce"}            # percentages
 _RATIO_KEYS = {"cratio", "pe", "eps"}              # plain numbers
 _MAGNITUDE_KEYS = {"revenue","pat","networth","ebitda","borrowings","total_income",
@@ -156,7 +206,27 @@ def _typed_ok(key, vals):
     if key in _MAG_KEYS:
         vals = [v for v in vals if not v.endswith("%")]
         # a rupee magnitude should have a comma or 4+ digits somewhere
-        return vals if any(re.search(r",|\d{4,}", v) for v in vals) else []
+        if not any(re.search(r",|\d{4,}", v) for v in vals):
+            return []
+        # ...but any() means ONE well-formed value used to carry the whole
+        # series. On Kusumgar this admitted revenue ['23,261.04','99.07',
+        # '25,703.97'] - the 99.07 is an adjacent column bleeding through the
+        # 24-char leash. Latest-year revenue was still right, so nothing looked
+        # broken, but the SERIES read 23,261 -> 99 -> 25,703: a fabricated 99.6%
+        # collapse and recovery, when the truth was a 9.5% decline. Trend is
+        # what an analyst reads, so a bad middle value is worse than a gap.
+        # PAT/OCF are exempt: those legitimately swing through zero.
+        if key not in ("pat", "ocf") and len(vals) > 1:
+            nums = []
+            for v in vals:
+                try: nums.append(abs(float(v.replace(",", ""))))
+                except ValueError: nums.append(0.0)
+            ref = sorted(n for n in nums if n > 0)
+            if ref:
+                med = ref[len(ref) // 2]
+                vals = [v for v, n in zip(vals, nums)
+                        if n > 0 and med / _SERIES_OUTLIER_X <= n <= med * _SERIES_OUTLIER_X]
+        return vals
     if key in _PCT_KEYS:
         vals = [v for v in vals if v.endswith("%")]
         return vals
@@ -407,6 +477,41 @@ FIELD_INTRO = {
 }
 _FIELD_ORDER = ["business", "objects", "promoters", "risks", "litigation", "related_party"]
 
+# Fields where a MISS is worse than an imperfect ranking, so we scan the whole
+# section instead of taking top-k. Each pattern matches the shape the prospectus
+# uses to introduce one item, not the topic vocabulary - vocabulary ranking is
+# what loses the late entries.
+_SWEEP_PATTERNS = {
+    # every matter carries a case number, a forum, or a proceeding word
+    "litigation": (r"(criminal|civil|tax|statutory|regulatory)\s+\w{0,12}\s?"
+                   r"(proceeding|case|matter|litigation|complaint|notice|demand|appeal)s?"
+                   r"|(complaint|petition|suit|appeal|summons|show\s+cause)\s+"
+                   r"(case|filed|under|before|against|no\.)"
+                   r"|\bC[SA]/\d+/\d{4}\b|\bFIR\b|\bCNR\s*No\.?"
+                   r"|(Metropolitan\s+Magistrate|Civil\s+Judge|Hon'?ble\s+Court|Tribunal)"
+                   r"|there (are|is) no outstanding"),
+    # SEBI numbers every risk factor and opens it with a subject pronoun
+    "risks": (r"\d{1,2}\.\s+(?:Our|We|The|Any|If|Certain|Some|Delay|Loss|Non-|"
+              r"In the event|A significant)[^.]{30,300}\."),
+    # related-party rows name a party and a relationship or an amount
+    "related_party": (r"(?:Mr\.|Mrs\.|Ms\.|M/s\.?)\s+[A-Z][^.\n]{6,120}"
+                      r"|(remuneration|loan|advance|rent|salary|sitting fees?|"
+                      r"reimbursement|purchase|sale)s?\s+(to|from|paid|received)"),
+    # WHO CONTROLS THE COMPANY. The old query hunted biographical prose
+    # ("holds a degree", "years of experience") and returned independent
+    # directors: on ICEL it listed six people of whom only one was a promoter,
+    # and omitted Sunil Kumar Verma (10.09%) and SHBD LLP (11.18%) - the two
+    # largest holders. Shareholding is the material fact, and it lives in a
+    # table: name | category | no. of shares | % of shareholding.
+    "promoters": (r"(?:Mr\.|Mrs\.|Ms\.|M/s\.?)\s*[A-Z][A-Za-z.&' ]{3,45}?\s+"
+                  r"(?:Individual Promoter|Corporate Promoter|Limited Liability|"
+                  r"Promoter Group)[^.\n]{0,80}"
+                  r"|(?:Mr\.|Mrs\.|Ms\.|M/s\.?)\s*[A-Z][A-Za-z.&' ]{3,45}?\s+"
+                  r"[\d,]{5,}\s+\d+\.\d+\s*%"
+                  r"|(?:pre|post)[- ](?:issue|offer)\s+shareholding"
+                  r"|promoters?'? (share)?holding[^.\n]{0,90}\d+\.\d+\s*%"),
+}
+
 DIGEST_FIELDS = [
     ("risks",        "Key risk factors",
      "we depend rely customers suppliers concentration competition regulatory approvals delay adverse",
@@ -427,16 +532,39 @@ DIGEST_FIELDS = [
     ("related_party","Related party transactions",
      "related party transactions aggregate amount purchase sale rent loan remuneration promoter group entities",
      "related_party", 8,
+     # The prose form ("related party transactions aggregating Rs. X") is how a
+     # summary paragraph reads, but the actual disclosure is a TABLE: party name,
+     # amount, % of revenue, repeated per counterparty. Requiring prose matched
+     # nothing on any of ICEL / HappySteels / Kusumgar, so this field rendered
+     # EMPTY on every document - which a reader takes as "no related-party
+     # transactions", the most misleading possible output for an SME IPO.
+     # Accept either form: prose, or a named party sitting next to a money amount.
      r"related party transactions?.{0,200}(rs\.?|\u20b9|lakh|million|crore|aggregate|amounted|%)|"
-     r"transactions? (entered into )?with (our |certain )?(promoter|related|group)",
-     r"(nature of transactions|note\b|\d{2}-\d{2}-\d{4}|shareholding|equity shares held|eliminated while preparing)"),
+     r"transactions? (entered into )?with (our |certain )?(promoter|related|group)|"
+     r"(remuneration|salary|sitting fees?|rent|loan|advance|guarantee|purchase|sale|"
+     r"reimbursement|interest)\s+(paid|received|to|from|given|taken)|"
+     r"(?:Mr\.|Mrs\.|Ms\.|M/s\.?)\s*[A-Z][A-Za-z.&' ]{3,60}?\s+[\d,]+\.\d{2}|"
+     r"[A-Z][A-Za-z.&' ]{4,60}?(?:LLP|Private Limited|Pvt\.? Ltd\.?)\s+[\d,]+\.\d{2}",
+     r"(nature of transactions|eliminated while preparing|equity shares held|"
+     r"roc\.|mca\.gov|email:|website:|compliance officer)"),
     ("promoters",    "Promoters",
      "our promoter is Mr years of experience holds degree director managing founded",
-     None, 10,
+     # Was None (search the whole document). That maximised biographical hits and
+     # missed the shareholding table entirely. Scoped to the chapter so the sweep
+     # reaches the promoter table; the top-k fallback below still runs unscoped
+     # if the chapter was never detected.
+     "promoters", 10,
+     # Accept the SHAREHOLDING TABLE as well as biographical prose. The table is
+     # the material form - it names who controls the company and by how much.
      r"(Mr|Mrs|Ms|Dr)\.?\s+[A-Z][a-z]+.{0,120}(experience|holds|director|promoter|found|graduate|degree|qualif)|"
      r"^Our Promoters?\b.{0,80}(is|are)\b|"
+     r"(?:Mr|Mrs|Ms|M/s)\.?\s*[A-Z][A-Za-z.&' ]{3,45}?[A-Za-z.&' ]{0,45}?"
+     r"[\d,]{5,}\s+\d+\.\d+\s*%|"
      r"^[A-Z][a-z]+ [A-Z][a-z]+.{0,60}\b(is|are|has been)\b.{0,60}(Chairman|Managing Director|Whole.?Time|Executive Director|Promoter|Director)",
-     r"(shareholding pattern|regulation|shareholders on|contribution|table below|confirmation|nil\b|body corporate|no relationship between|except as described)"),
+     # Reject only genuine noise. The previous list ("regulation", "confirmation",
+     # "except as described", "shareholding pattern") discarded the sentence that
+     # names every individual promoter, leaving the field empty.
+     r"(no relationship between|body corporate\s*$)"),
     ("business",     "Business in brief",
      "we are engaged in the business manufacture products services customers installed capacity facilities",
      "business", 8,
@@ -1098,14 +1226,25 @@ def build_digest(index, table_fund=None, statements=None, offer=None, segments=N
         wv = _weave_contradictions(index, digest)
         if wv: digest["contradiction_narrative"] = wv
 
-    FIELD_OPTS = {"risks": {"per_chunk": 2}, "litigation": {"max_digit": 0.4}}
+    # max_digit defaults to 0.22, which rejects any sentence more than ~a fifth
+    # digits. That is right for prose and wrong for the disclosures that matter
+    # most: a promoter shareholding row ("Mr. Sunil Kumar Verma Individual
+    # Promoter 13,53,840 10.09%") and a related-party row are mostly numbers.
+    # Without these overrides both fields render empty even when the sweep finds
+    # every row.
+    FIELD_OPTS = {"risks": {"per_chunk": 2}, "litigation": {"max_digit": 0.4},
+                  "promoters": {"max_digit": 0.5, "per_chunk": 3},
+                  "related_party": {"max_digit": 0.6, "per_chunk": 3}}
     for key, label, query, section, k, req, rej in DIGEST_FIELDS:
-        if key == "litigation" and hasattr(index, "sweep"):
-            # completeness mode: scan the WHOLE litigation section, not top-k -
-            # "all cases" cannot be answered from six retrieved chunks
-            passages = index.sweep("litigation",
-                r"(criminal|civil|tax|regulatory)\s+(proceeding|case|matter|litigation)s?"
-                r"|there (are|is) no outstanding") or \
+        if key in _SWEEP_PATTERNS and hasattr(index, "sweep"):
+            # COMPLETENESS mode. Top-k answers "what are the main X"; it cannot
+            # answer "are there any X", because a chunk below the cutoff is
+            # indistinguishable from a chunk that does not exist. Measured on
+            # ICEL, k=12 reached 29 of 39 material risk factors (74%) and the
+            # ten it missed all sat late in the chapter - lexical ranking
+            # clusters on the opening pages. Sweeping the section for the
+            # heading shape reaches 39/39, and the LLM still selects 3-5.
+            passages = index.sweep(section, _SWEEP_PATTERNS[key], limit=80) or \
                 index.search(query, k=k, section=section)
         else:
             passages = index.search(query, k=k, section=section) or index.search(query, k=k)

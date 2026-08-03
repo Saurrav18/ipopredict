@@ -112,12 +112,97 @@ _STMT_ANCHOR = re.compile(
 def _pages_for(raw_pages, cap=60):
     """Target pages by CONTENT. Peer/KPI pages are guaranteed targets even when
     the cap fills with statement pages (a 535-page RHP mentions revenue on
-    dozens of pages before the peer table appears)."""
-    main = [p for p, t in raw_pages if t and _STMT_ANCHOR.search(t)][:cap]
+    dozens of pages before the peer table appears).
+
+    The cap used to slice in DOCUMENT ORDER: main[:60]. On Kusumgar 127 pages
+    match the anchor and the front half of the book mentions revenue constantly,
+    so all three restated P&L pages (339, 345, 400) fell outside the budget and
+    pdfplumber never opened them. The extractor then took revenue off the peer
+    comparison table on p.155 and reported Apar Industries' 161,529.80 as the
+    issuer's - a 7x overstatement that looked entirely plausible in the report.
+    Rank by how much a page LOOKS like a statement and spend the budget there.
+    """
+    def _stmt_score(t):
+        s = 0
+        if re.search(r"restated.{0,40}(statement of (profit|assets)|balance sheet|cash flow)", t, re.I): s += 6
+        if re.search(r"statement of profit and loss|balance sheet|statement of cash flow", t, re.I): s += 4
+        if re.search(r"\bparticulars\b", t, re.I): s += 2
+        s += min(6, len(re.findall(r"\d[\d,]*\.\d{2}", t)) // 8)   # dense decimals = a real table
+        # a peer/KPI page is a legitimate target but must never crowd out a statement
+        if re.search(r"listed (industry )?peers?|peer group|basis for (the )?(issue|offer) price", t, re.I): s -= 5
+        return s
+    scored = [(p, _stmt_score(t)) for p, t in raw_pages if t and _STMT_ANCHOR.search(t)]
+    scored.sort(key=lambda x: (-x[1], x[0]))
+    main = [p for p, _ in scored[:cap]]
     must = [p for p, t in raw_pages if t and re.search(
         r"industry\s+composite|peer\s+group|key\s+performance\s+indicators|"
         r"net\s+worth\(?1?\)?\s+[\d,]+\.\d", t, re.I)]
     return sorted(set(main) | set(must[:15]))
+
+
+def _unmerge_rows(tb):
+    """Yield table rows, expanding cells that pdfplumber merged vertically.
+
+    An unruled statement collapses several source rows into one cell each:
+        ['I Revenue from Operations\\n II Other Income',
+         '23,261.04\\n217.90', '25,703.97\\n221.33', '17,475.78\\n160.75']
+    Flattening that to one string interleaves revenue with other income, and on
+    Kusumgar the issuer's real P&L therefore produced no usable candidate - the
+    extractor fell back to the peer comparison table and reported a competitor's
+    revenue. Emit the original row (some tables genuinely wrap text) plus one
+    row per line index, so line 0 gives the revenue row cleanly.
+    """
+    for row in tb:
+        yield row
+        if not row: continue
+        cells = [(str(c) if c is not None else "") for c in row]
+        if not any("\n" in c for c in cells): continue
+        depth = max(len(c.split("\n")) for c in cells)
+        # A whole restated P&L can arrive as ONE row ~40 lines deep (Kusumgar
+        # p.345 was 1,576 chars, skipped outright by the 220-char row guard).
+        # Capping depth at 12 silently threw those away.
+        if depth < 2 or depth > 60: continue
+        for i in range(depth):
+            sub = []
+            for c in cells:
+                parts = c.split("\n")
+                # a single-line label cell applies to every sub-row
+                sub.append(parts[i].strip() if i < len(parts)
+                           else (parts[0].strip() if len(parts) == 1 else ""))
+            if any(s for s in sub): yield sub
+
+
+def _page_sections(raw_pages):
+    """page -> DRHP chapter, using the same heading rules as chunking.
+
+    The table pass had NO section awareness: it takes raw pages, so a
+    "Revenue from Operations" row inside the INDUSTRY chapter - where the
+    prospectus profiles its competitors - was indistinguishable from the
+    issuer's own P&L row. On Kusumgar that put Dynamic Cables' revenue
+    (7,680.04 / 10,253.73 / 11,978.17) into the report as the issuer's, against
+    a true 23,261.04 / 25,703.97 / 17,475.78. Well-formed, three years long,
+    passed every validation tier, and 3x wrong.
+    """
+    try:
+        from drhp_ingest import detect_section
+    except Exception as _sw:
+        drhp_log.swallowed("drhp_tables", _sw)
+        return {}
+    out, cur = {}, "front_matter"
+    for p, t in raw_pages:
+        for line in (t or "").split("\n"):
+            cur = detect_section(line.strip(), cur)
+        out[p] = cur
+    return out
+
+
+# Chapters that discuss OTHER companies' financials. A magnitude sourced here is
+# never the issuer's, however clean the row looks.
+# Only the INDUSTRY chapter qualifies. Basis-for-Offer-Price also tabulates peers,
+# but it states the issuer's own KPIs alongside them - excluding it wholesale cost
+# ICEL its net worth (6,573.85 -> 90.83). Peer rows there are already handled by
+# the narrower peer_pages/basis_pages regexes.
+_FOREIGN_FINANCIAL_SECTIONS = {"industry"}
 
 
 def extract_financial_tables(pdf_path, raw_pages):
@@ -160,7 +245,7 @@ def extract_financial_tables(pdf_path, raw_pages):
                     pass
             for tb in tables:
                 tb_years = _years_of(tb)
-                for row in tb:
+                for row in _unmerge_rows(tb):
                     if not row: continue
                     rowtext = " ".join(str(c).replace("\n", " ") for c in row if c)
                     if re.search(r"increase\s*/?\s*\(?\s*decrease|changes?\s+in\s+(working\s+capital|"
@@ -243,12 +328,19 @@ def extract_financial_tables(pdf_path, raw_pages):
     basis_pages = {p for p, t in raw_pages if t and re.search(
         r"basis for (the )?(issue|offer) price|comparison with.{0,40}(listed )?peers?|"
         r"industry peer group", t, re.I)}
+    _sec = _page_sections(raw_pages)
+    _foreign = {p for p, s in _sec.items() if s in _FOREIGN_FINANCIAL_SECTIONS}
     for _k in ("revenue", "pat", "eps", "networth", "total_income", "roe", "roce",
                "ebitda_margin", "ebitda", "cash", "borrowings"):
         if _k in cands:
             clean = [c for c in cands[_k] if c["page"] not in peer_pages
-                     and c["page"] not in basis_pages]
-            if clean: cands[_k] = clean
+                     and c["page"] not in basis_pages
+                     and c["page"] not in _foreign]
+            # FAIL CLOSED. This used to be `if clean:` - keep the polluted set
+            # when nothing survived. That is precisely the case where the only
+            # candidates are other companies' figures, so the fallback published
+            # a competitor's revenue rather than admitting it had none.
+            cands[_k] = clean
     # company P/E: if it ONLY appears on a basis/peer page, it is a peer figure -
     # drop it so the report shows [●] rather than a misleading company P/E
     if "pe" in cands:
