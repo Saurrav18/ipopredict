@@ -528,22 +528,22 @@
       "ofs_pct": 0.0,
       "fresh_pct": 100.0,
       "sector": "BFSI",
-      "gmp": 1.44,
+      "gmp": 2.0,
       "qib": 26.22,
-      "hni": 1.91,
-      "rii": 0.94,
-      "sub": 8.36,
+      "hni": 1.92,
+      "rii": 0.98,
+      "sub": 8.38,
       "market_sentiment": 1.0207,
       "volatility": 11.9584,
       "trend": 2.0
     },
-    "win_score": 32,
+    "win_score": 36,
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 68,
-      "range_low": -10.4,
+      "confidence": 64,
+      "range_low": -10.0,
       "range_high": 12.0,
-      "median": 1.9,
+      "median": 2.3,
       "big_win_prob": 2,
       "allotment_pct": 100.0
     },
@@ -599,10 +599,10 @@
       "fresh_pct": 100.0,
       "sector": "Manufacturing",
       "gmp": 23.53,
-      "qib": 24.72,
-      "hni": 113.53,
-      "rii": 53.94,
-      "sub": 54.25,
+      "qib": 96.13,
+      "hni": 363.27,
+      "rii": 218.25,
+      "sub": 191.19,
       "market_sentiment": 1.0207,
       "volatility": 11.9584,
       "trend": 2.0
@@ -611,11 +611,11 @@
     "prediction": {
       "verdict": "APPLY",
       "confidence": 96,
-      "range_low": 2.9,
-      "range_high": 31.0,
-      "median": 17.4,
-      "big_win_prob": 48,
-      "allotment_pct": 1.9
+      "range_low": 3.0,
+      "range_high": 38.0,
+      "median": 22.8,
+      "big_win_prob": 54,
+      "allotment_pct": 0.5
     },
     "cases": {
       "pos": [
@@ -624,35 +624,31 @@
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
-          "head": "Institutions piled in: QIB 25x",
+          "head": "Institutions piled in: QIB 96x",
           "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
         },
         {
-          "head": "Oversubscribed 54x overall",
+          "head": "Oversubscribed 191x overall",
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 114x",
+          "head": "Wealthy investors keen: HNI 363x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
           "head": "Mostly fresh capital (100% new money)",
           "more": "Most of the money raised goes into the company (growth, repaying debt) rather than founders cashing out."
+        },
+        {
+          "head": "Similar past IPOs: 5 of 5 listed positive",
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 5 listed above the offer price, averaging +56.5% on day one."
         }
       ],
       "neu": [],
       "neg": [
         {
-          "head": "ML bullish (96%) but similar past IPOs only 40% WR",
-          "more": ""
-        },
-        {
           "head": "Loss-making (negative P/E)",
           "more": "The company is not yet profitable, which adds risk to the valuation."
-        },
-        {
-          "head": "Similar past IPOs: 2 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 2 of 5 listed above the offer price. They averaged -5.5% on day one."
         }
       ]
     },
