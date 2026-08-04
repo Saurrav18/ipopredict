@@ -276,6 +276,7 @@ table.ledger td:nth-child(2){white-space:normal; min-width:120px; line-height:1.
 .tier-explain .caps{display:block; color:var(--ink-faint); font-size:11px; letter-spacing:.08em; margin-bottom:6px}
 .skip-warn{margin-top:12px; padding:12px 14px; background:var(--caution-bg); color:var(--caution-ink); border-radius:2px; line-height:1.55}
 .skip-stamp{border-color:var(--red) !important; color:var(--red) !important}
+.skip-note{color:var(--red); opacity:.85}
 .modal-overlay{position:fixed; inset:0; background:rgba(0,0,0,.55); display:flex; align-items:center; justify-content:center; z-index:1000; padding:20px}
 .modal-overlay.hidden{display:none}
 .modal-box{background:var(--bg); color:var(--ink); max-width:460px; width:100%; padding:26px 24px; border:1px solid var(--hairline); border-radius:4px; box-shadow:0 20px 60px rgba(0,0,0,.35); max-height:85vh; overflow:auto}
@@ -521,7 +522,6 @@ table.ledger td:nth-child(2){white-space:normal; min-width:120px; line-height:1.
     <button class="navbtn" data-nav="alerts">Alerts</button>
     <button class="navbtn" data-nav="ask">Ask</button>
     <button class="navbtn" data-nav="method">How it works</button>
-    <button class="navbtn" onclick="location.href='/drhp/'" title="Read an IPO prospectus (DRHP/RHP) with page-cited analysis">DRHP Scanner</button>
   </nav>
   <button id="authBtn" class="caps" data-nav="account" style="border:1px solid var(--hairline); padding:3px 10px; margin-right:8px">Sign in</button>
   <button id="themeBtn" class="caps" aria-label="Switch theme">Dark</button>
@@ -1201,20 +1201,10 @@ function tick(){
 setInterval(tick, 1000); tick();
 
 /* theme */
-(function(){                      /* shared theme, persists across /drhp */
-  var KEY = "ipopredict_theme";
-  function apply(dark){
-    document.documentElement.classList.toggle("dark", dark);
-    var b = document.getElementById("themeBtn");
-    if (b) b.textContent = dark ? "Light" : "Dark";
-  }
-  try { apply(localStorage.getItem(KEY) === "dark"); } catch(e){}
-  $("#themeBtn").addEventListener("click", function(){
-    var dark = !document.documentElement.classList.contains("dark");
-    apply(dark);
-    try { localStorage.setItem(KEY, dark ? "dark" : "light"); } catch(e){}
-  });
-})();
+$("#themeBtn").addEventListener("click", () => {
+  const dark = document.documentElement.classList.toggle("dark");
+  $("#themeBtn").textContent = dark ? "Light" : "Dark";
+});
 
 /* navigation: pure JS view switching, no links (works inside sandboxed previews) */
 function showView(view, arg, push){
@@ -1353,7 +1343,7 @@ function rowHTML(ipo){
   <div class="row" data-ipo="${ipo.id}" tabindex="0" role="button">
     <div>
       <div class="name">${esc(ipo.name)}</div>
-      <div class="meta mono">${esc(ipo.sector)} &middot; Rs ${ipo.offer} &middot; ${ipo.status === "settled" ? "listed " + ipo.listedOn : closeLine(ipo)}${ipo.tierPreliminary ? " &middot; tier preliminary" : ""}</div>
+      <div class="meta mono">${esc(ipo.sector)} &middot; Rs ${ipo.offer} &middot; ${ipo.status === "settled" ? "listed " + ipo.listedOn : closeLine(ipo)}${ipo.tierPreliminary ? " &middot; tier preliminary" : ""}${(!graded && !(ipo.maxTier > 0)) ? ` &middot; <span class="skip-note">cleared no accuracy bar</span>` : ""}</div>
     </div>
     <div class="pa mono">
       <div><span class="lab">PRED </span>${ipo.range ? fmtPct(ipo.range.lo) + " to " + fmtPct(ipo.range.hi) : "-"}</div>
@@ -1383,8 +1373,16 @@ function renderLedger(){
     tier = +$("#tierSlider").value;
     renderedTier = tier;
     updateTierReadout();
-    qualifying = DATA.ipos.filter(i => i.maxTier >= tier);
-    $("#tierCount").textContent = qualifying.length + " of " + DATA.ipos.length + " entries qualify";
+    // The slider filters which calls are STRONG ENOUGH TO ACT ON. An IPO that
+    // clears no tier at all is not "not covered" - it is actively declined, and
+    // hiding it is the worst of both worlds: Manipal Health went out in an alert,
+    // then could not be found on the site, so a subscriber had no way to
+    // reconcile the two. Keep zero-tier entries visible; rowHTML renders their
+    // SKIP verdict, which is the honest answer to "what do you think of this one".
+    const noTier = (i) => !(i.maxTier > 0);
+    qualifying = DATA.ipos.filter(i => i.maxTier >= tier || noTier(i));
+    const acting = DATA.ipos.filter(i => i.maxTier >= tier).length;
+    $("#tierCount").textContent = acting + " of " + DATA.ipos.length + " entries qualify";
   }
 
   const today = new Date(); today.setHours(0,0,0,0);
@@ -2527,10 +2525,6 @@ renderLedger();
 refreshAuth();
 (function(){
   var sv = typeof START_VIEW !== "undefined" ? START_VIEW : "ledger";
-  try {                                  // honour an incoming #view deep link
-    var _h = (location.hash || "").replace(/^#/, "").split("/")[0];
-    if (_h && ['ledger', 'archive', 'patterns', 'alerts', 'ask', 'method', 'account'].indexOf(_h) >= 0) sv = _h;
-  } catch(e){}
   var sa = typeof START_ARG !== "undefined" ? START_ARG : null;
   try { history.replaceState({view: sv, arg: sa}, "",
           "#" + sv + (sa ? "/" + encodeURIComponent(sa) : "")); } catch(e){}
