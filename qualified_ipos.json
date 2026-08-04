@@ -1065,7 +1065,7 @@
       "ofs_pct": 0.0,
       "fresh_pct": 100.0,
       "sector": "BFSI",
-      "gmp": 5.67,
+      "gmp": 5.56,
       "qib": 26.22,
       "hni": 1.92,
       "rii": 0.98,
@@ -1074,10 +1074,10 @@
       "volatility": 12.1179,
       "trend": 1.0
     },
-    "win_score": 65,
+    "win_score": 63,
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 35,
+      "confidence": 37,
       "range_low": -7.6,
       "range_high": 15.0,
       "median": 4.8,
@@ -1087,7 +1087,7 @@
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +5.7%",
+          "head": "Grey market premium +5.6%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -1218,7 +1218,7 @@
       "ofs_pct": 13.7,
       "fresh_pct": 86.3,
       "sector": "Pharma/Healthcare",
-      "gmp": 0.59,
+      "gmp": 0.51,
       "qib": 8.54,
       "hni": 1.06,
       "rii": 0.98,
@@ -1227,13 +1227,13 @@
       "volatility": 12.1179,
       "trend": 1.0
     },
-    "win_score": 47,
+    "win_score": 46,
     "prediction": {
       "verdict": "SKIP",
       "confidence": 53,
       "range_low": -10.3,
       "range_high": 10.4,
-      "median": -0.3,
+      "median": 0.1,
       "big_win_prob": 0,
       "allotment_pct": 100.0
     },
