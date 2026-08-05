@@ -585,9 +585,9 @@
       "sector": "BFSI",
       "gmp": 26.42,
       "qib": 1.13,
-      "hni": 5.58,
-      "rii": 3.42,
-      "sub": 3.23,
+      "hni": 5.59,
+      "rii": 3.45,
+      "sub": 3.24,
       "market_sentiment": 1.0093,
       "volatility": 11.565,
       "trend": 1.0
@@ -600,7 +600,7 @@
       "range_high": 30.6,
       "median": 10.6,
       "big_win_prob": 9,
-      "allotment_pct": 29.2
+      "allotment_pct": 29.0
     },
     "cases": {
       "pos": [
