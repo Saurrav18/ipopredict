@@ -919,10 +919,10 @@
       "fresh_pct": 75.1,
       "sector": "BFSI",
       "gmp": 28.3,
-      "qib": 1.29,
-      "hni": 28.65,
-      "rii": 14.1,
-      "sub": 13.56,
+      "qib": 1.32,
+      "hni": 31.16,
+      "rii": 14.7,
+      "sub": 14.4,
       "market_sentiment": 1.0316,
       "volatility": 11.3712,
       "trend": 2.0
@@ -933,9 +933,9 @@
       "confidence": 99,
       "range_low": -0.7,
       "range_high": 29.0,
-      "median": 27.0,
-      "big_win_prob": 55,
-      "allotment_pct": 7.1
+      "median": 28.0,
+      "big_win_prob": 59,
+      "allotment_pct": 6.8
     },
     "cases": {
       "pos": [
@@ -948,7 +948,7 @@
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 29x",
+          "head": "Wealthy investors keen: HNI 31x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
@@ -965,7 +965,7 @@
         },
         {
           "head": "Similar past IPOs: 5 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 5 listed above the offer price, averaging +8.2% on day one."
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 5 listed above the offer price, averaging +14.9% on day one."
         }
       ],
       "neu": [],
