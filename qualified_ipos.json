@@ -17,29 +17,29 @@
       "ofs_pct": 19.8,
       "fresh_pct": 80.2,
       "sector": "Manufacturing",
-      "gmp": 6.6,
+      "gmp": 7.08,
       "qib": 50.0,
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 1.0312,
-      "volatility": 11.3726,
+      "market_sentiment": 1.0316,
+      "volatility": 11.3712,
       "trend": 2.0
     },
-    "win_score": 61,
+    "win_score": 62,
     "prediction": {
-      "verdict": "SKIP",
-      "confidence": 38,
+      "verdict": "APPLY",
+      "confidence": 62,
       "range_low": -1.0,
-      "range_high": 17.2,
-      "median": 9.6,
+      "range_high": 17.5,
+      "median": 8.5,
       "big_win_prob": 0,
       "allotment_pct": 2.9
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +6.6%",
+          "head": "Grey market premium +7.1%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -79,67 +79,79 @@
         "tier": 65,
         "expected_wr": 64.6,
         "model": "RandomForest",
-        "score": 56.0
+        "score": 58.0
       },
       {
         "tier": 66,
         "expected_wr": 65.1,
         "model": "RandomForest",
-        "score": 56.0
+        "score": 58.0
       },
       {
         "tier": 67,
         "expected_wr": 65.6,
         "model": "RandomForest",
-        "score": 56.0
+        "score": 58.0
       },
       {
         "tier": 68,
         "expected_wr": 65.6,
         "model": "RandomForest",
-        "score": 56.0
+        "score": 58.0
       },
       {
         "tier": 69,
         "expected_wr": 68.3,
         "model": "RandomForest",
-        "score": 56.0
+        "score": 58.0
       },
       {
         "tier": 70,
         "expected_wr": 69.4,
         "model": "RandomForest",
-        "score": 56.0
+        "score": 58.0
       },
       {
         "tier": 71,
         "expected_wr": 69.9,
         "model": "RandomForest",
-        "score": 56.0
+        "score": 58.0
       },
       {
         "tier": 72,
         "expected_wr": 70.9,
         "model": "RandomForest",
-        "score": 56.0
+        "score": 58.0
       },
       {
         "tier": 73,
         "expected_wr": 72.5,
         "model": "RandomForest",
-        "score": 56.0
+        "score": 58.0
       },
       {
         "tier": 74,
         "expected_wr": 72.5,
         "model": "RandomForest",
-        "score": 56.0
+        "score": 58.0
       },
       {
         "tier": 75,
         "expected_wr": 73.4,
         "model": "RandomForest",
-        "score": 56.0
+        "score": 58.0
+      },
+      {
+        "tier": 76,
+        "expected_wr": 74.1,
+        "model": "RandomForest",
+        "score": 58.0
+      },
+      {
+        "tier": 77,
+        "expected_wr": 74.8,
+        "model": "RandomForest",
+        "score": 58.0
       }
     ],
     "state": "open"
@@ -162,29 +174,29 @@
       "ofs_pct": 80.6,
       "fresh_pct": 19.4,
       "sector": "FMCG/Consumer",
-      "gmp": 5.66,
+      "gmp": 6.29,
       "qib": 50.0,
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 1.0312,
-      "volatility": 11.3726,
+      "market_sentiment": 1.0316,
+      "volatility": 11.3712,
       "trend": 2.0
     },
-    "win_score": 65,
+    "win_score": 64,
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 34,
-      "range_low": -4.2,
+      "confidence": 35,
+      "range_low": -1.4,
       "range_high": 16.9,
-      "median": 9.9,
+      "median": 10.2,
       "big_win_prob": 0,
       "allotment_pct": 2.9
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +5.7%",
+          "head": "Grey market premium +6.3%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -224,85 +236,85 @@
         "tier": 65,
         "expected_wr": 64.6,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 59.0
       },
       {
         "tier": 66,
         "expected_wr": 65.1,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 59.0
       },
       {
         "tier": 67,
         "expected_wr": 65.6,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 59.0
       },
       {
         "tier": 68,
         "expected_wr": 65.6,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 59.0
       },
       {
         "tier": 69,
         "expected_wr": 68.3,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 59.0
       },
       {
         "tier": 70,
         "expected_wr": 69.4,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 59.0
       },
       {
         "tier": 71,
         "expected_wr": 69.9,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 59.0
       },
       {
         "tier": 72,
         "expected_wr": 70.9,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 59.0
       },
       {
         "tier": 73,
         "expected_wr": 72.5,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 59.0
       },
       {
         "tier": 74,
         "expected_wr": 72.5,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 59.0
       },
       {
         "tier": 75,
         "expected_wr": 73.4,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 59.0
       },
       {
         "tier": 76,
         "expected_wr": 74.1,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 59.0
       },
       {
         "tier": 77,
         "expected_wr": 74.8,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 59.0
       },
       {
         "tier": 78,
         "expected_wr": 75.6,
         "model": "RandomForest",
-        "score": 61.0
+        "score": 59.0
       }
     ],
     "state": "open"
@@ -325,13 +337,13 @@
       "ofs_pct": 78.7,
       "fresh_pct": 21.3,
       "sector": "Manufacturing",
-      "gmp": 24.78,
+      "gmp": 26.02,
       "qib": 50.0,
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 1.0312,
-      "volatility": 11.3726,
+      "market_sentiment": 1.0316,
+      "volatility": 11.3712,
       "trend": 2.0
     },
     "win_score": 99,
@@ -339,15 +351,15 @@
       "verdict": "APPLY",
       "confidence": 99,
       "range_low": 1.5,
-      "range_high": 25.9,
-      "median": 24.7,
+      "range_high": 28.6,
+      "median": 27.1,
       "big_win_prob": 95,
       "allotment_pct": 2.9
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +24.8%",
+          "head": "Grey market premium +26.0%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -605,8 +617,8 @@
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 1.0312,
-      "volatility": 11.3726,
+      "market_sentiment": 1.0316,
+      "volatility": 11.3712,
       "trend": 2.0
     },
     "win_score": 99,
@@ -880,8 +892,8 @@
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 1.0312,
-      "volatility": 11.3726,
+      "market_sentiment": 1.0316,
+      "volatility": 11.3712,
       "trend": 2.0
     },
     "state": "upcoming",
@@ -906,13 +918,13 @@
       "ofs_pct": 24.9,
       "fresh_pct": 75.1,
       "sector": "BFSI",
-      "gmp": 26.42,
+      "gmp": 28.3,
       "qib": 1.23,
-      "hni": 24.72,
-      "rii": 12.84,
-      "sub": 12.07,
-      "market_sentiment": 1.0312,
-      "volatility": 11.3726,
+      "hni": 26.22,
+      "rii": 13.5,
+      "sub": 12.72,
+      "market_sentiment": 1.0316,
+      "volatility": 11.3712,
       "trend": 2.0
     },
     "win_score": 98,
@@ -920,23 +932,23 @@
       "verdict": "APPLY",
       "confidence": 99,
       "range_low": -0.1,
-      "range_high": 29.2,
-      "median": 20.7,
-      "big_win_prob": 34,
-      "allotment_pct": 7.8
+      "range_high": 29.1,
+      "median": 28.0,
+      "big_win_prob": 56,
+      "allotment_pct": 7.4
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +26.4%",
+          "head": "Grey market premium +28.3%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
-          "head": "Oversubscribed 12x overall",
+          "head": "Oversubscribed 13x overall",
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 25x",
+          "head": "Wealthy investors keen: HNI 26x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
@@ -1193,8 +1205,8 @@
       "hni": 1.92,
       "rii": 0.98,
       "sub": 8.38,
-      "market_sentiment": 1.0312,
-      "volatility": 11.3726,
+      "market_sentiment": 1.0316,
+      "volatility": 11.3712,
       "trend": 2.0
     },
     "win_score": 86,
@@ -1476,8 +1488,8 @@
       "hni": 397.99,
       "rii": 218.25,
       "sub": 200.66,
-      "market_sentiment": 1.0312,
-      "volatility": 11.3726,
+      "market_sentiment": 1.0316,
+      "volatility": 11.3712,
       "trend": 2.0
     },
     "win_score": 98,
@@ -1759,8 +1771,8 @@
       "hni": 15.0,
       "rii": 10.0,
       "sub": null,
-      "market_sentiment": 1.0312,
-      "volatility": 11.3726,
+      "market_sentiment": 1.0316,
+      "volatility": 11.3712,
       "trend": 2.0
     },
     "state": "upcoming",
@@ -1902,13 +1914,13 @@
       "hni": 1.06,
       "rii": 0.98,
       "sub": 5.12,
-      "market_sentiment": 1.0312,
-      "volatility": 11.3726,
+      "market_sentiment": 1.0316,
+      "volatility": 11.3712,
       "trend": 2.0
     },
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 11,
+      "confidence": 12,
       "range_low": -2.5,
       "range_high": 11.2,
       "median": 3.1,
@@ -2199,8 +2211,8 @@
       "hni": 26.65,
       "rii": 8.98,
       "sub": 12.24,
-      "market_sentiment": 1.0312,
-      "volatility": 11.3726,
+      "market_sentiment": 1.0316,
+      "volatility": 11.3712,
       "trend": 2.0
     },
     "prediction": {
@@ -2458,8 +2470,8 @@
       "hni": 6.82,
       "rii": 2.78,
       "sub": 7.26,
-      "market_sentiment": 1.0312,
-      "volatility": 11.3726,
+      "market_sentiment": 1.0316,
+      "volatility": 11.3712,
       "trend": 2.0
     },
     "prediction": {
@@ -2771,8 +2783,8 @@
       "hni": 50.65,
       "rii": 6.69,
       "sub": 72.37,
-      "market_sentiment": 1.0312,
-      "volatility": 11.3726,
+      "market_sentiment": 1.0316,
+      "volatility": 11.3712,
       "trend": 2.0
     },
     "prediction": {
