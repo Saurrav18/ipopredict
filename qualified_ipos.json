@@ -2127,6 +2127,37 @@
     "state": "open"
   },
   {
+    "ipo_name": "Behari Lal Engineering Ltd.",
+    "close_date": "14 Aug, 2026",
+    "_closing_today": false,
+    "_closing_tomorrow": false,
+    "listing_date": "Wed, Aug 19, 2026T",
+    "listed_on": null,
+    "offer_price": null,
+    "size_cr": null,
+    "inputs": {
+      "offer_price": null,
+      "size_cr": null,
+      "pe": null,
+      "roe": 23.6,
+      "promoter_holding": null,
+      "ofs_pct": null,
+      "fresh_pct": null,
+      "sector": "Manufacturing",
+      "gmp": 0.0,
+      "qib": 50.0,
+      "hni": 15.0,
+      "rii": 35.0,
+      "sub": null,
+      "market_sentiment": 1.0316,
+      "volatility": 11.3712,
+      "trend": 2.0
+    },
+    "state": "upcoming",
+    "qualifying_tiers": [],
+    "opens_note": "Opening soon. A call appears once grey-market and subscription data is available."
+  },
+  {
     "ipo_name": "Shiprocket Ltd.",
     "close_date": "14 Aug, 2026",
     "_closing_today": false,
