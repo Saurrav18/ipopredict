@@ -919,10 +919,10 @@
       "fresh_pct": 75.1,
       "sector": "BFSI",
       "gmp": 28.3,
-      "qib": 1.23,
-      "hni": 26.22,
-      "rii": 13.5,
-      "sub": 12.72,
+      "qib": 1.29,
+      "hni": 28.65,
+      "rii": 14.1,
+      "sub": 13.56,
       "market_sentiment": 1.0316,
       "volatility": 11.3712,
       "trend": 2.0
@@ -931,11 +931,11 @@
     "prediction": {
       "verdict": "APPLY",
       "confidence": 99,
-      "range_low": -0.1,
-      "range_high": 29.1,
-      "median": 28.0,
-      "big_win_prob": 56,
-      "allotment_pct": 7.4
+      "range_low": -0.7,
+      "range_high": 29.0,
+      "median": 27.0,
+      "big_win_prob": 55,
+      "allotment_pct": 7.1
     },
     "cases": {
       "pos": [
@@ -944,11 +944,11 @@
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
-          "head": "Oversubscribed 13x overall",
+          "head": "Oversubscribed 14x overall",
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 26x",
+          "head": "Wealthy investors keen: HNI 29x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
