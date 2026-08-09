@@ -1412,7 +1412,7 @@
       "ofs_pct": 19.8,
       "fresh_pct": 80.2,
       "sector": "Manufacturing",
-      "gmp": 9.67,
+      "gmp": 10.14,
       "qib": 4.47,
       "hni": 3.8,
       "rii": 1.01,
@@ -1421,12 +1421,12 @@
       "volatility": 11.4137,
       "trend": 2.0
     },
-    "win_score": 72,
+    "win_score": 73,
     "prediction": {
       "verdict": "APPLY",
-      "confidence": 72,
+      "confidence": 73,
       "range_low": -5.2,
-      "range_high": 11.9,
+      "range_high": 12.1,
       "median": -0.1,
       "big_win_prob": 0,
       "allotment_pct": 99.0
@@ -1434,7 +1434,7 @@
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +9.7%",
+          "head": "Grey market premium +10.1%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -1453,7 +1453,7 @@
       "neu": [],
       "neg": [
         {
-          "head": "ML bullish (72%) but similar past IPOs only 0% WR",
+          "head": "ML bullish (73%) but similar past IPOs only 0% WR",
           "more": ""
         },
         {
