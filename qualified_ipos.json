@@ -864,9 +864,9 @@
       "sector": "Manufacturing",
       "gmp": 12.26,
       "qib": 4.48,
-      "hni": 5.57,
-      "rii": 3.44,
-      "sub": 4.19,
+      "hni": 5.58,
+      "rii": 3.46,
+      "sub": 4.2,
       "market_sentiment": 1.0146,
       "volatility": 11.313,
       "trend": 1.0
@@ -879,7 +879,7 @@
       "range_high": 14.6,
       "median": 3.6,
       "big_win_prob": 0,
-      "allotment_pct": 29.1
+      "allotment_pct": 28.9
     },
     "cases": {
       "pos": [
@@ -1143,7 +1143,7 @@
       "sector": "FMCG/Consumer",
       "gmp": 7.23,
       "qib": 0.64,
-      "hni": 0.38,
+      "hni": 0.39,
       "rii": 0.37,
       "sub": 0.45,
       "market_sentiment": 1.0146,
