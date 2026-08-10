@@ -300,7 +300,7 @@
       "ofs_pct": 45.3,
       "fresh_pct": 54.7,
       "sector": "BFSI",
-      "gmp": 27.32,
+      "gmp": 26.8,
       "qib": 75.0,
       "hni": 15.0,
       "rii": 10.0,
@@ -315,14 +315,14 @@
       "confidence": 98,
       "range_low": -0.9,
       "range_high": 24.9,
-      "median": 20.1,
+      "median": 18.4,
       "big_win_prob": 70,
       "allotment_pct": 10.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +27.3%",
+          "head": "Grey market premium +26.8%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -1687,7 +1687,7 @@
       "ofs_pct": 54.4,
       "fresh_pct": 45.6,
       "sector": "Manufacturing",
-      "gmp": 31.0,
+      "gmp": 30.65,
       "qib": 0.06,
       "hni": 1.02,
       "rii": 0.76,
@@ -1709,7 +1709,7 @@
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +31.0%",
+          "head": "Grey market premium +30.6%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -1720,7 +1720,7 @@
       "neu": [],
       "neg": [
         {
-          "head": "QIB only 0.1x despite GMP +31.0%, institutions not convinced",
+          "head": "QIB only 0.1x despite GMP +30.6%, institutions not convinced",
           "more": ""
         },
         {
@@ -1951,6 +1951,37 @@
       }
     ],
     "state": "open"
+  },
+  {
+    "ipo_name": "Shankesh Jewellers Ltd.",
+    "close_date": "20 Aug, 2026",
+    "_closing_today": false,
+    "_closing_tomorrow": false,
+    "listing_date": "Tue, Aug 25, 2026T",
+    "listed_on": null,
+    "offer_price": null,
+    "size_cr": null,
+    "inputs": {
+      "offer_price": null,
+      "size_cr": null,
+      "pe": null,
+      "roe": null,
+      "promoter_holding": null,
+      "ofs_pct": null,
+      "fresh_pct": null,
+      "sector": "BFSI",
+      "gmp": 0.0,
+      "qib": 50.0,
+      "hni": 15.0,
+      "rii": 35.0,
+      "sub": null,
+      "market_sentiment": 1.0156,
+      "volatility": 11.307,
+      "trend": 1.0
+    },
+    "state": "upcoming",
+    "qualifying_tiers": [],
+    "opens_note": "Opening soon. A call appears once grey-market and subscription data is available."
   },
   {
     "ipo_name": "Lalithaa Jewellery Mart Ltd.",
@@ -2266,6 +2297,307 @@
     "state": "open"
   },
   {
+    "ipo_name": "Juniper Green Energy Ltd.",
+    "close_date": "3 Aug, 2026",
+    "listing_date": "Thu, Aug 6, 2026",
+    "listed_on": "Thu, Aug 6, 2026",
+    "offer_price": 225.0,
+    "list_price": 245.0,
+    "size_cr": 1800.0,
+    "symbol": "JNPR",
+    "sector": "BFSI",
+    "actual": {
+      "pct": 8.89,
+      "price": 245.0,
+      "hit": false
+    },
+    "listing_gain": 8.89,
+    "state": "settled",
+    "qualifying_tiers": [
+      {
+        "tier": 65,
+        "expected_wr": 64.6,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 66,
+        "expected_wr": 65.1,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 67,
+        "expected_wr": 65.6,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 68,
+        "expected_wr": 65.6,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 69,
+        "expected_wr": 68.3,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 70,
+        "expected_wr": 69.4,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 71,
+        "expected_wr": 69.9,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 72,
+        "expected_wr": 70.9,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 73,
+        "expected_wr": 72.5,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 74,
+        "expected_wr": 72.5,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 75,
+        "expected_wr": 73.4,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 76,
+        "expected_wr": 74.1,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 77,
+        "expected_wr": 74.8,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 78,
+        "expected_wr": 75.6,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 79,
+        "expected_wr": 77.5,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 80,
+        "expected_wr": 79.4,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 81,
+        "expected_wr": 79.4,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 82,
+        "expected_wr": 87.9,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 83,
+        "expected_wr": 87.9,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 84,
+        "expected_wr": 87.9,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 85,
+        "expected_wr": 87.9,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 86,
+        "expected_wr": 87.9,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 87,
+        "expected_wr": 87.9,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 88,
+        "expected_wr": 87.9,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 89,
+        "expected_wr": 87.9,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 90,
+        "expected_wr": 91.0,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 91,
+        "expected_wr": 91.0,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 92,
+        "expected_wr": 91.0,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 93,
+        "expected_wr": 91.0,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 94,
+        "expected_wr": 95.9,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 95,
+        "expected_wr": 95.9,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 96,
+        "expected_wr": 95.9,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 97,
+        "expected_wr": 95.9,
+        "model": "RandomForest",
+        "score": 81.0
+      },
+      {
+        "tier": 98,
+        "expected_wr": 95.9,
+        "model": "RandomForest",
+        "score": 81.0
+      }
+    ],
+    "inputs": {
+      "offer_price": 225.0,
+      "size_cr": 1800.0,
+      "pe": 271.08,
+      "roe": null,
+      "promoter_holding": null,
+      "ofs_pct": 0.0,
+      "fresh_pct": 100.0,
+      "sector": "BFSI",
+      "gmp": 10.22,
+      "qib": 26.22,
+      "hni": 1.92,
+      "rii": 0.98,
+      "sub": 8.38,
+      "market_sentiment": 1.0156,
+      "volatility": 11.307,
+      "trend": 1.0
+    },
+    "prediction": {
+      "verdict": "APPLY",
+      "confidence": 87,
+      "range_low": -4.2,
+      "range_high": 15.2,
+      "median": 6.5,
+      "big_win_prob": 2,
+      "allotment_pct": 100.0
+    },
+    "cases": {
+      "pos": [
+        {
+          "head": "Grey market premium +10.2%",
+          "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
+        },
+        {
+          "head": "Institutions piled in: QIB 26x",
+          "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
+        },
+        {
+          "head": "Oversubscribed 8x overall",
+          "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
+        },
+        {
+          "head": "Mostly fresh capital (100% new money)",
+          "more": "Most of the money raised goes into the company (growth, repaying debt) rather than founders cashing out."
+        }
+      ],
+      "neu": [],
+      "neg": [
+        {
+          "head": "Expensive: P/E 271.1",
+          "more": "A high price-to-earnings ratio means you pay a lot per rupee of profit, leaving less room to rise."
+        }
+      ]
+    },
+    "note": null,
+    "retro": true,
+    "frozen": {
+      "ipo_name": "Juniper Green Energy Ltd.",
+      "locked": true,
+      "updated_on": "2026-08-04",
+      "verdict": "SKIP",
+      "range_low": -7.6,
+      "range_high": 15.3,
+      "median": 5.1,
+      "confidence": 38,
+      "max_tier": 73,
+      "locked_on": "2026-08-04"
+    },
+    "graded": {
+      "verdict": "SKIP",
+      "actual": 8.89,
+      "hit": false,
+      "range_low": -7.6,
+      "range_high": 15.3,
+      "in_range": true,
+      "confidence": 38
+    }
+  },
+  {
     "ipo_name": "MV Electrosystems Ltd.",
     "close_date": "3 Aug, 2026",
     "listing_date": "Thu, Aug 6, 2026",
@@ -2572,307 +2904,6 @@
       "range_high": 28.7,
       "in_range": true,
       "confidence": 97
-    }
-  },
-  {
-    "ipo_name": "Juniper Green Energy Ltd.",
-    "close_date": "3 Aug, 2026",
-    "listing_date": "Thu, Aug 6, 2026",
-    "listed_on": "Thu, Aug 6, 2026",
-    "offer_price": 225.0,
-    "list_price": 245.0,
-    "size_cr": 1800.0,
-    "symbol": "JNPR",
-    "sector": "BFSI",
-    "actual": {
-      "pct": 8.89,
-      "price": 245.0,
-      "hit": false
-    },
-    "listing_gain": 8.89,
-    "state": "settled",
-    "qualifying_tiers": [
-      {
-        "tier": 65,
-        "expected_wr": 64.6,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 66,
-        "expected_wr": 65.1,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 67,
-        "expected_wr": 65.6,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 68,
-        "expected_wr": 65.6,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 69,
-        "expected_wr": 68.3,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 70,
-        "expected_wr": 69.4,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 71,
-        "expected_wr": 69.9,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 72,
-        "expected_wr": 70.9,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 73,
-        "expected_wr": 72.5,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 74,
-        "expected_wr": 72.5,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 75,
-        "expected_wr": 73.4,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 76,
-        "expected_wr": 74.1,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 77,
-        "expected_wr": 74.8,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 78,
-        "expected_wr": 75.6,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 79,
-        "expected_wr": 77.5,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 80,
-        "expected_wr": 79.4,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 81,
-        "expected_wr": 79.4,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 82,
-        "expected_wr": 87.9,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 83,
-        "expected_wr": 87.9,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 84,
-        "expected_wr": 87.9,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 85,
-        "expected_wr": 87.9,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 86,
-        "expected_wr": 87.9,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 87,
-        "expected_wr": 87.9,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 88,
-        "expected_wr": 87.9,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 89,
-        "expected_wr": 87.9,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 90,
-        "expected_wr": 91.0,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 91,
-        "expected_wr": 91.0,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 92,
-        "expected_wr": 91.0,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 93,
-        "expected_wr": 91.0,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 94,
-        "expected_wr": 95.9,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 95,
-        "expected_wr": 95.9,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 96,
-        "expected_wr": 95.9,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 97,
-        "expected_wr": 95.9,
-        "model": "RandomForest",
-        "score": 81.0
-      },
-      {
-        "tier": 98,
-        "expected_wr": 95.9,
-        "model": "RandomForest",
-        "score": 81.0
-      }
-    ],
-    "inputs": {
-      "offer_price": 225.0,
-      "size_cr": 1800.0,
-      "pe": 271.08,
-      "roe": null,
-      "promoter_holding": null,
-      "ofs_pct": 0.0,
-      "fresh_pct": 100.0,
-      "sector": "BFSI",
-      "gmp": 10.22,
-      "qib": 26.22,
-      "hni": 1.92,
-      "rii": 0.98,
-      "sub": 8.38,
-      "market_sentiment": 1.0156,
-      "volatility": 11.307,
-      "trend": 1.0
-    },
-    "prediction": {
-      "verdict": "APPLY",
-      "confidence": 87,
-      "range_low": -4.2,
-      "range_high": 15.2,
-      "median": 6.5,
-      "big_win_prob": 2,
-      "allotment_pct": 100.0
-    },
-    "cases": {
-      "pos": [
-        {
-          "head": "Grey market premium +10.2%",
-          "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
-        },
-        {
-          "head": "Institutions piled in: QIB 26x",
-          "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
-        },
-        {
-          "head": "Oversubscribed 8x overall",
-          "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
-        },
-        {
-          "head": "Mostly fresh capital (100% new money)",
-          "more": "Most of the money raised goes into the company (growth, repaying debt) rather than founders cashing out."
-        }
-      ],
-      "neu": [],
-      "neg": [
-        {
-          "head": "Expensive: P/E 271.1",
-          "more": "A high price-to-earnings ratio means you pay a lot per rupee of profit, leaving less room to rise."
-        }
-      ]
-    },
-    "note": null,
-    "retro": true,
-    "frozen": {
-      "ipo_name": "Juniper Green Energy Ltd.",
-      "locked": true,
-      "updated_on": "2026-08-04",
-      "verdict": "SKIP",
-      "range_low": -7.6,
-      "range_high": 15.3,
-      "median": 5.1,
-      "confidence": 38,
-      "max_tier": 73,
-      "locked_on": "2026-08-04"
-    },
-    "graded": {
-      "verdict": "SKIP",
-      "actual": 8.89,
-      "hit": false,
-      "range_low": -7.6,
-      "range_high": 15.3,
-      "in_range": true,
-      "confidence": 38
     }
   },
   {
