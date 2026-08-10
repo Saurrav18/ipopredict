@@ -1418,8 +1418,8 @@
       "sector": "Manufacturing",
       "gmp": 15.49,
       "qib": 1.0,
-      "hni": 0.56,
-      "rii": 0.62,
+      "hni": 0.57,
+      "rii": 0.63,
       "sub": 0.72,
       "market_sentiment": 1.0146,
       "volatility": 11.313,
@@ -1689,9 +1689,9 @@
       "sector": "Manufacturing",
       "gmp": 31.0,
       "qib": 0.01,
-      "hni": 0.68,
+      "hni": 0.69,
       "rii": 0.62,
-      "sub": 0.46,
+      "sub": 0.47,
       "market_sentiment": 1.0146,
       "volatility": 11.313,
       "trend": 1.0
@@ -1701,7 +1701,7 @@
       "verdict": "APPLY",
       "confidence": 99,
       "range_low": -2.4,
-      "range_high": 25.3,
+      "range_high": 25.6,
       "median": 25.2,
       "big_win_prob": 95,
       "allotment_pct": 100.0
@@ -1732,7 +1732,7 @@
           "more": "A high price-to-earnings ratio means you pay a lot per rupee of profit, leaving less room to rise."
         },
         {
-          "head": "Undersubscribed: 0.46x",
+          "head": "Undersubscribed: 0.47x",
           "more": "Total demand was below the shares on offer, a weak sign."
         },
         {
