@@ -864,9 +864,9 @@
       "sector": "Manufacturing",
       "gmp": 12.26,
       "qib": 4.48,
-      "hni": 5.55,
-      "rii": 3.41,
-      "sub": 4.18,
+      "hni": 5.57,
+      "rii": 3.44,
+      "sub": 4.19,
       "market_sentiment": 1.0146,
       "volatility": 11.313,
       "trend": 1.0
@@ -877,9 +877,9 @@
       "confidence": 91,
       "range_low": -2.7,
       "range_high": 14.6,
-      "median": 3.7,
+      "median": 3.6,
       "big_win_prob": 0,
-      "allotment_pct": 29.3
+      "allotment_pct": 29.1
     },
     "cases": {
       "pos": [
@@ -1417,10 +1417,10 @@
       "fresh_pct": 21.3,
       "sector": "Manufacturing",
       "gmp": 15.49,
-      "qib": 0.63,
-      "hni": 0.22,
-      "rii": 0.19,
-      "sub": 0.32,
+      "qib": 1.0,
+      "hni": 0.56,
+      "rii": 0.62,
+      "sub": 0.72,
       "market_sentiment": 1.0146,
       "volatility": 11.313,
       "trend": 1.0
@@ -1429,10 +1429,10 @@
     "prediction": {
       "verdict": "APPLY",
       "confidence": 96,
-      "range_low": -3.0,
-      "range_high": 16.9,
-      "median": 8.0,
-      "big_win_prob": 6,
+      "range_low": -3.4,
+      "range_high": 16.7,
+      "median": 6.5,
+      "big_win_prob": 4,
       "allotment_pct": 100.0
     },
     "cases": {
@@ -1449,15 +1449,11 @@
       "neu": [],
       "neg": [
         {
-          "head": "QIB only 0.6x despite GMP +15.5%, institutions not convinced",
-          "more": ""
-        },
-        {
           "head": "Expensive: P/E 55.4",
           "more": "A high price-to-earnings ratio means you pay a lot per rupee of profit, leaving less room to rise."
         },
         {
-          "head": "Undersubscribed: 0.32x",
+          "head": "Undersubscribed: 0.72x",
           "more": "Total demand was below the shares on offer, a weak sign."
         }
       ]
@@ -1693,8 +1689,8 @@
       "sector": "Manufacturing",
       "gmp": 31.0,
       "qib": 0.01,
-      "hni": 0.67,
-      "rii": 0.61,
+      "hni": 0.68,
+      "rii": 0.62,
       "sub": 0.46,
       "market_sentiment": 1.0146,
       "volatility": 11.313,
