@@ -959,10 +959,10 @@
       "fresh_pct": 92.0,
       "sector": "BFSI",
       "gmp": 19.29,
-      "qib": 164.02,
-      "hni": 36.28,
-      "rii": 7.93,
-      "sub": 58.51,
+      "qib": 164.03,
+      "hni": 36.66,
+      "rii": 8.36,
+      "sub": 58.81,
       "market_sentiment": 1.0132,
       "volatility": 11.1235,
       "trend": 1.0
@@ -973,9 +973,9 @@
       "confidence": 97,
       "range_low": -3.0,
       "range_high": 25.8,
-      "median": 18.3,
-      "big_win_prob": 53,
-      "allotment_pct": 12.6
+      "median": 18.4,
+      "big_win_prob": 48,
+      "allotment_pct": 12.0
     },
     "cases": {
       "pos": [
@@ -992,7 +992,7 @@
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 36x",
+          "head": "Wealthy investors keen: HNI 37x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
@@ -1251,9 +1251,9 @@
       "sector": "BFSI",
       "gmp": 35.05,
       "qib": 0.03,
-      "hni": 4.39,
-      "rii": 9.35,
-      "sub": 2.92,
+      "hni": 4.57,
+      "rii": 9.65,
+      "sub": 3.03,
       "market_sentiment": 1.0132,
       "volatility": 11.1235,
       "trend": 1.0
@@ -1264,9 +1264,9 @@
       "confidence": 99,
       "range_low": 0.1,
       "range_high": 36.3,
-      "median": 25.1,
+      "median": 24.8,
       "big_win_prob": 82,
-      "allotment_pct": 10.7
+      "allotment_pct": 10.4
     },
     "cases": {
       "pos": [
@@ -1525,10 +1525,10 @@
       "fresh_pct": 30.8,
       "sector": "Manufacturing",
       "gmp": 27.37,
-      "qib": 1.59,
-      "hni": 9.06,
-      "rii": 8.29,
-      "sub": 6.97,
+      "qib": 2.98,
+      "hni": 9.72,
+      "rii": 8.77,
+      "sub": 7.7,
       "market_sentiment": 1.0132,
       "volatility": 11.1235,
       "trend": 1.0
@@ -1537,11 +1537,11 @@
     "prediction": {
       "verdict": "APPLY",
       "confidence": 99,
-      "range_low": -2.9,
+      "range_low": -3.0,
       "range_high": 29.7,
-      "median": 20.5,
-      "big_win_prob": 93,
-      "allotment_pct": 12.1
+      "median": 21.0,
+      "big_win_prob": 94,
+      "allotment_pct": 11.4
     },
     "cases": {
       "pos": [
@@ -1550,7 +1550,7 @@
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
-          "head": "Oversubscribed 7x overall",
+          "head": "Oversubscribed 8x overall",
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
