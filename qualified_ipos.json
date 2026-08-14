@@ -1309,7 +1309,7 @@
       "ofs_pct": 45.3,
       "fresh_pct": 54.7,
       "sector": "BFSI",
-      "gmp": 34.54,
+      "gmp": 35.05,
       "qib": 125.2,
       "hni": 92.58,
       "rii": 48.38,
@@ -1323,7 +1323,7 @@
       "verdict": "APPLY",
       "confidence": 99,
       "range_low": -2.3,
-      "range_high": 40.9,
+      "range_high": 40.8,
       "median": 29.6,
       "big_win_prob": 95,
       "allotment_pct": 2.1
@@ -1331,7 +1331,7 @@
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +34.5%",
+          "head": "Grey market premium +35.0%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -2743,7 +2743,7 @@
       "ofs_pct": 54.4,
       "fresh_pct": 45.6,
       "sector": "Manufacturing",
-      "gmp": 30.42,
+      "gmp": 30.08,
       "qib": 209.02,
       "hni": 53.13,
       "rii": 8.32,
@@ -2765,7 +2765,7 @@
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +30.4%",
+          "head": "Grey market premium +30.1%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -3009,7 +3009,7 @@
     "close_date": "12 Aug, 2026",
     "_closing_today": false,
     "_closing_tomorrow": false,
-    "listing_date": "Mon, Aug 17, 2026T",
+    "listing_date": "Mon, Aug 17, 2026",
     "listed_on": null,
     "offer_price": 807.0,
     "size_cr": 940.0,
