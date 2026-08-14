@@ -22,8 +22,8 @@
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 1.0104,
-      "volatility": 11.1095,
+      "market_sentiment": 1.0105,
+      "volatility": 11.1064,
       "trend": 1.0
     },
     "win_score": 97,
@@ -309,8 +309,8 @@
       "hni": 15.0,
       "rii": 10.0,
       "sub": 100.0,
-      "market_sentiment": 1.0104,
-      "volatility": 11.1095,
+      "market_sentiment": 1.0105,
+      "volatility": 11.1064,
       "trend": 1.0
     },
     "win_score": 72,
@@ -588,8 +588,8 @@
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 1.0104,
-      "volatility": 11.1095,
+      "market_sentiment": 1.0105,
+      "volatility": 11.1064,
       "trend": 1.0
     },
     "win_score": 70,
@@ -872,8 +872,8 @@
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 1.0104,
-      "volatility": 11.1095,
+      "market_sentiment": 1.0105,
+      "volatility": 11.1064,
       "trend": 1.0
     },
     "win_score": 69,
@@ -1155,8 +1155,8 @@
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 1.0104,
-      "volatility": 11.1095,
+      "market_sentiment": 1.0105,
+      "volatility": 11.1064,
       "trend": 1.0
     },
     "state": "upcoming",
@@ -1186,8 +1186,8 @@
       "hni": 6351600.0,
       "rii": 14800000.0,
       "sub": null,
-      "market_sentiment": 1.0104,
-      "volatility": 11.1095,
+      "market_sentiment": 1.0105,
+      "volatility": 11.1064,
       "trend": 1.0
     },
     "win_score": 82,
@@ -1460,8 +1460,8 @@
       "hni": 5.04,
       "rii": 10.19,
       "sub": 3.26,
-      "market_sentiment": 1.0104,
-      "volatility": 11.1095,
+      "market_sentiment": 1.0105,
+      "volatility": 11.1064,
       "trend": 1.0
     },
     "win_score": 98,
@@ -1735,8 +1735,8 @@
       "hni": 11.28,
       "rii": 9.52,
       "sub": 8.47,
-      "market_sentiment": 1.0104,
-      "volatility": 11.1095,
+      "market_sentiment": 1.0105,
+      "volatility": 11.1064,
       "trend": 1.0
     },
     "win_score": 99,
@@ -1996,297 +1996,6 @@
     "state": "open"
   },
   {
-    "ipo_name": "Technocraft Ventures",
-    "close_date": "11 Aug, 2026",
-    "_closing_today": false,
-    "_closing_tomorrow": false,
-    "listing_date": "Fri, Aug 14, 2026",
-    "listed_on": null,
-    "offer_price": 212.0,
-    "size_cr": 252.0,
-    "inputs": {
-      "offer_price": 212.0,
-      "size_cr": 252.0,
-      "pe": 14.73,
-      "roe": 26.51,
-      "promoter_holding": null,
-      "ofs_pct": 19.8,
-      "fresh_pct": 80.2,
-      "sector": "Manufacturing",
-      "gmp": 19.81,
-      "qib": 42.26,
-      "hni": 65.06,
-      "rii": 25.35,
-      "sub": 38.69,
-      "market_sentiment": 1.0104,
-      "volatility": 11.1095,
-      "trend": 1.0
-    },
-    "win_score": 98,
-    "prediction": {
-      "verdict": "APPLY",
-      "confidence": 98,
-      "range_low": -2.4,
-      "range_high": 27.9,
-      "median": 13.3,
-      "big_win_prob": 15,
-      "allotment_pct": 3.9
-    },
-    "cases": {
-      "pos": [
-        {
-          "head": "Grey market premium +19.8%",
-          "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
-        },
-        {
-          "head": "Institutions piled in: QIB 42x",
-          "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
-        },
-        {
-          "head": "Oversubscribed 39x overall",
-          "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
-        },
-        {
-          "head": "Wealthy investors keen: HNI 65x",
-          "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
-        },
-        {
-          "head": "Strong returns: ROE 26.5%",
-          "more": "Return on equity shows how efficiently the company turns shareholder money into profit. Above roughly 15% is healthy."
-        },
-        {
-          "head": "Reasonable price: P/E 14.7",
-          "more": "A lower price-to-earnings ratio means you pay less per rupee of profit, leaving more room to rise."
-        },
-        {
-          "head": "Mostly fresh capital (80% new money)",
-          "more": "Most of the money raised goes into the company (growth, repaying debt) rather than founders cashing out."
-        }
-      ],
-      "neu": [],
-      "neg": [
-        {
-          "head": "ML bullish (98%) but similar past IPOs only 20% WR",
-          "more": ""
-        },
-        {
-          "head": "Similar past IPOs: 1 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 1 of 5 listed above the offer price. They averaged -1.0% on day one."
-        }
-      ]
-    },
-    "note": null,
-    "preliminary": false,
-    "tier_preliminary": false,
-    "qualifying_tiers": [
-      {
-        "tier": 65,
-        "expected_wr": 64.6,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 66,
-        "expected_wr": 65.1,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 67,
-        "expected_wr": 65.6,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 68,
-        "expected_wr": 65.6,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 69,
-        "expected_wr": 68.3,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 70,
-        "expected_wr": 69.4,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 71,
-        "expected_wr": 69.9,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 72,
-        "expected_wr": 70.9,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 73,
-        "expected_wr": 72.5,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 74,
-        "expected_wr": 72.5,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 75,
-        "expected_wr": 73.4,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 76,
-        "expected_wr": 74.1,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 77,
-        "expected_wr": 74.8,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 78,
-        "expected_wr": 75.6,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 79,
-        "expected_wr": 77.5,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 80,
-        "expected_wr": 79.4,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 81,
-        "expected_wr": 79.4,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 82,
-        "expected_wr": 87.9,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 83,
-        "expected_wr": 87.9,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 84,
-        "expected_wr": 87.9,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 85,
-        "expected_wr": 87.9,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 86,
-        "expected_wr": 87.9,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 87,
-        "expected_wr": 87.9,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 88,
-        "expected_wr": 87.9,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 89,
-        "expected_wr": 87.9,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 90,
-        "expected_wr": 91.0,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 91,
-        "expected_wr": 91.0,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 92,
-        "expected_wr": 91.0,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 93,
-        "expected_wr": 91.0,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 94,
-        "expected_wr": 95.9,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 95,
-        "expected_wr": 95.9,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 96,
-        "expected_wr": 95.9,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 97,
-        "expected_wr": 95.9,
-        "model": "RandomForest",
-        "score": 99.0
-      },
-      {
-        "tier": 98,
-        "expected_wr": 95.9,
-        "model": "RandomForest",
-        "score": 99.0
-      }
-    ],
-    "state": "open"
-  },
-  {
     "ipo_name": "LEAP India",
     "close_date": "11 Aug, 2026",
     "_closing_today": false,
@@ -2309,8 +2018,8 @@
       "hni": 13.31,
       "rii": 1.81,
       "sub": 8.82,
-      "market_sentiment": 1.0104,
-      "volatility": 11.1095,
+      "market_sentiment": 1.0105,
+      "volatility": 11.1064,
       "trend": 1.0
     },
     "win_score": 71,
@@ -2596,8 +2305,8 @@
       "hni": 36.75,
       "rii": 8.86,
       "sub": 59.08,
-      "market_sentiment": 1.0104,
-      "volatility": 11.1095,
+      "market_sentiment": 1.0105,
+      "volatility": 11.1064,
       "trend": 1.0
     },
     "win_score": 97,
@@ -2865,69 +2574,69 @@
     "state": "open"
   },
   {
-    "ipo_name": "Dhoot Transmission Ltd.",
+    "ipo_name": "Molbio Diagnostics Ltd.",
     "close_date": "12 Aug, 2026",
     "_closing_today": false,
     "_closing_tomorrow": false,
     "listing_date": "Mon, Aug 17, 2026T",
     "listed_on": null,
-    "offer_price": 871.0,
-    "size_cr": 3067.0,
+    "offer_price": 807.0,
+    "size_cr": 940.0,
     "inputs": {
-      "offer_price": 871.0,
-      "size_cr": 3067.0,
-      "pe": 41.36,
-      "roe": 16.3,
+      "offer_price": 807.0,
+      "size_cr": 940.0,
+      "pe": 55.43,
+      "roe": 15.59,
       "promoter_holding": null,
-      "ofs_pct": 54.4,
-      "fresh_pct": 45.6,
+      "ofs_pct": 78.7,
+      "fresh_pct": 21.3,
       "sector": "Manufacturing",
-      "gmp": 31.57,
-      "qib": 209.02,
-      "hni": 53.13,
-      "rii": 8.32,
-      "sub": 75.06,
-      "market_sentiment": 1.0104,
-      "volatility": 11.1095,
+      "gmp": 19.33,
+      "qib": 186.39,
+      "hni": 49.8,
+      "rii": 12.97,
+      "sub": 70.27,
+      "market_sentiment": 1.0105,
+      "volatility": 11.1064,
       "trend": 1.0
     },
-    "win_score": 99,
+    "win_score": 98,
     "prediction": {
       "verdict": "APPLY",
       "confidence": 99,
       "range_low": -2.9,
-      "range_high": 41.6,
-      "median": 28.7,
-      "big_win_prob": 99,
-      "allotment_pct": 12.0
+      "range_high": 29.4,
+      "median": 15.1,
+      "big_win_prob": 67,
+      "allotment_pct": 7.7
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +31.6%",
+          "head": "Grey market premium +19.3%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
-          "head": "Institutions piled in: QIB 209x",
+          "head": "Institutions piled in: QIB 186x",
           "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
         },
         {
-          "head": "Oversubscribed 75x overall",
+          "head": "Oversubscribed 70x overall",
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 53x",
+          "head": "Wealthy investors keen: HNI 50x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
-          "head": "Strong returns: ROE 16.3%",
+          "head": "Strong returns: ROE 15.6%",
           "more": "Return on equity shows how efficiently the company turns shareholder money into profit. Above roughly 15% is healthy."
         }
       ],
       "neu": [],
       "neg": [
         {
-          "head": "Expensive: P/E 41.4",
+          "head": "Expensive: P/E 55.4",
           "more": "A high price-to-earnings ratio means you pay a lot per rupee of profit, leaving less room to rise."
         }
       ]
@@ -3380,8 +3089,8 @@
       "hni": 266.75,
       "rii": 47.77,
       "sub": 138.83,
-      "market_sentiment": 1.0104,
-      "volatility": 11.1095,
+      "market_sentiment": 1.0105,
+      "volatility": 11.1064,
       "trend": 1.0
     },
     "prediction": {
@@ -3487,8 +3196,8 @@
       "hni": 397.99,
       "rii": 218.25,
       "sub": 200.66,
-      "market_sentiment": 1.0104,
-      "volatility": 11.1095,
+      "market_sentiment": 1.0105,
+      "volatility": 11.1064,
       "trend": 1.0
     },
     "prediction": {
@@ -3624,8 +3333,8 @@
       "hni": 1.92,
       "rii": 0.98,
       "sub": 8.38,
-      "market_sentiment": 1.0104,
-      "volatility": 11.1095,
+      "market_sentiment": 1.0105,
+      "volatility": 11.1064,
       "trend": 1.0
     },
     "prediction": {
@@ -3819,8 +3528,8 @@
       "hni": 1.06,
       "rii": 0.98,
       "sub": 5.12,
-      "market_sentiment": 1.0104,
-      "volatility": 11.1095,
+      "market_sentiment": 1.0105,
+      "volatility": 11.1064,
       "trend": 1.0
     },
     "prediction": {
