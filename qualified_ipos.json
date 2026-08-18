@@ -1282,7 +1282,7 @@
       "ofs_pct": 38.7,
       "fresh_pct": 61.3,
       "sector": "BFSI",
-      "gmp": 22.22,
+      "gmp": 21.39,
       "qib": 0.03,
       "hni": 6.23,
       "rii": 5.99,
@@ -1291,20 +1291,20 @@
       "volatility": 11.054,
       "trend": 0.0
     },
-    "win_score": 98,
+    "win_score": 97,
     "prediction": {
       "verdict": "APPLY",
       "confidence": 98,
       "range_low": 1.5,
-      "range_high": 21.6,
-      "median": 15.3,
-      "big_win_prob": 87,
+      "range_high": 21.7,
+      "median": 15.0,
+      "big_win_prob": 76,
       "allotment_pct": 16.7
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +22.2%",
+          "head": "Grey market premium +21.4%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
@@ -1323,7 +1323,7 @@
       "neu": [],
       "neg": [
         {
-          "head": "QIB only 0.0x despite GMP +22.2%, institutions not convinced",
+          "head": "QIB only 0.0x despite GMP +21.4%, institutions not convinced",
           "more": ""
         },
         {
@@ -2280,7 +2280,7 @@
     "close_date": "14 Aug, 2026",
     "_closing_today": false,
     "_closing_tomorrow": false,
-    "listing_date": "Wed, Aug 19, 2026T",
+    "listing_date": "Wed, Aug 19, 2026",
     "listed_on": null,
     "offer_price": 285.0,
     "size_cr": 302.0,
@@ -2575,7 +2575,7 @@
       "ofs_pct": 45.3,
       "fresh_pct": 54.7,
       "sector": "BFSI",
-      "gmp": 38.14,
+      "gmp": 37.63,
       "qib": 125.2,
       "hni": 92.58,
       "rii": 48.38,
@@ -2589,15 +2589,15 @@
       "verdict": "APPLY",
       "confidence": 99,
       "range_low": 2.7,
-      "range_high": 50.1,
-      "median": 37.1,
+      "range_high": 43.1,
+      "median": 34.4,
       "big_win_prob": 95,
       "allotment_pct": 2.1
     },
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +38.1%",
+          "head": "Grey market premium +37.6%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
