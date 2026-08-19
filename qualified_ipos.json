@@ -855,9 +855,9 @@
       "sector": "BFSI",
       "gmp": 20.9,
       "qib": 153.8,
-      "hni": 78.08,
-      "rii": 12.19,
-      "sub": 66.45,
+      "hni": 78.17,
+      "rii": 12.49,
+      "sub": 66.62,
       "market_sentiment": 0.9955,
       "volatility": 9.2414,
       "trend": 0.0
@@ -870,7 +870,7 @@
       "range_high": 25.4,
       "median": 14.9,
       "big_win_prob": 20,
-      "allotment_pct": 8.2
+      "allotment_pct": 8.0
     },
     "cases": {
       "pos": [
@@ -883,7 +883,7 @@
           "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
         },
         {
-          "head": "Oversubscribed 66x overall",
+          "head": "Oversubscribed 67x overall",
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
@@ -1146,8 +1146,8 @@
       "sector": "Manufacturing",
       "gmp": 0.83,
       "qib": 1.94,
-      "hni": 1.02,
-      "rii": 0.98,
+      "hni": 1.03,
+      "rii": 1.01,
       "sub": 1.52,
       "market_sentiment": 0.9955,
       "volatility": 9.2414,
@@ -1159,9 +1159,9 @@
       "confidence": 38,
       "range_low": -0.5,
       "range_high": 5.7,
-      "median": 5.6,
+      "median": 5.4,
       "big_win_prob": 0,
-      "allotment_pct": 100.0
+      "allotment_pct": 99.0
     },
     "cases": {
       "pos": [
@@ -1282,10 +1282,10 @@
       "fresh_pct": 61.3,
       "sector": "BFSI",
       "gmp": 21.67,
-      "qib": 0.12,
-      "hni": 33.73,
-      "rii": 21.0,
-      "sub": 17.76,
+      "qib": 0.14,
+      "hni": 35.58,
+      "rii": 21.58,
+      "sub": 18.46,
       "market_sentiment": 0.9955,
       "volatility": 9.2414,
       "trend": 0.0
@@ -1295,10 +1295,10 @@
       "verdict": "APPLY",
       "confidence": 95,
       "range_low": -3.1,
-      "range_high": 20.2,
+      "range_high": 20.4,
       "median": 15.6,
       "big_win_prob": 48,
-      "allotment_pct": 4.8
+      "allotment_pct": 4.6
     },
     "cases": {
       "pos": [
@@ -1311,7 +1311,7 @@
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 34x",
+          "head": "Wealthy investors keen: HNI 36x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
@@ -1574,9 +1574,9 @@
       "sector": "BFSI",
       "gmp": 3.76,
       "qib": 0.76,
-      "hni": 0.73,
-      "rii": 1.1,
-      "sub": 0.92,
+      "hni": 0.76,
+      "rii": 1.13,
+      "sub": 0.94,
       "market_sentiment": 0.9955,
       "volatility": 9.2414,
       "trend": 0.0
@@ -1589,7 +1589,7 @@
       "range_high": 6.3,
       "median": 5.8,
       "big_win_prob": 1,
-      "allotment_pct": 90.9
+      "allotment_pct": 88.5
     },
     "cases": {
       "pos": [
@@ -1613,7 +1613,7 @@
       "neu": [],
       "neg": [
         {
-          "head": "Undersubscribed: 0.92x",
+          "head": "Undersubscribed: 0.94x",
           "more": "Total demand was below the shares on offer, a weak sign."
         },
         {
@@ -1715,9 +1715,9 @@
       "sector": "BFSI",
       "gmp": 13.12,
       "qib": 0.1,
-      "hni": 1.05,
-      "rii": 1.21,
-      "sub": 0.86,
+      "hni": 1.12,
+      "rii": 1.26,
+      "sub": 0.9,
       "market_sentiment": 0.9955,
       "volatility": 9.2414,
       "trend": 0.0
@@ -1728,9 +1728,9 @@
       "confidence": 85,
       "range_low": -2.1,
       "range_high": 10.1,
-      "median": 9.1,
+      "median": 9.5,
       "big_win_prob": 1,
-      "allotment_pct": 82.6
+      "allotment_pct": 79.4
     },
     "cases": {
       "pos": [
@@ -1762,7 +1762,7 @@
           "more": ""
         },
         {
-          "head": "Undersubscribed: 0.86x",
+          "head": "Undersubscribed: 0.90x",
           "more": "Total demand was below the shares on offer, a weak sign."
         },
         {
