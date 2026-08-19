@@ -17,7 +17,7 @@
       "ofs_pct": 85.4,
       "fresh_pct": 14.6,
       "sector": "Manufacturing",
-      "gmp": 70.67,
+      "gmp": 73.33,
       "qib": 50.0,
       "hni": 15.0,
       "rii": 35.0,
@@ -39,7 +39,7 @@
     "cases": {
       "pos": [
         {
-          "head": "Grey market premium +70.7%",
+          "head": "Grey market premium +73.3%",
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
