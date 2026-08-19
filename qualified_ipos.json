@@ -1127,6 +1127,143 @@
     "state": "open"
   },
   {
+    "ipo_name": "Horizon Industrial Parks",
+    "close_date": "19 Aug, 2026",
+    "_closing_today": true,
+    "_closing_tomorrow": false,
+    "listing_date": "Mon, Aug 24, 2026T",
+    "listed_on": null,
+    "offer_price": 60.0,
+    "size_cr": 2600.0,
+    "inputs": {
+      "offer_price": 60.0,
+      "size_cr": 2600.0,
+      "pe": -72.29,
+      "roe": null,
+      "promoter_holding": null,
+      "ofs_pct": 0.0,
+      "fresh_pct": 100.0,
+      "sector": "Manufacturing",
+      "gmp": 2.5,
+      "qib": 1.94,
+      "hni": 1.03,
+      "rii": 1.02,
+      "sub": 1.52,
+      "market_sentiment": 0.9955,
+      "volatility": 9.2414,
+      "trend": 0.0
+    },
+    "win_score": 63,
+    "prediction": {
+      "verdict": "SKIP",
+      "confidence": 37,
+      "range_low": -0.2,
+      "range_high": 6.1,
+      "median": 5.3,
+      "big_win_prob": 0,
+      "allotment_pct": 98.0
+    },
+    "cases": {
+      "pos": [
+        {
+          "head": "Mostly fresh capital (100% new money)",
+          "more": "Most of the money raised goes into the company (growth, repaying debt) rather than founders cashing out."
+        }
+      ],
+      "neu": [],
+      "neg": [
+        {
+          "head": "Loss-making (negative P/E)",
+          "more": "The company is not yet profitable, which adds risk to the valuation."
+        }
+      ]
+    },
+    "note": null,
+    "preliminary": false,
+    "tier_preliminary": false,
+    "qualifying_tiers": [
+      {
+        "tier": 65,
+        "expected_wr": 67.1,
+        "model": "RandomForest",
+        "score": 55.0
+      },
+      {
+        "tier": 66,
+        "expected_wr": 67.1,
+        "model": "RandomForest",
+        "score": 55.0
+      },
+      {
+        "tier": 67,
+        "expected_wr": 67.1,
+        "model": "RandomForest",
+        "score": 55.0
+      },
+      {
+        "tier": 68,
+        "expected_wr": 67.1,
+        "model": "RandomForest",
+        "score": 55.0
+      },
+      {
+        "tier": 69,
+        "expected_wr": 67.1,
+        "model": "RandomForest",
+        "score": 55.0
+      },
+      {
+        "tier": 70,
+        "expected_wr": 67.5,
+        "model": "RandomForest",
+        "score": 55.0
+      },
+      {
+        "tier": 71,
+        "expected_wr": 68.6,
+        "model": "RandomForest",
+        "score": 55.0
+      },
+      {
+        "tier": 72,
+        "expected_wr": 69.5,
+        "model": "RandomForest",
+        "score": 55.0
+      },
+      {
+        "tier": 73,
+        "expected_wr": 70.6,
+        "model": "RandomForest",
+        "score": 55.0
+      },
+      {
+        "tier": 74,
+        "expected_wr": 71.6,
+        "model": "RandomForest",
+        "score": 55.0
+      },
+      {
+        "tier": 75,
+        "expected_wr": 72.6,
+        "model": "RandomForest",
+        "score": 55.0
+      },
+      {
+        "tier": 76,
+        "expected_wr": 74.2,
+        "model": "RandomForest",
+        "score": 55.0
+      },
+      {
+        "tier": 77,
+        "expected_wr": 74.7,
+        "model": "RandomForest",
+        "score": 55.0
+      }
+    ],
+    "state": "open"
+  },
+  {
     "ipo_name": "Sunshine Pictures",
     "close_date": "20 Aug, 2026",
     "_closing_today": false,
