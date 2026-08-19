@@ -22,8 +22,8 @@
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 0.9943,
-      "volatility": 9.283,
+      "market_sentiment": 0.9946,
+      "volatility": 9.2715,
       "trend": 0.0
     },
     "win_score": 100,
@@ -306,8 +306,8 @@
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 0.9943,
-      "volatility": 9.283,
+      "market_sentiment": 0.9946,
+      "volatility": 9.2715,
       "trend": 0.0
     },
     "win_score": 94,
@@ -584,8 +584,8 @@
       "hni": 6351600.0,
       "rii": 14800000.0,
       "sub": null,
-      "market_sentiment": 0.9943,
-      "volatility": 9.283,
+      "market_sentiment": 0.9946,
+      "volatility": 9.2715,
       "trend": 0.0
     },
     "win_score": 98,
@@ -854,12 +854,12 @@
       "fresh_pct": 70.6,
       "sector": "BFSI",
       "gmp": 20.9,
-      "qib": 28.67,
-      "hni": 62.01,
-      "rii": 9.71,
-      "sub": 26.22,
-      "market_sentiment": 0.9943,
-      "volatility": 9.283,
+      "qib": 69.84,
+      "hni": 70.49,
+      "rii": 10.46,
+      "sub": 40.11,
+      "market_sentiment": 0.9946,
+      "volatility": 9.2715,
       "trend": 0.0
     },
     "win_score": 94,
@@ -867,10 +867,10 @@
       "verdict": "APPLY",
       "confidence": 94,
       "range_low": -3.0,
-      "range_high": 24.2,
-      "median": 16.6,
-      "big_win_prob": 28,
-      "allotment_pct": 10.3
+      "range_high": 24.6,
+      "median": 16.1,
+      "big_win_prob": 27,
+      "allotment_pct": 9.6
     },
     "cases": {
       "pos": [
@@ -879,15 +879,15 @@
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
-          "head": "Institutions piled in: QIB 29x",
+          "head": "Institutions piled in: QIB 70x",
           "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
         },
         {
-          "head": "Oversubscribed 26x overall",
+          "head": "Oversubscribed 40x overall",
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 62x",
+          "head": "Wealthy investors keen: HNI 70x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
@@ -906,12 +906,12 @@
       "neu": [],
       "neg": [
         {
-          "head": "ML bullish (94%) but similar past IPOs only 0% WR",
+          "head": "ML bullish (94%) but similar past IPOs only 20% WR",
           "more": ""
         },
         {
-          "head": "Similar past IPOs: 0 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), none of the 5 listed above the offer price. They averaged -5.4% on day one."
+          "head": "Similar past IPOs: 1 of 5 listed positive",
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 1 of 5 listed above the offer price. They averaged -3.8% on day one."
         }
       ]
     },
@@ -1145,21 +1145,21 @@
       "fresh_pct": 100.0,
       "sector": "Manufacturing",
       "gmp": 0.83,
-      "qib": 1.21,
-      "hni": 0.57,
-      "rii": 0.79,
-      "sub": 0.96,
-      "market_sentiment": 0.9943,
-      "volatility": 9.283,
+      "qib": 1.55,
+      "hni": 0.66,
+      "rii": 0.83,
+      "sub": 1.18,
+      "market_sentiment": 0.9946,
+      "volatility": 9.2715,
       "trend": 0.0
     },
     "win_score": 61,
     "prediction": {
       "verdict": "SKIP",
       "confidence": 38,
-      "range_low": -1.2,
-      "range_high": 5.8,
-      "median": 5.7,
+      "range_low": -1.1,
+      "range_high": 5.9,
+      "median": 6.1,
       "big_win_prob": 0,
       "allotment_pct": 100.0
     },
@@ -1175,16 +1175,12 @@
         {
           "head": "Loss-making (negative P/E)",
           "more": "The company is not yet profitable, which adds risk to the valuation."
-        },
-        {
-          "head": "Undersubscribed: 0.96x",
-          "more": "Total demand was below the shares on offer, a weak sign."
         }
       ]
     },
     "note": null,
-    "preliminary": true,
-    "tier_preliminary": true,
+    "preliminary": false,
+    "tier_preliminary": false,
     "qualifying_tiers": [
       {
         "tier": 65,
@@ -1286,12 +1282,12 @@
       "fresh_pct": 61.3,
       "sector": "BFSI",
       "gmp": 21.39,
-      "qib": 0.08,
-      "hni": 26.73,
-      "rii": 17.6,
-      "sub": 14.55,
-      "market_sentiment": 0.9943,
-      "volatility": 9.283,
+      "qib": 0.09,
+      "hni": 27.86,
+      "rii": 18.4,
+      "sub": 15.19,
+      "market_sentiment": 0.9946,
+      "volatility": 9.2715,
       "trend": 0.0
     },
     "win_score": 95,
@@ -1299,10 +1295,10 @@
       "verdict": "APPLY",
       "confidence": 95,
       "range_low": -3.1,
-      "range_high": 18.6,
-      "median": 17.9,
+      "range_high": 20.3,
+      "median": 16.7,
       "big_win_prob": 49,
-      "allotment_pct": 5.7
+      "allotment_pct": 5.4
     },
     "cases": {
       "pos": [
@@ -1315,7 +1311,7 @@
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 27x",
+          "head": "Wealthy investors keen: HNI 28x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
@@ -1578,11 +1574,11 @@
       "sector": "BFSI",
       "gmp": 3.76,
       "qib": 0.49,
-      "hni": 0.57,
-      "rii": 0.95,
-      "sub": 0.74,
-      "market_sentiment": 0.9943,
-      "volatility": 9.283,
+      "hni": 0.59,
+      "rii": 0.98,
+      "sub": 0.75,
+      "market_sentiment": 0.9946,
+      "volatility": 9.2715,
       "trend": 0.0
     },
     "win_score": 57,
@@ -1617,7 +1613,7 @@
       "neu": [],
       "neg": [
         {
-          "head": "Undersubscribed: 0.74x",
+          "head": "Undersubscribed: 0.75x",
           "more": "Total demand was below the shares on offer, a weak sign."
         },
         {
@@ -1719,11 +1715,11 @@
       "sector": "BFSI",
       "gmp": 14.37,
       "qib": 0.09,
-      "hni": 0.7,
-      "rii": 0.92,
-      "sub": 0.64,
-      "market_sentiment": 0.9943,
-      "volatility": 9.283,
+      "hni": 0.73,
+      "rii": 0.98,
+      "sub": 0.67,
+      "market_sentiment": 0.9946,
+      "volatility": 9.2715,
       "trend": 0.0
     },
     "win_score": 93,
@@ -1766,7 +1762,7 @@
           "more": ""
         },
         {
-          "head": "Undersubscribed: 0.64x",
+          "head": "Undersubscribed: 0.67x",
           "more": "Total demand was below the shares on offer, a weak sign."
         },
         {
@@ -2009,8 +2005,8 @@
       "hni": 92.58,
       "rii": 48.38,
       "sub": 102.28,
-      "market_sentiment": 0.9943,
-      "volatility": 9.283,
+      "market_sentiment": 0.9946,
+      "volatility": 9.2715,
       "trend": 0.0
     },
     "win_score": 98,
@@ -2284,8 +2280,8 @@
       "hni": 167.95,
       "rii": 54.12,
       "sub": 118.07,
-      "market_sentiment": 0.9943,
-      "volatility": 9.283,
+      "market_sentiment": 0.9946,
+      "volatility": 9.2715,
       "trend": 0.0
     },
     "win_score": 100,
@@ -2566,8 +2562,8 @@
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 0.9943,
-      "volatility": 9.283,
+      "market_sentiment": 0.9946,
+      "volatility": 9.2715,
       "trend": 0.0
     },
     "win_score": 97,
@@ -2849,8 +2845,8 @@
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 0.9943,
-      "volatility": 9.283,
+      "market_sentiment": 0.9946,
+      "volatility": 9.2715,
       "trend": 0.0
     },
     "state": "upcoming",
@@ -3094,8 +3090,8 @@
       "hni": 36.75,
       "rii": 8.86,
       "sub": 59.08,
-      "market_sentiment": 0.9943,
-      "volatility": 9.283,
+      "market_sentiment": 0.9946,
+      "volatility": 9.2715,
       "trend": 0.0
     },
     "prediction": {
@@ -3411,8 +3407,8 @@
       "hni": 53.13,
       "rii": 8.32,
       "sub": 75.06,
-      "market_sentiment": 0.9943,
-      "volatility": 9.283,
+      "market_sentiment": 0.9946,
+      "volatility": 9.2715,
       "trend": 0.0
     },
     "prediction": {
@@ -3716,8 +3712,8 @@
       "hni": 49.8,
       "rii": 12.97,
       "sub": 70.27,
-      "market_sentiment": 0.9943,
-      "volatility": 9.283,
+      "market_sentiment": 0.9946,
+      "volatility": 9.2715,
       "trend": 0.0
     },
     "prediction": {
@@ -4021,8 +4017,8 @@
       "hni": 13.31,
       "rii": 1.81,
       "sub": 8.82,
-      "market_sentiment": 0.9943,
-      "volatility": 9.283,
+      "market_sentiment": 0.9946,
+      "volatility": 9.2715,
       "trend": 0.0
     },
     "prediction": {
@@ -4166,8 +4162,8 @@
       "hni": 65.06,
       "rii": 25.35,
       "sub": 38.69,
-      "market_sentiment": 0.9943,
-      "volatility": 9.283,
+      "market_sentiment": 0.9946,
+      "volatility": 9.2715,
       "trend": 0.0
     },
     "prediction": {
@@ -4307,8 +4303,8 @@
       "hni": 266.75,
       "rii": 47.77,
       "sub": 138.83,
-      "market_sentiment": 0.9943,
-      "volatility": 9.283,
+      "market_sentiment": 0.9946,
+      "volatility": 9.2715,
       "trend": 0.0
     },
     "prediction": {
