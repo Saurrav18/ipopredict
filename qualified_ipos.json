@@ -854,10 +854,10 @@
       "fresh_pct": 70.6,
       "sector": "BFSI",
       "gmp": 21.14,
-      "qib": 130.22,
-      "hni": 76.72,
-      "rii": 11.21,
-      "sub": 58.97,
+      "qib": 150.3,
+      "hni": 77.9,
+      "rii": 11.78,
+      "sub": 65.21,
       "market_sentiment": 0.9955,
       "volatility": 9.2414,
       "trend": 0.0
@@ -867,10 +867,10 @@
       "verdict": "APPLY",
       "confidence": 94,
       "range_low": -3.0,
-      "range_high": 25.7,
+      "range_high": 25.4,
       "median": 16.2,
-      "big_win_prob": 25,
-      "allotment_pct": 8.9
+      "big_win_prob": 24,
+      "allotment_pct": 8.5
     },
     "cases": {
       "pos": [
@@ -879,15 +879,15 @@
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
-          "head": "Institutions piled in: QIB 130x",
+          "head": "Institutions piled in: QIB 150x",
           "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
         },
         {
-          "head": "Oversubscribed 59x overall",
+          "head": "Oversubscribed 65x overall",
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 77x",
+          "head": "Wealthy investors keen: HNI 78x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
@@ -1145,10 +1145,10 @@
       "fresh_pct": 100.0,
       "sector": "Manufacturing",
       "gmp": 0.83,
-      "qib": 1.77,
-      "hni": 0.96,
-      "rii": 0.89,
-      "sub": 1.39,
+      "qib": 1.94,
+      "hni": 1.02,
+      "rii": 0.94,
+      "sub": 1.51,
       "market_sentiment": 0.9955,
       "volatility": 9.2414,
       "trend": 0.0
@@ -1157,9 +1157,9 @@
     "prediction": {
       "verdict": "SKIP",
       "confidence": 38,
-      "range_low": -1.1,
-      "range_high": 5.9,
-      "median": 6.2,
+      "range_low": -0.5,
+      "range_high": 5.7,
+      "median": 5.4,
       "big_win_prob": 0,
       "allotment_pct": 100.0
     },
@@ -1283,9 +1283,9 @@
       "sector": "BFSI",
       "gmp": 21.39,
       "qib": 0.12,
-      "hni": 29.22,
-      "rii": 19.23,
-      "sub": 15.91,
+      "hni": 29.89,
+      "rii": 19.76,
+      "sub": 16.32,
       "market_sentiment": 0.9955,
       "volatility": 9.2414,
       "trend": 0.0
@@ -1296,9 +1296,9 @@
       "confidence": 95,
       "range_low": -3.1,
       "range_high": 20.2,
-      "median": 15.2,
+      "median": 16.0,
       "big_win_prob": 49,
-      "allotment_pct": 5.2
+      "allotment_pct": 5.1
     },
     "cases": {
       "pos": [
@@ -1311,7 +1311,7 @@
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 29x",
+          "head": "Wealthy investors keen: HNI 30x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
@@ -1574,9 +1574,9 @@
       "sector": "BFSI",
       "gmp": 3.76,
       "qib": 0.76,
-      "hni": 0.61,
-      "rii": 1.0,
-      "sub": 0.85,
+      "hni": 0.62,
+      "rii": 1.03,
+      "sub": 0.86,
       "market_sentiment": 0.9955,
       "volatility": 9.2414,
       "trend": 0.0
@@ -1589,7 +1589,7 @@
       "range_high": 6.3,
       "median": 5.8,
       "big_win_prob": 1,
-      "allotment_pct": 100.0
+      "allotment_pct": 97.1
     },
     "cases": {
       "pos": [
@@ -1613,7 +1613,7 @@
       "neu": [],
       "neg": [
         {
-          "head": "Undersubscribed: 0.85x",
+          "head": "Undersubscribed: 0.86x",
           "more": "Total demand was below the shares on offer, a weak sign."
         },
         {
@@ -1714,10 +1714,10 @@
       "fresh_pct": 81.8,
       "sector": "BFSI",
       "gmp": 13.44,
-      "qib": 0.09,
-      "hni": 0.84,
-      "rii": 1.05,
-      "sub": 0.73,
+      "qib": 0.1,
+      "hni": 0.86,
+      "rii": 1.09,
+      "sub": 0.76,
       "market_sentiment": 0.9955,
       "volatility": 9.2414,
       "trend": 0.0
@@ -1728,9 +1728,9 @@
       "confidence": 85,
       "range_low": -2.1,
       "range_high": 10.1,
-      "median": 9.0,
+      "median": 9.3,
       "big_win_prob": 1,
-      "allotment_pct": 95.2
+      "allotment_pct": 91.7
     },
     "cases": {
       "pos": [
@@ -1762,7 +1762,7 @@
           "more": ""
         },
         {
-          "head": "Undersubscribed: 0.73x",
+          "head": "Undersubscribed: 0.76x",
           "more": "Total demand was below the shares on offer, a weak sign."
         },
         {
