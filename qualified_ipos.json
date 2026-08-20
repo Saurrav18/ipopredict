@@ -22,8 +22,8 @@
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 1.0089,
-      "volatility": 9.3195,
+      "market_sentiment": 1.0105,
+      "volatility": 9.4001,
       "trend": 1.0
     },
     "win_score": 98,
@@ -309,8 +309,8 @@
       "hni": 6351600.0,
       "rii": 14800000.0,
       "sub": null,
-      "market_sentiment": 1.0089,
-      "volatility": 9.3195,
+      "market_sentiment": 1.0105,
+      "volatility": 9.4001,
       "trend": 1.0
     },
     "win_score": 97,
@@ -583,8 +583,8 @@
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 1.0089,
-      "volatility": 9.3195,
+      "market_sentiment": 1.0105,
+      "volatility": 9.4001,
       "trend": 1.0
     },
     "win_score": 60,
@@ -748,8 +748,8 @@
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 1.0089,
-      "volatility": 9.3195,
+      "market_sentiment": 1.0105,
+      "volatility": 9.4001,
       "trend": 1.0
     },
     "win_score": 98,
@@ -1023,12 +1023,12 @@
       "fresh_pct": 61.3,
       "sector": "BFSI",
       "gmp": 21.67,
-      "qib": 11.94,
-      "hni": 94.43,
-      "rii": 35.85,
-      "sub": 41.57,
-      "market_sentiment": 1.0089,
-      "volatility": 9.3195,
+      "qib": 12.33,
+      "hni": 108.21,
+      "rii": 38.3,
+      "sub": 45.86,
+      "market_sentiment": 1.0105,
+      "volatility": 9.4001,
       "trend": 1.0
     },
     "win_score": 93,
@@ -1039,7 +1039,7 @@
       "range_high": 22.1,
       "median": 22.6,
       "big_win_prob": 62,
-      "allotment_pct": 2.8
+      "allotment_pct": 2.6
     },
     "cases": {
       "pos": [
@@ -1052,11 +1052,11 @@
           "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
         },
         {
-          "head": "Oversubscribed 42x overall",
+          "head": "Oversubscribed 46x overall",
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 94x",
+          "head": "Wealthy investors keen: HNI 108x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
@@ -1315,22 +1315,22 @@
       "sector": "BFSI",
       "gmp": 2.15,
       "qib": 1.02,
-      "hni": 1.34,
-      "rii": 1.62,
-      "sub": 1.39,
-      "market_sentiment": 1.0089,
-      "volatility": 9.3195,
+      "hni": 1.52,
+      "rii": 1.68,
+      "sub": 1.46,
+      "market_sentiment": 1.0105,
+      "volatility": 9.4001,
       "trend": 1.0
     },
     "win_score": 59,
     "prediction": {
       "verdict": "SKIP",
       "confidence": 40,
-      "range_low": -5.9,
+      "range_low": -5.6,
       "range_high": 6.0,
       "median": 5.1,
       "big_win_prob": 1,
-      "allotment_pct": 61.7
+      "allotment_pct": 59.5
     },
     "cases": {
       "pos": [
@@ -1448,22 +1448,22 @@
       "sector": "BFSI",
       "gmp": 15.0,
       "qib": 0.1,
-      "hni": 2.2,
-      "rii": 2.23,
-      "sub": 1.62,
-      "market_sentiment": 1.0089,
-      "volatility": 9.3195,
+      "hni": 2.53,
+      "rii": 2.38,
+      "sub": 1.76,
+      "market_sentiment": 1.0105,
+      "volatility": 9.4001,
       "trend": 1.0
     },
     "win_score": 87,
     "prediction": {
       "verdict": "APPLY",
       "confidence": 88,
-      "range_low": -1.2,
+      "range_low": -1.0,
       "range_high": 15.0,
       "median": 13.3,
-      "big_win_prob": 9,
-      "allotment_pct": 44.8
+      "big_win_prob": 10,
+      "allotment_pct": 42.0
     },
     "cases": {
       "pos": [
@@ -1731,11 +1731,11 @@
       "sector": "Manufacturing",
       "gmp": 77.33,
       "qib": 0.02,
-      "hni": 4.98,
-      "rii": 3.33,
-      "sub": 2.74,
-      "market_sentiment": 1.0089,
-      "volatility": 9.3195,
+      "hni": 5.86,
+      "rii": 3.78,
+      "sub": 3.16,
+      "market_sentiment": 1.0105,
+      "volatility": 9.4001,
       "trend": 1.0
     },
     "win_score": 100,
@@ -1744,9 +1744,9 @@
       "confidence": 99,
       "range_low": -1.5,
       "range_high": 59.8,
-      "median": 39.4,
+      "median": 39.6,
       "big_win_prob": 99,
-      "allotment_pct": 30.0
+      "allotment_pct": 26.5
     },
     "cases": {
       "pos": [
@@ -2014,8 +2014,8 @@
       "hni": 40.0,
       "rii": 50.0,
       "sub": 100.0,
-      "market_sentiment": 1.0089,
-      "volatility": 9.3195,
+      "market_sentiment": 1.0105,
+      "volatility": 9.4001,
       "trend": 1.0
     },
     "win_score": 49,
@@ -2153,8 +2153,8 @@
       "hni": 1.03,
       "rii": 1.02,
       "sub": 1.52,
-      "market_sentiment": 1.0089,
-      "volatility": 9.3195,
+      "market_sentiment": 1.0105,
+      "volatility": 9.4001,
       "trend": 1.0
     },
     "win_score": 69,
@@ -2308,8 +2308,8 @@
       "hni": 78.17,
       "rii": 12.51,
       "sub": 66.63,
-      "market_sentiment": 1.0089,
-      "volatility": 9.3195,
+      "market_sentiment": 1.0105,
+      "volatility": 9.4001,
       "trend": 1.0
     },
     "win_score": 97,
@@ -2804,8 +2804,8 @@
       "hni": 167.95,
       "rii": 54.12,
       "sub": 118.07,
-      "market_sentiment": 1.0089,
-      "volatility": 9.3195,
+      "market_sentiment": 1.0105,
+      "volatility": 9.4001,
       "trend": 1.0
     },
     "prediction": {
@@ -3112,8 +3112,8 @@
       "hni": 92.58,
       "rii": 48.38,
       "sub": 102.28,
-      "market_sentiment": 1.0089,
-      "volatility": 9.3195,
+      "market_sentiment": 1.0105,
+      "volatility": 9.4001,
       "trend": 1.0
     },
     "prediction": {
@@ -3413,8 +3413,8 @@
       "hni": 36.75,
       "rii": 8.86,
       "sub": 59.08,
-      "market_sentiment": 1.0089,
-      "volatility": 9.3195,
+      "market_sentiment": 1.0105,
+      "volatility": 9.4001,
       "trend": 1.0
     },
     "prediction": {
@@ -3730,8 +3730,8 @@
       "hni": 53.13,
       "rii": 8.32,
       "sub": 75.06,
-      "market_sentiment": 1.0089,
-      "volatility": 9.3195,
+      "market_sentiment": 1.0105,
+      "volatility": 9.4001,
       "trend": 1.0
     },
     "prediction": {
@@ -4035,8 +4035,8 @@
       "hni": 49.8,
       "rii": 12.97,
       "sub": 70.27,
-      "market_sentiment": 1.0089,
-      "volatility": 9.3195,
+      "market_sentiment": 1.0105,
+      "volatility": 9.4001,
       "trend": 1.0
     },
     "prediction": {
@@ -4045,7 +4045,7 @@
       "range_low": -1.3,
       "range_high": 23.0,
       "median": 23.8,
-      "big_win_prob": 47,
+      "big_win_prob": 51,
       "allotment_pct": 7.7
     },
     "cases": {
@@ -4202,8 +4202,8 @@
       "hni": 13.31,
       "rii": 1.81,
       "sub": 8.82,
-      "market_sentiment": 1.0089,
-      "volatility": 9.3195,
+      "market_sentiment": 1.0105,
+      "volatility": 9.4001,
       "trend": 1.0
     },
     "prediction": {
@@ -4363,8 +4363,8 @@
       "hni": 65.06,
       "rii": 25.35,
       "sub": 38.69,
-      "market_sentiment": 1.0089,
-      "volatility": 9.3195,
+      "market_sentiment": 1.0105,
+      "volatility": 9.4001,
       "trend": 1.0
     },
     "prediction": {
@@ -4528,8 +4528,8 @@
       "hni": 266.75,
       "rii": 47.77,
       "sub": 138.83,
-      "market_sentiment": 1.0089,
-      "volatility": 9.3195,
+      "market_sentiment": 1.0105,
+      "volatility": 9.4001,
       "trend": 1.0
     },
     "prediction": {
