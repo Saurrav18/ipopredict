@@ -23,7 +23,7 @@
       "rii": 35.0,
       "sub": null,
       "market_sentiment": 1.0091,
-      "volatility": 9.3275,
+      "volatility": 9.3269,
       "trend": 1.0
     },
     "win_score": 98,
@@ -310,7 +310,7 @@
       "rii": 14800000.0,
       "sub": null,
       "market_sentiment": 1.0091,
-      "volatility": 9.3275,
+      "volatility": 9.3269,
       "trend": 1.0
     },
     "win_score": 97,
@@ -584,7 +584,7 @@
       "rii": 35.0,
       "sub": null,
       "market_sentiment": 1.0091,
-      "volatility": 9.3275,
+      "volatility": 9.3269,
       "trend": 1.0
     },
     "win_score": 60,
@@ -749,7 +749,7 @@
       "rii": 35.0,
       "sub": null,
       "market_sentiment": 1.0091,
-      "volatility": 9.3275,
+      "volatility": 9.3269,
       "trend": 1.0
     },
     "win_score": 98,
@@ -1023,12 +1023,12 @@
       "fresh_pct": 61.3,
       "sector": "BFSI",
       "gmp": 21.39,
-      "qib": 3.71,
-      "hni": 75.24,
-      "rii": 32.05,
-      "sub": 33.21,
+      "qib": 3.72,
+      "hni": 76.88,
+      "rii": 32.51,
+      "sub": 33.79,
       "market_sentiment": 1.0091,
-      "volatility": 9.3275,
+      "volatility": 9.3269,
       "trend": 1.0
     },
     "win_score": 93,
@@ -1048,11 +1048,11 @@
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
-          "head": "Oversubscribed 33x overall",
+          "head": "Oversubscribed 34x overall",
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 75x",
+          "head": "Wealthy investors keen: HNI 77x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         },
         {
@@ -1311,11 +1311,11 @@
       "sector": "BFSI",
       "gmp": 2.15,
       "qib": 1.02,
-      "hni": 1.06,
-      "rii": 1.49,
-      "sub": 1.27,
+      "hni": 1.07,
+      "rii": 1.51,
+      "sub": 1.28,
       "market_sentiment": 1.0091,
-      "volatility": 9.3275,
+      "volatility": 9.3269,
       "trend": 1.0
     },
     "win_score": 59,
@@ -1326,7 +1326,7 @@
       "range_high": 6.0,
       "median": 5.1,
       "big_win_prob": 1,
-      "allotment_pct": 67.1
+      "allotment_pct": 66.2
     },
     "cases": {
       "pos": [
@@ -1444,11 +1444,11 @@
       "sector": "BFSI",
       "gmp": 15.0,
       "qib": 0.1,
-      "hni": 1.93,
-      "rii": 2.01,
-      "sub": 1.44,
+      "hni": 1.96,
+      "rii": 2.04,
+      "sub": 1.47,
       "market_sentiment": 1.0091,
-      "volatility": 9.3275,
+      "volatility": 9.3269,
       "trend": 1.0
     },
     "win_score": 87,
@@ -1459,7 +1459,7 @@
       "range_high": 14.5,
       "median": 13.1,
       "big_win_prob": 9,
-      "allotment_pct": 49.8
+      "allotment_pct": 49.0
     },
     "cases": {
       "pos": [
@@ -1727,22 +1727,22 @@
       "sector": "Manufacturing",
       "gmp": 76.67,
       "qib": 0.01,
-      "hni": 3.77,
-      "rii": 2.55,
-      "sub": 2.09,
+      "hni": 3.88,
+      "rii": 2.61,
+      "sub": 2.15,
       "market_sentiment": 1.0091,
-      "volatility": 9.3275,
+      "volatility": 9.3269,
       "trend": 1.0
     },
     "win_score": 100,
     "prediction": {
       "verdict": "APPLY",
       "confidence": 99,
-      "range_low": -2.8,
+      "range_low": -3.0,
       "range_high": 57.2,
-      "median": 37.7,
+      "median": 37.9,
       "big_win_prob": 99,
-      "allotment_pct": 39.2
+      "allotment_pct": 38.3
     },
     "cases": {
       "pos": [
@@ -2011,7 +2011,7 @@
       "rii": 50.0,
       "sub": 100.0,
       "market_sentiment": 1.0091,
-      "volatility": 9.3275,
+      "volatility": 9.3269,
       "trend": 1.0
     },
     "win_score": 49,
@@ -2150,7 +2150,7 @@
       "rii": 1.02,
       "sub": 1.52,
       "market_sentiment": 1.0091,
-      "volatility": 9.3275,
+      "volatility": 9.3269,
       "trend": 1.0
     },
     "win_score": 69,
@@ -2305,7 +2305,7 @@
       "rii": 12.51,
       "sub": 66.63,
       "market_sentiment": 1.0091,
-      "volatility": 9.3275,
+      "volatility": 9.3269,
       "trend": 1.0
     },
     "win_score": 97,
@@ -2801,7 +2801,7 @@
       "rii": 54.12,
       "sub": 118.07,
       "market_sentiment": 1.0091,
-      "volatility": 9.3275,
+      "volatility": 9.3269,
       "trend": 1.0
     },
     "prediction": {
@@ -3109,7 +3109,7 @@
       "rii": 48.38,
       "sub": 102.28,
       "market_sentiment": 1.0091,
-      "volatility": 9.3275,
+      "volatility": 9.3269,
       "trend": 1.0
     },
     "prediction": {
@@ -3410,7 +3410,7 @@
       "rii": 8.86,
       "sub": 59.08,
       "market_sentiment": 1.0091,
-      "volatility": 9.3275,
+      "volatility": 9.3269,
       "trend": 1.0
     },
     "prediction": {
@@ -3727,7 +3727,7 @@
       "rii": 8.32,
       "sub": 75.06,
       "market_sentiment": 1.0091,
-      "volatility": 9.3275,
+      "volatility": 9.3269,
       "trend": 1.0
     },
     "prediction": {
@@ -4032,7 +4032,7 @@
       "rii": 12.97,
       "sub": 70.27,
       "market_sentiment": 1.0091,
-      "volatility": 9.3275,
+      "volatility": 9.3269,
       "trend": 1.0
     },
     "prediction": {
@@ -4199,7 +4199,7 @@
       "rii": 1.81,
       "sub": 8.82,
       "market_sentiment": 1.0091,
-      "volatility": 9.3275,
+      "volatility": 9.3269,
       "trend": 1.0
     },
     "prediction": {
@@ -4360,7 +4360,7 @@
       "rii": 25.35,
       "sub": 38.69,
       "market_sentiment": 1.0091,
-      "volatility": 9.3275,
+      "volatility": 9.3269,
       "trend": 1.0
     },
     "prediction": {
@@ -4525,7 +4525,7 @@
       "rii": 47.77,
       "sub": 138.83,
       "market_sentiment": 1.0091,
-      "volatility": 9.3275,
+      "volatility": 9.3269,
       "trend": 1.0
     },
     "prediction": {
