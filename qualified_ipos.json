@@ -207,109 +207,61 @@
         "tier": 65,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 68.0
+        "score": 49.0
       },
       {
         "tier": 66,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 68.0
+        "score": 49.0
       },
       {
         "tier": 67,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 68.0
+        "score": 49.0
       },
       {
         "tier": 68,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 68.0
+        "score": 49.0
       },
       {
         "tier": 69,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 68.0
+        "score": 49.0
       },
       {
         "tier": 70,
         "expected_wr": 67.6,
         "model": "RandomForest",
-        "score": 68.0
+        "score": 49.0
       },
       {
         "tier": 71,
         "expected_wr": 68.6,
         "model": "RandomForest",
-        "score": 68.0
+        "score": 49.0
       },
       {
         "tier": 72,
         "expected_wr": 70.1,
         "model": "RandomForest",
-        "score": 68.0
+        "score": 49.0
       },
       {
         "tier": 73,
         "expected_wr": 70.5,
         "model": "RandomForest",
-        "score": 68.0
+        "score": 49.0
       },
       {
         "tier": 74,
         "expected_wr": 71.5,
         "model": "RandomForest",
-        "score": 68.0
-      },
-      {
-        "tier": 75,
-        "expected_wr": 73.8,
-        "model": "RandomForest",
-        "score": 68.0
-      },
-      {
-        "tier": 76,
-        "expected_wr": 74.8,
-        "model": "RandomForest",
-        "score": 68.0
-      },
-      {
-        "tier": 77,
-        "expected_wr": 74.8,
-        "model": "RandomForest",
-        "score": 68.0
-      },
-      {
-        "tier": 78,
-        "expected_wr": 77.6,
-        "model": "RandomForest",
-        "score": 68.0
-      },
-      {
-        "tier": 79,
-        "expected_wr": 77.6,
-        "model": "RandomForest",
-        "score": 68.0
-      },
-      {
-        "tier": 80,
-        "expected_wr": 77.6,
-        "model": "RandomForest",
-        "score": 68.0
-      },
-      {
-        "tier": 81,
-        "expected_wr": 78.9,
-        "model": "RandomForest",
-        "score": 68.0
-      },
-      {
-        "tier": 82,
-        "expected_wr": 80.0,
-        "model": "RandomForest",
-        "score": 68.0
+        "score": 49.0
       }
     ],
     "inputs": {
@@ -332,10 +284,10 @@
     },
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 32,
-      "range_low": -10.1,
-      "range_high": 8.9,
-      "median": 9.7,
+      "confidence": 50,
+      "range_low": -14.3,
+      "range_high": 9.2,
+      "median": -3.2,
       "big_win_prob": 0,
       "allotment_pct": 57.1
     },
@@ -357,12 +309,12 @@
       "neu": [],
       "neg": [
         {
-          "head": "Manufacturing sector is cold, COLD (recent 60% vs 75% historical)",
-          "more": ""
+          "head": "Manufacturing sector is cold, COLD (recent 60% vs 74% historical)",
+     : -1."more": ""
         },
         {
           "head": "Similar past IPOs: 0 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), none of the 5 listed above the offer price. They averaged -2.3% on day one."
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), none of the 5 listed above the offer price. They averaged -3.2% on day one."
         }
       ]
     },
@@ -391,109 +343,61 @@
         "tier": 65,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 69.0
+        "score": 48.0
       },
       {
         "tier": 66,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 69.0
+        "score": 48.0
       },
       {
         "tier": 67,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 69.0
+        "score": 48.0
       },
       {
         "tier": 68,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 69.0
+        "score": 48.0
       },
       {
         "tier": 69,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 69.0
+        "score": 48.0
       },
       {
         "tier": 70,
         "expected_wr": 67.6,
         "model": "RandomForest",
-        "score": 69.0
+        "score": 48.0
       },
       {
         "tier": 71,
         "expected_wr": 68.6,
         "model": "RandomForest",
-        "score": 69.0
+        "score": 48.0
       },
       {
         "tier": 72,
         "expected_wr": 70.1,
         "model": "RandomForest",
-        "score": 69.0
+        "score": 48.0
       },
       {
         "tier": 73,
         "expected_wr": 70.5,
         "model": "RandomForest",
-        "score": 69.0
+        "score": 48.0
       },
       {
         "tier": 74,
         "expected_wr": 71.5,
         "model": "RandomForest",
-        "score": 69.0
-      },
-      {
-        "tier": 75,
-        "expected_wr": 73.8,
-        "model": "RandomForest",
-        "score": 69.0
-      },
-      {
-        "tier": 76,
-        "expected_wr": 74.8,
-        "model": "RandomForest",
-        "score": 69.0
-      },
-      {
-        "tier": 77,
-        "expected_wr": 74.8,
-        "model": "RandomForest",
-        "score": 69.0
-      },
-      {
-        "tier": 78,
-        "expected_wr": 77.6,
-        "model": "RandomForest",
-        "score": 69.0
-      },
-      {
-        "tier": 79,
-        "expected_wr": 77.6,
-        "model": "RandomForest",
-        "score": 69.0
-      },
-      {
-        "tier": 80,
-        "expected_wr": 77.6,
-        "model": "RandomForest",
-        "score": 69.0
-      },
-      {
-        "tier": 81,
-        "expected_wr": 78.9,
-        "model": "RandomForest",
-        "score": 69.0
-      },
-      {
-        "tier": 82,
-        "expected_wr": 80.0,
-        "model": "RandomForest",
-        "score": 69.0
+        "score": 48.0
       }
     ],
     "inputs": {
@@ -516,10 +420,10 @@
     },
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 26,
-      "range_low": -10.4,
-      "range_high": 19.5,
-      "median": 7.8,
+      "confidence": 52,
+      "range_low": -11.5,
+      "range_high": 25.4,
+      "median": -1.1,
       "big_win_prob": 1,
       "allotment_pct": 24.6
     },
@@ -537,12 +441,8 @@
       "neu": [],
       "neg": [
         {
-          "head": "ML bullish (74%) but similar past IPOs only 20% WR",
-          "more": ""
-        },
-        {
           "head": "Similar past IPOs: 1 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 1 of 5 listed above the offer price. They averaged -4.6% on day one."
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 1 of 5 listed above the offer price. They averaged -2.3% on day one."
         }
       ]
     },
@@ -571,109 +471,43 @@
         "tier": 65,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 63.0
+        "score": 40.0
       },
       {
         "tier": 66,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 63.0
+        "score": 40.0
       },
       {
         "tier": 67,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 63.0
+        "score": 40.0
       },
       {
         "tier": 68,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 63.0
+        "score": 40.0
       },
       {
         "tier": 69,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 63.0
+        "score": 40.0
       },
       {
         "tier": 70,
         "expected_wr": 67.6,
         "model": "RandomForest",
-        "score": 63.0
+        "score": 40.0
       },
       {
         "tier": 71,
         "expected_wr": 68.6,
         "model": "RandomForest",
-        "score": 63.0
-      },
-      {
-        "tier": 72,
-        "expected_wr": 70.1,
-        "model": "RandomForest",
-        "score": 63.0
-      },
-      {
-        "tier": 73,
-        "expected_wr": 70.5,
-        "model": "RandomForest",
-        "score": 63.0
-      },
-      {
-        "tier": 74,
-        "expected_wr": 71.5,
-        "model": "RandomForest",
-        "score": 63.0
-      },
-      {
-        "tier": 75,
-        "expected_wr": 73.8,
-        "model": "RandomForest",
-        "score": 63.0
-      },
-      {
-        "tier": 76,
-        "expected_wr": 74.8,
-        "model": "RandomForest",
-        "score": 63.0
-      },
-      {
-        "tier": 77,
-        "expected_wr": 74.8,
-        "model": "RandomForest",
-        "score": 63.0
-      },
-      {
-        "tier": 78,
-        "expected_wr": 77.6,
-        "model": "RandomForest",
-        "score": 63.0
-      },
-      {
-        "tier": 79,
-        "expected_wr": 77.6,
-        "model": "RandomForest",
-        "score": 63.0
-      },
-      {
-        "tier": 80,
-        "expected_wr": 77.6,
-        "model": "RandomForest",
-        "score": 63.0
-      },
-      {
-        "tier": 81,
-        "expected_wr": 78.9,
-        "model": "RandomForest",
-        "score": 63.0
-      },
-      {
-        "tier": 82,
-        "expected_wr": 80.0,
-        "model": "RandomForest",
-        "score": 63.0
+        "score": 40.0
       }
     ],
     "inputs": {
@@ -696,11 +530,11 @@
     },
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 30,
-      "range_low": -10.8,
-      "range_high": 19.6,
-      "median": 12.3,
-      "big_win_prob": 12,
+      "confidence": 63,
+      "range_low": -8.8,
+      "range_high": 20.4,
+      "median": 1.0,
+      "big_win_prob": 3,
       "allotment_pct": 5.2
     },
     "cases": {
@@ -728,10 +562,6 @@
       ],
       "neu": [],
       "neg": [
-        {
-          "head": "ML bullish (70%) but similar past IPOs only 20% WR",
-          "more": ""
-        },
         {
           "head": "Similar past IPOs: 1 of 5 listed positive",
           "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 1 of 5 listed above the offer price. They averaged -3.2% on day one."
@@ -763,109 +593,61 @@
         "tier": 65,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 77.0
+        "score": 48.0
       },
       {
         "tier": 66,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 77.0
+        "score": 48.0
       },
       {
         "tier": 67,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 77.0
+        "score": 48.0
       },
       {
         "tier": 68,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 77.0
+        "score": 48.0
       },
       {
         "tier": 69,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 77.0
+        "score": 48.0
       },
       {
         "tier": 70,
         "expected_wr": 67.6,
         "model": "RandomForest",
-        "score": 77.0
+        "score": 48.0
       },
       {
         "tier": 71,
         "expected_wr": 68.6,
         "model": "RandomForest",
-        "score": 77.0
+        "score": 48.0
       },
       {
         "tier": 72,
         "expected_wr": 70.1,
         "model": "RandomForest",
-        "score": 77.0
+        "score": 48.0
       },
       {
         "tier": 73,
         "expected_wr": 70.5,
         "model": "RandomForest",
-        "score": 77.0
+        "score": 48.0
       },
       {
         "tier": 74,
         "expected_wr": 71.5,
         "model": "RandomForest",
-        "score": 77.0
-      },
-      {
-        "tier": 75,
-        "expected_wr": 73.8,
-        "model": "RandomForest",
-        "score": 77.0
-      },
-      {
-        "tier": 76,
-        "expected_wr": 74.8,
-        "model": "RandomForest",
-        "score": 77.0
-      },
-      {
-        "tier": 77,
-        "expected_wr": 74.8,
-        "model": "RandomForest",
-        "score": 77.0
-      },
-      {
-        "tier": 78,
-        "expected_wr": 77.6,
-        "model": "RandomForest",
-        "score": 77.0
-      },
-      {
-        "tier": 79,
-        "expected_wr": 77.6,
-        "model": "RandomForest",
-        "score": 77.0
-      },
-      {
-        "tier": 80,
-        "expected_wr": 77.6,
-        "model": "RandomForest",
-        "score": 77.0
-      },
-      {
-        "tier": 81,
-        "expected_wr": 78.9,
-        "model": "RandomForest",
-        "score": 77.0
-      },
-      {
-        "tier": 82,
-        "expected_wr": 80.0,
-        "model": "RandomForest",
-        "score": 77.0
+        "score": 48.0
       }
     ],
     "inputs": {
@@ -888,10 +670,10 @@
     },
     "prediction": {
       "verdict": "SKIP",
-      "confidence": 21,
-      "range_low": -9.7,
-      "range_high": 14.4,
-      "median": 17.9,
+      "confidence": 53,
+      "range_low": -10.2,
+      "range_high": 22.0,
+      "median": 4.1,
       "big_win_prob": 13,
       "allotment_pct": 1.6
     },
@@ -923,13 +705,13 @@
         },
         {
           "head": "Similar past IPOs: 5 of 5 listed positive",
-          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 5 listed above the offer price, averaging +45.7% on day one."
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), 5 listed above the offer price, averaging +54.9% on day one."
         }
       ],
       "neu": [],
       "neg": [
         {
-          "head": "Manufacturing sector is cold, COLD (recent 60% vs 75% historical)",
+          "head": "Manufacturing sector is cold, COLD (recent 60% vs 74% historical)",
           "more": ""
         }
       ]
@@ -959,7 +741,190 @@
         "tier": 65,
         "expected_wr": 67.4,
         "model": "RandomForest",
-        "score": 66.0
+        "score": 33.0
+      },
+      {
+        "tier": 66,
+        "expected_wr": 67.4,
+        "model": "RandomForest",
+        "score": 33.0
+      },
+      {
+        "tier": 67,
+        "expected_wr": 67.4,
+        "model": "RandomForest",
+        "score": 33.0
+      },
+      {
+        "tier": 68,
+        "expected_wr": 67.4,
+        "model": "RandomForest",
+        "score": 33.0
+      },
+      {
+        "tier": 69,
+        "expected_wr": 67.4,
+        "model": "RandomForest",
+        "score": 33.0
+      },
+      {
+        "tier": 70,
+        "expected_wr": 67.6,
+        "model": "RandomForest",
+        "score": 33.0
+      }
+    ],
+    "inputs": {
+      "offer_price": 305.0,
+      "size_cr": 500.0,
+      "pe": 21.57,
+      "roe": null,
+      "promoter_holding": null,
+      "ofs_pct": 0.0,
+      "fresh_pct": 100.0,
+      "sector": "Manufacturing",
+      "gmp": 0.0,
+      "qib": 4.1,
+      "hni": 4.14,
+      "rii": 1.19,
+      "sub": 2.64,
+      "market_sentiment": 0.9544,
+      "volatility": 11.4551,
+      "trend": -1.0
+    },
+    "prediction": {
+      "verdict": "SKIP",
+      "confidence": 74,
+      "range_low": -8.4,
+      "range_high": 8.2,
+      "median": -4.8,
+      "big_win_prob": 0,
+      "allotment_pct": 84.0
+    },
+    "cases": {
+      "pos": [
+        {
+          "head": "Reasonable price: P/E 21.6",
+          "more": "A lower price-to-earnings ratio means you pay less per rupee of profit, leaving more room to rise."
+        },
+        {
+          "head": "Mostly fresh capital (100% new money)",
+          "more": "Most of the money raised goes into the company (growth, repaying debt) rather than founders cashing out."
+        }
+      ],
+      "neu": [],
+      "neg": [
+        {
+          "head": "Manufacturing sector is cold, COLD (recent 60% vs 74% historical)",
+          "more": ""
+        },
+        {
+          "head": "Similar past IPOs: 2 of 5 listed positive",
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 2 of 5 listed above the offer price. They averaged -1.0% on day one."
+        }
+      ]
+    },
+    "note": null,
+    "retro": true
+  },
+  {
+    "ipo_name": "German Green Steel & Power Ltd.",
+    "close_date": "29 Sep, 2026",
+    "listing_date": "Mon, Oct 5, 2026",
+    "listed_on": "Mon, Oct 5, 2026",
+    "offer_price": 139.0,
+    "list_price": 142.0,
+    "size_cr": 304.0,
+    "symbol": "GERMAN",
+    "sector": "Manufacturing",
+    "actual": {
+      "pct": 2.16,
+      "price": 142.0,
+      "hit": false
+    },
+    "listing_gain": 2.16,
+    "state": "settled",
+    "qualifying_tiers": [
+      {
+        "tier": 65,
+        "expected_wr": 67.4,
+        "model": "RandomForest",
+        "score": 40.0
+      },
+      {
+        "tier": 66,
+        "expected_wr": 67.4,
+        "model": "RandomForest",
+        "score": 40.0
+      },
+      {
+        "tier": 67,
+        "expected_wr": 67.4,
+        "model": "RandomForest",
+        "score": 40.0
+      },
+      {
+        "tier": 68,
+        "expected_wr": 67.4,
+        "model": "RandomForest",
+        "score": 40.0
+      },
+      {
+        "tier": 69,
+        "expected_wr": 67.4,
+        "model": "RandomForest",
+        "score": 40.0
+      },
+      {
+        "tier": 70,
+        "expected_wr": 67.6,
+        "model": "RandomForest",
+        "score": 40.0
+      },
+      {
+        "tier": 71,
+        "expected_wr": 68.6,
+        "model": "RandomForest",
+        "score": 40.0
+      }
+    ],
+    "inputs": {
+      "offer_price": 139.0,
+      "size_cr": 304.0,
+      "pe": 9.48,
+      "roe": 18.86,
+      "promoter_holding": null,
+      "ofs_pct": 4.6,
+      "fresh_pct": 95.4,
+      "sector": "Manufacturing",
+      "gmp": 0.0,
+      "qib": 21.91,
+      "hni": 56.77,
+      "rii": 23.98,
+      "sub": 30.42,
+      "market_sentiment": 0.9544,
+      "volatility": 11.4551,
+      "trend": -1.0
+    },
+    "prediction": {
+      "verdict": "SKIP",
+      "confidence": 66,
+      "range_low": -10.5,
+      "range_high": 16.8,
+      "median": 1.5,
+      "big_win_prob": 1,
+      "allotment_pct": 4.2
+    },
+    "cases": {
+      "pos": [
+        {
+          "head": "Institutions piled in: QIB 22x",
+          "more": "Qualified institutional buyers (large funds) bid this many times their quota. They do deep analysis, so heavy QIB interest is usually a positive signal."
+        },
+        {
+          "head": "Oversubscribed 30x overall",
+          "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
+ : 66.0
       },
       {
         "tier": 66,
@@ -1291,7 +1256,10 @@
         },
         {
           "head": "Reasonable price: P/E 9.5",
-          "more": "A lower price-to-earnings ratio means you pay less per rupee of profit, leaving more room to rise."
+          "more": "A lower price-to-earnings ratio means you pay less per
+    },
+    "listing_gain": 12.35,
+    "st
         },
         {
           "head": "Mostly fresh capital (95% new money)",
