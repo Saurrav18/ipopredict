@@ -174,9 +174,9 @@
       "sector": "Pharma/Healthcare",
       "gmp": 0.0,
       "qib": 1.04,
-      "hni": 11.17,
-      "rii": 3.71,
-      "sub": 4.54,
+      "hni": 11.43,
+      "rii": 3.84,
+      "sub": 4.66,
       "market_sentiment": 0.9678,
       "volatility": 12.5097,
       "trend": -1.0
@@ -186,10 +186,10 @@
       "verdict": "SKIP",
       "confidence": 36,
       "range_low": -12.1,
-      "range_high": 9.1,
+      "range_high": 8.3,
       "median": 7.4,
       "big_win_prob": 0,
-      "allotment_pct": 27.0
+      "allotment_pct": 26.0
     },
     "cases": {
       "pos": [
