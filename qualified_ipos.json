@@ -174,9 +174,9 @@
       "sector": "Pharma/Healthcare",
       "gmp": 0.0,
       "qib": 1.03,
-      "hni": 9.56,
-      "rii": 3.39,
-      "sub": 4.03,
+      "hni": 10.33,
+      "rii": 3.56,
+      "sub": 4.28,
       "market_sentiment": 0.9678,
       "volatility": 12.5097,
       "trend": -1.0
@@ -187,12 +187,17 @@
       "confidence": 36,
       "range_low": -12.1,
       "range_high": 9.1,
-      "median": 6.9,
+      "median": 7.4,
       "big_win_prob": 0,
-      "allotment_pct": 29.5
+      "allotment_pct": 28.1
     },
     "cases": {
-      "pos": [],
+      "pos": [
+        {
+          "head": "Wealthy investors keen: HNI 10x",
+          "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
+        }
+      ],
       "neu": [],
       "neg": [
         {
