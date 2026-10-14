@@ -470,6 +470,37 @@
     "state": "open"
   },
   {
+    "ipo_name": "Paras Healthcare Ltd.",
+    "close_date": "23 Oct, 2026",
+    "_closing_today": false,
+    "_closing_tomorrow": false,
+    "listing_date": "Wed, Oct 28, 2026T",
+    "listed_on": null,
+    "offer_price": null,
+    "size_cr": 1450.0,
+    "inputs": {
+      "offer_price": null,
+      "size_cr": 1450.0,
+      "pe": null,
+      "roe": 11.83,
+      "promoter_holding": null,
+      "ofs_pct": 65.5,
+      "fresh_pct": 34.5,
+      "sector": "Manufacturing",
+      "gmp": 0.0,
+      "qib": 75.0,
+      "hni": 15.0,
+      "rii": 10.0,
+      "sub": null,
+      "market_sentiment": 0.9669,
+      "volatility": 12.5157,
+      "trend": -1.0
+    },
+    "state": "upcoming",
+    "qualifying_tiers": [],
+    "opens_note": "Opening soon. A call appears once grey-market and subscription data is available."
+  },
+  {
     "ipo_name": "Vishal Nirmiti Ltd.",
     "close_date": "5 Oct, 2026",
     "listing_date": "Thu, Oct 8, 2026",
