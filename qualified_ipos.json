@@ -1,5 +1,176 @@
 [
   {
+    "ipo_name": "Jio Platforms",
+    "close_date": "23 Oct, 2026",
+    "_closing_today": false,
+    "_closing_tomorrow": false,
+    "listing_date": "Wed, Oct 28, 2026T",
+    "listed_on": null,
+    "offer_price": null,
+    "size_cr": null,
+    "inputs": {
+      "offer_price": null,
+      "size_cr": null,
+      "pe": null,
+      "roe": null,
+      "promoter_holding": null,
+      "ofs_pct": null,
+      "fresh_pct": null,
+      "sector": "BFSI",
+      "gmp": 0.0,
+      "qib": null,
+      "hni": null,
+      "rii": null,
+      "sub": 100.0,
+      "market_sentiment": 0.9669,
+      "volatility": 12.5157,
+      "trend": -1.0
+    },
+    "win_score": 74,
+    "prediction": {
+      "verdict": "SKIP",
+      "confidence": 26,
+      "range_low": -4.9,
+      "range_high": 18.0,
+      "median": 8.8,
+      "big_win_prob": 26,
+      "allotment_pct": 100.0
+    },
+    "cases": {
+      "pos": [
+        {
+          "head": "Oversubscribed 100x overall",
+          "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
+        }
+      ],
+      "neu": [],
+      "neg": [
+        {
+          "head": "ML bullish (74%) but similar past IPOs only 20% WR",
+          "more": ""
+        },
+        {
+          "head": "Similar past IPOs: 1 of 5 listed positive",
+          "more": "Of the 5 closest historical matches (by GMP, subscription, size and fundamentals), only 1 of 5 listed above the offer price. They averaged -6.3% on day one."
+        }
+      ]
+    },
+    "note": null,
+    "preliminary": false,
+    "tier_preliminary": false,
+    "qualifying_tiers": [
+      {
+        "tier": 65,
+        "expected_wr": 67.4,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 66,
+        "expected_wr": 67.4,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 67,
+        "expected_wr": 67.4,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 68,
+        "expected_wr": 67.4,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 69,
+        "expected_wr": 67.4,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 70,
+        "expected_wr": 67.6,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 71,
+        "expected_wr": 68.6,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 72,
+        "expected_wr": 70.1,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 73,
+        "expected_wr": 70.5,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 74,
+        "expected_wr": 71.5,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 75,
+        "expected_wr": 73.8,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 76,
+        "expected_wr": 74.8,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 77,
+        "expected_wr": 74.8,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 78,
+        "expected_wr": 77.6,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 79,
+        "expected_wr": 77.6,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 80,
+        "expected_wr": 77.6,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 81,
+        "expected_wr": 78.9,
+        "model": "RandomForest",
+        "score": 68.0
+      },
+      {
+        "tier": 82,
+        "expected_wr": 80.0,
+        "model": "RandomForest",
+        "score": 68.0
+      }
+    ],
+    "state": "open"
+  },
+  {
     "ipo_name": "Sahajanand Medical Technologies",
     "close_date": "19 Oct, 2026",
     "_closing_today": false,
