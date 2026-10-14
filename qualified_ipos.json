@@ -22,8 +22,8 @@
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 0.9674,
-      "volatility": 12.5085,
+      "market_sentiment": 0.9668,
+      "volatility": 12.5166,
       "trend": -1.0
     },
     "state": "upcoming",
@@ -53,8 +53,8 @@
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 0.9674,
-      "volatility": 12.5085,
+      "market_sentiment": 0.9668,
+      "volatility": 12.5166,
       "trend": -1.0
     },
     "state": "upcoming",
@@ -84,8 +84,8 @@
       "hni": 15.0,
       "rii": 10.0,
       "sub": null,
-      "market_sentiment": 0.9674,
-      "volatility": 12.5085,
+      "market_sentiment": 0.9668,
+      "volatility": 12.5166,
       "trend": -1.0
     },
     "state": "upcoming",
@@ -115,8 +115,8 @@
       "hni": 15.0,
       "rii": 35.0,
       "sub": null,
-      "market_sentiment": 0.9674,
-      "volatility": 12.5085,
+      "market_sentiment": 0.9668,
+      "volatility": 12.5166,
       "trend": -1.0
     },
     "state": "upcoming",
@@ -142,12 +142,12 @@
       "fresh_pct": 0.0,
       "sector": "Pharma/Healthcare",
       "gmp": 0.0,
-      "qib": 1.42,
-      "hni": 33.68,
-      "rii": 8.77,
-      "sub": 11.98,
-      "market_sentiment": 0.9674,
-      "volatility": 12.5085,
+      "qib": 1.43,
+      "hni": 35.39,
+      "rii": 9.1,
+      "sub": 12.52,
+      "market_sentiment": 0.9668,
+      "volatility": 12.5166,
       "trend": -1.0
     },
     "win_score": 63,
@@ -156,18 +156,18 @@
       "confidence": 37,
       "range_low": -14.1,
       "range_high": 11.9,
-      "median": 11.8,
+      "median": 11.7,
       "big_win_prob": 7,
-      "allotment_pct": 11.4
+      "allotment_pct": 11.0
     },
     "cases": {
       "pos": [
         {
-          "head": "Oversubscribed 12x overall",
+          "head": "Oversubscribed 13x overall",
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 34x",
+          "head": "Wealthy investors keen: HNI 35x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         }
       ],
@@ -314,11 +314,11 @@
       "sector": "BFSI",
       "gmp": 0.0,
       "qib": 0.0,
-      "hni": 0.25,
-      "rii": 1.03,
-      "sub": 0.26,
-      "market_sentiment": 0.9674,
-      "volatility": 12.5085,
+      "hni": 0.28,
+      "rii": 1.1,
+      "sub": 0.28,
+      "market_sentiment": 0.9668,
+      "volatility": 12.5166,
       "trend": -1.0
     },
     "win_score": 60,
@@ -329,7 +329,7 @@
       "range_high": 8.6,
       "median": 5.7,
       "big_win_prob": 0,
-      "allotment_pct": 97.1
+      "allotment_pct": 90.9
     },
     "cases": {
       "pos": [
@@ -345,7 +345,7 @@
       "neu": [],
       "neg": [
         {
-          "head": "Undersubscribed: 0.26x",
+          "head": "Undersubscribed: 0.28x",
           "more": "Total demand was below the shares on offer, a weak sign."
         },
         {
@@ -610,8 +610,8 @@
       "hni": 1.89,
       "rii": 1.75,
       "sub": 1.79,
-      "market_sentiment": 0.9674,
-      "volatility": 12.5085,
+      "market_sentiment": 0.9668,
+      "volatility": 12.5166,
       "trend": -1.0
     },
     "prediction": {
@@ -794,8 +794,8 @@
       "hni": 2.05,
       "rii": 4.07,
       "sub": 2.26,
-      "market_sentiment": 0.9674,
-      "volatility": 12.5085,
+      "market_sentiment": 0.9668,
+      "volatility": 12.5166,
       "trend": -1.0
     },
     "prediction": {
@@ -974,8 +974,8 @@
       "hni": 95.54,
       "rii": 19.26,
       "sub": 38.12,
-      "market_sentiment": 0.9674,
-      "volatility": 12.5085,
+      "market_sentiment": 0.9668,
+      "volatility": 12.5166,
       "trend": -1.0
     },
     "prediction": {
@@ -1162,8 +1162,8 @@
       "hni": 312.99,
       "rii": 63.7,
       "sub": 125.16,
-      "market_sentiment": 0.9674,
-      "volatility": 12.5085,
+      "market_sentiment": 0.9668,
+      "volatility": 12.5166,
       "trend": -1.0
     },
     "prediction": {
