@@ -22,8 +22,8 @@
       "hni": 15.0,
       "rii": 10.0,
       "sub": null,
-      "market_sentiment": 0.995,
-      "volatility": 13.6193,
+      "market_sentiment": 0.9951,
+      "volatility": 13.632,
       "trend": 0.0
     },
     "win_score": 96,
@@ -305,8 +305,8 @@
       "hni": 15.0,
       "rii": 35.0,
       "sub": 100.0,
-      "market_sentiment": 0.995,
-      "volatility": 13.6193,
+      "market_sentiment": 0.9951,
+      "volatility": 13.632,
       "trend": 0.0
     },
     "win_score": 98,
@@ -589,12 +589,12 @@
       "fresh_pct": 0.0,
       "sector": "Pharma/Healthcare",
       "gmp": 32.47,
-      "qib": 3.64,
-      "hni": 115.77,
-      "rii": 19.6,
-      "sub": 35.57,
-      "market_sentiment": 0.995,
-      "volatility": 13.6193,
+      "qib": 3.65,
+      "hni": 119.75,
+      "rii": 20.06,
+      "sub": 36.65,
+      "market_sentiment": 0.9951,
+      "volatility": 13.632,
       "trend": 0.0
     },
     "win_score": 97,
@@ -602,10 +602,10 @@
       "verdict": "APPLY",
       "confidence": 98,
       "range_low": -5.5,
-      "range_high": 36.3,
-      "median": 34.5,
+      "range_high": 37.9,
+      "median": 35.8,
       "big_win_prob": 79,
-      "allotment_pct": 5.1
+      "allotment_pct": 5.0
     },
     "cases": {
       "pos": [
@@ -614,11 +614,11 @@
           "more": "The grey market is unofficial trading before listing. A positive premium means buyers are paying above the offer price ahead of time, a sign of demand."
         },
         {
-          "head": "Oversubscribed 36x overall",
+          "head": "Oversubscribed 37x overall",
           "more": "Total demand was several times the shares on offer, which often supports a stronger listing."
         },
         {
-          "head": "Wealthy investors keen: HNI 116x",
+          "head": "Wealthy investors keen: HNI 120x",
           "more": "High-net-worth individuals often apply with borrowed money, so they avoid IPOs they do not expect to pop. Strong HNI demand is a positive."
         }
       ],
@@ -877,11 +877,11 @@
       "sector": "BFSI",
       "gmp": 11.59,
       "qib": 0.0,
-      "hni": 0.97,
-      "rii": 2.82,
-      "sub": 0.78,
-      "market_sentiment": 0.995,
-      "volatility": 13.6193,
+      "hni": 0.99,
+      "rii": 2.87,
+      "sub": 0.79,
+      "market_sentiment": 0.9951,
+      "volatility": 13.632,
       "trend": 0.0
     },
     "win_score": 83,
@@ -889,10 +889,10 @@
       "verdict": "APPLY",
       "confidence": 83,
       "range_low": 0.4,
-      "range_high": 18.1,
+      "range_high": 17.7,
       "median": 8.6,
       "big_win_prob": 2,
-      "allotment_pct": 35.5
+      "allotment_pct": 34.8
     },
     "cases": {
       "pos": [
@@ -920,7 +920,7 @@
           "more": ""
         },
         {
-          "head": "Undersubscribed: 0.78x",
+          "head": "Undersubscribed: 0.79x",
           "more": "Total demand was below the shares on offer, a weak sign."
         },
         {
@@ -1160,18 +1160,18 @@
       "sector": "Manufacturing",
       "gmp": 13.66,
       "qib": 0.0,
-      "hni": 0.07,
-      "rii": 0.19,
-      "sub": 0.11,
-      "market_sentiment": 0.995,
-      "volatility": 13.6193,
+      "hni": 0.08,
+      "rii": 0.2,
+      "sub": 0.12,
+      "market_sentiment": 0.9951,
+      "volatility": 13.632,
       "trend": 0.0
     },
     "win_score": 89,
     "prediction": {
       "verdict": "APPLY",
       "confidence": 90,
-      "range_low": 0.9,
+      "range_low": 1.3,
       "range_high": 19.2,
       "median": 20.9,
       "big_win_prob": 7,
@@ -1211,7 +1211,7 @@
           "more": "Most of the issue is an offer-for-sale, so the money goes to selling shareholders, not into the business."
         },
         {
-          "head": "Undersubscribed: 0.11x",
+          "head": "Undersubscribed: 0.12x",
           "more": "Total demand was below the shares on offer, a weak sign."
         },
         {
@@ -1455,11 +1455,11 @@
       "sector": "BFSI",
       "gmp": 30.03,
       "qib": 0.0,
-      "hni": 0.29,
-      "rii": 0.27,
-      "sub": 0.2,
-      "market_sentiment": 0.995,
-      "volatility": 13.6193,
+      "hni": 0.32,
+      "rii": 0.29,
+      "sub": 0.21,
+      "market_sentiment": 0.9951,
+      "volatility": 13.632,
       "trend": 0.0
     },
     "win_score": 98,
@@ -1498,7 +1498,7 @@
           "more": "Most of the issue is an offer-for-sale, so the money goes to selling shareholders, not into the business."
         },
         {
-          "head": "Undersubscribed: 0.20x",
+          "head": "Undersubscribed: 0.21x",
           "more": "Total demand was below the shares on offer, a weak sign."
         }
       ]
@@ -1737,8 +1737,8 @@
       "hni": 0.03,
       "rii": 0.12,
       "sub": 0.07,
-      "market_sentiment": 0.995,
-      "volatility": 13.6193,
+      "market_sentiment": 0.9951,
+      "volatility": 13.632,
       "trend": 0.0
     },
     "win_score": 90,
@@ -2005,22 +2005,22 @@
       "sector": "BFSI",
       "gmp": 71.43,
       "qib": 0.0,
-      "hni": 2.39,
-      "rii": 1.56,
-      "sub": 1.3,
-      "market_sentiment": 0.995,
-      "volatility": 13.6193,
+      "hni": 2.49,
+      "rii": 1.63,
+      "sub": 1.36,
+      "market_sentiment": 0.9951,
+      "volatility": 13.632,
       "trend": 0.0
     },
     "win_score": 98,
     "prediction": {
       "verdict": "APPLY",
       "confidence": 98,
-      "range_low": 2.4,
+      "range_low": 2.5,
       "range_high": 68.0,
       "median": 34.8,
       "big_win_prob": 85,
-      "allotment_pct": 64.1
+      "allotment_pct": 61.3
     },
     "cases": {
       "pos": [
@@ -2401,8 +2401,8 @@
       "hni": 1.89,
       "rii": 1.75,
       "sub": 1.79,
-      "market_sentiment": 0.995,
-      "volatility": 13.6193,
+      "market_sentiment": 0.9951,
+      "volatility": 13.632,
       "trend": 0.0
     },
     "prediction": {
@@ -2585,8 +2585,8 @@
       "hni": 2.05,
       "rii": 4.07,
       "sub": 2.26,
-      "market_sentiment": 0.995,
-      "volatility": 13.6193,
+      "market_sentiment": 0.9951,
+      "volatility": 13.632,
       "trend": 0.0
     },
     "prediction": {
